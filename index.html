@@ -5,7 +5,7 @@
 
 	<head>
 	  	<meta charset='utf-8'>
-	  	<title>La Belle Boîte</title>
+	  	<title>la Belle Boîte</title>
 	  	<meta name='description' content=''>
 	  	<meta name='viewport' content='width=device-width,initial-scale=1'>		
 	  	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -15,9 +15,9 @@
 
 	<body>
 		
-		<header>
-			<a id='logo' href='#'>la Belle Boîte</a>
-			<nav role='navigation'>
+		<header id='header'>
+			<a id='logo' href='./'>la Belle Boîte</a>
+			<nav role='navigation' id='main-menu'>
 				<ul>
 					<li><a href='./'>Accueil</a></li>
 					<li><a href='#'>la Belle Boîte</a></li>
@@ -29,43 +29,135 @@
 			<button id='burger'></button>
 		</header>
 
-		<main class='wrapper' role='main'>
+		<main id='wrapper' role='main'>
 			
 			<section class='head'>
-				<strong class='sup-title'>Bonjour :</strong>
-				<h1><span>Nous sommes </span>sérieusement drôles</h1>
-				<a href='#' class='btn'>Découvrez comment</a>
+				<div class='container center'>
+					<strong class='sup-title'>Bonjour :</strong>
+					<h1><span>Nous sommes </span>sérieusement drôles</h1>
+					<a href='#' class='btn'>Découvrez comment</a>
+				</div>
 			</section>
 
 			<section id='vous'>
-				<strong class='sup-title'>Pour vous,</strong>
-				<h2>
-					<a href='#'>Nous</a> 
-					conçevons & animons des 
-					<a href='#'>spectacles</a>, 
-					des <a href='#'>ateliers</a>, 
-					des <a href='#'>formations</a>.
-				</h2>
-				<span class='sub-title'>( et tout un tas d'autres trucs qui nous amusent )</span>
+				<div class='container center'>
+					<strong class='sup-title'>Pour vous,</strong>
+					<h2>
+						<a href='#'>Nous</a> 
+						conçevons & animons des 
+						<a href='#'>spectacles</a>, 
+						des <a href='#'>ateliers</a>, 
+						des <a href='#'>formations</a>.
+					</h2>
+					<span class='sub-title'>( et tout un tas d'autres trucs qui nous amusent )</span>
+				</div>
 			</section>
 
-			<section>
-				<h2 class='sup-title'>Ils nous ont quand même fait confiance :</h2>
-				<div class='slider'>
-					<ul>
-						<li>
-							<article>
-								<h3>Et si nous échangions notre patrimoine immatériel?</h3>
-								
-							</article>
-						</li>
-					</ul>
+			<section id='confiance'>
+				<div class='container center'>
+					<h2 class='sup-title'>Ils nous ont quand même fait confiance :</h2>
+					<div class='slider'>
+						<ul>
+							<li>
+								<article>
+									<h3>Et si nous échangions notre patrimoine immatériel?</h3>
+									<blockquote>
+										<p class='quote'>
+											C'était à la fois riche, dense, distrayant et convivial...
+										</p>
+										<p class='by'>
+											<b>Alexis Moisdon</b>
+											Directeur Général de Naoned System
+										</p>
+									</blockquote>
+								</article>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+
+			<section id='live'>
+				<div class='container center'>
+					<strong class='sup-title'>Live :</strong>
+					<h2>Notre passionante vie</h2>
+					<div class='left'>
+						<div id='instagram'>
+							
+						</div><ul class='blog-list'>
+							<li>
+								<a href='#'>
+									<img src='' alt=''>
+									<div>
+										<span class='sup-title'>Blog</span>
+										<h3>Nom d'un article que vous écrirez plus tard</h3>
+									</div>
+								</a>
+							</li><li>
+								<a href='#'>
+									<img src='' alt=''>
+									<div>
+										<span class='sup-title'>Blog</span>
+										<h3>Nom d'un article que vous écrirez plus tard</h3>
+									</div>
+								</a>
+							</li><li>
+								<a href='#'>
+									<img src='' alt=''>
+									<div>
+										<span class='sup-title'>Blog</span>
+										<h3>Nom d'un article que vous écrirez plus tard</h3>
+									</div>
+								</a>
+							</li><li>
+								<a href='#'>
+									<img src='' alt=''>
+									<div>
+										<span class='sup-title'>Blog</span>
+										<h3>Nom d'un article que vous écrirez plus tard</h3>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
 				</div>
 			</section>
 
 		</main>
 
-	  	<footer role='contentinfo'>
+	  	<footer role='contentinfo' id='footer' class='container'>
+	  		<div class='w50'>
+	  			<div class='menu'>
+	  				<span class='sup-title'>la Belle Boîte</span>
+					<ul>
+						<li><a href='#'>pourquoi</a></li>
+						<li><a href='#'>pour qui ?</a></li>
+						<li><a href='#'>l'équipe</a></li>
+					</ul>
+				</div><div class='menu'>
+	  				<span class='sup-title'>Pour Vous</span>
+					<ul>
+						<li><a href='#'>prestations</a></li>
+						<li><a href='#'>ateliers</a></li>
+						<li><a href='#'>interventions</a></li>
+						<li><a href='#'>références</a></li>
+					</ul>
+				</div><div class='menu'>
+	  				<span class='sup-title'>Mais aussi</span>
+					<ul>
+						<li><a href='#'>contact</a></li>
+						<li><a href='#' target='_blank'>sur facebook</a></li>
+						<li><a href='#' target='_blank'>sur twitter</a></li>
+						<li><a href='#'>mentions légales</a></li>
+					</ul>
+				</div>
+			</div><div class='w50'>
+				<span class='sup-title'>la Belle Boîte vous offre cette phrase creuse :</span>
+				<div id='phrase-creuse'>
+					<p class='h3'>Stop aux acronymes, travaillons l'U.M.1</p>
+					<button>une autre phrase creuse ?</button>
+				</div>
+			</div>
 	  	</footer>
 		
 		<script src='js/modernizr.min.js'></script>

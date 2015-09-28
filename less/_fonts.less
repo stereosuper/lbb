@@ -1,19 +1,53 @@
 @font-face {
-    font-family: 'font';
+    font-family: 'marker';
+    src: url('../fonts/marker/permanentmarker.eot');
+    src: url('../fonts/marker/permanentmarker.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/marker/permanentmarker.woff2') format('woff2'),
+         url('../fonts/marker/permanentmarker.woff') format('woff'),
+         url('../fonts/marker/permanentmarker.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
-    src: url('../fonts/font.eot');
-    src: url('../fonts/font.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/font.woff') format('woff'),
-         url('../fonts/font.ttf') format('truetype'),
-         url('../fonts/font.svg') format('svg');
 }
 
-.font(@size){
-  font-family: 'font', sans-serif;
-  font-weight: normal;
+@font-face {
+    font-family: 'modern';
+    src: url('../fonts/modern/modernpics.eot');
+    src: url('../fonts/modern/modernpics.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/modern/modernpics.woff2') format('woff2'),
+         url('../fonts/modern/modernpics.woff') format('woff'),
+         url('../fonts/modern/modernpics.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'geomanist';
+    src: url('../fonts/geomanist/geomanist-regular.eot');
+    src: url('../fonts/geomanist/geomanist-regular.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/geomanist/geomanist-regular.woff2') format('woff2'),
+         url('../fonts/geomanist/geomanist-regular.woff') format('woff'),
+         url('../fonts/geomanist/geomanist-regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.marker(@size){
+  font-family: 'marker', sans-serif;
   font-size: @size;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
+}
+
+.modern(@size){
+  font-family: 'modern', sans-serif;
+  font-size: @size;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.geomanist(@size){
+  font-family: 'geomanist', sans-serif;
+  font-size: @size;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

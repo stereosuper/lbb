@@ -1,0 +1,108 @@
+@charset "utf-8";
+
+@import "_lesshat.less";
+@import "_norm.less";
+@import "_fonts.less";
+
+@blanc: #fff;
+@noir: #000;
+
+/* @group Styles */
+
+/* @group General */
+
+/* selection */
+::-moz-selection{ 
+	background: #000;  
+	color: #fff;
+	text-shadow: none; 
+}
+::selection{ 
+	background: #000;  
+	color: #fff; 
+	text-shadow: none; 
+}
+
+html{
+  font-size: 62.5%;
+}
+
+body{
+  font-size: 1.6em; // =16px
+}
+
+h1{
+    font-size: 3em;
+    margin: .67em 0;
+}
+
+h2{
+    font-size: 2.5em;
+    margin: .83em 0;
+}
+
+h3{
+    font-size: 2em;
+    margin: 1em 0;
+}
+
+h4{
+    font-size: 1.7em;
+    margin: 1.33em 0;
+}
+
+h5{
+    font-size: 1.3em;
+    margin: 1.67em 0;
+}
+
+h6{
+    font-size: 1.1em;
+    margin: 2.33em 0;
+}
+
+p{
+    margin: 1em 0;
+}
+
+blockquote{
+    margin: 1em 40px;
+}
+
+ol,
+ul{
+    margin: 1em 0;
+    padding: 0 0 0 40px;
+}
+
+img{
+  max-width: 100%;
+  height: auto;
+}
+
+a{
+  text-decoration: none;
+}
+
+/* @end */
+
+/* @group Utils */
+
+/* masqué */
+.hidden{
+    display: none;
+}
+
+/* clearfix */
+.clearfix:before,
+.clearfix:after{
+    content: " ";
+    display: table;
+}
+.clearfix:after{
+    clear: both;
+}
+
+/* @end */
+
+@import "_mediaqueries.less";

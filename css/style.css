@@ -227,6 +227,11 @@ menu {
   padding: 0 0 0 40px;
 }
 @font-face {
+  font-family: 'klinic';
+  src: url('../fonts/klinic/klinicslabmedium.eot');
+  src: url('../fonts/klinic/klinicslabmedium.eot?#iefix') format('embedded-opentype'), url('../fonts/klinic/klinicslabmedium.woff2') format('woff2'), url('../fonts/klinic/klinicslabmedium.woff') format('woff'), url('../fonts/klinic/klinicslabmedium.ttf') format('truetype');
+}
+@font-face {
   font-family: 'marker';
   src: url('../fonts/marker/permanentmarker.eot');
   src: url('../fonts/marker/permanentmarker.eot?#iefix') format('embedded-opentype'), url('../fonts/marker/permanentmarker.woff2') format('woff2'), url('../fonts/marker/permanentmarker.woff') format('woff'), url('../fonts/marker/permanentmarker.ttf') format('truetype');
@@ -241,24 +246,47 @@ menu {
   src: url('../fonts/geomanist/geomanist-regular.eot');
   src: url('../fonts/geomanist/geomanist-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/geomanist/geomanist-regular.woff2') format('woff2'), url('../fonts/geomanist/geomanist-regular.woff') format('woff'), url('../fonts/geomanist/geomanist-regular.ttf') format('truetype');
 }
-@font-face {
-  font-family: 'geomanist-light';
-  src: url('../fonts/geomanist/geomanist-light.eot');
-  src: url('../fonts/geomanist/geomanist-light.eot?#iefix') format('embedded-opentype'), url('../fonts/geomanist/geomanist-light.woff2') format('woff2'), url('../fonts/geomanist/geomanist-light.woff') format('woff'), url('../fonts/geomanist/geomanist-light.ttf') format('truetype');
+/*@font-face {
+    font-family: 'geomanist-light';
+    src: url('../fonts/geomanist/geomanist-light.eot');
+    src: url('../fonts/geomanist/geomanist-light.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/geomanist/geomanist-light.woff2') format('woff2'),
+         url('../fonts/geomanist/geomanist-light.woff') format('woff'),
+         url('../fonts/geomanist/geomanist-light.ttf') format('truetype');
 }
+
 @font-face {
-  font-family: 'geomanist-medium';
-  src: url('../fonts/geomanist/geomanist-medium.eot');
-  src: url('../fonts/geomanist/geomanist-medium.eot?#iefix') format('embedded-opentype'), url('../fonts/geomanist/geomanist-medium.woff2') format('woff2'), url('../fonts/geomanist/geomanist-medium.woff') format('woff'), url('../fonts/geomanist/geomanist-medium.ttf') format('truetype');
-}
+    font-family: 'geomanist-medium';
+    src: url('../fonts/geomanist/geomanist-medium.eot');
+    src: url('../fonts/geomanist/geomanist-medium.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/geomanist/geomanist-medium.woff2') format('woff2'),
+         url('../fonts/geomanist/geomanist-medium.woff') format('woff'),
+         url('../fonts/geomanist/geomanist-medium.ttf') format('truetype');
+}*/
 @font-face {
   font-family: 'geomanist-bold';
   src: url('../fonts/geomanist/geomanist-bold.eot');
   src: url('../fonts/geomanist/geomanist-bold.eot?#iefix') format('embedded-opentype'), url('../fonts/geomanist/geomanist-bold.woff2') format('woff2'), url('../fonts/geomanist/geomanist-bold.woff') format('woff'), url('../fonts/geomanist/geomanist-bold.ttf') format('truetype');
 }
+/*.geomanistLight(@size){
+  font-family: 'geomanist-light', sans-serif;
+  font-size: @size;
+  font-weight: normal;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.geomanistMedium(@size){
+  font-family: 'geomanist-medium', sans-serif;
+  font-size: @size;
+  font-weight: normal;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}*/
 /* @group Styles */
 /* @group General */
-/* selection */
 ::-moz-selection {
   background: #000;
   color: #fff;
@@ -273,35 +301,74 @@ html {
   font-size: 62.5%;
 }
 body {
-  font-family: 'geomanist', sans-serif;
-  font-size: 1.6em;
+  color: #fff;
+  font-family: 'klinic', sans-serif;
+  font-size: 1.4em;
   font-weight: normal;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+body.home {
+  font-family: 'geomanist', sans-serif;
+  font-size: 1.4em;
+  font-weight: normal;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+h1,
+h2,
+h3,
+.h3,
+h4,
+h5 {
+  font-family: 'geomanist-bold', sans-serif;
+  font-size: 1em;
+  font-weight: normal;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1em;
+}
 h1 {
-  font-size: 3em;
-  margin: .67em 0;
+  font-size: 8.5em;
+  margin: 0 0 .35em;
+}
+h1 span {
+  font-size: .35em;
+  line-height: 1em;
+  display: block;
+  margin: 0 0 -0.25em;
 }
 h2 {
-  font-size: 2.5em;
-  margin: .83em 0;
+  font-size: 3.5em;
+  line-height: 1.3em;
+  margin: 1em 0;
 }
-h3 {
-  font-size: 2em;
+h2.light {
+  font-family: 'geomanist', sans-serif;
+  font-size: 3.5em;
+  font-weight: normal;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+h3,
+.h3 {
+  font-size: 2.8em;
   margin: 1em 0;
 }
 h4 {
-  font-size: 1.7em;
+  font-size: 2em;
   margin: 1.33em 0;
 }
 h5 {
-  font-size: 1.3em;
+  font-size: 1.7em;
   margin: 1.67em 0;
 }
 h6 {
-  font-size: 1.1em;
+  font-size: 1.3em;
   margin: 2.33em 0;
 }
 p {
@@ -309,6 +376,15 @@ p {
 }
 blockquote {
   margin: 1em 40px;
+}
+strong,
+b {
+  font-family: 'geomanist-bold', sans-serif;
+  font-size: 1em;
+  font-weight: normal;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 ol,
 ul {
@@ -319,31 +395,99 @@ img {
   max-width: 100%;
   height: auto;
 }
+/******* LIENS / BOUTONS *******/
 a {
   text-decoration: none;
+  color: #b5006a;
+  -webkit-transition: 0.3s ease-in-out;
+  -moz-transition: 0.3s ease-in-out;
+  -o-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
-strong,
-b {
-  font-family: 'geomanist-medium', sans-serif;
+a:focus,
+a:hover {
+  color: #ff5fac;
+}
+a:focus {
+  outline: 0;
+}
+a:active {
+  color: #2ac0ce;
+}
+.underline,
+#vous h2 a {
+  position: relative;
+}
+.underline:after,
+#vous h2 a:after {
+  content: '';
+  display: block;
+  height: 3px;
+  position: absolute;
+  bottom: 7px;
+  left: 0;
+  right: 0;
+  background: #b5006a;
+}
+.btn {
+  display: inline-block;
+  padding: 17px 25px 15px;
+  border: 3px solid;
+  font-size: 1.15em;
+  text-transform: uppercase;
+  color: #fff;
+}
+/******* CLASSES GENERALES  *******/
+.center,
+.section {
+  text-align: center;
+}
+.left {
+  text-align: left;
+}
+.bg-purple {
+  background-color: #b5006a;
+}
+.bg-yellow {
+  background-color: #ffc200;
+}
+.bg-blue {
+  background-color: #2ac0ce;
+}
+.bg-pink {
+  background-color: #ff5fac;
+}
+.sup-title {
+  display: block;
+  margin: 0 0 15px;
+  font-family: 'geomanist', sans-serif;
+  font-size: 1em;
+  font-weight: normal;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1em;
+  text-transform: uppercase;
+}
+.sup-title + h2 {
+  margin-top: -13px;
+}
+.sub-title {
+  font-family: 'klinic', sans-serif;
   font-size: 1em;
   font-weight: normal;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.center {
-  text-align: center;
+.w50 {
+  display: inline-block;
+  width: 50%;
+  vertical-align: top;
 }
-.left {
-  text-align: left;
-}
-/* @end */
-/* @group Utils */
-/* masqué */
 .hidden {
-  display: none;
+  display: none !important;
 }
-/* clearfix */
 .clearfix:before,
 .clearfix:after {
   content: " ";
@@ -352,6 +496,110 @@ b {
 .clearfix:after {
   clear: both;
 }
+/******* MODULES *******/
+.container {
+  max-width: 1200px;
+  padding: 0 180px;
+  position: relative;
+  margin: 0 auto;
+  z-index: 1;
+}
+.section {
+  display: table;
+  width: 100%;
+  height: 650px;
+  height: 90vh;
+  padding: 50px 0;
+}
+.section .section-cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+.menu {
+  display: inline-block;
+  vertical-align: top;
+}
+.menu ul {
+  list-style: none;
+  padding: 0;
+}
+.menu a:before {
+  content: '›';
+  display: inline-block;
+  margin: 0 5px 0 0;
+}
+/******* HEADER *******/
+#header {
+  width: 100%;
+  padding: 0 30px;
+  position: fixed;
+  top: 60px;
+}
+#header .container {
+  max-width: 1500px;
+  padding: 0;
+  overflow: hidden;
+}
+#logo {
+  display: block;
+  width: 120px;
+  height: 122px;
+  float: left;
+  background: url(../layoutImg/logo.png) no-repeat;
+  background-size: 100%;
+  text-indent: -999em;
+  overflow: hidden;
+}
+#main-menu {
+  float: right;
+}
+#main-menu ul {
+  padding: 0;
+  margin: 0;
+}
+#main-menu a {
+  text-transform: uppercase;
+  color: #fff;
+}
+#main-menu .actif a {
+  opacity: .5;
+}
+/******* FOOTER *******/
+#footer {
+  padding: 70px 0 40px;
+  color: #9f9f9f;
+}
+#footer .menu ul {
+  font-family: 'klinic', sans-serif;
+  font-size: 1em;
+  font-weight: normal;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+#phrase-creuse {
+  text-align: center;
+  color: #b5006a;
+}
+/******* WRAPPER *******/
+/******* ENTETE *******/
+/******* ACCUEIL *******/
+#vous h2 {
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: .25em;
+}
+#vous h2 strong,
+#vous h2 a {
+  font-family: 'geomanist-bold', sans-serif;
+  font-size: 1em;
+  font-weight: normal;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* @end */
 /* @end */
 /* @group Responsive horizontal */
 /* @end */

@@ -53,6 +53,17 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
+	"\/layoutImg\/logo.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 16639,
+		"inputAbbreviatedPath": "\/layoutImg\/logo.png",
+		"outputAbbreviatedPath": "\/layoutImg\/logo.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/less\/_fonts.less": {
 		"allowInsecureImports": 0,
 		"createSourceMap": 0,

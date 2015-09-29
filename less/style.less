@@ -4,16 +4,16 @@
 @import "_norm.less";
 @import "_fonts.less";
 
-@violet: #b5006a;
-@jaune: #ffc200;
-@bleu: #2ac0ce;
-@rose: #ff5fac;
+@purple: #b5006a;
+@yellow: #ffc200;
+@blue: #2ac0ce;
+@pink: #ff5fac;
+@grey: #9f9f9f;
 
 /* @group Styles */
 
 /* @group General */
 
-/* selection */
 ::-moz-selection{ 
 	background: #000;  
 	color: #fff;
@@ -26,40 +26,54 @@
 }
 
 html{
-  font-size: 62.5%;
+    font-size: 62.5%;
 }
 
 body{
-  .geomanist(1.6em); // =16px
+    color: #fff;
+    .klinic(1.4em); // =14px
+    &.home{
+        .geomanist(1.4em);
+    }
 }
 
+h1, h2, h3, .h3, h4, h5{
+    font-weight: normal;
+    .geomanistBold(1em);
+    line-height: 1em;
+}
 h1{
-    font-size: 3em;
-    margin: .67em 0;
+    font-size: 8.5em;
+    margin: 0 0 .35em;
+    span{
+        font-size: .35em;
+        line-height: 1em;
+        display: block;
+        margin: 0 0 -.25em;
+    }
 }
-
 h2{
-    font-size: 2.5em;
-    margin: .83em 0;
+    font-size: 3.5em;
+    line-height: 1.3em;
+    margin: 1em 0;
+    &.light{
+        .geomanist(3.5em);
+    }
 }
-
-h3{
-    font-size: 2em;
+h3, .h3{
+    font-size: 2.8em;
     margin: 1em 0;
 }
-
 h4{
-    font-size: 1.7em;
+    font-size: 2em;
     margin: 1.33em 0;
 }
-
 h5{
-    font-size: 1.3em;
+    font-size: 1.7em;
     margin: 1.67em 0;
 }
-
 h6{
-    font-size: 1.1em;
+    font-size: 1.3em;
     margin: 2.33em 0;
 }
 
@@ -71,6 +85,11 @@ blockquote{
     margin: 1em 40px;
 }
 
+strong, b{
+    font-weight: normal;
+    .geomanistBold(1em);
+}
+
 ol,
 ul{
     margin: 1em 0;
@@ -78,35 +97,98 @@ ul{
 }
 
 img{
-  max-width: 100%;
-  height: auto;
+    max-width: 100%;
+    height: auto;
 }
+
+
+/******* LIENS / BOUTONS *******/
 
 a{
-  text-decoration: none;
+    text-decoration: none;
+    color: @purple;
+    .transition(.3s ease-in-out);
+    &:focus, &:hover{
+        color: @pink;
+    }
+    &:focus{
+        outline: 0;
+    }
+    &:active{
+        color: @blue;
+    }
 }
 
-strong, b{
-  .geomanistMedium(1em);
+.underline{
+    position: relative;
+    &:after{
+        content: '';
+        display: block;
+        height: 3px;
+        position: absolute;
+        bottom: 7px;
+        left: 0;
+        right: 0;
+        background: @purple;
+    }
 }
+
+.btn{
+    display: inline-block;
+    padding: 17px 25px 15px;
+    border: 3px solid;
+    font-size: 1.15em;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+
+/******* CLASSES GENERALES  *******/
 
 .center{
-  text-align: center;
+    text-align: center;
 }
 .left{
-  text-align: left;
+    text-align: left;
 }
 
-/* @end */
+.bg-purple{
+    background-color: @purple;
+}
+.bg-yellow{
+    background-color: @yellow;
+}
+.bg-blue{
+    background-color: @blue;
+}
+.bg-pink{
+    background-color: @pink;
+}
 
-/* @group Utils */
+.sup-title{
+    display: block;
+    margin: 0 0 15px;
+    .geomanist(1em);
+    line-height: 1em;
+    text-transform: uppercase;
+    + h2{
+        margin-top: -13px;
+    }
+}
+.sub-title{
+    .klinic(1em);
+}
 
-/* masqué */
+.w50{
+    display: inline-block;
+    width: 50%;
+    vertical-align: top;
+}
+
 .hidden{
-    display: none;
+    display: none !important;
 }
 
-/* clearfix */
 .clearfix:before,
 .clearfix:after{
     content: " ";
@@ -115,6 +197,141 @@ strong, b{
 .clearfix:after{
     clear: both;
 }
+
+
+/******* MODULES *******/
+
+.container{
+    max-width: 1200px;
+    padding: 0 180px;
+    position: relative;
+    margin: 0 auto;
+    z-index: 1; // contenu au-dessus du header pour ne pas gêner le clic
+}
+
+.section{
+    &:extend(.center);
+    display: table;
+    width: 100%;
+    height: 650px;
+    height: 90vh;
+    padding: 50px 0;
+    .section-cell{
+        display: table-cell;
+        vertical-align: middle;
+    }
+}
+
+.menu{
+    display: inline-block;
+    vertical-align: top;
+    ul{
+        list-style: none;
+        padding: 0;
+    }
+  a{
+    &:before{
+        content: '›';
+        display: inline-block;
+        margin: 0 5px 0 0;
+    }
+  }
+}
+
+
+/******* HEADER *******/
+
+#header{
+    width: 100%;
+    padding: 0 30px;
+    position: fixed;
+    top: 60px;
+    .container{
+        max-width: 1500px;
+        padding: 0;
+        overflow: hidden;
+    }
+}
+
+#logo{
+    display: block;
+    width: 120px;
+    height: 122px;
+    float: left;
+    background: url(../layoutImg/logo.png) no-repeat;
+    background-size: 100%;
+    text-indent: -999em;
+    overflow: hidden;
+}
+
+#main-menu{
+    float: right;
+    ul{
+        padding: 0;
+        margin: 0;
+    }
+    a{
+        text-transform: uppercase;
+        color: #fff;
+    }
+    .actif{
+        a{
+            opacity: .5;
+        }
+    }
+}
+
+
+/******* FOOTER *******/
+
+#footer{
+    padding: 70px 0 40px;
+    color: @grey;
+    .menu{
+        ul{
+            .klinic(1em);
+        }
+    }
+}
+
+#phrase-creuse{
+    text-align: center;
+    color: @purple;
+}
+
+
+/******* WRAPPER *******/
+
+#wrapper{
+
+}
+
+
+/******* ENTETE *******/
+
+.head{
+
+}
+
+
+/******* ACCUEIL *******/
+
+#vous{
+    h2{
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: .25em;
+        a{
+            &:extend(.underline all);
+        }
+        strong, a{
+            .geomanistBold(1em);
+        }
+    }
+}
+
+/* @end */
 
 /* @end */
 

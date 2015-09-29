@@ -13,112 +13,122 @@
 	  	<link rel='stylesheet' href='css/style.css'>
 	</head>
 
-	<body>
+	<body class='home'>
 		
 		<header id='header'>
-			<a id='logo' href='./'>la Belle Boîte</a>
-			<nav role='navigation' id='main-menu'>
-				<ul>
-					<li><a href='./'>Accueil</a></li>
-					<li><a href='#'>la Belle Boîte</a></li>
-					<li><a href='#'>Pour Vous</a></li>
-					<li><a href='#'>Blog</a></li>
-					<li><a href='#'>Contact</a></li>
-				</ul>
-			</nav>
-			<button id='burger'></button>
+			<div class='container'>
+				<a id='logo' href='./'>la Belle Boîte</a>
+				<nav role='navigation' id='main-menu' class='menu'>
+					<ul>
+						<li class='actif'><a href='./'>Accueil</a></li>
+						<li><a href='#'>la Belle Boîte</a></li>
+						<li><a href='#'>Pour Vous</a></li>
+						<li><a href='#'>Blog</a></li>
+						<li><a href='#'>Contact</a></li>
+					</ul>
+				</nav>
+				<button id='burger'></button>
+			</div>
 		</header>
 
 		<main id='wrapper' role='main'>
 			
-			<section class='head'>
-				<div class='container center'>
-					<strong class='sup-title'>Bonjour :</strong>
-					<h1><span>Nous sommes </span>sérieusement drôles</h1>
-					<a href='#' class='btn'>Découvrez comment</a>
-				</div>
-			</section>
-
-			<section id='vous'>
-				<div class='container center'>
-					<strong class='sup-title'>Pour vous,</strong>
-					<h2>
-						<a href='#'>Nous</a> 
-						conçevons & animons des 
-						<a href='#'>spectacles</a>, 
-						des <a href='#'>ateliers</a>, 
-						des <a href='#'>formations</a>.
-					</h2>
-					<span class='sub-title'>( et tout un tas d'autres trucs qui nous amusent )</span>
-				</div>
-			</section>
-
-			<section id='confiance'>
-				<div class='container center'>
-					<h2 class='sup-title'>Ils nous ont quand même fait confiance :</h2>
-					<div class='slider'>
-						<ul>
-							<li>
-								<article>
-									<h3>Et si nous échangions notre patrimoine immatériel?</h3>
-									<blockquote>
-										<p class='quote'>
-											C'était à la fois riche, dense, distrayant et convivial...
-										</p>
-										<p class='by'>
-											<b>Alexis Moisdon</b>
-											Directeur Général de Naoned System
-										</p>
-									</blockquote>
-								</article>
-							</li>
-						</ul>
+			<section class='head bg-purple section'>
+				<div class='section-cell'>
+					<div class='container'>
+						<strong class='sup-title'>Bonjour :</strong>
+						<h1><span>Nous sommes </span>sérieusement drôles</h1>
+						<a href='#' class='btn'>Découvrez comment</a>
 					</div>
 				</div>
 			</section>
 
-			<section id='live'>
-				<div class='container center'>
-					<strong class='sup-title'>Live :</strong>
-					<h2>Notre passionante vie</h2>
-					<div class='left'>
-						<div id='instagram'>
-							
-						</div><ul class='blog-list'>
-							<li>
-								<a href='#'>
-									<img src='' alt=''>
-									<div>
-										<span class='sup-title'>Blog</span>
-										<h3>Nom d'un article que vous écrirez plus tard</h3>
-									</div>
-								</a>
-							</li><li>
-								<a href='#'>
-									<img src='' alt=''>
-									<div>
-										<span class='sup-title'>Blog</span>
-										<h3>Nom d'un article que vous écrirez plus tard</h3>
-									</div>
-								</a>
-							</li><li>
-								<a href='#'>
-									<img src='' alt=''>
-									<div>
-										<span class='sup-title'>Blog</span>
-										<h3>Nom d'un article que vous écrirez plus tard</h3>
-									</div>
-								</a>
-							</li><li>
-								<a href='#'>
-									<img src='' alt=''>
-									<div>
-										<span class='sup-title'>Blog</span>
-										<h3>Nom d'un article que vous écrirez plus tard</h3>
-									</div>
-								</a>
-							</li>
-						</ul>
+			<section id='vous' class='bg-yellow section'>
+				<div class='section-cell'>
+					<div class='container'>
+						<strong class='sup-title'>Pour vous,</strong>
+						<h2 class='light'>
+							<a href='#'>Nous</a> 
+							<strong>conçevons & animons</strong> des 
+							<a href='#'>spectacles</a>, 
+							des <a href='#'>ateliers</a>, 
+							des <a href='#'>formations</a>.
+						</h2>
+						<span class='sub-title'>( et tout un tas d'autres trucs qui nous amusent )</span>
+					</div>
+				</div>
+			</section>
+
+			<section id='confiance' class='bg-blue section left'>
+				<div class='section-cell'>
+					<div class='container'>
+						<h2 class='sup-title'>Ils nous ont quand même fait confiance :</h2>
+						<div class='slider'>
+							<ul>
+								<li>
+									<article>
+										<h3>Et si nous échangions notre patrimoine immatériel?</h3>
+										<blockquote>
+											<p class='quote'>
+												C'était à la fois riche, dense, distrayant et convivial...
+											</p>
+											<p class='by'>
+												<b>Alexis Moisdon</b>
+												Directeur Général de Naoned System
+											</p>
+										</blockquote>
+									</article>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section id='live' class='bg-pink section'>
+				<div class='section-cell'>
+					<div class='container'>
+						<strong class='sup-title'>Live :</strong>
+						<h2>Notre passionante vie</h2>
+						<div class='left'>
+							<div id='instagram'>
+								
+							</div><ul class='blog-list'>
+								<li>
+									<a href='#'>
+										<img src='' alt=''>
+										<div>
+											<span class='sup-title'>Blog</span>
+											<h3>Nom d'un article que vous écrirez plus tard</h3>
+										</div>
+									</a>
+								</li><li>
+									<a href='#'>
+										<img src='' alt=''>
+										<div>
+											<span class='sup-title'>Blog</span>
+											<h3>Nom d'un article que vous écrirez plus tard</h3>
+										</div>
+									</a>
+								</li><li>
+									<a href='#'>
+										<img src='' alt=''>
+										<div>
+											<span class='sup-title'>Blog</span>
+											<h3>Nom d'un article que vous écrirez plus tard</h3>
+										</div>
+									</a>
+								</li><li>
+									<a href='#'>
+										<img src='' alt=''>
+										<div>
+											<span class='sup-title'>Blog</span>
+											<h3>Nom d'un article que vous écrirez plus tard</h3>
+										</div>
+									</a>
+								</li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</section>
@@ -155,7 +165,7 @@
 				<span class='sup-title'>la Belle Boîte vous offre cette phrase creuse :</span>
 				<div id='phrase-creuse'>
 					<p class='h3'>Stop aux acronymes, travaillons l'U.M.1</p>
-					<button>une autre phrase creuse ?</button>
+					<button class='sub-title'>une autre phrase creuse ?</button>
 				</div>
 			</div>
 	  	</footer>

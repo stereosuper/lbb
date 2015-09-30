@@ -388,7 +388,7 @@ b {
 }
 ol,
 ul {
-  margin: 1em 0;
+  margin: 1.5em 0;
   padding: 0 0 0 40px;
 }
 img {
@@ -566,8 +566,14 @@ a:active {
 }
 /******* FOOTER *******/
 #footer {
-  padding: 70px 0 40px;
+  padding: 70px 30px 40px;
   color: #9f9f9f;
+}
+#footer .menu {
+  max-width: 220px;
+}
+#footer .menu:first-child {
+  margin: 0 0 50px;
 }
 #footer .menu ul {
   font-family: 'klinic', sans-serif;
@@ -577,8 +583,21 @@ a:active {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-#phrase-creuse {
+#footer .w50 {
+  overflow: hidden;
+}
+.phrase {
+  max-width: 460px;
+  float: right;
   text-align: center;
+}
+.phrase .h3 {
+  margin: 0;
+  line-height: 1.5em;
+}
+#phrase-creuse {
+  padding: 20px 50px 30px;
+  border: 1px dashed;
   color: #b5006a;
 }
 /******* WRAPPER *******/
@@ -602,6 +621,46 @@ a:active {
 /* @end */
 /* @end */
 /* @group Responsive horizontal */
+@media (max-width: 1150px) {
+  h1 {
+    font-size: 7em;
+  }
+  #header,
+  #footer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+@media (max-width: 979px) {
+  .container {
+    padding: 0 20px;
+  }
+  #header {
+    position: absolute;
+    top: 20px;
+  }
+  .head {
+    padding-top: 140px;
+  }
+}
+@media (max-width: 767px) {
+  #footer {
+    text-align: center;
+  }
+  #footer > .w50 {
+    display: block;
+    width: 100%;
+  }
+  #footer .menu {
+    width: 33.3%;
+    max-width: none;
+  }
+  .phrase {
+    display: inline-block;
+    float: none;
+    margin: 30px 0 0;
+  }
+}
 /* @end */
 /* retina */
 /* ==|== print styles =======================================================

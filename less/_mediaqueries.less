@@ -1,12 +1,49 @@
 /* @group Responsive horizontal */
 
 @media (max-width: 1150px){
+    h1{
+        font-size: 7em;
+    }
+
+    #header, #footer{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 }
 
 @media (max-width: 979px){
+    .container{
+        padding: 0 20px;
+    }
+
+    #header{
+        position: absolute;
+        top: 20px;
+    }
+
+    .head{
+        padding-top: 140px;
+    }
 }
 
 @media (max-width: 767px){
+    #footer{
+        text-align: center;
+        > .w50{
+            display: block;
+            width: 100%;
+        }
+        .menu{
+            width: 33.3%;
+            max-width: none;
+        }
+    }
+
+    .phrase{
+        display: inline-block;
+        float: none;
+        margin: 30px 0 0;
+    }
 }
 
 @media (max-width: 450px){

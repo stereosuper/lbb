@@ -92,7 +92,7 @@ strong, b{
 
 ol,
 ul{
-    margin: 1em 0;
+    margin: 1.5em 0;
     padding: 0 0 0 40px;
 }
 
@@ -285,17 +285,34 @@ a{
 /******* FOOTER *******/
 
 #footer{
-    padding: 70px 0 40px;
+    padding: 70px 30px 40px;
     color: @grey;
     .menu{
+        max-width: 220px;
+        &:first-child{
+            margin: 0 0 50px;
+        }
         ul{
             .klinic(1em);
         }
     }
+    .w50{
+        overflow: hidden;
+    }
 }
 
-#phrase-creuse{
+.phrase{
+    max-width: 460px;
+    float: right;
     text-align: center;
+    .h3{
+        margin: 0;
+        line-height: 1.5em;
+    }
+}
+#phrase-creuse{
+    padding: 20px 50px 30px;
+    border: 1px dashed;
     color: @purple;
 }
 

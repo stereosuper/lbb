@@ -32,9 +32,6 @@ html{
 body{
     color: #fff;
     .klinic(1.4em); // =14px
-    &.home{
-        .geomanist(1.4em);
-    }
 }
 
 h1, h2, h3, .h3, h4, h5{
@@ -104,7 +101,7 @@ img{
 
 /******* LIENS / BOUTONS *******/
 
-a{
+a, button{
     text-decoration: none;
     color: @purple;
     .transition(.3s ease-in-out);
@@ -135,11 +132,51 @@ a{
 
 .btn{
     display: inline-block;
-    padding: 17px 25px 15px;
+    padding: 15px 25px;
     border: 3px solid;
-    font-size: 1.15em;
+    .geomanist(1.15em);
     text-transform: uppercase;
     color: #fff;
+    &:hover, &:focus{
+        background: darken(@purple, 7%);
+        border-color: darken(@purple, 7%);
+        color: fade(#fff, 80%);
+    }
+    &:active{
+        background: darken(@purple, 10%);
+        border-color: darken(@purple, 10%);
+        color: #fff;
+    }
+    .bg-yellow &{
+        &:hover, &:focus{
+            background: darken(@yellow, 7%);
+            border-color: darken(@yellow, 7%);
+        }
+        &:active{
+            background: darken(@yellow, 10%);
+            border-color: darken(@yellow, 10%);
+        }
+    }
+    .bg-blue &{
+        &:hover, &:focus{
+            background: darken(@blue, 7%);
+            border-color: darken(@blue, 7%);
+        }
+        &:active{
+            background: darken(@blue, 10%);
+            border-color: darken(@blue, 10%);
+        }
+    }
+    .bg-pink &{
+        &:hover, &:focus{
+            background: darken(@pink, 7%);
+            border-color: darken(@pink, 7%);
+        }
+        &:active{
+            background: darken(@pink, 10%);
+            border-color: darken(@pink, 10%);
+        }
+    }
 }
 
 
@@ -265,7 +302,9 @@ a{
 }
 
 #main-menu{
+    padding: 15px 0;
     float: right;
+    .geomanist(1em);
     ul{
         padding: 0;
         margin: 0;
@@ -281,6 +320,10 @@ a{
     }
 }
 
+#burger{
+    display: none;
+}
+
 
 /******* FOOTER *******/
 
@@ -291,9 +334,6 @@ a{
         max-width: 220px;
         &:first-child{
             margin: 0 0 50px;
-        }
-        ul{
-            .klinic(1em);
         }
     }
     .w50{
@@ -314,6 +354,9 @@ a{
     padding: 20px 50px 30px;
     border: 1px dashed;
     color: @purple;
+    button{
+        border: 0;
+    }
 }
 
 

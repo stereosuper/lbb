@@ -92,14 +92,61 @@
 						<h2>Notre passionante vie</h2>
 						<div class='left'>
 							<div id='instagram'>
-								
+								<?php
+									function callInstagram($url){
+										$ch = curl_init();
+									   	curl_setopt_array($ch, array(
+										   	CURLOPT_URL => $url,
+										   	CURLOPT_RETURNTRANSFER => true,
+										   	CURLOPT_SSL_VERIFYPEER => false,
+										   	CURLOPT_SSL_VERIFYHOST => 2
+									   	));
+
+									   	$result = curl_exec($ch);
+									   	curl_close($ch);
+									   	return $result;
+									}
+
+									$userId = '2178546014';
+									$token = '7000940.b09096c.26db5dc93433407599ded1ce4aaf2cd3';
+									$tagLbb = 'lieudetravaildujour';
+									//$client_id = "b09096c4b743493baf7f45e84e838d29";
+									$url = 'https://api.instagram.com/v1/users/' . $userId . '/media/recent/?access_token=' . $token;
+									$inst_stream = callInstagram($url);
+									$results = json_decode($inst_stream, true);
+									$goodItem = $results['data'][0];
+
+									//print_r($results);
+									foreach($results['data'] as $item){
+										$tags = $item['tags'];
+										foreach($tags as $tag){
+											if($tag === $tagLbb){
+												$goodItem = $item;
+												break;
+											}
+										}
+									}
+
+									$location = $goodItem['location']['name'];
+									$desc =  $goodItem['caption']['text'];
+									$image =  $goodItem['images']['standard_resolution']['url'];
+									$date =  $goodItem['created_time'];
+								?>
+								<a href='https://instagram.com/labelleboite/' target='_blank'>
+									<img src='<?php echo $image; ?>' alt='Lieu de travail du jour' width='460' height='460'>
+									<div>
+										<span class='sup-title'>Notre lieu de travail du jour :</span>
+										<span class='meta'><?php if($location) echo $location . ' - '; echo date('j M Y', $date); ?></span>
+										<span class='desc'><?php echo $desc; ?></span>
+									</div>
+								</a>
 							</div><ul class='blog-list'>
 								<li>
 									<a href='#'>
 										<img src='' alt=''>
 										<div>
 											<span class='sup-title'>Blog</span>
-											<h3>Nom d'un article que vous écrirez plus tard</h3>
+											<em>Nom d'un article super que vous écrirez plus tard</em>
 										</div>
 									</a>
 								</li><li>
@@ -107,7 +154,7 @@
 										<img src='' alt=''>
 										<div>
 											<span class='sup-title'>Blog</span>
-											<h3>Nom d'un article que vous écrirez plus tard</h3>
+											<em>Nom d'un article super que vous écrirez plus tard</em>
 										</div>
 									</a>
 								</li><li>
@@ -115,7 +162,7 @@
 										<img src='' alt=''>
 										<div>
 											<span class='sup-title'>Blog</span>
-											<h3>Nom d'un article que vous écrirez plus tard</h3>
+											<em>Nom d'un article super que vous écrirez plus tard</em>
 										</div>
 									</a>
 								</li><li>
@@ -123,7 +170,7 @@
 										<img src='' alt=''>
 										<div>
 											<span class='sup-title'>Blog</span>
-											<h3>Nom d'un article que vous écrirez plus tard</h3>
+											<em>Nom d'un article super que vous écrirez plus tard</em>
 										</div>
 									</a>
 								</li>

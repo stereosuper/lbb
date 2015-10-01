@@ -376,10 +376,10 @@ a,
 button {
   text-decoration: none;
   color: #b5006a;
-  -webkit-transition: 0.3s ease-in-out;
-  -moz-transition: 0.3s ease-in-out;
-  -o-transition: 0.3s ease-in-out;
-  transition: 0.3s ease-in-out;
+  -webkit-transition: 0.2s ease-in-out;
+  -moz-transition: 0.2s ease-in-out;
+  -o-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
 }
 a:focus,
 button:focus,
@@ -395,6 +395,9 @@ a:active,
 button:active {
   color: #2ac0ce;
 }
+button {
+  border: 0;
+}
 .underline,
 #vous h2 a {
   position: relative;
@@ -409,6 +412,10 @@ button:active {
   left: 0;
   right: 0;
   background: #b5006a;
+  -webkit-transition: 0.2s ease-in-out;
+  -moz-transition: 0.2s ease-in-out;
+  -o-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
 }
 .btn {
   display: inline-block;
@@ -460,6 +467,58 @@ button:active {
 .bg-pink .btn:active {
   background: #ff2c92;
   border-color: #ff2c92;
+}
+.bullshitBtn {
+  position: absolute;
+  z-index: -1;
+  opacity: .7;
+}
+.bullshitBtn.top-left,
+.bullshitBtn.top-center,
+.bullshitBtn.top-right {
+  top: -15vh;
+}
+.bullshitBtn.bottom-left,
+.bullshitBtn.bottom-center,
+.bullshitBtn.bottom-right {
+  bottom: -15vh;
+}
+.bullshitBtn.top-left,
+.bullshitBtn.bottom-left {
+  left: 5px;
+}
+.bullshitBtn.top-center,
+.bullshitBtn.bottom-center {
+  left: 35%;
+}
+.bullshitBtn.top-right,
+.bullshitBtn.bottom-right {
+  right: 5px;
+}
+.bullshitBtn.not-a-btn {
+  cursor: auto;
+  opacity: .8;
+}
+.bullshitBtn.not-a-btn:active {
+  opacity: 1;
+}
+.bullshitBtn:hover,
+.bullshitBtn:focus {
+  opacity: 1;
+}
+.bullshitBtn:active {
+  opacity: .4;
+}
+.bullshit {
+  max-width: 90%;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  cursor: pointer;
 }
 /******* CLASSES GENERALES  *******/
 .center,
@@ -626,17 +685,40 @@ button:active {
   border: 1px dashed;
   color: #b5006a;
 }
-#phrase-creuse button {
-  border: 0;
-}
 /******* WRAPPER *******/
 /******* ENTETE *******/
+.head {
+  background-image: url(../layoutImg/texture-head.png);
+  background-position: 50% 50%;
+}
+.head .container {
+  padding-top: 5px;
+  padding-bottom: 70px;
+}
 /******* ACCUEIL *******/
+#pipe {
+  max-width: 90%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: -1;
+}
 #vous h2 {
   max-width: 650px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: .25em;
+}
+#vous h2 a:hover,
+#vous h2 a:focus {
+  color: #fff;
+}
+#vous h2 a:hover:after,
+#vous h2 a:focus:after {
+  background: #fff;
 }
 #vous h2 strong,
 #vous h2 a {
@@ -719,6 +801,30 @@ button:active {
   h1 span {
     font-size: .45em;
     margin: 0 0 -0.05em;
+  }
+}
+@media (max-height: 850px) {
+  .bullshitBtn.top-left,
+  .bullshitBtn.top-center,
+  .bullshitBtn.top-right {
+    top: -10vh;
+  }
+  .bullshitBtn.bottom-left,
+  .bullshitBtn.bottom-center,
+  .bullshitBtn.bottom-right {
+    bottom: -10vh;
+  }
+}
+@media (max-height: 680px) {
+  .bullshitBtn.top-left,
+  .bullshitBtn.top-center,
+  .bullshitBtn.top-right {
+    top: -5vh;
+  }
+  .bullshitBtn.bottom-left,
+  .bullshitBtn.bottom-center,
+  .bullshitBtn.bottom-right {
+    bottom: -5vh;
   }
 }
 /* @end */

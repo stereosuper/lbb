@@ -10,6 +10,8 @@
 @pink: #ff5fac;
 @grey: #9f9f9f;
 
+@transition: .2s ease-in-out;
+
 /* @group Styles */
 
 /* @group General */
@@ -104,7 +106,7 @@ img{
 a, button{
     text-decoration: none;
     color: @purple;
-    .transition(.3s ease-in-out);
+    .transition(@transition);
     &:focus, &:hover{
         color: @pink;
     }
@@ -114,6 +116,10 @@ a, button{
     &:active{
         color: @blue;
     }
+}
+
+button{
+    border: 0;
 }
 
 .underline{
@@ -127,6 +133,7 @@ a, button{
         left: 0;
         right: 0;
         background: @purple;
+        .transition(@transition);
     }
 }
 
@@ -177,6 +184,51 @@ a, button{
             border-color: darken(@pink, 10%);
         }
     }
+}
+
+.bullshitBtn{
+    position: absolute;
+    z-index: -1;
+    opacity: .7;
+    &.top-left, &.top-center, &.top-right{
+        top: -15vh;
+    }
+    &.bottom-left, &.bottom-center, &.bottom-right{
+        bottom: -15vh;
+    }
+    &.top-left, &.bottom-left{
+        left: 5px;
+    }
+    &.top-center, &.bottom-center{
+        left: 35%;
+    }
+    &.top-right, &.bottom-right{
+        right: 5px;
+    }
+    &.not-a-btn{
+        cursor: auto;
+        opacity: .8;
+        &:active{
+            opacity: 1;
+        }
+    }
+    &:hover, &:focus{
+        opacity: 1;
+    }
+    &:active{
+        opacity: .4;
+    }
+}
+.bullshit{
+    max-width: 90%;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    cursor: pointer;
 }
 
 
@@ -354,9 +406,6 @@ a, button{
     padding: 20px 50px 30px;
     border: 1px dashed;
     color: @purple;
-    button{
-        border: 0;
-    }
 }
 
 
@@ -370,11 +419,27 @@ a, button{
 /******* ENTETE *******/
 
 .head{
-
+    background-image: url(../layoutImg/texture-head.png);
+    background-position: 50% 50%;
+    .container{
+        padding-top: 5px;
+        padding-bottom: 70px;
+    }
 }
 
 
 /******* ACCUEIL *******/
+
+#pipe{
+    max-width: 90%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: -1;
+}
 
 #vous{
     h2{
@@ -384,12 +449,20 @@ a, button{
         margin-bottom: .25em;
         a{
             &:extend(.underline all);
+            &:hover, &:focus{
+                color: #fff;
+                &:after{
+                    background: #fff;
+                }
+            }
         }
         strong, a{
             .geomanistBold(1em);
         }
     }
 }
+
+
 
 /* @end */
 

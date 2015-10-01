@@ -38,7 +38,8 @@
 					<div class='container'>
 						<strong class='sup-title'>Bonjour :</strong>
 						<h1><span>Nous sommes </span>sérieusement drôles</h1>
-						<a href='#' class='btn'>Découvrez comment</a>
+						<a href='#vous' class='btn'>Découvrez comment</a>
+						<img src='layoutImg/pipe.png' alt="On aime l'improvisation" width='586' height='453' id='pipe'>
 					</div>
 				</div>
 			</section>
@@ -220,7 +221,7 @@
 	  	</footer>
 		
 		<script src='js/modernizr.min.js'></script>
-	  	<script src='js/jquery-1.11.2.min.js'></script>
+	  	<!--<script src='js/jquery-1.11.2.min.js'></script>-->
 	  	<script src='js/script.js'></script>
 
 	</body>

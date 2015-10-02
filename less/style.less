@@ -100,6 +100,36 @@ img{
     height: auto;
 }
 
+blockquote{
+    margin: 30px 0;
+    .quote, .by{
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0;
+    }
+    .quote{
+        max-width: 220px;
+        padding: 30px 35px;
+        .marker(1.3em);
+        line-height: 1.6em;
+        text-align: center;
+        &:before{
+            content: '« ';
+        }
+        &:after{
+            content: ' »';
+        }
+    }
+    .by{
+        max-width: 125px;
+        margin: 0 0 0 35px;
+        .geomanist(1em);
+        b{
+            display: block;
+        }
+    }
+}
+
 
 /******* LIENS / BOUTONS *******/
 
@@ -242,16 +272,28 @@ button{
 }
 
 .bg-purple{
-    background-color: @purple;
+    background: @purple url(../layoutImg/texture-purple.png) 50% 50% fixed;
 }
 .bg-yellow{
-    background-color: @yellow;
+    background: @yellow url(../layoutImg/texture-yellow.png) 50% 50% fixed;
 }
 .bg-blue{
-    background-color: @blue;
+    background: @blue url(../layoutImg/texture-blue.png) 50% 50% fixed;
+    blockquote{
+        .quote{
+            color: @blue;
+            background: #fff;
+        }
+    }
+}
+@keyframes animatedBackground{
+    to { background-position: 100% 0; }
 }
 .bg-pink{
-    background-color: @pink;
+    //background-color: @pink;
+    background: @pink url(../layoutImg/masques-pink.png) fixed;
+    background-position: 0 100%;
+    .animation(animatedBackground 50s linear infinite);
 }
 
 .sup-title{
@@ -268,10 +310,21 @@ button{
     .klinic(1em);
 }
 
+.modern{
+    .modern(1em);
+}
+
+.table{
+    display: table;
+}
+
 .w50{
     display: inline-block;
     width: 50%;
     vertical-align: top;
+    .table &{
+        display: table-cell;
+    }
 }
 
 .hidden{
@@ -292,7 +345,7 @@ button{
 
 .container{
     max-width: 1200px;
-    padding: 0 180px;
+    padding: 0 150px;
     position: relative;
     margin: 0 auto;
     z-index: 1; // contenu au-dessus du header pour ne pas gêner le clic
@@ -304,9 +357,9 @@ button{
     width: 100%;
     height: 650px;
     height: 90vh;
-    padding: 50px 0;
     .section-cell{
         display: table-cell;
+        padding: 50px 0;
         vertical-align: middle;
     }
 }
@@ -325,6 +378,66 @@ button{
         margin: 0 5px 0 0;
     }
   }
+}
+
+.reset-ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.slider{
+    ul{
+        &:extend(.reset-ul);
+    }
+    h3{
+        max-width: 350px;
+    }
+}
+
+.blog-list{
+    &:extend(.reset-ul);
+    li{
+        display: inline-block;
+        position: relative;
+        width: 47.73%;
+        height: 47.73%;
+        &:first-child{
+            margin: 0 4.54% 4.54% 0;
+        }
+        &.last{
+            margin: 0 0 0 4.54%;
+        }
+    }
+    .hover{
+        top: 12px;
+        bottom: 12px;
+        left: 12px;
+        right: 12px;
+    }
+}
+
+.black-hover-link{
+    display: block;
+    position: relative;
+    .hover{
+        display: none;
+        padding: 10px;
+        position: absolute;
+        background: fade(#000, 60%);
+        color: #fff;
+        em, i{
+            font-size: 1.3em;
+        }
+    }
+    &:hover, &:focus{
+        .hover{
+            display: block;
+        }
+    }
+    &:active{
+        border: 3px solid @pink;
+    }
 }
 
 
@@ -362,12 +475,23 @@ button{
         margin: 0;
     }
     a{
+        display: block;
+        position: relative;
         text-transform: uppercase;
         color: #fff;
+        &:hover, &:focus{
+            opacity: .7;
+        }
     }
     .actif{
         a{
             opacity: .5;
+            padding: 0 0 0 5px;
+            &:after{
+                position: absolute;
+                left: 0;
+                content: '-';
+            }
         }
     }
 }
@@ -394,18 +518,41 @@ button{
 }
 
 .phrase{
+    width: 100%;
     max-width: 460px;
     float: right;
     text-align: center;
     .h3{
-        margin: 0;
+        margin: 0 auto;
         line-height: 1.5em;
     }
 }
 #phrase-creuse{
     padding: 20px 50px 30px;
     border: 1px dashed;
+    position: relative;
     color: @purple;
+    button{
+        span{
+            display: inline-block;
+            .transition(@transition);
+        }
+        &:hover, &:focus{
+            span{
+                .transform(rotate(360deg));
+                .transition(transform .4s ease-in-out, color @transition);
+            }
+        }
+    }
+    &:before{
+        display: block;
+        position: absolute;
+        top: -25px;
+        left: 30px;
+        content: "\e601";
+        font-size: 50px;
+        .fontIcon();
+    }
 }
 
 
@@ -419,8 +566,6 @@ button{
 /******* ENTETE *******/
 
 .head{
-    background-image: url(../layoutImg/texture-head.png);
-    background-position: 50% 50%;
     .container{
         padding-top: 5px;
         padding-bottom: 70px;
@@ -448,17 +593,109 @@ button{
         margin-right: auto;
         margin-bottom: .25em;
         a{
+            position: relative;
             &:extend(.underline all);
+            &:before{
+                display: block;
+                .size(60px);
+                position: absolute;
+                top: 10px;
+                left: -70px;
+                content: "\e602";
+                font-size: 60px;
+                .fontIcon();
+                color: #fff;
+                opacity: 0;
+                .transition(@transition);
+            }
             &:hover, &:focus{
                 color: #fff;
                 &:after{
                     background: #fff;
                 }
             }
+            &:hover{
+                &:before{
+                    opacity: 1;
+                }
+            }
+            &:active{
+                opacity: .7;
+            }
         }
         strong, a{
             .geomanistBold(1em);
         }
+    }
+    strong, span{
+        .transition(@transition);
+    }
+    &.fade{
+        strong, span, a{
+            opacity: .2;
+        }
+        .on{
+            opacity: 1;
+            &:active{
+                opacity: .7;
+            }
+        }
+        .section-cell{
+            background-repeat: no-repeat;
+            background-position: 50% 60%;
+        }
+    }
+    &.fade1{
+        .section-cell{
+            background-image: url(../layoutImg/vous/teletubies.png);
+            background-position: 50% 100%;
+        }
+    }
+    &.fade2{
+        .section-cell{
+            background-image: url(../layoutImg/vous/tronconneuse.png);
+        }
+    }
+    &.fade3{
+        .section-cell{
+            background-image: url(../layoutImg/vous/noise.png);
+        }
+    }
+    &.fade4{
+        .section-cell{
+            background-image: url(../layoutImg/vous/fouet.png);
+        }
+    }
+}
+
+#live{
+    .blog-list{
+        padding: 0 0 0 10px;
+    }
+}
+#instagram{
+    padding: 0 10px 0 0;
+    .hover{
+        .size(250px);
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+    .meta{
+        &:before{
+            content: "\e600";
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 10px 0 0;
+            font-size: 20px;
+            .fontIcon();
+        }
+    }
+    .desc{
+        display: block;
+        margin: 20px 0 0;
     }
 }
 

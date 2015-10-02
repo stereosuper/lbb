@@ -1,4 +1,6 @@
 /**** VARIABLES ****/
+var tlBackground = new TimelineMax({repeat:-1});
+
 
 function addEventListener(el, eventName, handler){
 	if(el.addEventListener){
@@ -12,6 +14,9 @@ function addEventListener(el, eventName, handler){
 
 function addClass(el, className){
 	el.classList ? el.classList.add(className) : el.className += ' ' + className;
+}
+function removeClass(el, className){
+	el.classList ? el.classList.remove(className) : el.className = el.className.replace(new RegExp('(^|\\b)' + className.split('').join('|') + '(\\b|$)', 'gi'), ' ');
 }
 
 function shuffle(array){
@@ -27,6 +32,40 @@ function shuffle(array){
   return array;
 }
 
+window.requestAnimFrame = (function(){
+  return  window.requestAnimationFrame       ||
+          window.webkitRequestAnimationFrame ||
+          window.mozRequestAnimationFrame    ||
+          function( callback ){
+            window.setTimeout(callback, 1000 / 60);
+          };
+})();
+
+
+
+function animBackground(container){
+	TweenMax.to(container, 50, {backgroundPosition: '100% 0', repeat: -1, ease:Linear.easeNone});
+	requestAnimFrame(animBackground);
+}
+
+function linksHoverYou(section){
+	var links = section.querySelectorAll('a'), nbLinks = links.length, i = 0;
+
+	for(i; i<nbLinks; i++){
+		(function(i){
+			addEventListener(links[i], 'mouseover', function(){
+				addClass(this, 'on');
+				addClass(section, 'fade');
+				addClass(section, 'fade'+parseInt(i+1));
+			});
+			addEventListener(links[i], 'mouseout', function(){
+				removeClass(this, 'on');
+				removeClass(section, 'fade');
+				removeClass(section, 'fade'+parseInt(i+1));
+			});
+		}(i));
+	}
+}
 
 function bullshitGenerator(){
 	// for each element: img to display, action to execute (false si rien), img to display after the action (false si rien)
@@ -142,6 +181,9 @@ function init(){
 
 	var phrase = document.getElementById('phrase-creuse');
 	if(phrase !== null) setSentences(phrase);
+
+	var youSection = document.getElementById('vous');
+	if(youSection !== null) linksHoverYou(youSection);
 }
 
 function ready(fn){

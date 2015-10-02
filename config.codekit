@@ -11,6 +11,50 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/img\/blog1.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 73909,
+		"inputAbbreviatedPath": "\/img\/blog1.jpg",
+		"outputAbbreviatedPath": "\/img\/blog1.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/blog2.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 56845,
+		"inputAbbreviatedPath": "\/img\/blog2.jpg",
+		"outputAbbreviatedPath": "\/img\/blog2.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/blog3.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 80303,
+		"inputAbbreviatedPath": "\/img\/blog3.jpg",
+		"outputAbbreviatedPath": "\/img\/blog3.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/blog4.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 56411,
+		"inputAbbreviatedPath": "\/img\/blog4.jpg",
+		"outputAbbreviatedPath": "\/img\/blog4.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/img\/bullshit\/entreprise-purple.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -141,6 +185,28 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
+	"\/js\/timelineMax.min.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/js\/timelineMax.min.js",
+		"outputAbbreviatedPath": "\/js\/min\/timelineMax.min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/js\/tweenMax.min.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/js\/tweenMax.min.js",
+		"outputAbbreviatedPath": "\/js\/min\/tweenMax.min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
 	"\/layoutImg\/logo.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -148,6 +214,28 @@
 		"initialSize": 16639,
 		"inputAbbreviatedPath": "\/layoutImg\/logo.png",
 		"outputAbbreviatedPath": "\/layoutImg\/logo.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/layoutImg\/masque-pink.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 32367,
+		"inputAbbreviatedPath": "\/layoutImg\/masque-pink.png",
+		"outputAbbreviatedPath": "\/layoutImg\/masque-pink.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/layoutImg\/masques-pink.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 68882,
+		"inputAbbreviatedPath": "\/layoutImg\/masques-pink.png",
+		"outputAbbreviatedPath": "\/layoutImg\/masques-pink.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -163,13 +251,79 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/layoutImg\/texture-head.png": {
+	"\/layoutImg\/texture-blue.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 56603,
+		"inputAbbreviatedPath": "\/layoutImg\/texture-blue.png",
+		"outputAbbreviatedPath": "\/layoutImg\/texture-blue.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/layoutImg\/texture-purple.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 56985,
-		"inputAbbreviatedPath": "\/layoutImg\/texture-head.png",
-		"outputAbbreviatedPath": "\/layoutImg\/texture-head.png",
+		"inputAbbreviatedPath": "\/layoutImg\/texture-purple.png",
+		"outputAbbreviatedPath": "\/layoutImg\/texture-purple.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/layoutImg\/texture-yellow.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 13552,
+		"inputAbbreviatedPath": "\/layoutImg\/texture-yellow.png",
+		"outputAbbreviatedPath": "\/layoutImg\/texture-yellow.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/layoutImg\/vous\/fouet.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 154900,
+		"inputAbbreviatedPath": "\/layoutImg\/vous\/fouet.png",
+		"outputAbbreviatedPath": "\/layoutImg\/vous\/fouet.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/layoutImg\/vous\/noise.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 193379,
+		"inputAbbreviatedPath": "\/layoutImg\/vous\/noise.png",
+		"outputAbbreviatedPath": "\/layoutImg\/vous\/noise.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/layoutImg\/vous\/teletubies.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 379029,
+		"inputAbbreviatedPath": "\/layoutImg\/vous\/teletubies.png",
+		"outputAbbreviatedPath": "\/layoutImg\/vous\/teletubies.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/layoutImg\/vous\/tronconneuse.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 185803,
+		"inputAbbreviatedPath": "\/layoutImg\/vous\/tronconneuse.png",
+		"outputAbbreviatedPath": "\/layoutImg\/vous\/tronconneuse.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0

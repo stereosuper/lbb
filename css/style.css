@@ -276,7 +276,10 @@ menu {
 }
 [class^="icon-"],
 [class*=" icon-"],
-.fontIcon {
+.icomoon,
+#phrase-creuse:before,
+#vous h2 a:before,
+#instagram .meta:before {
   font-family: 'icomoon';
   speak: none;
   font-style: normal;
@@ -284,8 +287,6 @@ menu {
   font-variant: normal;
   text-transform: none;
   line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 .icon-map:before {
   content: "\e600";
@@ -330,8 +331,6 @@ h5 {
   font-size: 1em;
   font-weight: normal;
   font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   line-height: 1em;
 }
 h1 {
@@ -354,8 +353,6 @@ h2.light {
   font-size: 3.5em;
   font-weight: normal;
   font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 h3,
 .h3 {
@@ -386,8 +383,6 @@ b {
   font-size: 1em;
   font-weight: normal;
   font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 ol,
 ul {
@@ -414,8 +409,6 @@ blockquote .quote {
   font-size: 1.3em;
   font-weight: normal;
   font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   line-height: 1.6em;
   text-align: center;
 }
@@ -432,8 +425,6 @@ blockquote .by {
   font-size: 1em;
   font-weight: normal;
   font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 blockquote .by b {
   display: block;
@@ -492,8 +483,6 @@ button {
   font-size: 1.15em;
   font-weight: normal;
   font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-transform: uppercase;
   color: #fff;
 }
@@ -628,8 +617,6 @@ button {
   font-size: 1em;
   font-weight: normal;
   font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   line-height: 1em;
   text-transform: uppercase;
 }
@@ -641,16 +628,12 @@ button {
   font-size: 1em;
   font-weight: normal;
   font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 .modern {
   font-family: 'modern', sans-serif;
   font-size: 1em;
   font-weight: normal;
   font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 .table {
   display: table;
@@ -785,8 +768,6 @@ button {
   font-size: 1em;
   font-weight: normal;
   font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 #main-menu ul {
   padding: 0;
@@ -870,15 +851,6 @@ button {
   left: 30px;
   content: "\e601";
   font-size: 50px;
-  font-family: 'icomoon';
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 /******* WRAPPER *******/
 /******* ENTETE *******/
@@ -915,15 +887,6 @@ button {
   left: -70px;
   content: "\e602";
   font-size: 60px;
-  font-family: 'icomoon';
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   color: #fff;
   opacity: 0;
   -webkit-transition: 0.2s ease-in-out;
@@ -951,8 +914,6 @@ button {
   font-size: 1em;
   font-weight: normal;
   font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 #vous strong,
 #vous span {
@@ -1010,15 +971,6 @@ button {
   vertical-align: middle;
   margin: 0 10px 0 0;
   font-size: 20px;
-  font-family: 'icomoon';
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 #instagram .desc {
   display: block;

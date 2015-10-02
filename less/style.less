@@ -34,6 +34,8 @@ html{
 body{
     color: #fff;
     .klinic(1.4em); // =14px
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, .h3, h4, h5{
@@ -551,7 +553,7 @@ button{
         left: 30px;
         content: "\e601";
         font-size: 50px;
-        .fontIcon();
+        &:extend(.icomoon);
     }
 }
 
@@ -603,7 +605,7 @@ button{
                 left: -70px;
                 content: "\e602";
                 font-size: 60px;
-                .fontIcon();
+                &:extend(.icomoon);
                 color: #fff;
                 opacity: 0;
                 .transition(@transition);
@@ -690,7 +692,7 @@ button{
             vertical-align: middle;
             margin: 0 10px 0 0;
             font-size: 20px;
-            .fontIcon();
+            &:extend(.icomoon);
         }
     }
     .desc{

@@ -20,16 +20,16 @@ function removeClass(el, className){
 }
 
 function shuffle(array){
-  var elementsRemaining = array.length, temp, randomIndex;
-  while (elementsRemaining > 1) {
-    randomIndex = Math.floor(Math.random() * elementsRemaining--);
-    if (randomIndex != elementsRemaining) {
-      temp = array[elementsRemaining];
-      array[elementsRemaining] = array[randomIndex];
-      array[randomIndex] = temp;
-    }
-  }
-  return array;
+	var elementsRemaining = array.length, temp, randomIndex;
+	while(elementsRemaining > 1){
+		randomIndex = Math.floor(Math.random() * elementsRemaining--);
+		if(randomIndex !== elementsRemaining){
+			temp = array[elementsRemaining];
+			array[elementsRemaining] = array[randomIndex];
+			array[randomIndex] = temp;
+		}
+	}
+	return array;
 }
 
 window.requestAnimFrame = (function(){
@@ -43,10 +43,54 @@ window.requestAnimFrame = (function(){
 
 
 
-function animBackground(container){
+
+function setSlider(slider){
+	var slides = slider.querySelectorAll('.slide'),
+		nbSlides = slides.length,
+		currentSlide = 0, i = 0,
+		next = document.createElement('button'),
+		prev = document.createElement('button'),
+		height = 0, posX = '50%', timing = .3;
+
+	function slideNext(){
+		TweenLite.to( slides[currentSlide], timing, {left: '-'+posX, opacity: 0, onComplete: function(){
+			currentSlide < nbSlides - 1 ? currentSlide ++ : currentSlide = 0;
+			TweenLite.fromTo( slides[currentSlide], timing, {left: posX}, {left: 0, opacity: 1} );
+		}} );
+		//	TweenLite.delayedCall(5, slideNext);
+	}
+
+	function slidePrev(){
+		TweenLite.to( slides[currentSlide], timing, {left: posX, opacity: 0, onComplete: function(){
+			currentSlide > 0 ? currentSlide -- : currentSlide = nbSlides - 1;
+			TweenLite.fromTo( slides[currentSlide], timing, {left: '-'+posX}, {left: 0, opacity: 1} );
+		}} );
+	}
+
+	for(i; i < nbSlides; i++){
+		if(i > 0) TweenLite.set(slides[i], {left: posX, opacity: 0});
+		if(slides[i].offsetHeight > height) height = slides[i].offsetHeight;
+	}
+	
+	slider.querySelector('ul').style.height = height+'px';
+
+	next.setAttribute('id', 'next');
+	next.innerHTML = 'Next';
+	slider.appendChild(next);
+	addEventListener(next, 'click', slideNext);
+
+	prev.setAttribute('id', 'prev');
+	prev.innerHTML = 'Prev';
+	slider.appendChild(prev);
+	addEventListener(prev, 'click', slidePrev);
+
+	//TweenLite.delayedCall(5, slideNext);
+}
+
+/*function animBackground(container){
 	TweenMax.to(container, 50, {backgroundPosition: '100% 0', repeat: -1, ease:Linear.easeNone});
 	requestAnimFrame(animBackground);
-}
+}*/
 
 function linksHoverYou(section){
 	var links = section.querySelectorAll('a'), nbLinks = links.length, i = 0;
@@ -88,11 +132,17 @@ function bullshitGenerator(){
 			document.getElementsByClassName('bg-blue')[0]
 		],
 		positions = ['top-left', 'top-right', 'top-center', 'bottom-left', 'bottom-right', 'bottom-center'],
-		i = 0, j, buttons = [], imgsBefore = [], imgsAfter = [], rands = [], limit = 3, length = 0;
+		i = 0, j, buttons = [], imgsBefore = [], imgsAfter = [], divsAfter = [], rands = [], limit = 3, length = 0;
 
 	function shitAppens(section, img, id){
 		var imgById = section.querySelector('#'+id);
-		imgById ? imgById.remove() : section.appendChild(img);		
+		if(imgById){
+			removeClass(imgById, 'big');
+			imgById.remove();
+		}else{
+			section.appendChild(img);
+			setTimeout( function(){addClass(img, 'big');}, 100);
+		}	
 	}
 
 	for(i; i<tabs.length; i++){
@@ -101,6 +151,7 @@ function bullshitGenerator(){
 		imgsBefore[i] = [];
 		imgsAfter[i] = [];
 		rands = [];
+		divsAfter[i] = [];
 
 		shuffle(tabs[i]);
 		length = tabs[i].length < limit ? tabs[i].length : limit;
@@ -124,20 +175,21 @@ function bullshitGenerator(){
 				sections[i].querySelector('.container').appendChild(buttons[i][j]);
 
 				if(tabs[i][j][1]){
+					divsAfter[i][j] = document.createElement('div');
+					divsAfter[i][j].setAttribute('id', 'pop-'+i+'-'+j);
+					addClass(divsAfter[i][j], 'bullshit');
+
 					imgsAfter[i][j] = document.createElement('img');
 					imgsAfter[i][j].setAttribute('src', tabs[i][j][2]);
-					imgsAfter[i][j].setAttribute('id', 'img-'+i+'-'+j);
-					addClass(imgsAfter[i][j], 'bullshit');
+					divsAfter[i][j].appendChild(imgsAfter[i][j]);
 
 					// un écouteur sur le bouton pour faire apparaitre la connerie
 					addEventListener(buttons[i][j], tabs[i][j][1], function(){
-						shitAppens(sections[i], imgsAfter[i][j], 'img-'+i+'-'+j); 
+						shitAppens(sections[i], divsAfter[i][j], 'pop-'+i+'-'+j); 
 					});
 
 					// un écouteur sur la connerie pour la faire disparaitre au clic
-					addEventListener(imgsAfter[i][j], tabs[i][j][1], function(){
-						this.remove();
-					});
+					addEventListener(divsAfter[i][j], tabs[i][j][1], function(){ removeClass(this, 'big'); this.remove(); });
 				}else{
 					addClass(buttons[i][j], 'not-a-btn');
 				}
@@ -184,6 +236,14 @@ function init(){
 
 	var youSection = document.getElementById('vous');
 	if(youSection !== null) linksHoverYou(youSection);
+
+	var sliders = document.getElementsByClassName('slider');
+	if(sliders.length){
+		var i = 0;
+		for(i; i<sliders.length; i++){
+			setSlider(sliders[i]);
+		}
+	}
 }
 
 function ready(fn){

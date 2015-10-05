@@ -65,18 +65,61 @@
 						<h2 class='sup-title'>Ils nous ont quand même fait confiance :</h2>
 						<div class='slider'>
 							<ul>
-								<li>
+								<li class='slide'>
 									<article>
-										<h3>Et si nous échangions notre patrimoine immatériel?</h3>
-										<blockquote>
-											<p class='quote'>
-												C'était à la fois riche, dense, distrayant et convivial...
-											</p>
-											<p class='by'>
-												<b>Alexis Moisdon</b>
-												Directeur Général de Naoned System
-											</p>
-										</blockquote>
+										<div class='img'>
+											<img src='img/naoned.png' width='130' height='43' alt='Naoned'>
+											<div id='tv'></div>
+										</div><div class='txt'>
+											<h3>Et si nous échangions notre patrimoine immatériel?</h3>
+											<blockquote>
+												<p class='quote'>
+													C'était à la fois riche, dense, distrayant et convivial...
+												</p>
+												<p class='by'>
+													<b>Alexis Moisdon</b>
+													Directeur Général de Naoned System
+												</p>
+											</blockquote>
+										</div>
+									</article>
+								</li>
+								<li class='slide'>
+									<article>
+										<div class='img'>
+											<img src='img/naoned.png' width='130' height='43' alt='Naoned'>
+											<div id='tv'></div>
+										</div><div class='txt'>
+											<h3>Un deuxième titre</h3>
+											<blockquote>
+												<p class='quote'>
+													Une autre citation...
+												</p>
+												<p class='by'>
+													<b>Alexis Moisdon</b>
+													Directeur Général de Naoned System
+												</p>
+											</blockquote>
+										</div>
+									</article>
+								</li>
+								<li class='slide'>
+									<article>
+										<div class='img'>
+											<img src='img/naoned.png' width='130' height='43' alt='Naoned'>
+											<div id='tv'></div>
+										</div><div class='txt'>
+											<h3>Le troisième</h3>
+											<blockquote>
+												<p class='quote'>
+													Une citation... numéro trois!
+												</p>
+												<p class='by'>
+													<b>Alexis Moisdon</b>
+													Directeur Général de Naoned System
+												</p>
+											</blockquote>
+										</div>
 									</article>
 								</li>
 							</ul>

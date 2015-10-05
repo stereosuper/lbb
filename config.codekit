@@ -132,6 +132,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/img\/naoned.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 5422,
+		"inputAbbreviatedPath": "\/img\/naoned.png",
+		"outputAbbreviatedPath": "\/img\/naoned.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/index.php": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -207,6 +218,17 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
+	"\/layoutImg\/bulle.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 5523,
+		"inputAbbreviatedPath": "\/layoutImg\/bulle.png",
+		"outputAbbreviatedPath": "\/layoutImg\/bulle.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/layoutImg\/logo.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -280,6 +302,17 @@
 		"initialSize": 13552,
 		"inputAbbreviatedPath": "\/layoutImg\/texture-yellow.png",
 		"outputAbbreviatedPath": "\/layoutImg\/texture-yellow.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/layoutImg\/tv.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 299267,
+		"inputAbbreviatedPath": "\/layoutImg\/tv.png",
+		"outputAbbreviatedPath": "\/layoutImg\/tv.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0

@@ -277,6 +277,8 @@ menu {
 [class^="icon-"],
 [class*=" icon-"],
 .icomoon,
+.slider #next,
+.slider #prev,
 #phrase-creuse:before,
 #vous h2 a:before,
 #instagram .meta:before {
@@ -287,6 +289,12 @@ menu {
   font-variant: normal;
   text-transform: none;
   line-height: 1;
+}
+.icon-right:before {
+  content: "\e800";
+}
+.icon-left:before {
+  content: "\e801";
 }
 .icon-map:before {
   content: "\e600";
@@ -374,9 +382,6 @@ h6 {
 p {
   margin: 1em 0;
 }
-blockquote {
-  margin: 1em 40px;
-}
 strong,
 b {
   font-family: 'geomanist-bold', sans-serif;
@@ -394,7 +399,31 @@ img {
   height: auto;
 }
 blockquote {
-  margin: 30px 0;
+  position: relative;
+  margin: 30px 0 30px -32px;
+  /*.bg-quote{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 220px;
+        &:before, &:after{
+            content: '';
+            position: absolute;
+            left: 0;
+            border-left: 60px solid @blue;
+            border-right: 60px solid @blue;
+            width: 220px;
+            height: 0;
+        }
+        &:before {
+            top: 0;
+            border-bottom: 65px solid #fff;
+        }
+        &:after {
+            bottom: 0;
+            border-top: 65px solid #fff;
+        }
+    }*/
 }
 blockquote .quote,
 blockquote .by {
@@ -403,8 +432,10 @@ blockquote .by {
   margin: 0;
 }
 blockquote .quote {
-  max-width: 220px;
-  padding: 30px 35px;
+  width: 244px;
+  height: 220px;
+  padding: 50px 30px 50px 55px;
+  background: url(../layoutImg/bulle.png) no-repeat 100% 0;
   font-family: 'marker', sans-serif;
   font-size: 1.3em;
   font-weight: normal;
@@ -420,7 +451,7 @@ blockquote .quote:after {
 }
 blockquote .by {
   max-width: 125px;
-  margin: 0 0 0 35px;
+  margin: 10px 0 10px 8%;
   font-family: 'geomanist', sans-serif;
   font-size: 1em;
   font-weight: normal;
@@ -566,6 +597,8 @@ button {
   opacity: .4;
 }
 .bullshit {
+  width: 100px;
+  height: 100px;
   max-width: 90%;
   position: fixed;
   z-index: 2;
@@ -574,7 +607,27 @@ button {
   left: 0;
   right: 0;
   margin: auto;
+  overflow: hidden;
+  border-radius: 100%;
   cursor: pointer;
+  text-align: center;
+}
+.bullshit img {
+  min-width: 150px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.bullshit.big {
+  width: 100%;
+  height: 100%;
+  -webkit-transition: 0.8s;
+  -moz-transition: 0.8s;
+  -o-transition: 0.8s;
+  transition: 0.8s;
 }
 /******* CLASSES GENERALES  *******/
 .center,
@@ -595,7 +648,6 @@ button {
 }
 .bg-blue blockquote .quote {
   color: #2ac0ce;
-  background: #fff;
 }
 @keyframes animatedBackground {
   to {
@@ -696,8 +748,92 @@ button {
   margin: 0;
   list-style: none;
 }
-.slider h3 {
+.slider {
+  padding: 0 50px;
+  position: relative;
+}
+.slider ul {
+  height: 500px;
+  position: relative;
+}
+.slider #next,
+.slider #prev {
+  display: block;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 30%;
+  z-index: 1;
+  overflow: hidden;
+  text-indent: -99em;
+  color: #fff;
+}
+.slider #next:before,
+.slider #prev:before {
+  display: block;
+  text-indent: 0;
+  font-size: 40px;
+  font-weight: 700;
+}
+.slider #next:hover,
+.slider #prev:hover,
+.slider #next:focus,
+.slider #prev:focus {
+  opacity: .6;
+}
+.slider #next {
+  right: 0;
+}
+.slider #next:before {
+  content: '\e800';
+}
+.slider #next:hover {
+  right: -5px;
+}
+.slider #prev {
+  left: 0;
+}
+.slider #prev:before {
+  content: '\e801';
+}
+.slider #prev:hover {
+  left: -5px;
+}
+.slide {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.slide .img,
+.slide .txt {
+  display: inline-block;
+  vertical-align: top;
+}
+.slide .img {
+  width: 35%;
+  padding: 70px 40px 0 90px;
+  position: relative;
+}
+.slide .img img {
+  max-width: 155px;
+}
+.slide .txt {
+  width: 55%;
+  margin: 0 0 0 10%;
+}
+.slide h3 {
   max-width: 350px;
+  margin-bottom: 70px;
+}
+#tv {
+  width: 301px;
+  height: 742px;
+  position: absolute;
+  top: 30px;
+  left: -17px;
+  z-index: -1;
+  background: url(../layoutImg/tv.png) no-repeat;
 }
 .blog-list li {
   display: inline-block;
@@ -839,10 +975,10 @@ button {
   -o-transform: rotate(360deg);
   -ms-transform: rotate(360deg);
   transform: rotate(360deg);
-  -webkit-transition: -webkit-transform 0.4s ease-in-out, color 0.2s ease-in-out;
-  -moz-transition: -moz-transform 0.4s ease-in-out, color 0.2s ease-in-out;
-  -o-transition: -o-transform 0.4s ease-in-out, color 0.2s ease-in-out;
-  transition: -webkit-transform 0.4s ease-in-out,-moz-transform 0.4s ease-in-out,-o-transform 0.4s ease-in-out,transform 0.4s ease-in-out, color 0.2s ease-in-out;
+  -webkit-transition: -webkit-transform 0.4s ease-in-out;
+  -moz-transition: -moz-transform 0.4s ease-in-out;
+  -o-transition: -o-transform 0.4s ease-in-out;
+  transition: -webkit-transform 0.4s ease-in-out,-moz-transform 0.4s ease-in-out,-o-transform 0.4s ease-in-out,transform 0.4s ease-in-out;
 }
 #phrase-creuse:before {
   display: block;
@@ -950,6 +1086,12 @@ button {
 #vous.fade4 .section-cell {
   background-image: url(../layoutImg/vous/fouet.png);
 }
+#confiance {
+  overflow: hidden;
+}
+#confiance h2 {
+  margin-left: 45%;
+}
 #live .blog-list {
   padding: 0 0 0 10px;
 }
@@ -982,6 +1124,15 @@ button {
 @media (max-width: 1150px) {
   h1 {
     font-size: 7.5em;
+  }
+  blockquote .quote {
+    width: 215px;
+    height: 195px;
+    background-size: 100%;
+    font-size: 1.1em;
+  }
+  blockquote .by {
+    margin-left: 2.2%;
   }
   .black-hover-link .hover em,
   .black-hover-link .hover i {
@@ -1028,6 +1179,35 @@ button {
   h6 {
     font-size: 1em;
   }
+  blockquote {
+    margin-left: 0;
+  }
+  blockquote .by {
+    display: block;
+    margin: 0 auto;
+  }
+  .slider .img,
+  .slider .txt {
+    display: block;
+    width: 100%;
+  }
+  .slider .img {
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .slider .txt {
+    margin: 20px 0 0;
+    text-align: center;
+  }
+  .slider h3 {
+    margin: 50px auto;
+  }
+  #tv {
+    left: -40px;
+    right: 0;
+    margin: auto;
+  }
   #footer {
     text-align: center;
   }
@@ -1046,6 +1226,10 @@ button {
   }
   #vous.fade .section-cell {
     background-size: 80%;
+  }
+  #confiance h2 {
+    margin-left: 0;
+    text-align: center;
   }
   #live .table {
     display: block;

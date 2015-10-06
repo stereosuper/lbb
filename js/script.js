@@ -180,7 +180,7 @@ function bullshitGenerator(){
 				buttons[i][j].appendChild(imgsBefore[i][j]);
 				TweenLite.set(buttons[i][j], {css:{className:'+=bullshitBtn '+positions[rands[j]]}});
 
-				sections[i].querySelector('.container').appendChild(buttons[i][j]);
+				sections[i].appendChild(buttons[i][j]);
 
 				if(tabs[i][j][1]){
 					divsAfter[i][j] = document.createElement('div');

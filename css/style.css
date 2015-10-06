@@ -582,7 +582,6 @@ button {
   right: 20%;
 }
 .bullshitBtn.not-a-btn {
-  z-index: -1;
   cursor: auto;
   opacity: .8;
 }

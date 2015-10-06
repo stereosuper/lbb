@@ -1,7 +1,4 @@
 /**** VARIABLES ****/
-var tlBackground = new TimelineMax({repeat:-1});
-
-
 function addEventListener(el, eventName, handler){
 	if(el.addEventListener){
 		el.addEventListener(eventName, handler);
@@ -12,11 +9,15 @@ function addEventListener(el, eventName, handler){
 	}
 }
 
-function addClass(el, className){
+/*function addClass(el, className){
 	el.classList ? el.classList.add(className) : el.className += ' ' + className;
 }
 function removeClass(el, className){
 	el.classList ? el.classList.remove(className) : el.className = el.className.replace(new RegExp('(^|\\b)' + className.split('').join('|') + '(\\b|$)', 'gi'), ' ');
+}*/
+
+function hasClass(el, className){
+	return el.classList ? el.classList.contains(className) : new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
 }
 
 function shuffle(array){
@@ -50,7 +51,7 @@ function setSlider(slider){
 		currentSlide = 0, i = 0,
 		next = document.createElement('button'),
 		prev = document.createElement('button'),
-		height = 0, posX = '50%', timing = .3;
+		height = 0, posX = '25%', timing = .3;
 
 	function slideNext(){
 		TweenLite.to( slides[currentSlide], timing, {left: '-'+posX, opacity: 0, onComplete: function(){
@@ -72,7 +73,7 @@ function setSlider(slider){
 		if(slides[i].offsetHeight > height) height = slides[i].offsetHeight;
 	}
 	
-	slider.querySelector('ul').style.height = height+'px';
+	TweenLite.set(slider.querySelector('ul'), {height: height+'px'});
 
 	next.setAttribute('id', 'next');
 	next.innerHTML = 'Next';
@@ -87,10 +88,13 @@ function setSlider(slider){
 	//TweenLite.delayedCall(5, slideNext);
 }
 
-/*function animBackground(container){
-	TweenMax.to(container, 50, {backgroundPosition: '100% 0', repeat: -1, ease:Linear.easeNone});
-	requestAnimFrame(animBackground);
-}*/
+function animBackground(container){
+	liveBgPos1 += 100;
+	liveBgPosFinal1 += 100;
+	liveBgPos2 -= 100;
+	liveBgPosFinal2 -= 100;
+	TweenLite.fromTo(container, 25, {backgroundPosition: liveBgPos1+'% '+liveBgPos2+'%'}, {backgroundPosition: liveBgPosFinal1+'% '+liveBgPosFinal2+'%', ease:Linear.easeNone, onComplete: animBackground, onCompleteParams: [container]});
+}
 
 function linksHoverYou(section){
 	var links = section.querySelectorAll('a'), nbLinks = links.length, i = 0;
@@ -98,14 +102,13 @@ function linksHoverYou(section){
 	for(i; i<nbLinks; i++){
 		(function(i){
 			addEventListener(links[i], 'mouseover', function(){
-				addClass(this, 'on');
-				addClass(section, 'fade');
-				addClass(section, 'fade'+parseInt(i+1));
+				TweenLite.set(this, {css:{className:'+=on'}});
+				TweenLite.set(section, {css:{className:'+=fade fade'+parseInt(i+1)}});
 			});
 			addEventListener(links[i], 'mouseout', function(){
-				removeClass(this, 'on');
-				removeClass(section, 'fade');
-				removeClass(section, 'fade'+parseInt(i+1));
+				TweenLite.set(this, {css:{className:'-=on'}});
+				TweenLite.set(section, {css:{className:'-=fade'}});
+				TweenLite.set(section, {css:{className:'-=fade'+parseInt(i+1)}});
 			});
 		}(i));
 	}
@@ -132,16 +135,22 @@ function bullshitGenerator(){
 			document.getElementsByClassName('bg-blue')[0]
 		],
 		positions = ['top-left', 'top-right', 'top-center', 'bottom-left', 'bottom-right', 'bottom-center'],
-		i = 0, j, buttons = [], imgsBefore = [], imgsAfter = [], divsAfter = [], rands = [], limit = 3, length = 0;
+		i = 0, j, buttons = [], imgsBefore = [], imgsAfter = [], divsAfter = [], rands = [], limit = 3, length = 0,
+		transitionOpen = .8, transitionClose = 400;
 
 	function shitAppens(section, img, id){
 		var imgById = section.querySelector('#'+id);
 		if(imgById){
-			removeClass(imgById, 'big');
-			imgById.remove();
+			TweenLite.set(imgById, {css:{className:'-=full'}});
+			TweenLite.set(imgById, {css:{className:'-=big'}});
+			setTimeout( function(){
+				imgById.remove();
+			}, transitionClose );
 		}else{
 			section.appendChild(img);
-			setTimeout( function(){addClass(img, 'big');}, 100);
+			TweenLite.set(img, {css:{className:'+=big'}, delay: .01, onComplete: function(){
+				TweenLite.set(img, {css:{className:'+=full'}, delay: transitionOpen});
+			}});
 		}	
 	}
 
@@ -169,16 +178,14 @@ function bullshitGenerator(){
 
 				buttons[i][j] = document.createElement('button');
 				buttons[i][j].appendChild(imgsBefore[i][j]);
-				addClass(buttons[i][j], 'bullshitBtn');
-				addClass(buttons[i][j], positions[rands[j]]);
+				TweenLite.set(buttons[i][j], {css:{className:'+=bullshitBtn '+positions[rands[j]]}});
 
 				sections[i].querySelector('.container').appendChild(buttons[i][j]);
 
 				if(tabs[i][j][1]){
 					divsAfter[i][j] = document.createElement('div');
 					divsAfter[i][j].setAttribute('id', 'pop-'+i+'-'+j);
-					addClass(divsAfter[i][j], 'bullshit');
-
+					TweenLite.set(divsAfter[i][j], {css:{className:'+=bullshit'}});
 					imgsAfter[i][j] = document.createElement('img');
 					imgsAfter[i][j].setAttribute('src', tabs[i][j][2]);
 					divsAfter[i][j].appendChild(imgsAfter[i][j]);
@@ -189,9 +196,14 @@ function bullshitGenerator(){
 					});
 
 					// un écouteur sur la connerie pour la faire disparaitre au clic
-					addEventListener(divsAfter[i][j], tabs[i][j][1], function(){ removeClass(this, 'big'); this.remove(); });
+					addEventListener(divsAfter[i][j], tabs[i][j][1], function(){
+						var that = this;
+						TweenLite.set(that, {css:{className:'-=full'}});
+						TweenLite.set(that, {css:{className:'-=big'}});
+						setTimeout( function(){ that.remove(); }, transitionClose );
+					});
 				}else{
-					addClass(buttons[i][j], 'not-a-btn');
+					TweenLite.set(buttons[i][j], {css:{className:'+=not-a-btn'}});
 				}
 
 			}(i, j));
@@ -206,23 +218,23 @@ function setSentences(container){
 			"Une autre phrase creuse",
 			"Des trucs et des machins"
 		],
+		nbSentences = sentences.length,
 		btn = container.querySelector('button'),
 		sentenceContainer = container.querySelector('p'),
 		actualSentence = 0;
 
 	function newSentence(){
-		var rand = Math.floor( Math.random()*sentences.length );
+		var rand = Math.floor( Math.random()*nbSentences );
 		if(rand === actualSentence){
 			while(rand === actualSentence)
-				rand = Math.floor( Math.random()*sentences.length );
+				rand = Math.floor( Math.random()*nbSentences );
 		}
 		actualSentence = rand;
 		sentenceContainer.innerHTML = sentences[rand];
 	}
 
 	// set size to the container <p> so it won't move on sentence changing
-	sentenceContainer.style.width = sentenceContainer.offsetWidth + 'px';
-	sentenceContainer.style.minHeight = sentenceContainer.offsetHeight + 'px';
+	TweenLite.set(sentenceContainer, {width: sentenceContainer.offsetWidth + 'px', minHeight: sentenceContainer.offsetHeight + 'px'});
 
 	addEventListener(btn, 'click', newSentence);
 }
@@ -243,6 +255,14 @@ function init(){
 		for(i; i<sliders.length; i++){
 			setSlider(sliders[i]);
 		}
+	}
+
+	var live = document.getElementById('live');
+	if(live !== null){
+		liveBgPos1 = -100; liveBgPosFinal1 = 0;
+		liveBgPos2 = 200; liveBgPosFinal2 = 100;
+
+		//animBackground(live);
 	}
 }
 

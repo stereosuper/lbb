@@ -1,5 +1,15 @@
 /* @group Responsive horizontal */
 
+@media (max-width: 1350px){
+    #header{
+        left: 0;
+    }
+
+    #main-menu{
+        right: 0;
+    }
+}
+
 @media (max-width: 1150px){
     h1{
         font-size: 7.5em;
@@ -36,7 +46,7 @@
         padding: 0 20px;
     }
 
-    #header{
+    #header, #main-menu{
         position: absolute;
         top: 20px;
     }
@@ -74,6 +84,12 @@
         .by{
             display: block;
             margin: 0 auto;
+        }
+    }
+
+    .bullshit{
+        &.big{
+            .size(480px);
         }
     }
 
@@ -163,9 +179,21 @@
             margin: 0 0 -.05em;
         }
     }
+
+    .bullshit{
+        &.big{
+            .size(360px);
+        }
+    }
 }
 
 @media (max-width: 360px){
+    .bullshit{
+        &.big{
+            .size(300px);
+        }
+    }
+
     .blog-list{
         text-align: center;
         li{
@@ -187,10 +215,10 @@
 @media(max-height: 850px){
     .bullshitBtn{
         &.top-left, &.top-center, &.top-right{
-            top: -10vh;
+            top: 10vh;
         }
         &.bottom-left, &.bottom-center, &.bottom-right{
-            bottom: -10vh;
+            bottom: 10vh;
         }
     }
 }
@@ -198,10 +226,10 @@
 @media(max-height: 680px){
     .bullshitBtn{
         &.top-left, &.top-center, &.top-right{
-            top: -5vh;
+            top: 5vh;
         }
         &.bottom-left, &.bottom-center, &.bottom-right{
-            bottom: -5vh;
+            bottom: 5vh;
         }
     }
 }

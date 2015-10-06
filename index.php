@@ -16,20 +16,19 @@
 	<body class='home'>
 		
 		<header id='header'>
-			<div class='container'>
-				<a id='logo' href='./'>la Belle Boîte</a>
-				<nav role='navigation' id='main-menu' class='menu'>
-					<ul>
-						<li class='actif'><a href='./'>Accueil</a></li>
-						<li><a href='#'>la Belle Boîte</a></li>
-						<li><a href='#'>Pour Vous</a></li>
-						<li><a href='#'>Blog</a></li>
-						<li><a href='#'>Contact</a></li>
-					</ul>
-				</nav>
-				<button id='burger'></button>
-			</div>
+			<a id='logo' href='./'>la Belle Boîte</a>
 		</header>
+
+		<nav role='navigation' id='main-menu' class='menu'>
+			<ul>
+				<li class='actif'><a href='./'>Accueil</a></li>
+				<li><a href='#'>la Belle Boîte</a></li>
+				<li><a href='#'>Pour Vous</a></li>
+				<li><a href='#'>Blog</a></li>
+				<li><a href='#'>Contact</a></li>
+			</ul>
+			<button id='burger'></button>
+		</nav>
 
 		<main id='wrapper' role='main'>
 			
@@ -57,6 +56,7 @@
 						<span class='sub-title'>( et tout un tas d'autres trucs qui nous amusent )</span>
 					</div>
 				</div>
+				<div id='bgVous'></div>
 			</section>
 
 			<section id='confiance' class='bg-blue section left'>
@@ -265,8 +265,10 @@
 		
 		<script src='js/modernizr.min.js'></script>
 	  	<!--<script src='js/jquery-1.11.2.min.js'></script>-->
-	  	<script src='js/tweenMax.min.js'></script>
-	  	<script src='js/timelineMax.min.js'></script>
+	  	<!--<script src='js/tweenMax.min.js'></script>-->
+	  	<script src="js/tweenCssPlugin.min.js"></script>
+	  	<script src="js/tweenEasePack.min.js"></script>
+	  	<script src="js/tweenLite.min.js"></script>
 	  	<script src='js/script.js'></script>
 
 	</body>

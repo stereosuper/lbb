@@ -465,10 +465,10 @@ a,
 button {
   text-decoration: none;
   color: #b5006a;
-  -webkit-transition: 0.2s ease-in-out;
-  -moz-transition: 0.2s ease-in-out;
-  -o-transition: 0.2s ease-in-out;
-  transition: 0.2s ease-in-out;
+  -webkit-transition: 0.15s ease-in-out;
+  -moz-transition: 0.15s ease-in-out;
+  -o-transition: 0.15s ease-in-out;
+  transition: 0.15s ease-in-out;
 }
 a:focus,
 button:focus,
@@ -501,10 +501,10 @@ button {
   left: 0;
   right: 0;
   background: #b5006a;
-  -webkit-transition: 0.2s ease-in-out;
-  -moz-transition: 0.2s ease-in-out;
-  -o-transition: 0.2s ease-in-out;
-  transition: 0.2s ease-in-out;
+  -webkit-transition: 0.15s ease-in-out;
+  -moz-transition: 0.15s ease-in-out;
+  -o-transition: 0.15s ease-in-out;
+  transition: 0.15s ease-in-out;
 }
 .btn {
   display: inline-block;
@@ -519,9 +519,9 @@ button {
 }
 .btn:hover,
 .btn:focus {
-  background: #910055;
-  border-color: #910055;
-  color: rgba(255, 255, 255, 0.8);
+  background: #fff;
+  border-color: #b5006a;
+  color: #b5006a;
 }
 .btn:active {
   background: #82004c;
@@ -530,8 +530,8 @@ button {
 }
 .bg-yellow .btn:hover,
 .bg-yellow .btn:focus {
-  background: #dba700;
-  border-color: #dba700;
+  color: #ffc200;
+  border-color: #ffc200;
 }
 .bg-yellow .btn:active {
   background: #cc9b00;
@@ -539,17 +539,17 @@ button {
 }
 .bg-blue .btn:hover,
 .bg-blue .btn:focus {
-  background: #24a4b0;
-  border-color: #24a4b0;
+  color: #2ac0ce;
+  border-color: #2ac0ce;
 }
 .bg-blue .btn:active {
-  background: #2199a4;
+  color: #2199a4;
   border-color: #2199a4;
 }
 .bg-pink .btn:hover,
 .bg-pink .btn:focus {
-  background: #ff3b99;
-  border-color: #ff3b99;
+  color: #ff5fac;
+  border-color: #ff5fac;
 }
 .bg-pink .btn:active {
   background: #ff2c92;
@@ -557,32 +557,32 @@ button {
 }
 .bullshitBtn {
   position: absolute;
-  z-index: -1;
   opacity: .7;
 }
 .bullshitBtn.top-left,
 .bullshitBtn.top-center,
 .bullshitBtn.top-right {
-  top: -15vh;
+  top: 5vh;
 }
 .bullshitBtn.bottom-left,
 .bullshitBtn.bottom-center,
 .bullshitBtn.bottom-right {
-  bottom: -15vh;
+  bottom: 5vh;
 }
 .bullshitBtn.top-left,
 .bullshitBtn.bottom-left {
-  left: 5px;
+  left: 20%;
 }
 .bullshitBtn.top-center,
 .bullshitBtn.bottom-center {
-  left: 35%;
+  left: 45%;
 }
 .bullshitBtn.top-right,
 .bullshitBtn.bottom-right {
-  right: 5px;
+  right: 20%;
 }
 .bullshitBtn.not-a-btn {
+  z-index: -1;
   cursor: auto;
   opacity: .8;
 }
@@ -597,9 +597,9 @@ button {
   opacity: .4;
 }
 .bullshit {
-  width: 100px;
-  height: 100px;
-  max-width: 90%;
+  width: 10px;
+  height: 10px;
+  border: 1px solid transparent;
   position: fixed;
   z-index: 2;
   top: 0;
@@ -611,23 +611,41 @@ button {
   border-radius: 100%;
   cursor: pointer;
   text-align: center;
+  -webkit-transition: 0.4s ease-in-out;
+  -moz-transition: 0.4s ease-in-out;
+  -o-transition: 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
 }
 .bullshit img {
-  min-width: 150px;
+  min-width: 200px;
+  max-width: initial;
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 .bullshit.big {
+  width: 767px;
+  height: 767px;
+  -webkit-transition: 0.8s ease-in-out;
+  -moz-transition: 0.8s ease-in-out;
+  -o-transition: 0.8s ease-in-out;
+  transition: 0.8s ease-in-out;
+}
+.bullshit.big.full {
   width: 100%;
   height: 100%;
-  -webkit-transition: 0.8s;
-  -moz-transition: 0.8s;
-  -o-transition: 0.8s;
-  transition: 0.8s;
+}
+.bullshit.big.full img {
+  max-width: 90%;
+  -webkit-transition: 0.1s;
+  -moz-transition: 0.1s;
+  -o-transition: 0.1s;
+  transition: 0.1s;
 }
 /******* CLASSES GENERALES  *******/
 .center,
@@ -649,18 +667,9 @@ button {
 .bg-blue blockquote .quote {
   color: #2ac0ce;
 }
-@keyframes animatedBackground {
-  to {
-    background-position: 100% 0;
-  }
-}
 .bg-pink {
   background: #ff5fac url(../layoutImg/masques-pink.png) fixed;
   background-position: 0 100%;
-  -webkit-animation: animatedBackground 50s linear infinite;
-  -moz-animation: animatedBackground 50s linear infinite;
-  -o-animation: animatedBackground 50s linear infinite;
-  animation: animatedBackground 50s linear infinite;
 }
 .sup-title {
   display: block;
@@ -714,14 +723,15 @@ button {
   max-width: 1200px;
   padding: 0 150px;
   position: relative;
-  margin: 0 auto;
   z-index: 1;
+  margin: 0 auto;
 }
 .section {
   display: table;
   width: 100%;
   height: 650px;
   height: 90vh;
+  position: relative;
 }
 .section .section-cell {
   display: table-cell;
@@ -832,7 +842,6 @@ button {
   position: absolute;
   top: 30px;
   left: -17px;
-  z-index: -1;
   background: url(../layoutImg/tv.png) no-repeat;
 }
 .blog-list li {
@@ -877,15 +886,14 @@ button {
 }
 /******* HEADER *******/
 #header {
-  width: 100%;
+  left: 4%;
+}
+#header,
+#main-menu {
   padding: 0 30px;
   position: fixed;
   top: 60px;
-}
-#header .container {
-  max-width: 1500px;
-  padding: 0;
-  overflow: hidden;
+  z-index: 1;
 }
 #logo {
   display: block;
@@ -898,8 +906,8 @@ button {
   overflow: hidden;
 }
 #main-menu {
-  padding: 15px 0;
-  float: right;
+  padding: 15px 30px;
+  right: 4%;
   font-family: 'geomanist', sans-serif;
   font-size: 1em;
   font-weight: normal;
@@ -963,10 +971,10 @@ button {
 }
 #phrase-creuse button span {
   display: inline-block;
-  -webkit-transition: 0.2s ease-in-out;
-  -moz-transition: 0.2s ease-in-out;
-  -o-transition: 0.2s ease-in-out;
-  transition: 0.2s ease-in-out;
+  -webkit-transition: 0.15s ease-in-out;
+  -moz-transition: 0.15s ease-in-out;
+  -o-transition: 0.15s ease-in-out;
+  transition: 0.15s ease-in-out;
 }
 #phrase-creuse button:hover span,
 #phrase-creuse button:focus span {
@@ -1025,10 +1033,10 @@ button {
   font-size: 60px;
   color: #fff;
   opacity: 0;
-  -webkit-transition: 0.2s ease-in-out;
-  -moz-transition: 0.2s ease-in-out;
-  -o-transition: 0.2s ease-in-out;
-  transition: 0.2s ease-in-out;
+  -webkit-transition: 0.15s ease-in-out;
+  -moz-transition: 0.15s ease-in-out;
+  -o-transition: 0.15s ease-in-out;
+  transition: 0.15s ease-in-out;
 }
 #vous h2 a:hover,
 #vous h2 a:focus {
@@ -1053,10 +1061,10 @@ button {
 }
 #vous strong,
 #vous span {
-  -webkit-transition: 0.2s ease-in-out;
-  -moz-transition: 0.2s ease-in-out;
-  -o-transition: 0.2s ease-in-out;
-  transition: 0.2s ease-in-out;
+  -webkit-transition: 0.15s ease-in-out;
+  -moz-transition: 0.15s ease-in-out;
+  -o-transition: 0.15s ease-in-out;
+  transition: 0.15s ease-in-out;
 }
 #vous.fade strong,
 #vous.fade span,
@@ -1069,22 +1077,35 @@ button {
 #vous.fade .on:active {
   opacity: .7;
 }
-#vous.fade .section-cell {
-  background-repeat: no-repeat;
-  background-position: 50% 60%;
+#vous.fade #bgVous {
+  opacity: 1;
+  -webkit-transition: opacity 0.5s ease-in-out;
+  -moz-transition: opacity 0.5s ease-in-out;
+  -o-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
 }
-#vous.fade1 .section-cell {
+#vous.fade1 #bgVous {
   background-image: url(../layoutImg/vous/teletubies.png);
   background-position: 50% 100%;
 }
-#vous.fade2 .section-cell {
+#vous.fade2 #bgVous {
   background-image: url(../layoutImg/vous/tronconneuse.png);
 }
-#vous.fade3 .section-cell {
+#vous.fade3 #bgVous {
   background-image: url(../layoutImg/vous/noise.png);
 }
-#vous.fade4 .section-cell {
+#vous.fade4 #bgVous {
   background-image: url(../layoutImg/vous/fouet.png);
+}
+#bgVous {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  background-repeat: no-repeat;
+  background-position: 50% 60%;
 }
 #confiance {
   overflow: hidden;
@@ -1121,6 +1142,14 @@ button {
 /* @end */
 /* @end */
 /* @group Responsive horizontal */
+@media (max-width: 1350px) {
+  #header {
+    left: 0;
+  }
+  #main-menu {
+    right: 0;
+  }
+}
 @media (max-width: 1150px) {
   h1 {
     font-size: 7.5em;
@@ -1148,7 +1177,8 @@ button {
   .container {
     padding: 0 20px;
   }
-  #header {
+  #header,
+  #main-menu {
     position: absolute;
     top: 20px;
   }
@@ -1185,6 +1215,10 @@ button {
   blockquote .by {
     display: block;
     margin: 0 auto;
+  }
+  .bullshit.big {
+    width: 480px;
+    height: 480px;
   }
   .slider .img,
   .slider .txt {
@@ -1256,8 +1290,16 @@ button {
     font-size: .45em;
     margin: 0 0 -0.05em;
   }
+  .bullshit.big {
+    width: 360px;
+    height: 360px;
+  }
 }
 @media (max-width: 360px) {
+  .bullshit.big {
+    width: 300px;
+    height: 300px;
+  }
   .blog-list {
     text-align: center;
   }
@@ -1277,24 +1319,24 @@ button {
   .bullshitBtn.top-left,
   .bullshitBtn.top-center,
   .bullshitBtn.top-right {
-    top: -10vh;
+    top: 10vh;
   }
   .bullshitBtn.bottom-left,
   .bullshitBtn.bottom-center,
   .bullshitBtn.bottom-right {
-    bottom: -10vh;
+    bottom: 10vh;
   }
 }
 @media (max-height: 680px) {
   .bullshitBtn.top-left,
   .bullshitBtn.top-center,
   .bullshitBtn.top-right {
-    top: -5vh;
+    top: 5vh;
   }
   .bullshitBtn.bottom-left,
   .bullshitBtn.bottom-center,
   .bullshitBtn.bottom-right {
-    bottom: -5vh;
+    bottom: 5vh;
   }
 }
 /* @end */

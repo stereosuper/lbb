@@ -55,6 +55,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/img\/bullshit\/entree_roure.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 671081,
+		"inputAbbreviatedPath": "\/img\/bullshit\/entree_roure.jpg",
+		"outputAbbreviatedPath": "\/img\/bullshit\/entree_roure.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/img\/bullshit\/entreprise-purple.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -196,23 +207,67 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
-	"\/js\/timelineMax.min.js": {
+	"\/js\/tweenCssPlugin.min.js": {
 		"fileType": 64,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/js\/timelineMax.min.js",
-		"outputAbbreviatedPath": "\/js\/min\/timelineMax.min-min.js",
+		"inputAbbreviatedPath": "\/js\/tweenCssPlugin.min.js",
+		"outputAbbreviatedPath": "\/js\/min\/tweenCssPlugin.min-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
-	"\/js\/tweenMax.min.js": {
+	"\/js\/tweenEasePack.min.js": {
 		"fileType": 64,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/js\/tweenMax.min.js",
-		"outputAbbreviatedPath": "\/js\/min\/tweenMax.min-min.js",
+		"inputAbbreviatedPath": "\/js\/tweenEasePack.min.js",
+		"outputAbbreviatedPath": "\/js\/min\/tweenEasePack.min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/js\/TweenLite.min.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/js\/TweenLite.min.js",
+		"outputAbbreviatedPath": "\/js\/min\/TweenLite.min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/js\/unused\/timelineLite.min.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/js\/unused\/timelineLite.min.js",
+		"outputAbbreviatedPath": "\/js\/unused\/min\/timelineLite.min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/js\/unused\/timelineMax.min.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/js\/unused\/timelineMax.min.js",
+		"outputAbbreviatedPath": "\/js\/unused\/min\/timelineMax.min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/js\/unused\/tweenMax.min.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/js\/unused\/tweenMax.min.js",
+		"outputAbbreviatedPath": "\/js\/unused\/min\/tweenMax.min-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,

@@ -82,19 +82,19 @@ function setSlider(slider){
 		tlAnims = new TimelineLite();
 
 	function slideNext(){
-		TweenLite.to( slides[currentSlide], timing, {left: '-'+posX, opacity: 0, onComplete: function(){
+		TweenLite.to( slides[currentSlide], timing, {left: posX, opacity: 0, onComplete: function(){
 			currentSlide < nbSlides - 1 ? currentSlide ++ : currentSlide = 0;
-			TweenLite.fromTo( slides[currentSlide], timing, {left: posX}, {left: 0, opacity: 1, ease:Power2.easeInOut} );
-			tlAnims.staggerFromTo( slides[currentSlide].querySelectorAll('.anim-slide'), timing, {x: '200px', opacity: 0}, {x: 0, opacity: 1, ease:Power2.easeInOut}, .2 );
+			TweenLite.fromTo( slides[currentSlide], timing, {left: '-'+posX}, {left: 0, opacity: 1, ease:Power2.easeInOut} );
+			tlAnims.staggerFromTo( slides[currentSlide].querySelectorAll('.anim-slide'), timing, {x: '-200px', opacity: 0}, {x: 0, opacity: 1, ease:Power2.easeInOut}, .2 );
 		}} );
 		//	TweenLite.delayedCall(5, slideNext);
 	}
 
 	function slidePrev(){
-		TweenLite.to( slides[currentSlide], timing, {left: posX, opacity: 0, onComplete: function(){
+		TweenLite.to( slides[currentSlide], timing, {left: '-'+posX, opacity: 0, onComplete: function(){
 			currentSlide > 0 ? currentSlide -- : currentSlide = nbSlides - 1;
-			TweenLite.fromTo( slides[currentSlide], timing, {left: '-'+posX}, {left: 0, opacity: 1, ease:Power2.easeInOut} );
-			tlAnims.staggerFromTo( slides[currentSlide].querySelectorAll('.anim-slide'), timing, {x: '-200px', opacity: 0}, {x: 0, opacity: 1, ease:Power2.easeInOut}, .2 );
+			TweenLite.fromTo( slides[currentSlide], timing, {left: posX}, {left: 0, opacity: 1, ease:Power2.easeInOut} );
+			tlAnims.staggerFromTo( slides[currentSlide].querySelectorAll('.anim-slide'), timing, {x: '200px', opacity: 0}, {x: 0, opacity: 1, ease:Power2.easeInOut}, .2 );
 		}} );
 	}
 

@@ -67,58 +67,64 @@
 							<ul>
 								<li class='slide'>
 									<article>
-										<div class='img'>
+										<div class='img anim-slide'>
 											<img src='img/naoned.png' width='130' height='43' alt='Naoned'>
 											<div id='tv'></div>
 										</div><div class='txt'>
-											<h3>Et si nous échangions notre patrimoine immatériel?</h3>
-											<blockquote>
-												<p class='quote'>
-													C'était à la fois riche, dense, distrayant et convivial...
-												</p>
-												<p class='by'>
-													<b>Alexis Moisdon</b>
-													Directeur Général de Naoned System
-												</p>
-											</blockquote>
+											<h3 class='anim-slide'>Et si nous échangions notre patrimoine immatériel?</h3>
+											<div class='anim-slide'>
+												<blockquote>
+													<p class='quote'>
+														C'était à la fois riche, dense, distrayant et convivial...
+													</p>
+													<p class='by'>
+														<b>Alexis Moisdon</b>
+														Directeur Général de Naoned System
+													</p>
+												</blockquote>
+											</div>
 										</div>
 									</article>
 								</li>
 								<li class='slide'>
 									<article>
-										<div class='img'>
+										<div class='img anim-slide'>
 											<img src='img/naoned.png' width='130' height='43' alt='Naoned'>
 											<div id='tv'></div>
 										</div><div class='txt'>
-											<h3>Un deuxième titre</h3>
-											<blockquote>
-												<p class='quote'>
-													Une autre citation...
-												</p>
-												<p class='by'>
-													<b>Alexis Moisdon</b>
-													Directeur Général de Naoned System
-												</p>
-											</blockquote>
+											<h3 class='anim-slide'>Un deuxième titre</h3>
+											<div class='anim-slide'>
+												<blockquote>
+													<p class='quote'>
+														Une autre citation...
+													</p>
+													<p class='by'>
+														<b>Alexis Moisdon</b>
+														Directeur Général de Naoned System
+													</p>
+												</blockquote>
+											</div>
 										</div>
 									</article>
 								</li>
 								<li class='slide'>
 									<article>
-										<div class='img'>
+										<div class='img anim-slide'>
 											<img src='img/naoned.png' width='130' height='43' alt='Naoned'>
 											<div id='tv'></div>
 										</div><div class='txt'>
-											<h3>Le troisième</h3>
-											<blockquote>
-												<p class='quote'>
-													Une citation... numéro trois!
-												</p>
-												<p class='by'>
-													<b>Alexis Moisdon</b>
-													Directeur Général de Naoned System
-												</p>
-											</blockquote>
+											<h3 class='anim-slide'>Le troisième</h3>
+											<div class='anim-slide'>
+												<blockquote>
+													<p class='quote'>
+														Une citation... numéro trois!
+													</p>
+													<p class='by'>
+														<b>Alexis Moisdon</b>
+														Directeur Général de Naoned System
+													</p>
+												</blockquote>
+											</div>
 										</div>
 									</article>
 								</li>
@@ -179,8 +185,10 @@
 								<img src='<?php echo $image; ?>' alt='Lieu de travail du jour' width='460' height='460'>
 								<span class='hover'>
 									<span class='sup-title'>Notre lieu de travail du jour :</span>
-									<span class='meta'><?php if($location) echo $location . ' - '; echo date('j M Y', $date); ?></span>
-									<i class='desc'><?php echo $desc; ?></i>
+									<span class='content'>
+										<span class='meta'><?php if($location) echo $location . ' - '; echo date('j M Y', $date); ?></span>
+										<i class='desc'><?php echo $desc; ?></i>
+									</span>
 								</span>
 							</a>
 							</div><ul class='blog-list w50'>
@@ -189,7 +197,7 @@
 									<img src='img/blog1.jpg' alt='' width='220' height='220'>
 									<span class='hover'>
 										<span class='sup-title'>Blog</span>
-										<em>Nom d'un article super que vous écrirez plus tard</em>
+										<em class='content'>Nom d'un article super que vous écrirez plus tard</em>
 									</span>
 								</a>
 							</li><li>
@@ -197,7 +205,7 @@
 									<img src='img/blog2.jpg' alt='' width='220' height='220'>
 									<span class='hover'>
 										<span class='sup-title'>Blog</span>
-										<em>Nom d'un article super que vous écrirez plus tard</em>
+										<em class='content'>Nom d'un article super que vous écrirez plus tard</em>
 									</span>
 								</a>
 							</li><li>
@@ -205,7 +213,7 @@
 									<img src='img/blog3.jpg' alt='' width='220' height='220'>
 									<span class='hover'>
 										<span class='sup-title'>Blog</span>
-										<em>Nom d'un article super que vous écrirez plus tard</em>
+										<em class='content'>Nom d'un article super que vous écrirez plus tard</em>
 									</span>
 								</a>
 							</li><li class='last'>
@@ -213,7 +221,7 @@
 									<img src='img/blog4.jpg' alt='' width='220' height='220'>
 									<span class='hover'>
 										<span class='sup-title'>Blog</span>
-										<em>Nom d'un article super que vous écrirez plus tard</em>
+										<em class='content'>Nom d'un article super que vous écrirez plus tard</em>
 									</span>
 								</a>
 							</li>
@@ -257,7 +265,7 @@
 					<span class='sup-title'>la Belle Boîte vous offre cette phrase creuse :</span>
 					<div id='phrase-creuse'>
 						<p class='h3'>Stop aux acronymes, travaillons l'U.M.1</p>
-						<button class='sub-title'><span class='modern'>R</span> une autre phrase creuse ?</button>
+						<button class='sub-title'><span class='icon-loop'></span> une autre phrase creuse ?</button>
 					</div>
 				</div>
 			</div>
@@ -269,6 +277,7 @@
 	  	<script src="js/tweenCssPlugin.min.js"></script>
 	  	<script src="js/tweenEasePack.min.js"></script>
 	  	<script src="js/tweenLite.min.js"></script>
+	  	<script src="js/timelineLite.min.js"></script>
 	  	<script src='js/script.js'></script>
 
 	</body>

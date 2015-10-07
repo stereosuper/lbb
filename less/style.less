@@ -354,10 +354,6 @@ button{
     .klinic(1em);
 }
 
-.modern{
-    .modern(1em);
-}
-
 .table{
     display: table;
 }
@@ -417,10 +413,25 @@ button{
         padding: 0;
     }
   a{
+    position: relative;
     &:before{
         content: '›';
         display: inline-block;
         margin: 0 5px 0 0;
+    }
+    &:after{
+        width: 0;
+        position: absolute;
+        left: 0;
+        content: '-';
+        overflow: hidden;
+    }
+    &:hover, &:focus{
+        padding: 0 0 0 5px;
+        &:after{
+            width: 5px;
+            overflow: visible;
+        }
     }
   }
 }
@@ -503,6 +514,10 @@ button{
         max-width: 350px;
         margin-bottom: 70px;
     }
+    .anim-slide{
+        opacity: 0;
+        margin-left: -50%;
+    }
 }
 #tv{
     width: 301px;
@@ -510,6 +525,7 @@ button{
     position: absolute;
     top: 30px;
     left: -17px;
+    z-index: -1;
     background: url(../layoutImg/tv.png) no-repeat;
 }
 
@@ -521,17 +537,25 @@ button{
         width: 47.73%;
         height: 47.73%;
         &:first-child{
-            margin: 0 4.54% 4.54% 0;
+            margin: 0 4.54% 4.44% 0;
         }
         &.last{
             margin: 0 0 0 4.54%;
         }
     }
     .hover{
-        top: 12px;
+        top: 200px;
         bottom: 12px;
         left: 12px;
         right: 12px;
+    }
+    .black-hover-link{
+        overflow: hidden;
+        &:hover, &:focus{
+            .hover{
+                top: 12px;
+            }
+        }
     }
 }
 
@@ -539,18 +563,41 @@ button{
     display: block;
     position: relative;
     .hover{
-        display: none;
-        padding: 10px;
+        padding: 0 10px;
         position: absolute;
+        overflow: hidden;
         background: fade(#000, 60%);
         color: #fff;
         em, i{
             font-size: 1.3em;
         }
+        .sup-title, .content{
+            margin-top: 300px;
+            opacity: 0;
+        }
+        .sup-title{
+            .transition(.3s all .2s ease-in-out);
+        }
+        .content{
+            display: block;
+            .transition(.3s all .4s ease-in-out);
+        }
+        .transition(.3s ease-in-out);
+    }
+    img{
+        .transition(.3s ease-in-out);
     }
     &:hover, &:focus{
         .hover{
-            display: block;
+            padding: 10px;
+            overflow: visible;
+            .sup-title, .content{
+                opacity: 1;
+                margin-top: 0;
+            }
+        }
+        img{
+            opacity: .8;
         }
     }
     &:active{
@@ -569,7 +616,7 @@ button{
     padding: 0 30px;
     position: fixed;
     top: 60px;
-    z-index: 1;
+    z-index: 10;
 }
 
 #logo{
@@ -584,7 +631,8 @@ button{
 }
 
 #main-menu{
-    padding: 15px 30px;
+    width: 160px;
+    padding: 15px 0 15px 30px;
     right: 4%;
     .geomanist(1em);
     ul{
@@ -592,12 +640,13 @@ button{
         margin: 0;
     }
     a{
-        display: block;
-        position: relative;
         text-transform: uppercase;
         color: #fff;
         &:hover, &:focus{
             opacity: .7;
+        }
+        &:active{
+            opacity: 1;
         }
     }
     .actif{
@@ -605,9 +654,8 @@ button{
             opacity: .5;
             padding: 0 0 0 5px;
             &:after{
-                position: absolute;
-                left: 0;
-                content: '-';
+                width: 5px;
+                overflow: visible;
             }
         }
     }
@@ -652,6 +700,9 @@ button{
     button{
         span{
             display: inline-block;
+            vertical-align: top;
+            margin: 3px 0 0;
+            font-size: 12px;
             .transition(@transition);
         }
         &:hover, &:focus{
@@ -810,8 +861,9 @@ button{
 #instagram{
     padding: 0 10px 0 0;
     .hover{
-        .size(250px);
-        top: 0;
+        width: 250px;
+        height: 0;
+        top: 250px;
         bottom: 0;
         left: 0;
         right: 0;
@@ -830,6 +882,14 @@ button{
     .desc{
         display: block;
         margin: 20px 0 0;
+    }
+    .black-hover-link{
+        &:hover, &:focus{
+            .hover{
+                top: 0;
+                height: 250px;
+            }
+        }
     }
 }
 

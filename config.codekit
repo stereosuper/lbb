@@ -207,6 +207,17 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
+	"\/js\/timelineLite.min.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/js\/timelineLite.min.js",
+		"outputAbbreviatedPath": "\/js\/min\/timelineLite.min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
 	"\/js\/tweenCssPlugin.min.js": {
 		"fileType": 64,
 		"ignore": 0,
@@ -229,23 +240,12 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
-	"\/js\/TweenLite.min.js": {
+	"\/js\/tweenLite.min.js": {
 		"fileType": 64,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/js\/TweenLite.min.js",
-		"outputAbbreviatedPath": "\/js\/min\/TweenLite.min-min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
-		},
-	"\/js\/unused\/timelineLite.min.js": {
-		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/js\/unused\/timelineLite.min.js",
-		"outputAbbreviatedPath": "\/js\/unused\/min\/timelineLite.min-min.js",
+		"inputAbbreviatedPath": "\/js\/tweenLite.min.js",
+		"outputAbbreviatedPath": "\/js\/min\/tweenLite.min-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,

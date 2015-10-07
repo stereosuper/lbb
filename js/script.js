@@ -51,12 +51,14 @@ function setSlider(slider){
 		currentSlide = 0, i = 0,
 		next = document.createElement('button'),
 		prev = document.createElement('button'),
-		height = 0, posX = '25%', timing = .3;
+		height = 0, posX = '25%', timing = .3,
+		tlAnims = new TimelineLite();
 
 	function slideNext(){
 		TweenLite.to( slides[currentSlide], timing, {left: '-'+posX, opacity: 0, onComplete: function(){
 			currentSlide < nbSlides - 1 ? currentSlide ++ : currentSlide = 0;
-			TweenLite.fromTo( slides[currentSlide], timing, {left: posX}, {left: 0, opacity: 1} );
+			TweenLite.fromTo( slides[currentSlide], timing, {left: posX}, {left: 0, opacity: 1, ease:Power2.easeOut} );
+			tlAnims.staggerFromTo( slides[currentSlide].querySelectorAll('.anim-slide'), timing, {marginLeft: '-50%', opacity: 0}, {marginLeft: 0, opacity: 1, ease:Power2.easeOut}, .2 );
 		}} );
 		//	TweenLite.delayedCall(5, slideNext);
 	}
@@ -64,7 +66,8 @@ function setSlider(slider){
 	function slidePrev(){
 		TweenLite.to( slides[currentSlide], timing, {left: posX, opacity: 0, onComplete: function(){
 			currentSlide > 0 ? currentSlide -- : currentSlide = nbSlides - 1;
-			TweenLite.fromTo( slides[currentSlide], timing, {left: '-'+posX}, {left: 0, opacity: 1} );
+			TweenLite.fromTo( slides[currentSlide], timing, {left: '-'+posX}, {left: 0, opacity: 1, ease:Power2.easeIn} );
+			tlAnims.staggerFromTo( slides[currentSlide].querySelectorAll('.anim-slide'), timing, {marginLeft: '-50%', opacity: 0}, {marginLeft: 0, opacity: 1, ease:Power2.easeOut}, .2 );
 		}} );
 	}
 
@@ -74,17 +77,18 @@ function setSlider(slider){
 	}
 	
 	TweenLite.set(slider.querySelector('ul'), {height: height+'px'});
-
-	next.setAttribute('id', 'next');
-	next.innerHTML = 'Next';
-	slider.appendChild(next);
-	addEventListener(next, 'click', slideNext);
+	TweenLite.set(slides[0].querySelectorAll('.anim-slide'), {marginLeft: 0, opacity: 1});
 
 	prev.setAttribute('id', 'prev');
 	prev.innerHTML = 'Prev';
 	slider.appendChild(prev);
 	addEventListener(prev, 'click', slidePrev);
 
+	next.setAttribute('id', 'next');
+	next.innerHTML = 'Next';
+	slider.appendChild(next);
+	addEventListener(next, 'click', slideNext);
+	
 	//TweenLite.delayedCall(5, slideNext);
 }
 
@@ -230,7 +234,12 @@ function setSentences(container){
 				rand = Math.floor( Math.random()*nbSentences );
 		}
 		actualSentence = rand;
-		sentenceContainer.innerHTML = sentences[rand];
+
+		TweenLite.fromTo(sentenceContainer, .2, {opacity: 1}, {opacity: 0, onComplete: function(){
+			btn.blur();
+			sentenceContainer.innerHTML = sentences[rand];
+			TweenLite.fromTo(sentenceContainer, .2, {opacity: 0}, {opacity: 1});
+		}});
 	}
 
 	// set size to the container <p> so it won't move on sentence changing

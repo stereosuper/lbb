@@ -202,7 +202,7 @@ button{
     color: #fff;
     &:hover, &:focus{
         background: #fff;
-        border-color: @purple;
+        border-color: #fff;
         color: @purple;
     }
     &:active{
@@ -213,7 +213,6 @@ button{
     .bg-yellow &{
         &:hover, &:focus{
             color: @yellow;
-            border-color: @yellow;
         }
         &:active{
             background: darken(@yellow, 10%);
@@ -223,7 +222,6 @@ button{
     .bg-blue &{
         &:hover, &:focus{
             color: @blue;
-            border-color: @blue;
         }
         &:active{
             color: darken(@blue, 10%);
@@ -233,11 +231,32 @@ button{
     .bg-pink &{
         &:hover, &:focus{
             color: @pink;
-            border-color: @pink;
         }
         &:active{
             background: darken(@pink, 10%);
             border-color: darken(@pink, 10%);
+        }
+    }
+    &.btn-left{
+        padding-left: 35px;
+        position: relative;
+        &:before{
+            display: block;
+            .size(18px);
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 12px;
+            margin: auto;
+            &:extend(.icomoon);
+            font-size: 18px;
+            content: "\e805";
+            .transition(top @transition);
+        }
+        &:hover, &:focus{
+            &:before{
+                top: 5px;
+            }
         }
     }
 }
@@ -516,7 +535,6 @@ button{
     }
     .anim-slide{
         opacity: 0;
-        margin-left: -50%;
     }
 }
 #tv{
@@ -677,9 +695,9 @@ button{
             margin: 0 0 50px;
         }
     }
-    .w50{
+    /*.w50{
         overflow: hidden;
-    }
+    }*/
 }
 
 .phrase{
@@ -712,15 +730,57 @@ button{
             }
         }
     }
-    &:before{
-        display: block;
-        position: absolute;
-        top: -25px;
-        left: 30px;
-        content: "\e601";
-        font-size: 50px;
-        &:extend(.icomoon);
+    &:hover{
+        #cisors1{
+            &:extend(#cisors.open #cisors1);
+        }
+        #cisors2{
+            &:extend(#cisors.open #cisors2);
+        }
     }
+}
+
+#cisors{
+    position: absolute;
+    top: -25px;
+    left: 30px;
+    &.open{
+        #cisors1{
+            .transform(rotate(15deg));
+        }
+        #cisors2{
+            .transform(rotate(-15deg));
+        }
+    }
+    &.close{
+        #cisors1{
+            .transform(rotate(-7deg));
+        }
+        #cisors2{
+            .transform(rotate(7deg));
+        }
+    }
+    &.on-right{
+        .transform(rotate(90deg));
+    }
+    &.on-bottom{
+        .transform(rotate(180deg));
+    }
+    &.on-left{
+        .transform(rotate(270deg));
+    }
+}
+.cisors{
+    position: absolute;
+    font-size: 50px;
+    color: @purple;
+    .transition(.1s);
+    &.close{
+        .transition(.2s);
+    }
+}
+#cisors2{
+    top: 3px;
 }
 
 

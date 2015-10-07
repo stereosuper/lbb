@@ -272,9 +272,9 @@ menu {
 [class^="icon-"],
 [class*=" icon-"],
 .icomoon,
+.btn.btn-left:before,
 .slider #next,
 .slider #prev,
-#phrase-creuse:before,
 #vous h2 a:before,
 #instagram .meta:before {
   font-family: 'icomoon';
@@ -284,6 +284,15 @@ menu {
   font-variant: normal;
   text-transform: none;
   line-height: 1;
+}
+.icon-down:before {
+  content: "\e805";
+}
+.icon-half-cisors:before {
+  content: "\e803";
+}
+.icon-half-cisors2:before {
+  content: "\e804";
 }
 .icon-loop:before {
   content: "\e802";
@@ -296,9 +305,6 @@ menu {
 }
 .icon-map:before {
   content: "\e600";
-}
-.icon-cisors:before {
-  content: "\e601";
 }
 .icon-arrow:before {
   content: "\e602";
@@ -518,7 +524,7 @@ button {
 .btn:hover,
 .btn:focus {
   background: #fff;
-  border-color: #b5006a;
+  border-color: #fff;
   color: #b5006a;
 }
 .btn:active {
@@ -529,7 +535,6 @@ button {
 .bg-yellow .btn:hover,
 .bg-yellow .btn:focus {
   color: #ffc200;
-  border-color: #ffc200;
 }
 .bg-yellow .btn:active {
   background: #cc9b00;
@@ -538,7 +543,6 @@ button {
 .bg-blue .btn:hover,
 .bg-blue .btn:focus {
   color: #2ac0ce;
-  border-color: #2ac0ce;
 }
 .bg-blue .btn:active {
   color: #2199a4;
@@ -547,11 +551,34 @@ button {
 .bg-pink .btn:hover,
 .bg-pink .btn:focus {
   color: #ff5fac;
-  border-color: #ff5fac;
 }
 .bg-pink .btn:active {
   background: #ff2c92;
   border-color: #ff2c92;
+}
+.btn.btn-left {
+  padding-left: 35px;
+  position: relative;
+}
+.btn.btn-left:before {
+  display: block;
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 12px;
+  margin: auto;
+  font-size: 18px;
+  content: "\e805";
+  -webkit-transition: top 0.15s ease-in-out;
+  -moz-transition: top 0.15s ease-in-out;
+  -o-transition: top 0.15s ease-in-out;
+  transition: top 0.15s ease-in-out;
+}
+.btn.btn-left:hover:before,
+.btn.btn-left:focus:before {
+  top: 5px;
 }
 .bullshitBtn {
   position: absolute;
@@ -848,7 +875,6 @@ button {
 }
 .slide .anim-slide {
   opacity: 0;
-  margin-left: -50%;
 }
 #tv {
   width: 301px;
@@ -1006,15 +1032,15 @@ button {
 #footer {
   padding: 70px 30px 40px;
   color: #9f9f9f;
+  /*.w50{
+        overflow: hidden;
+    }*/
 }
 #footer .menu {
   max-width: 220px;
 }
 #footer .menu:first-child {
   margin: 0 0 50px;
-}
-#footer .w50 {
-  overflow: hidden;
 }
 .phrase {
   width: 100%;
@@ -1054,13 +1080,79 @@ button {
   -o-transition: -o-transform 0.4s ease-in-out;
   transition: -webkit-transform 0.4s ease-in-out,-moz-transform 0.4s ease-in-out,-o-transform 0.4s ease-in-out,transform 0.4s ease-in-out;
 }
-#phrase-creuse:before {
-  display: block;
+#cisors {
   position: absolute;
   top: -25px;
   left: 30px;
-  content: "\e601";
+}
+#cisors.open #cisors1,
+#phrase-creuse:hover #cisors1 {
+  -webkit-transform: rotate(15deg);
+  -moz-transform: rotate(15deg);
+  -o-transform: rotate(15deg);
+  -ms-transform: rotate(15deg);
+  transform: rotate(15deg);
+}
+#cisors.open #cisors2,
+#phrase-creuse:hover #cisors2 {
+  -webkit-transform: rotate(-15deg);
+  -moz-transform: rotate(-15deg);
+  -o-transform: rotate(-15deg);
+  -ms-transform: rotate(-15deg);
+  transform: rotate(-15deg);
+}
+#cisors.close #cisors1 {
+  -webkit-transform: rotate(-7deg);
+  -moz-transform: rotate(-7deg);
+  -o-transform: rotate(-7deg);
+  -ms-transform: rotate(-7deg);
+  transform: rotate(-7deg);
+}
+#cisors.close #cisors2 {
+  -webkit-transform: rotate(7deg);
+  -moz-transform: rotate(7deg);
+  -o-transform: rotate(7deg);
+  -ms-transform: rotate(7deg);
+  transform: rotate(7deg);
+}
+#cisors.on-right {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+#cisors.on-bottom {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+#cisors.on-left {
+  -webkit-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  -o-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+.cisors {
+  position: absolute;
   font-size: 50px;
+  color: #b5006a;
+  -webkit-transition: 0.1s;
+  -moz-transition: 0.1s;
+  -o-transition: 0.1s;
+  transition: 0.1s;
+}
+.cisors.close {
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+}
+#cisors2 {
+  top: 3px;
 }
 /******* WRAPPER *******/
 /******* ENTETE *******/

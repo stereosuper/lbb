@@ -1,4 +1,18 @@
 /**** VARIABLES ****/
+function scrollTo(to, duration) {
+    if (duration < 0) return;
+    var scrollTop = document.body.scrollTop + document.documentElement.scrollTop,
+		difference = to - scrollTop,
+		perTick = difference / duration * 10;
+    setTimeout(function() {
+		scrollTop = scrollTop + perTick;
+		document.body.scrollTop = scrollTop;
+		document.documentElement.scrollTop = scrollTop;
+		if (scrollTop === to) return;
+		scrollTo(to, duration - 10);
+    }, 10);
+}
+
 function addEventListener(el, eventName, handler){
 	if(el.addEventListener){
 		el.addEventListener(eventName, handler);
@@ -14,11 +28,10 @@ function addEventListener(el, eventName, handler){
 }
 function removeClass(el, className){
 	el.classList ? el.classList.remove(className) : el.className = el.className.replace(new RegExp('(^|\\b)' + className.split('').join('|') + '(\\b|$)', 'gi'), ' ');
-}*/
-
+}
 function hasClass(el, className){
 	return el.classList ? el.classList.contains(className) : new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
-}
+}*/
 
 function shuffle(array){
 	var elementsRemaining = array.length, temp, randomIndex;
@@ -31,6 +44,20 @@ function shuffle(array){
 		}
 	}
 	return array;
+}
+
+function getStyle(oElm, strCssRule){
+	var strValue = '';
+	if(document.defaultView && document.defaultView.getComputedStyle){
+		strValue = document.defaultView.getComputedStyle(oElm, "").getPropertyValue(strCssRule);
+	}
+	else if(oElm.currentStyle){
+		strCssRule = strCssRule.replace(/\-(\w)/g, function (strMatch, p1){
+			return p1.toUpperCase();
+		});
+		strValue = oElm.currentStyle[strCssRule];
+	}
+	return strValue;
 }
 
 window.requestAnimFrame = (function(){
@@ -57,8 +84,8 @@ function setSlider(slider){
 	function slideNext(){
 		TweenLite.to( slides[currentSlide], timing, {left: '-'+posX, opacity: 0, onComplete: function(){
 			currentSlide < nbSlides - 1 ? currentSlide ++ : currentSlide = 0;
-			TweenLite.fromTo( slides[currentSlide], timing, {left: posX}, {left: 0, opacity: 1, ease:Power2.easeOut} );
-			tlAnims.staggerFromTo( slides[currentSlide].querySelectorAll('.anim-slide'), timing, {marginLeft: '-50%', opacity: 0}, {marginLeft: 0, opacity: 1, ease:Power2.easeOut}, .2 );
+			TweenLite.fromTo( slides[currentSlide], timing, {left: posX}, {left: 0, opacity: 1, ease:Power2.easeInOut} );
+			tlAnims.staggerFromTo( slides[currentSlide].querySelectorAll('.anim-slide'), timing, {x: '200px', opacity: 0}, {x: 0, opacity: 1, ease:Power2.easeInOut}, .2 );
 		}} );
 		//	TweenLite.delayedCall(5, slideNext);
 	}
@@ -66,8 +93,8 @@ function setSlider(slider){
 	function slidePrev(){
 		TweenLite.to( slides[currentSlide], timing, {left: posX, opacity: 0, onComplete: function(){
 			currentSlide > 0 ? currentSlide -- : currentSlide = nbSlides - 1;
-			TweenLite.fromTo( slides[currentSlide], timing, {left: '-'+posX}, {left: 0, opacity: 1, ease:Power2.easeIn} );
-			tlAnims.staggerFromTo( slides[currentSlide].querySelectorAll('.anim-slide'), timing, {marginLeft: '-50%', opacity: 0}, {marginLeft: 0, opacity: 1, ease:Power2.easeOut}, .2 );
+			TweenLite.fromTo( slides[currentSlide], timing, {left: '-'+posX}, {left: 0, opacity: 1, ease:Power2.easeInOut} );
+			tlAnims.staggerFromTo( slides[currentSlide].querySelectorAll('.anim-slide'), timing, {x: '-200px', opacity: 0}, {x: 0, opacity: 1, ease:Power2.easeInOut}, .2 );
 		}} );
 	}
 
@@ -77,7 +104,7 @@ function setSlider(slider){
 	}
 	
 	TweenLite.set(slider.querySelector('ul'), {height: height+'px'});
-	TweenLite.set(slides[0].querySelectorAll('.anim-slide'), {marginLeft: 0, opacity: 1});
+	TweenLite.set(slides[0].querySelectorAll('.anim-slide'), {opacity: 1});
 
 	prev.setAttribute('id', 'prev');
 	prev.innerHTML = 'Prev';
@@ -88,7 +115,7 @@ function setSlider(slider){
 	next.innerHTML = 'Next';
 	slider.appendChild(next);
 	addEventListener(next, 'click', slideNext);
-	
+
 	//TweenLite.delayedCall(5, slideNext);
 }
 
@@ -225,9 +252,77 @@ function setSentences(container){
 		nbSentences = sentences.length,
 		btn = container.querySelector('button'),
 		sentenceContainer = container.querySelector('p'),
-		actualSentence = 0;
+		actualSentence = 0,
+		cisors = document.getElementById('cisors'),
+		cisorsTop = parseInt(getStyle(cisors, 'top')),
+		cisorsLeft = parseInt(getStyle(cisors, 'left')),
+		containerHeight = container.offsetHeight,
+		containerWidth = container.offsetWidth,
+		limitTop = cisorsTop,
+		limitLeft = cisorsLeft,
+		limitRight = containerWidth - 25,
+		limitBottom = containerHeight - 28,
+		cisorsMaxLeft = containerWidth + 24,
+		cisorsMaxTop = containerHeight + 23,
+		bottom = false;
 
 	function newSentence(){
+		TweenLite.set(cisors, {css:{className:'-=open'}});
+		TweenLite.set(cisors, {css:{className:'+=close'}});
+
+		if(cisorsLeft < limitRight && cisorsTop < limitBottom && !bottom){
+
+			TweenLite.to(cisors, .3, {left: cisorsLeft+'px'});
+			cisorsLeft += 15;
+		
+		}else if(cisorsLeft >= limitRight && cisorsTop < limitBottom){
+
+			cisorsLeft = cisorsMaxLeft;
+			TweenLite.set(cisors, {left: cisorsLeft+'px'});
+			TweenLite.to(cisors, .3, {top: cisorsTop+'px'});
+			TweenLite.set(cisors, {css:{className:'+=on-right'}});
+			cisorsTop += 15;
+
+		}else if(cisorsLeft >= limitRight && cisorsTop >= limitBottom && !bottom){
+				
+			cisorsLeft = cisorsMaxLeft - 4;
+			cisorsTop = cisorsMaxTop;
+
+			TweenLite.set(cisors, {top: cisorsTop+'px'});
+			TweenLite.to(cisors, .3, {left: cisorsLeft+'px'});
+			TweenLite.set(cisors, {css:{className:'-=on-right'}});
+			TweenLite.set(cisors, {css:{className:'+=on-bottom'}});
+			cisorsLeft -= 15;
+
+			bottom = true;
+
+		}else if(cisorsLeft > limitLeft && cisorsTop >= limitBottom && bottom){
+			
+			TweenLite.to(cisors, .3, {left: cisorsLeft+'px'});
+			cisorsLeft -= 15;
+
+		}else if(cisorsLeft <= limitLeft && cisorsTop > 25 && bottom){
+			
+			cisorsLeft = limitLeft - 55;
+			TweenLite.set(cisors, {left: cisorsLeft+'px'});
+			TweenLite.to(cisors, .3, {top: cisorsTop+'px'});
+			TweenLite.set(cisors, {css:{className:'-=on-bottom'}});
+			TweenLite.set(cisors, {css:{className:'+=on-left'}});
+			cisorsTop -= 15;
+
+		}else if(cisorsLeft <= limitLeft && cisorsTop <= 25){
+
+			bottom = false;
+			cisorsTop = limitTop;
+			cisorsLeft = -20;
+			TweenLite.set(cisors, {top: cisorsTop+'px'});
+			TweenLite.set(cisors, {left: cisorsLeft+'px'});
+			TweenLite.set(cisors, {css:{className:'-=on-left'}});
+			cisorsLeft += 15;
+
+		}
+		
+
 		var rand = Math.floor( Math.random()*nbSentences );
 		if(rand === actualSentence){
 			while(rand === actualSentence)
@@ -239,6 +334,9 @@ function setSentences(container){
 			btn.blur();
 			sentenceContainer.innerHTML = sentences[rand];
 			TweenLite.fromTo(sentenceContainer, .2, {opacity: 0}, {opacity: 1});
+
+			TweenLite.set(cisors, {css:{className:'-=close'}});
+			TweenLite.set(cisors, {css:{className:'+=open'}});
 		}});
 	}
 
@@ -246,6 +344,10 @@ function setSentences(container){
 	TweenLite.set(sentenceContainer, {width: sentenceContainer.offsetWidth + 'px', minHeight: sentenceContainer.offsetHeight + 'px'});
 
 	addEventListener(btn, 'click', newSentence);
+
+	addEventListener(container, 'mouseout', function(){
+		TweenLite.set(cisors, {css:{className:'-=open'}});
+	});
 }
 
 /**** INIT ****/
@@ -272,6 +374,18 @@ function init(){
 		liveBgPos2 = 200; liveBgPosFinal2 = 100;
 
 		//animBackground(live);
+	}
+
+	var scrollToBtn = document.getElementsByClassName('scrollTo');
+	if(scrollToBtn.length){
+		var i = 0;
+		for(i; i<scrollToBtn.length; i++){
+			addEventListener(scrollToBtn[i], 'click', function(e){
+				e.preventDefault();
+				var target = document.getElementById(this.getAttribute('href').replace('#', ''));
+				scrollTo(target.offsetTop, 300);
+			});
+		}
 	}
 }
 

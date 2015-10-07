@@ -37,7 +37,7 @@
 					<div class='container'>
 						<strong class='sup-title'>Bonjour :</strong>
 						<h1><span>Nous sommes </span>sérieusement drôles</h1>
-						<a href='#vous' class='btn'>Découvrez comment</a>
+						<a href='#vous' class='btn btn-left scrollTo'>Découvrez comment</a>
 						<img src='layoutImg/pipe.png' alt="On aime l'improvisation" width='586' height='453' id='pipe'>
 					</div>
 				</div>
@@ -261,11 +261,29 @@
 					</ul>
 				</div>
 			</div><div class='w50'>
+			<!--<div id='cisors'>
+				<svg id="cisors1" width="100px" height="80px" xml:lang="fr" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+					<path class="cisors" d="M40,44.7c-1.1-0.4-6.4-1.1-8.5-0.5c0.2-0.4,0.4-0.8,0.5-1.2c1.7-5.4-3.2-11.9-10.9-14.5
+						S3.8,27.6,2.1,33s5.5,11.6,13.2,14.1c4.2,1.4,8.1,1.8,11.4,0.6c2.7-0.9,6-0.1,8.2,1.4c2.4,2.5,3.1,2.9,5.9,4.3
+						c3.4,1.1,41,13.1,45.1,13.4c4.4,0.3,12.4-2.6,12.4-2.6s-27.2-9.1-44.5-14.9C45.5,45.4,40.1,44.7,40,44.7z M28.5,41.8
+						c-1.3,4.1-6.5,4.3-12.3,2.4C10.5,42.2,3.8,38,5.1,34c1.3-4.1,9.5-5,15.2-3.1C26.1,32.8,29.8,37.7,28.5,41.8L28.5,41.8z"/>
+				</svg>
+				<svg id="cisors2" width="100px" height="80px" xml:lang="fr" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+					<path class="cisors" d="M53.8,44.8C71.1,39,98.3,29.9,98.3,29.9s-8-2.9-12.4-2.6c-4.1,0.3-41.7,12.3-45.1,13.4
+						c-2.8,1.4-3.5,1.8-5.9,4.3c-2.2,1.5-5.5,2.3-8.2,1.4c-3.3-1.2-7.2-0.8-11.4,0.6C7.6,49.5,0.4,55.7,2.1,61.1s11.3,7.1,19,4.5
+						C28.8,63,33.7,56.5,32,51.1c-0.1-0.4-0.3-0.8-0.5-1.2c2.1,0.6,7.4-0.1,8.5-0.5C40.1,49.4,45.5,48.8,53.8,44.8z M28.5,52.3
+						c1.3,4.1-2.4,9-8.2,10.9c-5.7,1.9-13.9,1-15.2-3.1c-1.3-4,5.4-8.2,11.1-10.2C22,48,27.2,48.2,28.5,52.3L28.5,52.3z"/>
+				</svg>
+			</div>-->
 				<div class='phrase'>
 					<span class='sup-title'>la Belle Boîte vous offre cette phrase creuse :</span>
 					<div id='phrase-creuse'>
 						<p class='h3'>Stop aux acronymes, travaillons l'U.M.1</p>
 						<button class='sub-title'><span class='icon-loop'></span> une autre phrase creuse ?</button>
+						<div id='cisors'>
+							<div id="cisors1" class='icon-half-cisors cisors'></div>
+							<div id="cisors2" class='icon-half-cisors2 cisors'></div>
+						</div>
 					</div>
 				</div>
 			</div>

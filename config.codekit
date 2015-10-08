@@ -185,6 +185,17 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
+	"\/js\/min\/SplitText.min-min.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/js\/min\/SplitText.min-min.js",
+		"outputAbbreviatedPath": "\/js\/min\/min\/SplitText.min-min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
 	"\/js\/modernizr.min.js": {
 		"fileType": 64,
 		"ignore": 0,
@@ -207,45 +218,45 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
-	"\/js\/timelineLite.min.js": {
+	"\/js\/splitText.min.js": {
 		"fileType": 64,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/js\/timelineLite.min.js",
-		"outputAbbreviatedPath": "\/js\/min\/timelineLite.min-min.js",
+		"inputAbbreviatedPath": "\/js\/splitText.min.js",
+		"outputAbbreviatedPath": "\/js\/min\/splitText.min-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
-	"\/js\/tweenCssPlugin.min.js": {
+	"\/js\/tweenMax.min.js": {
 		"fileType": 64,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/js\/tweenCssPlugin.min.js",
-		"outputAbbreviatedPath": "\/js\/min\/tweenCssPlugin.min-min.js",
+		"inputAbbreviatedPath": "\/js\/tweenMax.min.js",
+		"outputAbbreviatedPath": "\/js\/min\/tweenMax.min-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
-	"\/js\/tweenEasePack.min.js": {
+	"\/js\/tweenSprite.min.js": {
 		"fileType": 64,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/js\/tweenEasePack.min.js",
-		"outputAbbreviatedPath": "\/js\/min\/tweenEasePack.min-min.js",
+		"inputAbbreviatedPath": "\/js\/tweenSprite.min.js",
+		"outputAbbreviatedPath": "\/js\/min\/tweenSprite.min-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
-	"\/js\/TweenLite.min.js": {
+	"\/js\/unused\/timelineLite.min.js": {
 		"fileType": 64,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/js\/TweenLite.min.js",
-		"outputAbbreviatedPath": "\/js\/min\/TweenLite.min-min.js",
+		"inputAbbreviatedPath": "\/js\/unused\/timelineLite.min.js",
+		"outputAbbreviatedPath": "\/js\/unused\/min\/timelineLite.min-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
@@ -262,12 +273,34 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
-	"\/js\/unused\/tweenMax.min.js": {
+	"\/js\/unused\/tweenCssPlugin.min.js": {
 		"fileType": 64,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/js\/unused\/tweenMax.min.js",
-		"outputAbbreviatedPath": "\/js\/unused\/min\/tweenMax.min-min.js",
+		"inputAbbreviatedPath": "\/js\/unused\/tweenCssPlugin.min.js",
+		"outputAbbreviatedPath": "\/js\/unused\/min\/tweenCssPlugin.min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/js\/unused\/tweenEasePack.min.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/js\/unused\/tweenEasePack.min.js",
+		"outputAbbreviatedPath": "\/js\/unused\/min\/tweenEasePack.min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/js\/unused\/tweenLite.min.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/js\/unused\/tweenLite.min.js",
+		"outputAbbreviatedPath": "\/js\/unused\/min\/tweenLite.min-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
@@ -291,6 +324,17 @@
 		"initialSize": 16639,
 		"inputAbbreviatedPath": "\/layoutImg\/logo.png",
 		"outputAbbreviatedPath": "\/layoutImg\/logo.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/layoutImg\/logoMouche.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 213886,
+		"inputAbbreviatedPath": "\/layoutImg\/logoMouche.png",
+		"outputAbbreviatedPath": "\/layoutImg\/logoMouche.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0

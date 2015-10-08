@@ -46,7 +46,7 @@ h1, h2, h3, .h3, h4, h5{
 h1{
     font-size: 8.5em;
     margin: 0 0 .35em;
-    span{
+    .small{
         font-size: .35em;
         line-height: 1em;
         display: block;
@@ -408,6 +408,11 @@ button{
     position: relative;
     z-index: 1;
     margin: 0 auto;
+    opacity: 1;
+    .transition(opacity @transition);
+    &.animTxtDone{
+        opacity: 0;
+    }
 }
 
 .section{
@@ -627,30 +632,34 @@ button{
 /******* HEADER *******/
 
 #header{
+    top: 30px;
     left: 4%;
 }
 
 #header, #main-menu{
-    padding: 0 30px;
     position: fixed;
-    top: 60px;
     z-index: 10;
 }
 
 #logo{
     display: block;
-    width: 120px;
-    height: 122px;
+    .size(180px);
     float: left;
-    background: url(../layoutImg/logo.png) no-repeat;
-    background-size: 100%;
+    background: url(../layoutImg/logo.png) no-repeat 50% 50%;
+    background-size: 120px;
     text-indent: -999em;
     overflow: hidden;
+    .transition(none);
+    .home &{
+        background: url(../layoutImg/logoMouche.png) no-repeat;
+        background-size: 720px;
+    }
 }
 
 #main-menu{
     width: 160px;
     padding: 15px 0 15px 30px;
+    top: 60px;
     right: 4%;
     .geomanist(1em);
     ul{
@@ -706,8 +715,13 @@ button{
     float: right;
     text-align: center;
     .h3{
-        margin: 0 auto;
-        line-height: 1.5em;
+        display: table;
+        margin: 0 auto 15px;
+        line-height: 1.3em;
+        span{
+            display: table-cell;
+            vertical-align: middle;
+        }
     }
 }
 #phrase-creuse{

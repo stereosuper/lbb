@@ -1,16 +1,16 @@
 /**** VARIABLES ****/
-function scrollTo(to, duration) {
-    if (duration < 0) return;
+function scrollTo(to, duration){
+    if(duration < 0) return;
     var scrollTop = document.body.scrollTop + document.documentElement.scrollTop,
 		difference = to - scrollTop,
 		perTick = difference / duration * 10;
-    setTimeout(function() {
+    setTimeout( function(){
 		scrollTop = scrollTop + perTick;
 		document.body.scrollTop = scrollTop;
 		document.documentElement.scrollTop = scrollTop;
-		if (scrollTop === to) return;
+		if(scrollTop === to) return;
 		scrollTo(to, duration - 10);
-    }, 10);
+    }, 10 );
 }
 
 function addEventListener(el, eventName, handler){
@@ -28,10 +28,10 @@ function addEventListener(el, eventName, handler){
 }
 function removeClass(el, className){
 	el.classList ? el.classList.remove(className) : el.className = el.className.replace(new RegExp('(^|\\b)' + className.split('').join('|') + '(\\b|$)', 'gi'), ' ');
-}
+}*/
 function hasClass(el, className){
 	return el.classList ? el.classList.contains(className) : new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
-}*/
+}
 
 function shuffle(array){
 	var elementsRemaining = array.length, temp, randomIndex;
@@ -167,7 +167,7 @@ function bullshitGenerator(){
 		],
 		positions = ['top-left', 'top-right', 'top-center', 'bottom-left', 'bottom-right', 'bottom-center'],
 		i = 0, j, buttons = [], imgsBefore = [], imgsAfter = [], divsAfter = [], rands = [], limit = 3, length = 0,
-		transitionOpen = .8, transitionClose = 400;
+		transitionOpen = .8, transitionClose = 400, nbTabs = tabs.length;
 
 	function shitAppens(section, img, id){
 		var imgById = section.querySelector('#'+id);
@@ -185,7 +185,7 @@ function bullshitGenerator(){
 		}	
 	}
 
-	for(i; i<tabs.length; i++){
+	for(i; i<nbTabs; i++){
 		j = 0;
 		buttons[i] = [];
 		imgsBefore[i] = [];
@@ -266,7 +266,7 @@ function setSentences(container){
 		cisorsMaxTop = containerHeight + 23,
 		bottom = false;
 
-	function newSentence(){
+	function animCisors(){
 		TweenLite.set(cisors, {css:{className:'-=open'}});
 		TweenLite.set(cisors, {css:{className:'+=close'}});
 
@@ -321,7 +321,10 @@ function setSentences(container){
 			cisorsLeft += 15;
 
 		}
-		
+	}
+
+	function newSentence(){
+		animCisors();
 
 		var rand = Math.floor( Math.random()*nbSentences );
 		if(rand === actualSentence){
@@ -332,7 +335,7 @@ function setSentences(container){
 
 		TweenLite.fromTo(sentenceContainer, .2, {opacity: 1}, {opacity: 0, onComplete: function(){
 			btn.blur();
-			sentenceContainer.innerHTML = sentences[rand];
+			sentenceContainer.querySelector('span').innerHTML = sentences[rand];
 			TweenLite.fromTo(sentenceContainer, .2, {opacity: 0}, {opacity: 1});
 
 			TweenLite.set(cisors, {css:{className:'-=close'}});
@@ -341,7 +344,7 @@ function setSentences(container){
 	}
 
 	// set size to the container <p> so it won't move on sentence changing
-	TweenLite.set(sentenceContainer, {width: sentenceContainer.offsetWidth + 'px', minHeight: sentenceContainer.offsetHeight + 'px'});
+	TweenLite.set(sentenceContainer, {width: sentenceContainer.offsetWidth + 'px', height: sentenceContainer.offsetHeight + 'px'});
 
 	addEventListener(btn, 'click', newSentence);
 
@@ -350,9 +353,93 @@ function setSentences(container){
 	});
 }
 
+
+/*function animSection(section){
+	TweenLite.set(section, {css:{className:'+=animTxtDone'}});
+}*/
+
+function animTxtScroll(splitTl, decalTxt, sections){
+	console.log(window.offsetHeight);
+	window.onscroll = function(e){
+		var myScroll = document.documentElement['scrollTop'] || document.body['scrollTop'],
+			i = 0, splitTlLength = splitTl.length;
+		for(i; i<splitTlLength; i++){
+			if(myScroll > 100){
+				decalTxt = '+=100';
+				splitTl[i].reverse();
+				if(sections[i] !== undefined && !hasClass(sections[i], 'animTxtDone')){
+					TweenLite.set(sections[i], {css:{className:'+=animTxtDone'}, delay: .4});
+				}
+			}else{
+				if(sections[i] !== undefined && hasClass(sections[i], 'animTxtDone'))
+					TweenLite.set(sections[i], {css:{className:'-=animTxtDone'}});
+
+				splitTl[i].play();
+			}
+		}
+	}
+}
+
+function animTxt(splitText, splitTl, decalTxt, sections){
+	var j = 0, splitTlLength = splitTl.length;
+	for(j; j<splitTlLength; j++){
+		splitText[j].split({type:'words'});
+		var i = 0, words = splitText[j].words, nbWords = words.length;
+		for(i; i<nbWords; i++){
+			splitTl[j].from(words[i], 0.6, {ease:Expo.easeInOut, css:{opacity:0, scaleX:0.5, scaleY:0.5, y:decalTxt}}, i * 0.03);
+		}
+	}
+	animTxtScroll(splitTl, decalTxt, sections);
+}
+
+
+
+
+/*function onWindowScroll(){
+	myScroll = document.documentElement['scrollTop'] || document.body['scrollTop'];
+	
+	checkPosAnimsTxt(myScroll);
+
+	requestAnimFrame(onWindowScroll);
+}*/
+
+
+
 /**** INIT ****/
 function init(){
 	bullshitGenerator();
+
+	var logo = document.getElementById('logo'),
+		tweenLogo = TweenMax.spriteSheet(logo, {
+						width: 720,
+						stepX: 180,
+						stepY: 180,
+						count: 24
+					}, 1, { delay: 0.1, repeat: -1});
+	tweenLogo.pause();
+	addEventListener(logo, 'mouseover', function(){
+		tweenLogo.play();
+	});
+	addEventListener(logo, 'mouseout', function(){
+		tweenLogo.pause();
+		TweenLite.set(logo, {backgroundPosition: '0 0'});
+	});
+
+	var animsTxt = document.getElementsByClassName('animTxt');
+	if(animsTxt.length){
+		var i = 0, nbAnims = animsTxt.length, splitText = [], splitTl = [], decalTxt = '+=60', 
+			tempSections = [], sections =[], countSections = 0;
+		for(i; i<nbAnims; i++){
+			splitText[i] = new SplitText(animsTxt[i], {type:'words'});
+			splitTl[i] = new TimelineLite();
+			tempSections[i] = animsTxt[i].closest('.container');
+			if((tempSections[i-1] !== undefined && tempSections[i-1] !== tempSections[i]) || i === 0){
+				sections[i] = tempSections[countSections];
+				countSections ++;
+			}
+		}
+		animTxt(splitText, splitTl, decalTxt, sections);
+	}
 
 	var phrase = document.getElementById('phrase-creuse');
 	if(phrase !== null) setSentences(phrase);
@@ -362,8 +449,8 @@ function init(){
 
 	var sliders = document.getElementsByClassName('slider');
 	if(sliders.length){
-		var i = 0;
-		for(i; i<sliders.length; i++){
+		var i = 0, nbSliders = sliders.length;
+		for(i; i<nbSliders; i++){
 			setSlider(sliders[i]);
 		}
 	}
@@ -378,8 +465,8 @@ function init(){
 
 	var scrollToBtn = document.getElementsByClassName('scrollTo');
 	if(scrollToBtn.length){
-		var i = 0;
-		for(i; i<scrollToBtn.length; i++){
+		var i = 0, nbBtn = scrollToBtn.length;
+		for(i; i<nbBtn; i++){
 			addEventListener(scrollToBtn[i], 'click', function(e){
 				e.preventDefault();
 				var target = document.getElementById(this.getAttribute('href').replace('#', ''));
@@ -387,6 +474,8 @@ function init(){
 			});
 		}
 	}
+
+	//onWindowScroll();
 }
 
 function ready(fn){

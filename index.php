@@ -229,6 +229,7 @@
 						</div>
 					</div>
 				</div>
+				<div id='bgMasques'></div>
 			</section>
 
 		</main>

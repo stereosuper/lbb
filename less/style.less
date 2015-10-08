@@ -354,9 +354,7 @@ button{
     }
 }
 .bg-pink{
-    //background-color: @pink;
-    background: @pink url(../layoutImg/masques-pink.png) fixed;
-    background-position: 0 100%;
+    background: @pink;
 }
 
 .sup-title{
@@ -574,11 +572,11 @@ button{
     }
     .black-hover-link{
         overflow: hidden;
-        &:hover, &:focus{
+        /*&:hover, &:focus{
             .hover{
                 top: 12px;
             }
-        }
+        }*/
     }
 }
 
@@ -594,23 +592,25 @@ button{
         em, i{
             font-size: 1.3em;
         }
-        .sup-title, .content{
-            margin-top: 300px;
+        .content{
+            margin-top: 50px;
             opacity: 0;
         }
         .sup-title{
-            .transition(.3s all .2s ease-in-out);
+            margin-top: -20px;
+            opacity: 0;
+            //.transition(.3s all .2s ease-in-out);
         }
         .content{
             display: block;
-            .transition(.3s all .4s ease-in-out);
+            //.transition(.3s all .4s ease-in-out);
         }
-        .transition(.3s ease-in-out);
+        //.transition(.3s ease-in-out);
     }
     img{
         .transition(.3s ease-in-out);
     }
-    &:hover, &:focus{
+    /*&:hover, &:focus{
         .hover{
             padding: 10px;
             overflow: visible;
@@ -622,7 +622,7 @@ button{
         img{
             opacity: .8;
         }
-    }
+    }*/
     &:active{
         border: 3px solid @pink;
     }
@@ -717,7 +717,7 @@ button{
     .h3{
         display: table;
         margin: 0 auto 15px;
-        line-height: 1.3em;
+        line-height: 1.1em;
         span{
             display: table-cell;
             vertical-align: middle;
@@ -725,7 +725,7 @@ button{
     }
 }
 #phrase-creuse{
-    padding: 20px 50px 30px;
+    padding: 25px 50px 40px;
     border: 1px dashed;
     position: relative;
     color: @purple;
@@ -957,14 +957,23 @@ button{
         display: block;
         margin: 20px 0 0;
     }
-    .black-hover-link{
+    /*.black-hover-link{
         &:hover, &:focus{
             .hover{
                 top: 0;
                 height: 250px;
             }
         }
-    }
+    }*/
+}
+#bgMasques{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: url(../layoutImg/masques-pink.png) fixed;
+    background-position: 0 100%;
 }
 
 

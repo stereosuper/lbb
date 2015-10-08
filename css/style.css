@@ -692,8 +692,7 @@ button {
   color: #2ac0ce;
 }
 .bg-pink {
-  background: #ff5fac url(../layoutImg/masques-pink.png) fixed;
-  background-position: 0 100%;
+  background: #ff5fac;
 }
 .sup-title {
   display: block;
@@ -913,14 +912,28 @@ button {
 }
 .blog-list .black-hover-link {
   overflow: hidden;
-}
-.blog-list .black-hover-link:hover .hover,
-.blog-list .black-hover-link:focus .hover {
-  top: 12px;
+  /*&:hover, &:focus{
+            .hover{
+                top: 12px;
+            }
+        }*/
 }
 .black-hover-link {
   display: block;
   position: relative;
+  /*&:hover, &:focus{
+        .hover{
+            padding: 10px;
+            overflow: visible;
+            .sup-title, .content{
+                opacity: 1;
+                margin-top: 0;
+            }
+        }
+        img{
+            opacity: .8;
+        }
+    }*/
 }
 .black-hover-link .hover {
   padding: 0 10px;
@@ -928,54 +941,27 @@ button {
   overflow: hidden;
   background: rgba(0, 0, 0, 0.6);
   color: #fff;
-  -webkit-transition: 0.3s ease-in-out;
-  -moz-transition: 0.3s ease-in-out;
-  -o-transition: 0.3s ease-in-out;
-  transition: 0.3s ease-in-out;
 }
 .black-hover-link .hover em,
 .black-hover-link .hover i {
   font-size: 1.3em;
 }
-.black-hover-link .hover .sup-title,
 .black-hover-link .hover .content {
-  margin-top: 300px;
+  margin-top: 50px;
   opacity: 0;
 }
 .black-hover-link .hover .sup-title {
-  -webkit-transition: 0.3s all 0.2s ease-in-out;
-  -moz-transition: 0.3s all 0.2s ease-in-out;
-  -o-transition: 0.3s all 0.2s ease-in-out;
-  transition: 0.3s all 0.2s ease-in-out;
+  margin-top: -20px;
+  opacity: 0;
 }
 .black-hover-link .hover .content {
   display: block;
-  -webkit-transition: 0.3s all 0.4s ease-in-out;
-  -moz-transition: 0.3s all 0.4s ease-in-out;
-  -o-transition: 0.3s all 0.4s ease-in-out;
-  transition: 0.3s all 0.4s ease-in-out;
 }
 .black-hover-link img {
   -webkit-transition: 0.3s ease-in-out;
   -moz-transition: 0.3s ease-in-out;
   -o-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
-}
-.black-hover-link:hover .hover,
-.black-hover-link:focus .hover {
-  padding: 10px;
-  overflow: visible;
-}
-.black-hover-link:hover .hover .sup-title,
-.black-hover-link:focus .hover .sup-title,
-.black-hover-link:hover .hover .content,
-.black-hover-link:focus .hover .content {
-  opacity: 1;
-  margin-top: 0;
-}
-.black-hover-link:hover img,
-.black-hover-link:focus img {
-  opacity: .8;
 }
 .black-hover-link:active {
   border: 3px solid #ff5fac;
@@ -1067,14 +1053,14 @@ button {
 .phrase .h3 {
   display: table;
   margin: 0 auto 15px;
-  line-height: 1.3em;
+  line-height: 1.1em;
 }
 .phrase .h3 span {
   display: table-cell;
   vertical-align: middle;
 }
 #phrase-creuse {
-  padding: 20px 50px 30px;
+  padding: 25px 50px 40px;
   border: 1px dashed;
   position: relative;
   color: #b5006a;
@@ -1297,6 +1283,14 @@ button {
 }
 #instagram {
   padding: 0 10px 0 0;
+  /*.black-hover-link{
+        &:hover, &:focus{
+            .hover{
+                top: 0;
+                height: 250px;
+            }
+        }
+    }*/
 }
 #instagram .hover {
   width: 250px;
@@ -1318,10 +1312,14 @@ button {
   display: block;
   margin: 20px 0 0;
 }
-#instagram .black-hover-link:hover .hover,
-#instagram .black-hover-link:focus .hover {
+#bgMasques {
+  position: absolute;
   top: 0;
-  height: 250px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: url(../layoutImg/masques-pink.png) fixed;
+  background-position: 0 100%;
 }
 /* @end */
 /* @end */

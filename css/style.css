@@ -743,12 +743,12 @@ button {
   z-index: 1;
   margin: 0 auto;
   opacity: 1;
-  -webkit-transition: opacity 0.15s ease-in-out;
-  -moz-transition: opacity 0.15s ease-in-out;
-  -o-transition: opacity 0.15s ease-in-out;
-  transition: opacity 0.15s ease-in-out;
+  -webkit-transition: opacity 0.1s ease-in-out;
+  -moz-transition: opacity 0.1s ease-in-out;
+  -o-transition: opacity 0.1s ease-in-out;
+  transition: opacity 0.1s ease-in-out;
 }
-.container.animTxtDone {
+.container.on {
   opacity: 0;
 }
 .section {
@@ -1320,6 +1320,14 @@ button {
   right: 0;
   background: url(../layoutImg/masques-pink.png) fixed;
   background-position: 0 100%;
+  opacity: 0;
+  -webkit-transition: 0.3s opacity 0.1s ease-in-out;
+  -moz-transition: 0.3s opacity 0.1s ease-in-out;
+  -o-transition: 0.3s opacity 0.1s ease-in-out;
+  transition: 0.3s opacity 0.1s ease-in-out;
+}
+#bgMasques.on {
+  opacity: 1;
 }
 /* @end */
 /* @end */

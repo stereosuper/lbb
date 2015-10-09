@@ -1,4 +1,3 @@
-/**** VARIABLES ****/
 function scrollTo(to, duration){
     if(duration < 0) return;
     var scrollTop = document.body.scrollTop + document.documentElement.scrollTop,
@@ -60,6 +59,17 @@ function getStyle(oElm, strCssRule){
 	return strValue;
 }
 
+function delDuplicates(a){
+    var prims = {"boolean":{}, "number":{}, "string":{}}, objs = [];
+    return a.filter( function(item){
+        var type = typeof item;
+        if(type in prims)
+            return prims[type].hasOwnProperty(item) ? false : (prims[type][item] = true);
+        else
+            return objs.indexOf(item) >= 0 ? false : objs.push(item);
+    } );
+}
+
 /*window.requestAnimFrame = (function(){
   return  window.requestAnimationFrame       ||
           window.webkitRequestAnimationFrame ||
@@ -119,38 +129,41 @@ function setSlider(slider){
 	//TweenLite.delayedCall(5, slideNext);
 }
 
-function animBackground(container, posTop){
-	function animIt(){
-		if(animOn){
+
+function animBackground(complete){
+	if(animBgOn){
+		if(complete){
 			liveBgPos1 += 100;
 			liveBgPosFinal1 += 100;
 			liveBgPos2 -= 100;
 			liveBgPosFinal2 -= 100;
+			tweenBg = TweenLite.fromTo(masques, 25, {backgroundPosition: liveBgPos1+'% '+liveBgPos2+'%'}, {backgroundPosition: liveBgPosFinal1+'% '+liveBgPosFinal2+'%', ease:Linear.easeNone, onComplete: animBackground, onCompleteParams: ['complete']});
+		}else{
 			tweenBg.play();
-		}else{
-			tweenBg.pause();
 		}
+	}else{
+		tweenBg.pause();
 	}
-
-	var animOn = false, windowHeight = window.innerHeight,
-		tweenBg = TweenLite.fromTo(container, 25, {backgroundPosition: liveBgPos1+'% '+liveBgPos2+'%'}, {backgroundPosition: liveBgPosFinal1+'% '+liveBgPosFinal2+'%', ease:Linear.easeNone, onComplete: animIt, paused: true});
-
-	/*window.onscroll = function(e){
-		var myScrollBg = document.documentElement['scrollTop'] || document.body['scrollTop'];
-		if(myScrollBg > (posTop-windowHeight/2)){
-			if(myScrollBg > ((posTop+container.offsetHeight)-windowHeight/2)){
-				animOn = false;
-				animIt();
-			}else{
-				animOn = true;
-				animIt();
-			}
-		}else{
-			animOn = false;
-			animIt();
-		}
-	}*/
 }
+
+function animBackgroundScroll(){
+	if(myScroll > (masquesTop-windowHeight/2)){
+		if(myScroll > ((masquesTop+masques.offsetHeight)-windowHeight/2)){
+			TweenLite.set(masques, {css:{className: '-=on'}});
+			animBgOn = false;
+			animBackground();
+		}else{
+			TweenLite.set(masques, {css:{className: '+=on'}});
+			animBgOn = true;
+			animBackground();
+		}
+	}else{
+		TweenLite.set(masques, {css:{className: '-=on'}});
+		animBgOn = false;
+		animBackground();
+	}
+}
+
 
 function linksHoverYou(section){
 	var links = section.querySelectorAll('a'), nbLinks = links.length, i = 0;
@@ -169,6 +182,7 @@ function linksHoverYou(section){
 		}(i));
 	}
 }
+
 
 function bullshitGenerator(){
 	// for each element: img to display, action to execute (false si rien), img to display after the action (false si rien)
@@ -379,54 +393,67 @@ function setSentences(container){
 }
 
 
-/*function animSection(section){
-	TweenLite.set(section, {css:{className:'+=animTxtDone'}});
-}*/
-
-function animTxtScroll(splitTl, decalTxt, sections){
-	var windowHeight = window.innerHeight, splitTlLength = splitTl.length;
+function animTxtScroll(){
+	var splitTlAnimTxtLength = splitTlAnimTxt.length, i = 0, sections = [], containers = [],
+		allSections = document.getElementsByClassName('section'), j = 0, nbSections = allSections.length, allContainers = [];
 	
-	/*window.onscroll = function(e){
-		var myScroll = document.documentElement['scrollTop'] || document.body['scrollTop'],
-			i = 0;
-		for(i; i<splitTlLength; i++){
-			if(myScroll >= windowHeight/4){
-				decalTxt = '+=100';
-				splitTl[i].reverse();
-				if(sections[i] !== undefined && !hasClass(sections[i], 'animTxtDone')){
-					TweenLite.set(sections[i], {css:{className:'+=animTxtDone'}, delay: .2});
-				}
-			}else{
-				if(sections[i] !== undefined && hasClass(sections[i], 'animTxtDone')){
-					TweenLite.set(sections[i], {css:{className:'-=animTxtDone'}, delay: .2});
-				}
-				splitTl[i].play();
-			}
+	// anims txt
+	for(i; i<splitTlAnimTxtLength; i++){
+		sections[i] = animsTxt[i].closest('.section');
+		containers[i] = sections[i].querySelector('.container');
+		if(myScroll >= sections[i].offsetTop + windowHeight/4){
+			decalTxt = '+=100';
+			splitTlAnimTxt[i].reverse();
+		}else{
+			splitTlAnimTxt[i].play();
 		}
-	}*/
+	}
+
+	// anims section opacity
+	function addClassOn(container){
+		if(!hasClass(container, 'on'))
+			TweenLite.set(container, {css:{className:'+=on'}, delay: .2});
+	}
+
+	function removeClassOn(container){
+		if(hasClass(container, 'on'))
+			TweenLite.set(container, {css:{className:'-=on'}, delay: .2});
+	}
+	
+	for(j; j<nbSections; j++){
+		allContainers[j] = allSections[j].querySelector('.container');
+		if(myScroll >= allSections[j].offsetTop + windowHeight/4){
+			addClassOn(allContainers[j]);
+		}else{
+			myScroll >= allSections[j].offsetTop - windowHeight/4 ? removeClassOn(allContainers[j]) : addClassOn(allContainers[j]);
+		}
+	}
 }
 
-function animTxt(splitText, splitTl, decalTxt, sections){
-	var j = 0, splitTlLength = splitTl.length;
-	for(j; j<splitTlLength; j++){
+function animTxt(splitText){
+	var j = 0, splitTlAnimTxtLength = splitTlAnimTxt.length;
+	for(j; j<splitTlAnimTxtLength; j++){
 		splitText[j].split({type:'words'});
 		var i = 0, words = splitText[j].words, nbWords = words.length;
 		for(i; i<nbWords; i++){
-			splitTl[j].from(words[i], 0.4, {ease:Expo.easeInOut, css:{opacity:0, scaleX:0.5, scaleY:0.5, y:decalTxt}}, i * 0.03);
+			splitTlAnimTxt[j].from(words[i], 0.4, {ease:Expo.easeInOut, css:{opacity:0, scaleX:0.5, scaleY:0.5, y:decalTxt}}, i * 0.03);
 		}
 	}
-	animTxtScroll(splitTl, decalTxt, sections);
-}
-
-
-function onScrollEvent(){
-	console.log('hey');
 }
 
 
 
 /**** INIT ****/
+window.onscroll = function(e){
+	myScroll = document.documentElement['scrollTop'] || document.body['scrollTop'];
+	
+	animTxtScroll();
+	animBackgroundScroll();
+}
+
 function init(){
+	windowHeight = window.innerHeight;
+
 	bullshitGenerator();
 
 	var logo = document.getElementById('logo'),
@@ -441,23 +468,18 @@ function init(){
 	});
 	addEventListener(logo, 'mouseout', function(){
 		tweenLogo.reverse();
-		//TweenLite.set(logo, {backgroundPosition: '0 0'});
 	});
 
-	var animsTxt = document.getElementsByClassName('animTxt');
+	animsTxt = document.getElementsByClassName('animTxt');
 	if(animsTxt.length){
-		var i = 0, nbAnims = animsTxt.length, splitText = [], splitTl = [], decalTxt = '+=60', 
-			tempSections = [], sections =[], countSections = 0;
+		splitTlAnimTxt = [], decalTxt = '+=60';
+		var i = 0, nbAnims = animsTxt.length, splitText = [];
+		
 		for(i; i<nbAnims; i++){
 			splitText[i] = new SplitText(animsTxt[i], {type:'words'});
-			splitTl[i] = new TimelineLite();
-			tempSections[i] = animsTxt[i].closest('.container');
-			if((tempSections[i-1] !== undefined && tempSections[i-1] !== tempSections[i]) || i === 0){
-				sections[i] = tempSections[countSections];
-				countSections ++;
-			}
+			splitTlAnimTxt[i] = new TimelineLite();
 		}
-		animTxt(splitText, splitTl, decalTxt, sections);
+		animTxt(splitText);
 	}
 
 	var phrase = document.getElementById('phrase-creuse');
@@ -474,14 +496,12 @@ function init(){
 		}
 	}
 
-	var masques = document.getElementById('bgMasques');
+	masques = document.getElementById('bgMasques');
 	if(masques !== null){
-		liveBgPos1 = -100; liveBgPosFinal1 = 0;
-		liveBgPos2 = 200; liveBgPosFinal2 = 100;
-
-		var masquesTop = document.getElementById('live').offsetTop;
-
-		animBackground(masques, masquesTop);
+		animBgOn = false, liveBgPos1 = -100, liveBgPosFinal1 = 0,
+		liveBgPos2 = 200, liveBgPosFinal2 = 100, masquesTop = document.getElementById('live').offsetTop,
+		tweenBg = TweenLite.fromTo(masques, 25, {backgroundPosition: liveBgPos1+'% '+liveBgPos2+'%'}, {backgroundPosition: liveBgPosFinal1+'% '+liveBgPosFinal2+'%', ease:Linear.easeNone, onComplete: animBackground, onCompleteParams: ['complete'], paused: true});
+		animBackground();
 	}
 
 	var blackLinks = document.querySelector('.blog-list').querySelectorAll('.black-hover-link');
@@ -538,8 +558,6 @@ function init(){
 		}
 	}
 }
-
-window.onscroll = function(e){ onScrollEvent(); }
 
 function ready(fn){
 	if(document.readyState !== 'loading'){

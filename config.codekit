@@ -218,12 +218,12 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
-	"\/js\/SplitText.min.js": {
+	"\/js\/splitText.min.js": {
 		"fileType": 64,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/js\/SplitText.min.js",
-		"outputAbbreviatedPath": "\/js\/min\/SplitText.min-min.js",
+		"inputAbbreviatedPath": "\/js\/splitText.min.js",
+		"outputAbbreviatedPath": "\/js\/min\/splitText.min-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
@@ -328,13 +328,46 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/layoutImg\/logoBanane.png": {
+		"fileType": 32768,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 197695,
+		"inputAbbreviatedPath": "\/layoutImg\/logoBanane.png",
+		"outputAbbreviatedPath": "\/layoutImg\/logoBanane.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/layoutImg\/logoBisou.png": {
+		"fileType": 32768,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 129980,
+		"inputAbbreviatedPath": "\/layoutImg\/logoBisou.png",
+		"outputAbbreviatedPath": "\/layoutImg\/logoBisou.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/layoutImg\/logoMouche.png": {
 		"fileType": 32768,
-		"ignore": 0,
+		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 213886,
+		"initialSize": 197879,
 		"inputAbbreviatedPath": "\/layoutImg\/logoMouche.png",
 		"outputAbbreviatedPath": "\/layoutImg\/logoMouche.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/layoutImg\/logoMoustache.png": {
+		"fileType": 32768,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 135886,
+		"inputAbbreviatedPath": "\/layoutImg\/logoMoustache.png",
+		"outputAbbreviatedPath": "\/layoutImg\/logoMoustache.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0

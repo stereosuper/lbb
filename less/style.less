@@ -645,14 +645,27 @@ button{
     display: block;
     .size(180px);
     float: left;
-    background: url(../layoutImg/logo.png) no-repeat 50% 50%;
+    background: url(../layoutImg/logo.png) 50% 50%;
+    background-repeat: no-repeat;
     background-size: 120px;
     text-indent: -999em;
     overflow: hidden;
     .transition(none);
-    .home &{
-        background: url(../layoutImg/logoMouche.png) no-repeat;
+    &.sprite{
         background-size: 720px;
+        background-position: 0 0;
+    }
+    &.mouche{
+        background-image: url(../layoutImg/logoMouche.png);
+    }
+    &.banane{
+        background-image: url(../layoutImg/logoBanane.png);
+    }
+    &.bisou{
+        background-image: url(../layoutImg/logoBisou.png);
+    }
+    &.moustache{
+        background-image: url(../layoutImg/logoMoustache.png);
     }
 }
 
@@ -836,7 +849,12 @@ button{
         margin-bottom: .25em;
         a{
             position: relative;
-            &:extend(.underline all);
+            .no-js &{
+                &:extend(.underline all);
+            }
+            div{
+                &:extend(.underline all);
+            }
             &:before{
                 display: block;
                 .size(60px);
@@ -852,8 +870,13 @@ button{
             }
             &:hover, &:focus{
                 color: #fff;
-                &:after{
+                .no-js &{
                     background: #fff;
+                }
+                div{
+                    &:after{
+                        background: #fff;
+                    }
                 }
             }
             &:hover{

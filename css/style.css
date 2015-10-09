@@ -492,11 +492,13 @@ button {
   border: 0;
 }
 .underline,
-#vous h2 a {
+.no-js #vous h2 a,
+#vous h2 a div {
   position: relative;
 }
 .underline:after,
-#vous h2 a:after {
+.no-js #vous h2 a:after,
+#vous h2 a div:after {
   content: '';
   display: block;
   height: 3px;
@@ -981,7 +983,8 @@ button {
   width: 180px;
   height: 180px;
   float: left;
-  background: url(../layoutImg/logo.png) no-repeat 50% 50%;
+  background: url(../layoutImg/logo.png) 50% 50%;
+  background-repeat: no-repeat;
   background-size: 120px;
   text-indent: -999em;
   overflow: hidden;
@@ -990,9 +993,21 @@ button {
   -o-transition: none;
   transition: none;
 }
-.home #logo {
-  background: url(../layoutImg/logoMouche.png) no-repeat;
+#logo.sprite {
   background-size: 720px;
+  background-position: 0 0;
+}
+#logo.mouche {
+  background-image: url(../layoutImg/logoMouche.png);
+}
+#logo.banane {
+  background-image: url(../layoutImg/logoBanane.png);
+}
+#logo.bisou {
+  background-image: url(../layoutImg/logoBisou.png);
+}
+#logo.moustache {
+  background-image: url(../layoutImg/logoMoustache.png);
 }
 #main-menu {
   width: 160px;
@@ -1207,8 +1222,12 @@ button {
 #vous h2 a:focus {
   color: #fff;
 }
-#vous h2 a:hover:after,
-#vous h2 a:focus:after {
+.no-js #vous h2 a:hover,
+.no-js #vous h2 a:focus {
+  background: #fff;
+}
+#vous h2 a:hover div:after,
+#vous h2 a:focus div:after {
   background: #fff;
 }
 #vous h2 a:hover:before {

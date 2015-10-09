@@ -1,3 +1,5 @@
+var firstAnimSlider = false;
+
 function scrollTo(to, duration){
     if(duration < 0) return;
     var scrollTop = document.body.scrollTop + document.documentElement.scrollTop,
@@ -59,17 +61,6 @@ function getStyle(oElm, strCssRule){
 	return strValue;
 }
 
-function delDuplicates(a){
-    var prims = {"boolean":{}, "number":{}, "string":{}}, objs = [];
-    return a.filter( function(item){
-        var type = typeof item;
-        if(type in prims)
-            return prims[type].hasOwnProperty(item) ? false : (prims[type][item] = true);
-        else
-            return objs.indexOf(item) >= 0 ? false : objs.push(item);
-    } );
-}
-
 /*window.requestAnimFrame = (function(){
   return  window.requestAnimationFrame       ||
           window.webkitRequestAnimationFrame ||
@@ -127,6 +118,22 @@ function setSlider(slider){
 	addEventListener(next, 'click', slideNext);
 
 	//TweenLite.delayedCall(5, slideNext);
+}
+
+function animFirstSlide(container){
+	if(document.getElementById('confiance') !== null){
+		var container = document.getElementById('confiance'), slides = container.querySelectorAll('.slide');
+		if(myScroll >= container.offsetTop - windowHeight/3){
+			firstAnimSlider = true;
+			var posX = '25%', timing = .3, tlAnims = new TimelineLite();
+			TweenLite.to( slides[0], timing, {left: posX, opacity: 0, onComplete: function(){
+				TweenLite.fromTo( slides[1], timing, {left: '-'+posX}, {left: 0, opacity: 1, ease:Power2.easeInOut} );
+				tlAnims.staggerFromTo( slides[1].querySelectorAll('.anim-slide'), timing, {x: '-200px', opacity: 0}, {x: 0, opacity: 1, ease:Power2.easeInOut}, .2 );
+			}} );
+		}
+	}else{
+		firstAnimSlider = true;
+	}
 }
 
 
@@ -394,22 +401,9 @@ function setSentences(container){
 
 
 function animTxtScroll(){
-	var splitTlAnimTxtLength = splitTlAnimTxt.length, i = 0, sections = [], containers = [],
-		allSections = document.getElementsByClassName('section'), j = 0, nbSections = allSections.length, allContainers = [];
-	
-	// anims txt
-	for(i; i<splitTlAnimTxtLength; i++){
-		sections[i] = animsTxt[i].closest('.section');
-		containers[i] = sections[i].querySelector('.container');
-		if(myScroll >= sections[i].offsetTop + windowHeight/4){
-			decalTxt = '+=100';
-			splitTlAnimTxt[i].reverse();
-		}else{
-			splitTlAnimTxt[i].play();
-		}
-	}
+	var splitTlAnimTxtLength = splitTlAnimTxt.length, i = 0, sections = [], containers = []/*,
+		allSections = document.getElementsByClassName('section'), j = 0, nbSections = allSections.length, allContainers = []*/;
 
-	// anims section opacity
 	function addClassOn(container){
 		if(!hasClass(container, 'on'))
 			TweenLite.set(container, {css:{className:'+=on'}, delay: .2});
@@ -420,14 +414,37 @@ function animTxtScroll(){
 			TweenLite.set(container, {css:{className:'-=on'}, delay: .2});
 	}
 	
-	for(j; j<nbSections; j++){
+	// anims txt
+	for(i; i<splitTlAnimTxtLength; i++){
+		sections[i] = animsTxt[i].closest('.section');
+		containers[i] = sections[i].querySelector('.container');
+		if(myScroll >= sections[i].offsetTop + windowHeight/2.2){
+			decalTxt = '+=100';
+			splitTlAnimTxt[i].reverse();
+			addClassOn(containers[i]);
+		}else{
+			if(myScroll >= sections[i].offsetTop - windowHeight/2.2){
+				removeClassOn(containers[i]);
+				splitTlAnimTxt[i].play();
+			}else{
+				splitTlAnimTxt[i].reverse();
+				addClassOn(containers[i]);
+				
+			}
+		}
+	}
+
+	// anims section opacity
+	
+
+	/*for(j; j<nbSections; j++){
 		allContainers[j] = allSections[j].querySelector('.container');
 		if(myScroll >= allSections[j].offsetTop + windowHeight/4){
 			addClassOn(allContainers[j]);
 		}else{
 			myScroll >= allSections[j].offsetTop - windowHeight/4 ? removeClassOn(allContainers[j]) : addClassOn(allContainers[j]);
 		}
-	}
+	}*/
 }
 
 function animTxt(splitText){
@@ -449,6 +466,8 @@ window.onscroll = function(e){
 	
 	animTxtScroll();
 	animBackgroundScroll();
+	if(!firstAnimSlider)
+		animFirstSlide();
 }
 
 function init(){
@@ -457,12 +476,15 @@ function init(){
 	bullshitGenerator();
 
 	var logo = document.getElementById('logo'),
+		logoSprites = ['mouche', 'banane', 'moustache', 'bisou'],
+		rand = Math.floor(Math.random()*logoSprites.length),
 		tweenLogo = TweenMax.spriteSheet(logo, {
 						width: 720,
 						stepX: 180,
 						stepY: 180,
 						count: 24
 					}, 1, { delay: 0.1, paused: true });
+	TweenLite.set(logo, {css: {className: '+=sprite '+logoSprites[rand]}})
 	addEventListener(logo, 'mouseover', function(){
 		tweenLogo.play();
 	});

@@ -1,6 +1,9 @@
 var firstAnimSlider = false,
 	currentSlide = 0,
-	body = document.getElementsByTagName('body');
+	body = document.getElementsByTagName('body'),
+	pageContent = document.getElementById('page-content'),
+	header = document.getElementById('header'),
+	menu = document.getElementById('main-menu');
 
 function scrollTo(to, duration){
     if(duration < 0) return;
@@ -460,6 +463,16 @@ function animTxt(splitText){
 	}
 }
 
+function animMenuScroll(){
+	if(myScroll >= pageContent.offsetTop - 100){
+		TweenLite.set(header, {css: {className: '+=purple'}});
+		TweenLite.set(menu, {css: {className: '+=purple'}});
+	}else{
+		TweenLite.set(header, {css: {className: '-=purple'}});
+		TweenLite.set(menu, {css: {className: '-=purple'}});
+	}
+}
+
 
 
 /**** INIT ****/
@@ -467,12 +480,16 @@ window.onscroll = function(e){
 	myScroll = document.documentElement['scrollTop'] || document.body['scrollTop'];
 	
 	animTxtScroll();
-	
+
 	if(masques !== null)
 		animBackgroundScroll();
 
 	if(!firstAnimSlider)
 		animFirstSlide();
+
+	if(pageContent !== null)
+		animMenuScroll();
+	
 }
 
 function init(){

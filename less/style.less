@@ -10,7 +10,7 @@
 @blue: #2ac0ce;
 @pink: #ff5fac;
 @grey: #9f9f9f;
-@txt: #6e6e6e;
+@txt: #565656;
 
 @transition: .15s ease-in-out;
 
@@ -35,7 +35,7 @@ html{
 
 body{
     color: @txt;
-    .klinic(1.4em); // =14px
+    .klinic(1.8em); // =14px
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -46,7 +46,7 @@ h1, h2, h3, .h3, h4, h5{
     line-height: 1em;
 }
 h1{
-    font-size: 8.5em;
+    font-size: 6.7em;
     margin: 0 0 .35em;
     .small{
         font-size: .35em;
@@ -62,43 +62,57 @@ h2, h3, h4, h5{
     }
 }
 h2{
-    font-size: 3.5em;
+    font-size: 2.8em;
     line-height: 1.3em;
     margin: 1em 0;
     &.light{
-        .geomanist(3.5em);
+        .geomanist(2.8em);
     }
 }
 h3, .h3{
-    font-size: 2.8em;
+    font-size: 2.2em;
     margin: 1em 0;
 }
 h4{
-    font-size: 2em;
-    margin: 1.33em 0;
+    font-size: 1.8em;
+    margin: 1.4em 0;
 }
 h5{
-    font-size: 1.7em;
-    margin: 1.67em 0;
+    font-size: 1.5em;
+    margin: 1.6em 0;
 }
 h6{
-    font-size: 1.3em;
-    margin: 2.33em 0;
+    font-size: 1.2em;
+    margin: 2em 0;
 }
 
 p{
-    margin: 1em 0;
+    margin: 1.8em 0;
+    line-height: 1.25em;
 }
 
 strong, b{
-    font-weight: normal;
-    .geomanistBold(1em);
+    .klinicBold(1em);
+}
+em, i{
+    .klinicIt(1em);
 }
 
 ol,
 ul{
-    margin: 1.5em 0;
-    padding: 0 0 0 40px;
+    margin: 5em 0;
+    padding: 0 0 0 20px;
+    list-style: none;
+    li{
+        position: relative;
+        margin: .8em 0;
+        &:before{
+            position: absolute;
+            left: -20px;
+            content: '•';
+            .klinicBold(18px);
+        }
+    }
 }
 
 img{
@@ -106,12 +120,31 @@ img{
     height: auto;
     &.align-left{
         float: left;
-        margin: 0 20px 20px 0;
+        margin: 10px 20px 10px 0;
+    }
+    &.align-right{
+        float: right;
+        margin: 10px 0 10px 20px;
     }
 }
 
 blockquote{
+    max-width: 610px;
+    margin: 3.5em auto;
+    &:extend(em);
+    font-size: 1.3em;
     text-align: center;
+    p{
+        padding: 0;
+        margin: 20px 0;
+        line-height: 1.4em;
+    }
+    span{
+        font-size: .85em;
+        &:before{
+            content: '― ';
+        }
+    }
 }
 
 
@@ -120,7 +153,6 @@ blockquote{
 /******* LIENS / BOUTONS *******/
 
 a, button{
-    text-decoration: none;
     color: @purple;
     .transition(@transition);
     &:focus, &:hover{
@@ -140,6 +172,7 @@ button{
 
 .underline{
     position: relative;
+    text-decoration: none;
     &:after{
         content: '';
         display: block;
@@ -157,7 +190,8 @@ button{
     display: inline-block;
     padding: 15px 25px;
     border: 3px solid;
-    .geomanist(1.15em);
+    .geomanist(.89em);
+    text-decoration: none;
     text-transform: uppercase;
     color: @purple;
     &:hover, &:focus{
@@ -322,79 +356,11 @@ button{
         }
     }
 }
-
-
-/******* CLASSES GENERALES  *******/
-
-.center{
-    text-align: center;
-}
-.left{
-    text-align: left;
-}
-
-.bg-purple{
-    background: @purple url(../layoutImg/texture-purple.png) 50% 50% fixed;
-}
-.bg-yellow{
-    background: @yellow url(../layoutImg/texture-yellow.png) 50% 50% fixed;
-}
-.bg-blue{
-    background: @blue url(../layoutImg/texture-blue.png) 50% 50% fixed;
-}
-.bg-mauve{
-    background: @mauve url(../layoutImg/texture-blue.png) 50% 50% fixed;
-}
-.bg-pink{
-    background: @pink;
-}
-
-.sup-title{
-    display: block;
-    margin: 0 0 15px;
-    .geomanist(1em);
-    line-height: 1em;
-    text-transform: uppercase;
-    + h2{
-        margin-top: -13px;
-    }
-}
-.sub-title{
-    .klinic(1em);
-}
-
-.table{
-    display: table;
-}
-
-.w50{
-    display: inline-block;
-    width: 50%;
-    vertical-align: top;
-    .table &{
-        display: table-cell;
-    }
-}
-
-.hidden{
-    display: none !important;
-}
-
-.clearfix:before,
-.clearfix:after{
-    content: " ";
-    display: table;
-}
-.clearfix:after{
-    clear: both;
-}
-
-
 /******* MODULES *******/
 
 .container{
     max-width: 1200px;
-    padding: 0 150px;
+    padding: 0 130px;
     position: relative;
     z-index: 1;
     margin: 0 auto;
@@ -402,6 +368,34 @@ button{
     .transition(opacity .1s ease-in-out);
     &.on{
         opacity: 0;
+    }
+}
+
+.page-content{
+    padding-top: 55px;
+    p{
+        padding: 0 75px;
+    }
+    h2, h3, h4, h5, h6, ul{
+        padding: 0 155px;
+    }
+    h2{
+        font-size: 2em;
+        margin: 1.5em 0;
+    }
+    h3{
+        padding-top: 10px;
+        font-size: 1.5em;
+        margin: 1em 0 1.5em;
+    }
+    h4{
+        font-size: 1.2em;
+    }
+    h5{
+        font-size: 1em;
+    }
+    h6{
+        font-size: .85em;
     }
 }
 
@@ -424,11 +418,12 @@ button{
     display: inline-block;
     vertical-align: top;
     ul{
-        list-style: none;
-        padding: 0;
+        &:extend(.reset-ul all);
+        font-size: .78em;
     }
   a{
     position: relative;
+    text-decoration: none;
     &:before{
         content: '›';
         display: inline-block;
@@ -454,7 +449,12 @@ button{
 .reset-ul{
     padding: 0;
     margin: 0;
-    list-style: none;
+    li{
+        margin: 0;
+        &:before{
+            display: none;
+        }
+    }
 }
 
 .slider{
@@ -463,7 +463,7 @@ button{
     ul{
         height: 500px;
         position: relative;
-        &:extend(.reset-ul);
+        &:extend(.reset-ul all);
         .no-js &{
             height: auto;
         }
@@ -539,9 +539,14 @@ button{
         }
     }
     blockquote{
+        max-width: none;
         position: relative;
         margin: 30px 0 30px -32px;
+        font-size: 1em;
         text-align: left;
+        b{
+            .geomanistBold(1em);
+        }
         .quote, .by{
             display: inline-block;
             vertical-align: middle;
@@ -552,7 +557,7 @@ button{
             height: 220px;
             padding: 50px 30px 50px 55px;
             background: url(../layoutImg/bulle.png) no-repeat 100% 0;
-            .marker(1.3em);
+            .marker(1em);
             line-height: 1.6em;
             text-align: center;
             color: @blue;
@@ -566,7 +571,7 @@ button{
         .by{
             max-width: 125px;
             margin: 10px 0 10px 8%;
-            .geomanist(1em);
+            .geomanist(.78em);
             b{
                 display: block;
             }
@@ -588,7 +593,7 @@ button{
 }
 
 .blog-list{
-    &:extend(.reset-ul);
+    &:extend(.reset-ul all);
     li{
         display: inline-block;
         position: relative;
@@ -626,9 +631,6 @@ button{
         overflow: hidden;
         background: fade(#000, 60%);
         color: #fff;
-        em, i{
-            font-size: 1.3em;
-        }
         .content{
             margin-top: 50px;
             opacity: 0;
@@ -663,6 +665,83 @@ button{
     &:active{
         border: 3px solid @pink;
     }
+}
+
+
+/******* CLASSES GENERALES  *******/
+
+.center{
+    text-align: center;
+}
+.left{
+    text-align: left;
+}
+
+.bg-purple{
+    background: @purple url(../layoutImg/texture-purple.png) 50% 50% fixed;
+}
+.bg-yellow{
+    background: @yellow url(../layoutImg/texture-yellow.png) 50% 50% fixed;
+}
+.bg-blue{
+    background: @blue url(../layoutImg/texture-blue.png) 50% 50% fixed;
+}
+.bg-mauve{
+    background: @mauve url(../layoutImg/texture-blue.png) 50% 50% fixed;
+}
+.bg-pink{
+    background: @pink;
+}
+
+.sup-title{
+    display: block;
+    margin: 0 0 15px;
+    .geomanist(.78em);
+    line-height: 1em;
+    text-transform: uppercase;
+    + h2{
+        margin-top: -13px;
+    }
+}
+.sub-title{
+    .klinic(.78em);
+}
+
+.table{
+    display: table;
+}
+
+.w50{
+    display: inline-block;
+    width: 50%;
+    vertical-align: top;
+    .table &{
+        display: table-cell;
+    }
+    &.first{
+        p{
+            padding: 0 20px 0 0;
+        }
+        + .w50{
+            p{
+                padding: 0 0 0 20px;
+            }
+        }
+    }
+    
+}
+
+.hidden{
+    display: none !important;
+}
+
+.clearfix:before,
+.clearfix:after{
+    content: " ";
+    display: table;
+}
+.clearfix:after{
+    clear: both;
 }
 
 
@@ -704,6 +783,10 @@ button{
     &.moustache{
         background-image: url(../layoutImg/logoMoustache.png);
     }
+    .purple &{
+        background: url(../layoutImg/logo-rose.png) 50% 50% no-repeat;
+        background-size: 120px;
+    }
 }
 
 #main-menu{
@@ -724,6 +807,11 @@ button{
         }
         &:active{
             opacity: 1;
+        }
+    }
+    &.purple{
+        a{
+            color: @purple;
         }
     }
     .actif{
@@ -762,7 +850,7 @@ button{
     .menu{
         max-width: 220px;
         &:first-child{
-            margin: 0 0 20px;
+            margin: 0 0 75px;
         }
     }
     /*.w50{
@@ -792,6 +880,7 @@ button{
     margin: 25px 0 0;
     color: @purple;
     button{
+        font-size: .78em;
         span{
             display: inline-block;
             vertical-align: top;
@@ -877,6 +966,13 @@ button{
         padding-top: 5px;
         padding-bottom: 70px;
     }
+}
+
+
+/******* PAGE TYPE *******/
+
+.page{
+    
 }
 
 

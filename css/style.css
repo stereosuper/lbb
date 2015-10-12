@@ -216,6 +216,16 @@ menu {
   src: url('../fonts/klinic/klinicslabmedium.eot?#iefix') format('embedded-opentype'), url('../fonts/klinic/klinicslabmedium.woff2') format('woff2'), url('../fonts/klinic/klinicslabmedium.woff') format('woff'), url('../fonts/klinic/klinicslabmedium.ttf') format('truetype');
 }
 @font-face {
+  font-family: 'klinicBold';
+  src: url('../fonts/klinic/klinicslabbold.eot');
+  src: url('../fonts/klinic/klinicslabbold.eot?#iefix') format('embedded-opentype'), url('../fonts/klinic/klinicslabbold.woff2') format('woff2'), url('../fonts/klinic/klinicslabbold.woff') format('woff'), url('../fonts/klinic/klinicslabbold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'klinicIt';
+  src: url('../fonts/klinic/klinicslabmediumit.eot');
+  src: url('../fonts/klinic/klinicslabmediumit.eot?#iefix') format('embedded-opentype'), url('../fonts/klinic/klinicslabmediumit.woff2') format('woff2'), url('../fonts/klinic/klinicslabmediumit.woff') format('woff'), url('../fonts/klinic/klinicslabmediumit.ttf') format('truetype');
+}
+@font-face {
   font-family: 'marker';
   src: url('../fonts/marker/permanentmarker.eot');
   src: url('../fonts/marker/permanentmarker.eot?#iefix') format('embedded-opentype'), url('../fonts/marker/permanentmarker.woff2') format('woff2'), url('../fonts/marker/permanentmarker.woff') format('woff'), url('../fonts/marker/permanentmarker.ttf') format('truetype');
@@ -329,9 +339,9 @@ html {
   font-size: 62.5%;
 }
 body {
-  color: #6e6e6e;
+  color: #565656;
   font-family: 'klinic', sans-serif;
-  font-size: 1.4em;
+  font-size: 1.8em;
   font-weight: normal;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
@@ -350,7 +360,7 @@ h5 {
   line-height: 1em;
 }
 h1 {
-  font-size: 8.5em;
+  font-size: 6.7em;
   margin: 0 0 .35em;
 }
 h1 .small {
@@ -372,47 +382,72 @@ h5 {
   color: #fff;
 }
 h2 {
-  font-size: 3.5em;
+  font-size: 2.8em;
   line-height: 1.3em;
   margin: 1em 0;
 }
 h2.light {
   font-family: 'geomanist', sans-serif;
-  font-size: 3.5em;
+  font-size: 2.8em;
   font-weight: normal;
   font-style: normal;
 }
 h3,
 .h3 {
-  font-size: 2.8em;
+  font-size: 2.2em;
   margin: 1em 0;
 }
 h4 {
-  font-size: 2em;
-  margin: 1.33em 0;
+  font-size: 1.8em;
+  margin: 1.4em 0;
 }
 h5 {
-  font-size: 1.7em;
-  margin: 1.67em 0;
+  font-size: 1.5em;
+  margin: 1.6em 0;
 }
 h6 {
-  font-size: 1.3em;
-  margin: 2.33em 0;
+  font-size: 1.2em;
+  margin: 2em 0;
 }
 p {
-  margin: 1em 0;
+  margin: 1.8em 0;
+  line-height: 1.25em;
 }
 strong,
 b {
-  font-family: 'geomanist-bold', sans-serif;
+  font-family: 'klinicBold', sans-serif;
+  font-size: 1em;
+  font-weight: normal;
+  font-style: normal;
+}
+em,
+i,
+blockquote {
+  font-family: 'klinicIt', sans-serif;
   font-size: 1em;
   font-weight: normal;
   font-style: normal;
 }
 ol,
 ul {
-  margin: 1.5em 0;
-  padding: 0 0 0 40px;
+  margin: 5em 0;
+  padding: 0 0 0 20px;
+  list-style: none;
+}
+ol li,
+ul li {
+  position: relative;
+  margin: .8em 0;
+}
+ol li:before,
+ul li:before {
+  position: absolute;
+  left: -20px;
+  content: '•';
+  font-family: 'klinicBold', sans-serif;
+  font-size: 18px;
+  font-weight: normal;
+  font-style: normal;
 }
 img {
   max-width: 100%;
@@ -420,15 +455,32 @@ img {
 }
 img.align-left {
   float: left;
-  margin: 0 20px 20px 0;
+  margin: 10px 20px 10px 0;
+}
+img.align-right {
+  float: right;
+  margin: 10px 0 10px 20px;
 }
 blockquote {
+  max-width: 610px;
+  margin: 3.5em auto;
+  font-size: 1.3em;
   text-align: center;
+}
+blockquote p {
+  padding: 0;
+  margin: 20px 0;
+  line-height: 1.4em;
+}
+blockquote span {
+  font-size: .85em;
+}
+blockquote span:before {
+  content: '― ';
 }
 /******* LIENS / BOUTONS *******/
 a,
 button {
-  text-decoration: none;
   color: #b5006a;
   -webkit-transition: 0.15s ease-in-out;
   -moz-transition: 0.15s ease-in-out;
@@ -456,6 +508,7 @@ button {
 .no-js #vous h2 a,
 #vous h2 a div {
   position: relative;
+  text-decoration: none;
 }
 .underline:after,
 .no-js #vous h2 a:after,
@@ -478,9 +531,10 @@ button {
   padding: 15px 25px;
   border: 3px solid;
   font-family: 'geomanist', sans-serif;
-  font-size: 1.15em;
+  font-size: 0.89em;
   font-weight: normal;
   font-style: normal;
+  text-decoration: none;
   text-transform: uppercase;
   color: #b5006a;
 }
@@ -668,74 +722,10 @@ button {
   -o-transition: 0.1s;
   transition: 0.1s;
 }
-/******* CLASSES GENERALES  *******/
-.center,
-.section {
-  text-align: center;
-}
-.left {
-  text-align: left;
-}
-.bg-purple {
-  background: #b5006a url(../layoutImg/texture-purple.png) 50% 50% fixed;
-}
-.bg-yellow {
-  background: #ffc200 url(../layoutImg/texture-yellow.png) 50% 50% fixed;
-}
-.bg-blue {
-  background: #2ac0ce url(../layoutImg/texture-blue.png) 50% 50% fixed;
-}
-.bg-mauve {
-  background: #b47498 url(../layoutImg/texture-blue.png) 50% 50% fixed;
-}
-.bg-pink {
-  background: #ff5fac;
-}
-.sup-title {
-  display: block;
-  margin: 0 0 15px;
-  font-family: 'geomanist', sans-serif;
-  font-size: 1em;
-  font-weight: normal;
-  font-style: normal;
-  line-height: 1em;
-  text-transform: uppercase;
-}
-.sup-title + h2 {
-  margin-top: -13px;
-}
-.sub-title {
-  font-family: 'klinic', sans-serif;
-  font-size: 1em;
-  font-weight: normal;
-  font-style: normal;
-}
-.table {
-  display: table;
-}
-.w50 {
-  display: inline-block;
-  width: 50%;
-  vertical-align: top;
-}
-.table .w50 {
-  display: table-cell;
-}
-.hidden {
-  display: none !important;
-}
-.clearfix:before,
-.clearfix:after {
-  content: " ";
-  display: table;
-}
-.clearfix:after {
-  clear: both;
-}
 /******* MODULES *******/
 .container {
   max-width: 1200px;
-  padding: 0 150px;
+  padding: 0 130px;
   position: relative;
   z-index: 1;
   margin: 0 auto;
@@ -747,6 +737,38 @@ button {
 }
 .container.on {
   opacity: 0;
+}
+.page-content {
+  padding-top: 55px;
+}
+.page-content p {
+  padding: 0 75px;
+}
+.page-content h2,
+.page-content h3,
+.page-content h4,
+.page-content h5,
+.page-content h6,
+.page-content ul {
+  padding: 0 155px;
+}
+.page-content h2 {
+  font-size: 2em;
+  margin: 1.5em 0;
+}
+.page-content h3 {
+  padding-top: 10px;
+  font-size: 1.5em;
+  margin: 1em 0 1.5em;
+}
+.page-content h4 {
+  font-size: 1.2em;
+}
+.page-content h5 {
+  font-size: 1em;
+}
+.page-content h6 {
+  font-size: .85em;
 }
 .section {
   display: table;
@@ -766,11 +788,11 @@ button {
   vertical-align: top;
 }
 .menu ul {
-  list-style: none;
-  padding: 0;
+  font-size: .78em;
 }
 .menu a {
   position: relative;
+  text-decoration: none;
 }
 .menu a:before {
   content: '›';
@@ -794,11 +816,23 @@ button {
   overflow: visible;
 }
 .reset-ul,
+.menu ul,
 .slider ul,
 .blog-list {
   padding: 0;
   margin: 0;
-  list-style: none;
+}
+.reset-ul li,
+.menu ul li,
+.slider ul li,
+.blog-list li {
+  margin: 0;
+}
+.reset-ul li:before,
+.menu ul li:before,
+.slider ul li:before,
+.blog-list li:before {
+  display: none;
 }
 .slider {
   padding: 0 50px;
@@ -888,9 +922,17 @@ button {
   opacity: 1;
 }
 .slide blockquote {
+  max-width: none;
   position: relative;
   margin: 30px 0 30px -32px;
+  font-size: 1em;
   text-align: left;
+}
+.slide blockquote b {
+  font-family: 'geomanist-bold', sans-serif;
+  font-size: 1em;
+  font-weight: normal;
+  font-style: normal;
 }
 .slide blockquote .quote,
 .slide blockquote .by {
@@ -904,7 +946,7 @@ button {
   padding: 50px 30px 50px 55px;
   background: url(../layoutImg/bulle.png) no-repeat 100% 0;
   font-family: 'marker', sans-serif;
-  font-size: 1.3em;
+  font-size: 1em;
   font-weight: normal;
   font-style: normal;
   line-height: 1.6em;
@@ -921,7 +963,7 @@ button {
   max-width: 125px;
   margin: 10px 0 10px 8%;
   font-family: 'geomanist', sans-serif;
-  font-size: 1em;
+  font-size: 0.78em;
   font-weight: normal;
   font-style: normal;
 }
@@ -991,10 +1033,6 @@ button {
   background: rgba(0, 0, 0, 0.6);
   color: #fff;
 }
-.black-hover-link .hover em,
-.black-hover-link .hover i {
-  font-size: 1.3em;
-}
 .black-hover-link .hover .content {
   margin-top: 50px;
   opacity: 0;
@@ -1014,6 +1052,76 @@ button {
 }
 .black-hover-link:active {
   border: 3px solid #ff5fac;
+}
+/******* CLASSES GENERALES  *******/
+.center,
+.section {
+  text-align: center;
+}
+.left {
+  text-align: left;
+}
+.bg-purple {
+  background: #b5006a url(../layoutImg/texture-purple.png) 50% 50% fixed;
+}
+.bg-yellow {
+  background: #ffc200 url(../layoutImg/texture-yellow.png) 50% 50% fixed;
+}
+.bg-blue {
+  background: #2ac0ce url(../layoutImg/texture-blue.png) 50% 50% fixed;
+}
+.bg-mauve {
+  background: #b47498 url(../layoutImg/texture-blue.png) 50% 50% fixed;
+}
+.bg-pink {
+  background: #ff5fac;
+}
+.sup-title {
+  display: block;
+  margin: 0 0 15px;
+  font-family: 'geomanist', sans-serif;
+  font-size: 0.78em;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1em;
+  text-transform: uppercase;
+}
+.sup-title + h2 {
+  margin-top: -13px;
+}
+.sub-title {
+  font-family: 'klinic', sans-serif;
+  font-size: 0.78em;
+  font-weight: normal;
+  font-style: normal;
+}
+.table {
+  display: table;
+}
+.w50 {
+  display: inline-block;
+  width: 50%;
+  vertical-align: top;
+}
+.table .w50 {
+  display: table-cell;
+}
+.w50.first p {
+  padding: 0 20px 0 0;
+}
+.w50.first + .w50 p {
+  padding: 0 0 0 20px;
+}
+.hidden {
+  display: none !important;
+}
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
 }
 /******* HEADER *******/
 #header {
@@ -1056,6 +1164,10 @@ button {
 #logo.moustache {
   background-image: url(../layoutImg/logoMoustache.png);
 }
+.purple #logo {
+  background: url(../layoutImg/logo-rose.png) 50% 50% no-repeat;
+  background-size: 120px;
+}
 #main-menu {
   width: 160px;
   padding: 15px 0 15px 30px;
@@ -1080,6 +1192,9 @@ button {
 }
 #main-menu a:active {
   opacity: 1;
+}
+#main-menu.purple a {
+  color: #b5006a;
 }
 #main-menu .actif a {
   opacity: .5;
@@ -1114,7 +1229,7 @@ button {
   max-width: 220px;
 }
 #footer .menu:first-child {
-  margin: 0 0 20px;
+  margin: 0 0 75px;
 }
 .phrase {
   width: 100%;
@@ -1137,6 +1252,9 @@ button {
   position: relative;
   margin: 25px 0 0;
   color: #b5006a;
+}
+#phrase-creuse button {
+  font-size: .78em;
 }
 #phrase-creuse button span {
   display: inline-block;
@@ -1243,6 +1361,7 @@ button {
   padding-top: 5px;
   padding-bottom: 70px;
 }
+/******* PAGE TYPE *******/
 /******* ACCUEIL *******/
 #pipe {
   max-width: 90%;
@@ -1423,7 +1542,7 @@ button {
 }
 @media (max-width: 1150px) {
   h1 {
-    font-size: 7.5em;
+    font-size: 6em;
   }
   blockquote .quote {
     width: 215px;
@@ -1469,28 +1588,50 @@ button {
     font-size: 5em;
   }
   h2 {
-    font-size: 2.8em;
+    font-size: 2.2em;
   }
   h2.light {
-    font-size: 2.8em;
+    font-size: 2.2em;
   }
   h3,
   .h3 {
-    font-size: 2em;
+    font-size: 1.8em;
   }
   h4 {
-    font-size: 1.7em;
+    font-size: 1.5em;
   }
   h5 {
-    font-size: 1.3em;
+    font-size: 1.2em;
   }
   h6 {
     font-size: 1em;
   }
-  blockquote {
+  img.align-right,
+  img.align-left {
+    float: none;
+    margin: 10px 0;
+  }
+  .page-content h2,
+  .page-content h3,
+  .page-content h4,
+  .page-content h5,
+  .page-content h6,
+  .page-content ul {
+    padding: 0 50px;
+  }
+  .page-content p {
+    padding: 0 20px;
+  }
+  .page-content .w50 {
+    width: 100%;
+  }
+  .page-content .w50 p {
+    padding: 0 20px;
+  }
+  .slide blockquote {
     margin-left: 0;
   }
-  blockquote .by {
+  .slide blockquote .by {
     display: block;
     margin: 0 auto;
   }
@@ -1528,7 +1669,7 @@ button {
   #footer {
     text-align: center;
   }
-  #footer > .w50 {
+  #footer > div > .w50 {
     display: block;
     width: 100%;
   }
@@ -1571,13 +1712,39 @@ button {
     padding: 0;
   }
 }
+@media (max-width: 600px) {
+  h1 {
+    font-size: 4em;
+  }
+  h2 {
+    font-size: 2em;
+  }
+  h2.light {
+    font-size: 2em;
+  }
+}
 @media (max-width: 480px) {
   h1 {
-    font-size: 3.2em;
+    font-size: 2.6em;
   }
   h1 .small {
     font-size: .45em;
     margin: 0 0 -0.05em;
+  }
+  .page-content h2,
+  .page-content h3,
+  .page-content h4,
+  .page-content h5,
+  .page-content h6,
+  .page-content ul,
+  .page-content p {
+    padding: 0;
+  }
+  .page-content ul {
+    padding: 0 0 0 20px;
+  }
+  .page-content .w50 p {
+    padding: 0;
   }
   .bullshit.big {
     width: 360px;

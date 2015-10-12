@@ -11,15 +11,6 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/footer.php": {
-		"fileType": 8192,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/footer.php",
-		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
 	"\/img\/blog1.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -362,6 +353,17 @@
 		"initialSize": 5523,
 		"inputAbbreviatedPath": "\/layoutImg\/bulle.png",
 		"outputAbbreviatedPath": "\/layoutImg\/bulle.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/layoutImg\/logo-rose.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 12288,
+		"inputAbbreviatedPath": "\/layoutImg\/logo-rose.png",
+		"outputAbbreviatedPath": "\/layoutImg\/logo-rose.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0

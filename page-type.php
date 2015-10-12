@@ -13,13 +13,13 @@
 	  	<link rel='stylesheet' href='css/style.css'>
 	</head>
 
-	<body>
+	<body class='page'>
 		
 		<?php include_once('includes/header.php'); ?>
 
 		<main id='wrapper' role='main'>
 			
-			<section class='head bg-mauve section'>
+			<header class='head bg-mauve section'>
 				<div class='section-cell'>
 					<div class='container'>
 						<strong class='sup-title'>Une amorce de titre</strong>
@@ -27,14 +27,14 @@
 						<img src='layoutImg/pipe.png' alt="On aime l'improvisation" width='586' height='453' id='pipe'>
 					</div>
 				</div>
-			</section>
+			</header>
 
-			<section class='content container'>
+			<article class='page-content container' id='page-content'>
 				<p>
 					Les escargots terrestres pulmonates et les limaces ont une <strong>ouverture de reproduction d'un côté du corps</strong>, 
 					près de l'avant, à travers lequel l'organe reproducteur externe est extrudé afin que l'échange de sperme 
 					puisse avoir lieu. La fécondation peut alors avoir lieu et les œufs se développer. Dès le début de 
-					l'accouplement, <a href='#'>chaque individu enfonce un dard calcaire</a> dans la chair de son congénère, ce dard d'amour 
+					l'accouplement, <a href='#'>chaque individu enfonce un dard calcaire</a> dans <em>la chair de son congénère</em>, ce dard d'amour 
 					contenant une glande secrétant des hormones qui favorisent la fécondation dans la bourse copulatrice11.
 				</p>
 
@@ -124,7 +124,7 @@
 				</p>
 				<p><a href='#' class='btn btn-right'>Clic</a></p>
 				
-				<div class='w50'>
+				<div class='w50 first'>
 					<h5>Prédateurs</h5>
 
 					<p>
@@ -143,7 +143,7 @@
 						aquatiques sud-américains de la famille des Ampullariidae, dont essentiellement Pomacea bridgesii.
 					</p>
 				</div>
-			</section>
+			</article>
 
 		</main>
 

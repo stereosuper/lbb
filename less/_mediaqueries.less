@@ -12,7 +12,7 @@
 
 @media (max-width: 1150px){
     h1{
-        font-size: 7.5em;
+        font-size: 6em;
     }
 
     blockquote{
@@ -48,6 +48,7 @@
     .container{
         padding: 0 20px;
     }
+    
 
     #header, #main-menu{
         position: absolute;
@@ -69,29 +70,53 @@
         font-size: 5em;
     }
     h2{
-        font-size: 2.8em;
+        font-size: 2.2em;
         &.light{
-            font-size: 2.8em;
+            font-size: 2.2em;
         }
     }
     h3, .h3{
-        font-size: 2em;
+        font-size: 1.8em;
     }
     h4{
-        font-size: 1.7em;
+        font-size: 1.5em;
     }
     h5{
-        font-size: 1.3em;
+        font-size: 1.2em;
     }
     h6{
         font-size: 1em;
     }
 
-    blockquote{
-        margin-left: 0;
-        .by{
-            display: block;
-            margin: 0 auto;
+    img{
+        &.align-right, &.align-left{
+            float: none;
+            margin: 10px 0;
+        }
+    }
+
+    .page-content{
+        h2, h3, h4, h5, h6, ul{
+            padding: 0 50px;
+        }
+        p{
+            padding: 0 20px;
+        }
+        .w50{
+            width: 100%;
+            p{
+                padding: 0 20px;
+            }
+        }
+    }
+
+    .slide{
+        blockquote{
+            margin-left: 0;
+            .by{
+                display: block;
+                margin: 0 auto;
+            }
         }
     }
 
@@ -133,7 +158,7 @@
 
     #footer{
         text-align: center;
-        > .w50{
+        > div > .w50{
             display: block;
             width: 100%;
         }
@@ -194,12 +219,39 @@
     
 }
 
+@media (max-width: 600px){
+    h1{
+        font-size: 4em;
+    }
+
+    h2{
+        font-size: 2em;
+        &.light{
+            font-size: 2em;
+        }
+    }
+}
+
 @media (max-width: 480px){
     h1{
-        font-size: 3.2em;
+        font-size: 2.6em;
         .small{
             font-size: .45em;
             margin: 0 0 -.05em;
+        }
+    }
+
+    .page-content{
+        h2, h3, h4, h5, h6, ul, p{
+            padding: 0;
+        }
+        ul{
+            padding: 0 0 0 20px;
+        }
+        .w50{
+            p{
+                padding: 0;
+            }
         }
     }
 

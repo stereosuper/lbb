@@ -19,7 +19,7 @@
 
 		<main id='wrapper' role='main'>
 			
-			<section class='head bg-purple section'>
+			<header class='head bg-purple section'>
 				<div class='section-cell'>
 					<div class='container'>
 						<strong class='sup-title'>Bonjour :</strong>
@@ -28,7 +28,7 @@
 						<img src='layoutImg/pipe.png' alt="On aime l'improvisation" width='586' height='453' id='pipe'>
 					</div>
 				</div>
-			</section>
+			</header>
 
 			<section id='vous' class='bg-yellow section on'>
 				<div class='section-cell'>

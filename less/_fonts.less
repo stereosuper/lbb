@@ -8,6 +8,24 @@
 }
 
 @font-face {
+    font-family: 'klinicBold';
+    src: url('../fonts/klinic/klinicslabbold.eot');
+    src: url('../fonts/klinic/klinicslabbold.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/klinic/klinicslabbold.woff2') format('woff2'),
+         url('../fonts/klinic/klinicslabbold.woff') format('woff'),
+         url('../fonts/klinic/klinicslabbold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'klinicIt';
+    src: url('../fonts/klinic/klinicslabmediumit.eot');
+    src: url('../fonts/klinic/klinicslabmediumit.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/klinic/klinicslabmediumit.woff2') format('woff2'),
+         url('../fonts/klinic/klinicslabmediumit.woff') format('woff'),
+         url('../fonts/klinic/klinicslabmediumit.ttf') format('truetype');
+}
+
+@font-face {
     font-family: 'marker';
     src: url('../fonts/marker/permanentmarker.eot');
     src: url('../fonts/marker/permanentmarker.eot?#iefix') format('embedded-opentype'),
@@ -55,6 +73,20 @@
 
 .klinic(@size){
   font-family: 'klinic', sans-serif;
+  font-size: @size;
+  font-weight: normal;
+  font-style: normal;
+}
+
+.klinicBold(@size){
+  font-family: 'klinicBold', sans-serif;
+  font-size: @size;
+  font-weight: normal;
+  font-style: normal;
+}
+
+.klinicIt(@size){
+  font-family: 'klinicIt', sans-serif;
   font-size: @size;
   font-weight: normal;
   font-style: normal;

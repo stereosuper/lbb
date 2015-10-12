@@ -1,4 +1,6 @@
-var firstAnimSlider = false;
+var firstAnimSlider = false,
+	currentSlide = 0,
+	body = document.getElementsByTagName('body');
 
 function scrollTo(to, duration){
     if(duration < 0) return;
@@ -75,8 +77,7 @@ function getStyle(oElm, strCssRule){
 
 function setSlider(slider){
 	var slides = slider.querySelectorAll('.slide'),
-		nbSlides = slides.length,
-		currentSlide = 0, i = 0,
+		nbSlides = slides.length, i = 0,
 		next = document.createElement('button'),
 		prev = document.createElement('button'),
 		height = 0, posX = '25%', timing = .3,
@@ -130,6 +131,7 @@ function animFirstSlide(container){
 				TweenLite.fromTo( slides[1], timing, {left: '-'+posX}, {left: 0, opacity: 1, ease:Power2.easeInOut} );
 				tlAnims.staggerFromTo( slides[1].querySelectorAll('.anim-slide'), timing, {x: '-200px', opacity: 0}, {x: 0, opacity: 1, ease:Power2.easeInOut}, .2 );
 			}} );
+			currentSlide = 1;
 		}
 	}else{
 		firstAnimSlider = true;
@@ -418,12 +420,12 @@ function animTxtScroll(){
 	for(i; i<splitTlAnimTxtLength; i++){
 		sections[i] = animsTxt[i].closest('.section');
 		containers[i] = sections[i].querySelector('.container');
-		if(myScroll >= sections[i].offsetTop + windowHeight/2.2){
+		if(myScroll >= sections[i].offsetTop + windowHeight/3){
 			decalTxt = '+=100';
 			splitTlAnimTxt[i].reverse();
 			addClassOn(containers[i]);
 		}else{
-			if(myScroll >= sections[i].offsetTop - windowHeight/2.2){
+			if(myScroll >= sections[i].offsetTop - windowHeight/2){
 				removeClassOn(containers[i]);
 				splitTlAnimTxt[i].play();
 			}else{
@@ -465,7 +467,10 @@ window.onscroll = function(e){
 	myScroll = document.documentElement['scrollTop'] || document.body['scrollTop'];
 	
 	animTxtScroll();
-	animBackgroundScroll();
+	
+	if(masques !== null)
+		animBackgroundScroll();
+
 	if(!firstAnimSlider)
 		animFirstSlide();
 }
@@ -473,7 +478,8 @@ window.onscroll = function(e){
 function init(){
 	windowHeight = window.innerHeight;
 
-	bullshitGenerator();
+	if(hasClass(body, 'home'))
+		bullshitGenerator();
 
 	var logo = document.getElementById('logo'),
 		logoSprites = ['mouche', 'banane', 'moustache', 'bisou'],
@@ -526,9 +532,10 @@ function init(){
 		animBackground();
 	}
 
-	var blackLinks = document.querySelector('.blog-list').querySelectorAll('.black-hover-link');
-	if(blackLinks.length){
-		var i = 0, nbBlackLinsk = blackLinks.length, tlBlackLinks = [], tw1 = [], tw2 = [], tw3 = [], tw4 = [];
+	var blogList = document.querySelector('.blog-list');
+	if(blogList !== null){
+		var blackLinks = blogList.querySelectorAll('.black-hover-link'),
+			i = 0, nbBlackLinsk = blackLinks.length, tlBlackLinks = [], tw1 = [], tw2 = [], tw3 = [], tw4 = [];
 		for(i; i < nbBlackLinsk; i++){
 			(function(i){
 				
@@ -551,10 +558,10 @@ function init(){
 		}
 	}
 
-	var instagramLink = document.getElementById('instagram').querySelector('.black-hover-link');
-	if(instagramLink !== null){
-		
-		var tw1Inst = new TweenMax.to(instagramLink.querySelector('.hover'), .15, {padding: '10px', top: '0', height: '250px', overflow: 'visible', ease: Power2.easeOut}),
+	var instagram = document.getElementById('instagram');
+	if(instagram !== null){
+		var instagramLink = instagram.querySelector('.black-hover-link'),
+			tw1Inst = new TweenMax.to(instagramLink.querySelector('.hover'), .15, {padding: '10px', top: '0', height: '250px', overflow: 'visible', ease: Power2.easeOut}),
 			tw2Inst = new TweenMax.to(instagramLink.querySelector('.sup-title'), .2, {opacity: '1', marginTop: '0', ease: Power2.easeOut}),
 			tw3Inst = new TweenMax.to(instagramLink.querySelector('.content'), .25, {opacity: '1', marginTop: '0', ease: Power2.easeOut}),
 			tlInstagramLink = new TimelineMax({paused: true}).add(tw1Inst).add(tw2Inst).add(tw3Inst),

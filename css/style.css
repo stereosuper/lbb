@@ -272,7 +272,8 @@ menu {
 [class^="icon-"],
 [class*=" icon-"],
 .icomoon,
-.btn.btn-left:before,
+.btn.btn-down:before,
+.btn.btn-right:before,
 .slider #next,
 .slider #prev,
 #vous h2 a:before,
@@ -284,6 +285,9 @@ menu {
   font-variant: normal;
   text-transform: none;
   line-height: 1;
+}
+.icon-right-small:before {
+  content: "\e806";
 }
 .icon-down:before {
   content: "\e805";
@@ -325,7 +329,7 @@ html {
   font-size: 62.5%;
 }
 body {
-  color: #fff;
+  color: #6e6e6e;
   font-family: 'klinic', sans-serif;
   font-size: 1.4em;
   font-weight: normal;
@@ -354,6 +358,18 @@ h1 .small {
   line-height: 1em;
   display: block;
   margin: 0 0 -0.25em;
+}
+h2,
+h3,
+h4,
+h5 {
+  color: #b5006a;
+}
+.section h2,
+.section h3,
+.section h4,
+.section h5 {
+  color: #fff;
 }
 h2 {
   font-size: 3.5em;
@@ -402,67 +418,12 @@ img {
   max-width: 100%;
   height: auto;
 }
+img.align-left {
+  float: left;
+  margin: 0 20px 20px 0;
+}
 blockquote {
-  position: relative;
-  margin: 30px 0 30px -32px;
-  /*.bg-quote{
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 220px;
-        &:before, &:after{
-            content: '';
-            position: absolute;
-            left: 0;
-            border-left: 60px solid @blue;
-            border-right: 60px solid @blue;
-            width: 220px;
-            height: 0;
-        }
-        &:before {
-            top: 0;
-            border-bottom: 65px solid #fff;
-        }
-        &:after {
-            bottom: 0;
-            border-top: 65px solid #fff;
-        }
-    }*/
-}
-blockquote .quote,
-blockquote .by {
-  display: inline-block;
-  vertical-align: middle;
-  margin: 0;
-}
-blockquote .quote {
-  width: 244px;
-  height: 220px;
-  padding: 50px 30px 50px 55px;
-  background: url(../layoutImg/bulle.png) no-repeat 100% 0;
-  font-family: 'marker', sans-serif;
-  font-size: 1.3em;
-  font-weight: normal;
-  font-style: normal;
-  line-height: 1.6em;
   text-align: center;
-}
-blockquote .quote:before {
-  content: '« ';
-}
-blockquote .quote:after {
-  content: ' »';
-}
-blockquote .by {
-  max-width: 125px;
-  margin: 10px 0 10px 8%;
-  font-family: 'geomanist', sans-serif;
-  font-size: 1em;
-  font-weight: normal;
-  font-style: normal;
-}
-blockquote .by b {
-  display: block;
 }
 /******* LIENS / BOUTONS *******/
 a,
@@ -521,18 +482,37 @@ button {
   font-weight: normal;
   font-style: normal;
   text-transform: uppercase;
-  color: #fff;
+  color: #b5006a;
 }
 .btn:hover,
 .btn:focus {
-  background: #fff;
-  border-color: #fff;
-  color: #b5006a;
+  background: #b5006a;
+  border-color: #b5006a;
+  color: #fff;
 }
 .btn:active {
   background: #82004c;
   border-color: #82004c;
   color: #fff;
+}
+.section .btn {
+  color: #fff;
+}
+.section .btn:hover,
+.section .btn:focus {
+  background: #fff;
+  border-color: #fff;
+}
+.section .btn:active {
+  color: #fff;
+}
+.bg-purple .btn:hover,
+.bg-purple .btn:focus {
+  color: #b5006a;
+}
+.bg-purple .btn:active {
+  background: #82004c;
+  border-color: #82004c;
 }
 .bg-yellow .btn:hover,
 .bg-yellow .btn:focus {
@@ -558,11 +538,13 @@ button {
   background: #ff2c92;
   border-color: #ff2c92;
 }
-.btn.btn-left {
+.btn.btn-down,
+.btn.btn-right {
   padding-left: 35px;
   position: relative;
 }
-.btn.btn-left:before {
+.btn.btn-down:before,
+.btn.btn-right:before {
   display: block;
   width: 18px;
   height: 18px;
@@ -572,15 +554,28 @@ button {
   left: 12px;
   margin: auto;
   font-size: 18px;
+}
+.btn.btn-down:before {
   content: "\e805";
   -webkit-transition: top 0.15s ease-in-out;
   -moz-transition: top 0.15s ease-in-out;
   -o-transition: top 0.15s ease-in-out;
   transition: top 0.15s ease-in-out;
 }
-.btn.btn-left:hover:before,
-.btn.btn-left:focus:before {
+.btn.btn-down:hover:before,
+.btn.btn-down:focus:before {
   top: 5px;
+}
+.btn.btn-right:before {
+  content: "\e806";
+  -webkit-transition: left 0.15s ease-in-out;
+  -moz-transition: left 0.15s ease-in-out;
+  -o-transition: left 0.15s ease-in-out;
+  transition: left 0.15s ease-in-out;
+}
+.btn.btn-right:hover:before,
+.btn.btn-right:focus:before {
+  left: 15px;
 }
 .bullshitBtn {
   position: absolute;
@@ -690,8 +685,8 @@ button {
 .bg-blue {
   background: #2ac0ce url(../layoutImg/texture-blue.png) 50% 50% fixed;
 }
-.bg-blue blockquote .quote {
-  color: #2ac0ce;
+.bg-mauve {
+  background: #b47498 url(../layoutImg/texture-blue.png) 50% 50% fixed;
 }
 .bg-pink {
   background: #ff5fac;
@@ -759,6 +754,7 @@ button {
   height: 650px;
   height: 90vh;
   position: relative;
+  color: #fff;
 }
 .section .section-cell {
   display: table-cell;
@@ -811,6 +807,9 @@ button {
 .slider ul {
   height: 500px;
   position: relative;
+}
+.no-js .slider ul {
+  height: auto;
 }
 .slider #next,
 .slider #prev {
@@ -885,6 +884,54 @@ button {
 .slide .anim-slide {
   opacity: 0;
 }
+.no-js .slide .anim-slide {
+  opacity: 1;
+}
+.slide blockquote {
+  position: relative;
+  margin: 30px 0 30px -32px;
+  text-align: left;
+}
+.slide blockquote .quote,
+.slide blockquote .by {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+}
+.slide blockquote .quote {
+  width: 244px;
+  height: 220px;
+  padding: 50px 30px 50px 55px;
+  background: url(../layoutImg/bulle.png) no-repeat 100% 0;
+  font-family: 'marker', sans-serif;
+  font-size: 1.3em;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.6em;
+  text-align: center;
+  color: #2ac0ce;
+}
+.slide blockquote .quote:before {
+  content: '« ';
+}
+.slide blockquote .quote:after {
+  content: ' »';
+}
+.slide blockquote .by {
+  max-width: 125px;
+  margin: 10px 0 10px 8%;
+  font-family: 'geomanist', sans-serif;
+  font-size: 1em;
+  font-weight: normal;
+  font-style: normal;
+}
+.slide blockquote .by b {
+  display: block;
+}
+.no-js .slide {
+  position: relative;
+  overflow: hidden;
+}
 #tv {
   width: 301px;
   height: 742px;
@@ -907,7 +954,7 @@ button {
   margin: 0 0 0 4.54%;
 }
 .blog-list .hover {
-  top: 200px;
+  top: 220px;
   bottom: 12px;
   left: 12px;
   right: 12px;
@@ -1047,17 +1094,27 @@ button {
 }
 /******* FOOTER *******/
 #footer {
-  padding: 70px 30px 40px;
+  padding-top: 70px;
+  padding-bottom: 40px;
+  overflow: hidden;
   color: #9f9f9f;
   /*.w50{
         overflow: hidden;
     }*/
 }
+#footer > div {
+  border-top: 2px solid #e9e9e9;
+  padding: 30px 0 0;
+}
+.home #footer > div {
+  border: 0;
+  padding: 0;
+}
 #footer .menu {
   max-width: 220px;
 }
 #footer .menu:first-child {
-  margin: 0 0 50px;
+  margin: 0 0 20px;
 }
 .phrase {
   width: 100%;
@@ -1078,6 +1135,7 @@ button {
   padding: 25px 50px 40px;
   border: 1px dashed;
   position: relative;
+  margin: 25px 0 0;
   color: #b5006a;
 }
 #phrase-creuse button span {
@@ -1101,6 +1159,9 @@ button {
   -moz-transition: -moz-transform 0.4s ease-in-out;
   -o-transition: -o-transform 0.4s ease-in-out;
   transition: -webkit-transform 0.4s ease-in-out,-moz-transform 0.4s ease-in-out,-o-transform 0.4s ease-in-out,transform 0.4s ease-in-out;
+}
+.no-js #phrase-creuse button {
+  display: none;
 }
 #cisors {
   position: absolute;
@@ -1200,6 +1261,7 @@ button {
   margin-bottom: .25em;
 }
 #vous h2 a {
+  display: inline-block;
   position: relative;
 }
 #vous h2 a:before {
@@ -1222,8 +1284,8 @@ button {
 #vous h2 a:focus {
   color: #fff;
 }
-.no-js #vous h2 a:hover,
-.no-js #vous h2 a:focus {
+.no-js #vous h2 a:hover:after,
+.no-js #vous h2 a:focus:after {
   background: #fff;
 }
 #vous h2 a:hover div:after,
@@ -1481,6 +1543,12 @@ button {
   }
   #vous.fade .section-cell {
     background-size: 80%;
+  }
+  #vous h2 a:before {
+    width: 45px;
+    height: 45px;
+    left: -55px;
+    font-size: 45px;
   }
   #confiance h2 {
     margin-left: 0;

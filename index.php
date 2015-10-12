@@ -15,20 +15,7 @@
 
 	<body class='home'>
 		
-		<header id='header'>
-			<a id='logo' href='./'>la Belle Boîte</a>
-		</header>
-
-		<nav role='navigation' id='main-menu' class='menu'>
-			<ul>
-				<li class='actif'><a href='./'>Accueil</a></li>
-				<li><a href='#'>la Belle Boîte</a></li>
-				<li><a href='#'>Pour Vous</a></li>
-				<li><a href='#'>Blog</a></li>
-				<li><a href='#'>Contact</a></li>
-			</ul>
-			<button id='burger'></button>
-		</nav>
+		<?php include_once('includes/header.php'); ?>
 
 		<main id='wrapper' role='main'>
 			
@@ -37,13 +24,13 @@
 					<div class='container'>
 						<strong class='sup-title'>Bonjour :</strong>
 						<h1><span class='animTxt small'>Nous sommes </span><span class='animTxt'>sérieusement drôles</span></h1>
-						<a href='#vous' class='btn btn-left scrollTo'>Découvrez comment</a>
+						<a href='#vous' class='btn btn-down scrollTo'>Découvrez comment</a>
 						<img src='layoutImg/pipe.png' alt="On aime l'improvisation" width='586' height='453' id='pipe'>
 					</div>
 				</div>
 			</section>
 
-			<section id='vous' class='bg-yellow section'>
+			<section id='vous' class='bg-yellow section on'>
 				<div class='section-cell'>
 					<div class='container'>
 						<strong class='sup-title'>Pour vous,</strong>
@@ -234,58 +221,7 @@
 
 		</main>
 
-	  	<footer role='contentinfo' id='footer' class='container'>
-	  		<div class='w50'>
-	  			<div class='menu w50'>
-	  				<span class='sup-title'>la Belle Boîte</span>
-					<ul>
-						<li><a href='#'>pourquoi</a></li>
-						<li><a href='#'>pour qui ?</a></li>
-						<li><a href='#'>l'équipe</a></li>
-						<li><a href='#'>le blog</a></li>
-					</ul>
-				</div><div class='menu w50'>
-	  				<span class='sup-title'>Pour Vous</span>
-					<ul>
-						<li><a href='#'>prestations</a></li>
-						<li><a href='#'>ateliers</a></li>
-						<li><a href='#'>interventions</a></li>
-						<li><a href='#'>références</a></li>
-					</ul>
-				</div><div class='menu w50'>
-	  				<span class='sup-title'>Mais aussi</span>
-					<ul>
-						<li><a href='#'>contact</a></li>
-						<li><a href='#' target='_blank'>sur facebook</a></li>
-						<li><a href='#' target='_blank'>sur twitter</a></li>
-						<li><a href='#'>mentions légales</a></li>
-					</ul>
-				</div>
-			</div><div class='w50'>
-				<div class='phrase'>
-					<span class='sup-title'>la Belle Boîte vous offre cette phrase creuse :</span>
-					<div id='phrase-creuse'>
-						<p class='h3'><span>Stop aux acronymes, travaillons l'U.M.1</span></p>
-						<button class='sub-title'><span class='icon-loop'></span> une autre phrase creuse ?</button>
-						<div id='cisors'>
-							<div id="cisors1" class='icon-half-cisors cisors'></div>
-							<div id="cisors2" class='icon-half-cisors2 cisors'></div>
-						</div>
-					</div>
-				</div>
-			</div>
-	  	</footer>
-		
-		<script src='js/modernizr.min.js'></script>
-	  	<!--<script src='js/jquery-1.11.2.min.js'></script>-->
-	  	<script src='js/tweenMax.min.js'></script>
-	  	<script src='js/tweenSprite.min.js'></script>
-	  	<script src='js/splitText.min.js'></script>
-	  	<!--<script src="js/tweenCssPlugin.min.js"></script>
-	  	<script src="js/tweenEasePack.min.js"></script>
-	  	<script src="js/tweenLite.min.js"></script>
-	  	<script src="js/timelineLite.min.js"></script>-->
-	  	<script src='js/script.js'></script>
+	  	<?php include_once('includes/footer.php'); ?>
 
 	</body>
 

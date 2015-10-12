@@ -5,10 +5,12 @@
 @import "_fonts.less";
 
 @purple: #b5006a;
+@mauve: #b47498;
 @yellow: #ffc200;
 @blue: #2ac0ce;
 @pink: #ff5fac;
 @grey: #9f9f9f;
+@txt: #6e6e6e;
 
 @transition: .15s ease-in-out;
 
@@ -32,7 +34,7 @@ html{
 }
 
 body{
-    color: #fff;
+    color: @txt;
     .klinic(1.4em); // =14px
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -51,6 +53,12 @@ h1{
         line-height: 1em;
         display: block;
         margin: 0 0 -.25em;
+    }
+}
+h2, h3, h4, h5{
+    color: @purple;
+    .section &{
+        color: #fff;
     }
 }
 h2{
@@ -96,62 +104,14 @@ ul{
 img{
     max-width: 100%;
     height: auto;
+    &.align-left{
+        float: left;
+        margin: 0 20px 20px 0;
+    }
 }
 
 blockquote{
-    position: relative;
-    margin: 30px 0 30px -32px;
-    .quote, .by{
-        display: inline-block;
-        vertical-align: middle;
-        margin: 0;
-    }
-    .quote{
-        width: 244px;
-        height: 220px;
-        padding: 50px 30px 50px 55px;
-        background: url(../layoutImg/bulle.png) no-repeat 100% 0;
-        .marker(1.3em);
-        line-height: 1.6em;
-        text-align: center;
-        &:before{
-            content: '« ';
-        }
-        &:after{
-            content: ' »';
-        }
-    }
-    /*.bg-quote{
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 220px;
-        &:before, &:after{
-            content: '';
-            position: absolute;
-            left: 0;
-            border-left: 60px solid @blue;
-            border-right: 60px solid @blue;
-            width: 220px;
-            height: 0;
-        }
-        &:before {
-            top: 0;
-            border-bottom: 65px solid #fff;
-        }
-        &:after {
-            bottom: 0;
-            border-top: 65px solid #fff;
-        }
-    }*/
-    .by{
-        max-width: 125px;
-        margin: 10px 0 10px 8%;
-        .geomanist(1em);
-        b{
-            display: block;
-        }
-    }
+    text-align: center;
 }
 
 
@@ -199,16 +159,35 @@ button{
     border: 3px solid;
     .geomanist(1.15em);
     text-transform: uppercase;
-    color: #fff;
+    color: @purple;
     &:hover, &:focus{
-        background: #fff;
-        border-color: #fff;
-        color: @purple;
+        background: @purple;
+        border-color: @purple;
+        color: #fff;
     }
     &:active{
         background: darken(@purple, 10%);
         border-color: darken(@purple, 10%);
         color: #fff;
+    }
+    .section &{
+        color: #fff;
+        &:hover, &:focus{
+            background: #fff;
+            border-color: #fff;
+        }
+        &:active{
+            color: #fff;
+        }
+    }
+    .bg-purple &{
+        &:hover, &:focus{
+            color: @purple;
+        }
+        &:active{
+            background: darken(@purple, 10%);
+            border-color: darken(@purple, 10%);
+        }
     }
     .bg-yellow &{
         &:hover, &:focus{
@@ -237,7 +216,7 @@ button{
             border-color: darken(@pink, 10%);
         }
     }
-    &.btn-left{
+    &.btn-down, &.btn-right{
         padding-left: 35px;
         position: relative;
         &:before{
@@ -250,12 +229,27 @@ button{
             margin: auto;
             &:extend(.icomoon);
             font-size: 18px;
+        }
+    }
+    &.btn-down{
+        &:before{
             content: "\e805";
             .transition(top @transition);
         }
         &:hover, &:focus{
             &:before{
                 top: 5px;
+            }
+        }
+    }
+    &.btn-right{
+        &:before{
+            content: "\e806";
+            .transition(left @transition);
+        }
+        &:hover, &:focus{
+            &:before{
+                left: 15px;
             }
         }
     }
@@ -347,11 +341,9 @@ button{
 }
 .bg-blue{
     background: @blue url(../layoutImg/texture-blue.png) 50% 50% fixed;
-    blockquote{
-        .quote{
-            color: @blue;
-        }
-    }
+}
+.bg-mauve{
+    background: @mauve url(../layoutImg/texture-blue.png) 50% 50% fixed;
 }
 .bg-pink{
     background: @pink;
@@ -420,6 +412,7 @@ button{
     height: 650px;
     height: 90vh;
     position: relative;
+    color: #fff;
     .section-cell{
         display: table-cell;
         padding: 50px 0;
@@ -471,6 +464,9 @@ button{
         height: 500px;
         position: relative;
         &:extend(.reset-ul);
+        .no-js &{
+            height: auto;
+        }
     }
     #next, #prev{
         display: block;
@@ -538,6 +534,47 @@ button{
     }
     .anim-slide{
         opacity: 0;
+        .no-js &{
+            opacity: 1;
+        }
+    }
+    blockquote{
+        position: relative;
+        margin: 30px 0 30px -32px;
+        text-align: left;
+        .quote, .by{
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0;
+        }
+        .quote{
+            width: 244px;
+            height: 220px;
+            padding: 50px 30px 50px 55px;
+            background: url(../layoutImg/bulle.png) no-repeat 100% 0;
+            .marker(1.3em);
+            line-height: 1.6em;
+            text-align: center;
+            color: @blue;
+            &:before{
+                content: '« ';
+            }
+            &:after{
+                content: ' »';
+            }
+        }
+        .by{
+            max-width: 125px;
+            margin: 10px 0 10px 8%;
+            .geomanist(1em);
+            b{
+                display: block;
+            }
+        }
+    }
+    .no-js &{
+        position: relative;
+        overflow: hidden;
     }
 }
 #tv{
@@ -565,7 +602,7 @@ button{
         }
     }
     .hover{
-        top: 200px;
+        top: 220px;
         bottom: 12px;
         left: 12px;
         right: 12px;
@@ -709,12 +746,23 @@ button{
 /******* FOOTER *******/
 
 #footer{
-    padding: 70px 30px 40px;
+    //padding: 70px 30px 40px;
+    padding-top: 70px;
+    padding-bottom: 40px;
+    overflow: hidden;
     color: @grey;
+    > div{
+        border-top: 2px solid #e9e9e9;
+        padding: 30px 0 0;
+        .home &{
+            border: 0;
+            padding: 0;
+        }
+    }
     .menu{
         max-width: 220px;
         &:first-child{
-            margin: 0 0 50px;
+            margin: 0 0 20px;
         }
     }
     /*.w50{
@@ -741,6 +789,7 @@ button{
     padding: 25px 50px 40px;
     border: 1px dashed;
     position: relative;
+    margin: 25px 0 0;
     color: @purple;
     button{
         span{
@@ -755,6 +804,9 @@ button{
                 .transform(rotate(360deg));
                 .transition(transform .4s ease-in-out);
             }
+        }
+        .no-js &{
+            display: none;
         }
     }
     &:hover{
@@ -848,6 +900,7 @@ button{
         margin-right: auto;
         margin-bottom: .25em;
         a{
+            display: inline-block;
             position: relative;
             .no-js &{
                 &:extend(.underline all);
@@ -871,7 +924,9 @@ button{
             &:hover, &:focus{
                 color: #fff;
                 .no-js &{
-                    background: #fff;
+                    &:after{
+                        background: #fff;
+                    }
                 }
                 div{
                     &:after{

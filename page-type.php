@@ -124,8 +124,28 @@
 					Il existe même un rapace, le milan des marais dont la nourriture quasi exclusive est constituée de gros escargots 
 					aquatiques sud-américains de la famille des Ampullariidae, dont essentiellement Pomacea bridgesii.
 				</p>
-				<p><a href='#' class='btn btn-right'>Clic</a></p>
+				<p><a href='#' class='btn btn-right'>Clic</a> <a href='#' class='btn btn-right'>Clic</a> <a href='#' class='btn btn-right'>Clic</a></p>
 				
+				<div class='w50 first'>
+					<h5>Prédateurs</h5>
+
+					<p>
+						Les escargots sont un élément important des réseaux trophiques. Ils ont de nombreux prédateurs tels que des mammifères, 
+						rongeurs ou hérissons notamment, ou des oiseaux, mais aussi parfois d'autres escargots tels que le bulime tronqué. 
+						Il existe même un rapace, le milan des marais dont la nourriture quasi exclusive est constituée de gros escargots 
+						aquatiques sud-américains de la famille des Ampullariidae, dont essentiellement Pomacea bridgesii.
+					</p>
+				</div><div class='w50'>
+					<h5>Prédateurs</h5>
+
+					<p>
+						Les escargots sont un élément important des réseaux trophiques. Ils ont de nombreux prédateurs tels que des mammifères, 
+						rongeurs ou hérissons notamment, ou des oiseaux, mais aussi parfois d'autres escargots tels que le bulime tronqué. 
+						Il existe même un rapace, le milan des marais dont la nourriture quasi exclusive est constituée de gros escargots 
+						aquatiques sud-américains de la famille des Ampullariidae, dont essentiellement Pomacea bridgesii.
+					</p>
+				</div>
+
 				<div class='w50 first'>
 					<h5>Prédateurs</h5>
 

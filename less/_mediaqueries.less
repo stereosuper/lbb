@@ -1,6 +1,14 @@
 /* @group Responsive horizontal */
 
 @media (max-width: 1350px){
+    img{
+        &.align-right, &.align-left{
+            display: block;
+            float: none;
+            margin: 10px auto;
+        }
+    }
+
     #header{
         left: 0;
     }
@@ -13,6 +21,23 @@
 @media (max-width: 1260px){
     .container{
         max-width: 1050px;
+    }
+
+    .page-content{
+        h2, h3, h4, h5, h6, ul{
+            padding: 0 50px;
+        }
+        p{
+            padding: 0 20px;
+        }
+        .w50{
+            p{
+                padding: 0 20px !important;
+            }
+            h2, h3, h4, h5, h5{
+                padding: 0 50px;
+            }
+        }
     }
 }
 
@@ -106,28 +131,9 @@
         font-size: 1em;
     }
 
-    img{
-        &.align-right, &.align-left{
-            float: none;
-            margin: 10px 0;
-        }
-    }
-
     .page-content{
-        h2, h3, h4, h5, h6, ul{
-            padding: 0 50px;
-        }
-        p{
-            padding: 0 20px;
-        }
         .w50{
             width: 100%;
-            p{
-                padding: 0 20px !important;
-            }
-            h2, h3, h4, h5, h5{
-                padding: 0 50px;
-            }
         }
     }
 
@@ -307,6 +313,16 @@
             .size(30px);
             &:before{
                 font-size: 30px;
+            }
+        }
+    }
+
+    #footer{
+        .menu{
+            width: 100%;
+            margin: 0 0 30px;
+            &:first-child{
+                margin: 0 0 30px;
             }
         }
     }

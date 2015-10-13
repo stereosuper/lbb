@@ -505,15 +505,16 @@ function animMenuScroll(){
 window.onscroll = function(e){
 	myScroll = document.documentElement['scrollTop'] || document.body['scrollTop'];
 
-	if(!isMobile.any)
+	if(!isMobile.any){
 		animTxtScroll();
 
-	if(masques !== null && !isMobile.any)
-		animBackgroundScroll();
+		if(masques !== null)
+			animBackgroundScroll();
 
-	if(!firstAnimSlider && !isMobile.any)
-		animFirstSlide();
-
+		if(!firstAnimSlider)
+			animFirstSlide();
+	}
+	
 	if(pageContent !== null && windowWidth > 979)
 		animMenuScroll();
 	
@@ -584,48 +585,49 @@ function init(){
 		}
 	}
 	
-
-	var blogList = document.querySelector('.blog-list');
-	if(blogList !== null){
-		var blackLinks = blogList.querySelectorAll('.black-hover-link'),
-			i = 0, nbBlackLinsk = blackLinks.length, tlBlackLinks = [], tw1 = [], tw2 = [], tw3 = [], tw4 = [];
-		for(i; i < nbBlackLinsk; i++){
-			(function(i){
-				
-				tw1[i] = new TweenMax.to(blackLinks[i].querySelector('.hover'), .15, {padding: '10px', top: '12px', overflow: 'visible', ease: Linear.easeNone});
-				tw2[i] = new TweenMax.to(blackLinks[i].querySelector('.sup-title'), .2, {opacity: '1', marginTop: '0', ease: Linear.easeNone});
-				tw3[i] = new TweenMax.to(blackLinks[i].querySelector('.content'), .25, {opacity: '1', marginTop: '0', ease: Linear.easeNone});
-				
-				tlBlackLinks[i] = new TimelineMax({paused: true}).add(tw1[i]).add(tw2[i]).add(tw3[i]);
-				tw4[i] = tlBlackLinks[i].tweenFromTo(0, .6, {ease: Power2.easeInOut, paused: true});
-				
-				addEventListener(blackLinks[i], 'mouseover', function(){
-					tw4[i].play();
+	if(!isMobile.any){
+		var blogList = document.querySelector('.blog-list');
+		if(blogList !== null){
+			var blackLinks = blogList.querySelectorAll('.black-hover-link'),
+				i = 0, nbBlackLinsk = blackLinks.length, tlBlackLinks = [], tw1 = [], tw2 = [], tw3 = [], tw4 = [];
+			for(i; i < nbBlackLinsk; i++){
+				(function(i){
 					
-				});
-				addEventListener(blackLinks[i], 'mouseout', function(){
-					tw4[i].reverse();
-				});
+					tw1[i] = new TweenMax.to(blackLinks[i].querySelector('.hover'), .15, {padding: '10px', top: '12px', overflow: 'visible', ease: Linear.easeNone});
+					tw2[i] = new TweenMax.to(blackLinks[i].querySelector('.sup-title'), .2, {opacity: '1', marginTop: '0', ease: Linear.easeNone});
+					tw3[i] = new TweenMax.to(blackLinks[i].querySelector('.content'), .25, {opacity: '1', marginTop: '0', ease: Linear.easeNone});
+					
+					tlBlackLinks[i] = new TimelineMax({paused: true}).add(tw1[i]).add(tw2[i]).add(tw3[i]);
+					tw4[i] = tlBlackLinks[i].tweenFromTo(0, .6, {ease: Power2.easeInOut, paused: true});
+					
+					addEventListener(blackLinks[i], 'mouseover', function(){
+						tw4[i].play();
+						
+					});
+					addEventListener(blackLinks[i], 'mouseout', function(){
+						tw4[i].reverse();
+					});
 
-			}(i));
+				}(i));
+			}
 		}
-	}
 
-	var instagram = document.getElementById('instagram');
-	if(instagram !== null){
-		var instagramLink = instagram.querySelector('.black-hover-link'),
-			tw1Inst = new TweenMax.to(instagramLink.querySelector('.hover'), .15, {padding: '10px', top: '0', height: '250px', overflow: 'visible', ease: Power2.easeOut}),
-			tw2Inst = new TweenMax.to(instagramLink.querySelector('.sup-title'), .2, {opacity: '1', marginTop: '0', ease: Power2.easeOut}),
-			tw3Inst = new TweenMax.to(instagramLink.querySelector('.content'), .25, {opacity: '1', marginTop: '0', ease: Power2.easeOut}),
-			tlInstagramLink = new TimelineMax({paused: true}).add(tw1Inst).add(tw2Inst).add(tw3Inst),
-			tw4Inst = tlInstagramLink.tweenFromTo(0, .6, {ease: Power2.easeInOut, paused: true});
+		var instagram = document.getElementById('instagram');
+		if(instagram !== null){
+			var instagramLink = instagram.querySelector('.black-hover-link'),
+				tw1Inst = new TweenMax.to(instagramLink.querySelector('.hover'), .15, {padding: '10px', top: '0', height: '250px', overflow: 'visible', ease: Power2.easeOut}),
+				tw2Inst = new TweenMax.to(instagramLink.querySelector('.sup-title'), .2, {opacity: '1', marginTop: '0', ease: Power2.easeOut}),
+				tw3Inst = new TweenMax.to(instagramLink.querySelector('.content'), .25, {opacity: '1', marginTop: '0', ease: Power2.easeOut}),
+				tlInstagramLink = new TimelineMax({paused: true}).add(tw1Inst).add(tw2Inst).add(tw3Inst),
+				tw4Inst = tlInstagramLink.tweenFromTo(0, .6, {ease: Power2.easeInOut, paused: true});
 
-		addEventListener(instagramLink, 'mouseover', function(){
-			tw4Inst.play();
-		});
-		addEventListener(instagramLink, 'mouseout', function(){
-			tw4Inst.reverse();
-		});
+			addEventListener(instagramLink, 'mouseover', function(){
+				tw4Inst.play();
+			});
+			addEventListener(instagramLink, 'mouseout', function(){
+				tw4Inst.reverse();
+			});
+		}
 	}
 
 	var scrollToBtn = document.querySelectorAll('.scrollTo');

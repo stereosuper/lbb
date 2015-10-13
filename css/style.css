@@ -778,6 +778,9 @@ button {
 .page-content .w50 h5 {
   padding: 0 80px;
 }
+.page-content .btn + .btn {
+  margin: 0 0 0 10px;
+}
 .section {
   display: table;
   width: 100%;
@@ -1100,7 +1103,7 @@ _:-ms-input-placeholder #prev:before,
   background: #b5006a url(../layoutImg/texture-blue.png) 50% 50% fixed;
 }
 .bg-pink {
-  background: #ff5fac;
+  background: #ff5fac url(../layoutImg/texture-purple.png) 50% 50% fixed;
 }
 .sup-title {
   display: block;
@@ -1246,7 +1249,6 @@ _:-ms-input-placeholder #prev:before,
   padding-top: 70px;
   padding-bottom: 40px;
   overflow: hidden;
-  background: #fff;
   color: #9f9f9f;
   /*.w50{
         overflow: hidden;
@@ -1601,6 +1603,12 @@ _:-ms-input-placeholder #prev:before,
 /* @end */
 /* @group Responsive horizontal */
 @media (max-width: 1350px) {
+  img.align-right,
+  img.align-left {
+    display: block;
+    float: none;
+    margin: 10px auto;
+  }
   #header {
     left: 0;
   }
@@ -1611,6 +1619,27 @@ _:-ms-input-placeholder #prev:before,
 @media (max-width: 1260px) {
   .container {
     max-width: 1050px;
+  }
+  .page-content h2,
+  .page-content h3,
+  .page-content h4,
+  .page-content h5,
+  .page-content h6,
+  .page-content ul {
+    padding: 0 50px;
+  }
+  .page-content p {
+    padding: 0 20px;
+  }
+  .page-content .w50 p {
+    padding: 0 20px !important;
+  }
+  .page-content .w50 h2,
+  .page-content .w50 h3,
+  .page-content .w50 h4,
+  .page-content .w50 h5,
+  .page-content .w50 h5 {
+    padding: 0 50px;
   }
 }
 @media (max-width: 1150px) {
@@ -1688,34 +1717,8 @@ _:-ms-input-placeholder #prev:before,
   h6 {
     font-size: 1em;
   }
-  img.align-right,
-  img.align-left {
-    float: none;
-    margin: 10px 0;
-  }
-  .page-content h2,
-  .page-content h3,
-  .page-content h4,
-  .page-content h5,
-  .page-content h6,
-  .page-content ul {
-    padding: 0 50px;
-  }
-  .page-content p {
-    padding: 0 20px;
-  }
   .page-content .w50 {
     width: 100%;
-  }
-  .page-content .w50 p {
-    padding: 0 20px !important;
-  }
-  .page-content .w50 h2,
-  .page-content .w50 h3,
-  .page-content .w50 h4,
-  .page-content .w50 h5,
-  .page-content .w50 h5 {
-    padding: 0 50px;
   }
   .slide blockquote {
     margin-left: 0;
@@ -1867,6 +1870,13 @@ _:-ms-input-placeholder #prev:before,
   .slider #next:before,
   .slider #prev:before {
     font-size: 30px;
+  }
+  #footer .menu {
+    width: 100%;
+    margin: 0 0 30px;
+  }
+  #footer .menu:first-child {
+    margin: 0 0 30px;
   }
 }
 @media (max-width: 360px) {

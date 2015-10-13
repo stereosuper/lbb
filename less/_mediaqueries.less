@@ -10,20 +10,29 @@
     }
 }
 
+@media (max-width: 1260px){
+    .container{
+        max-width: 1050px;
+    }
+}
+
 @media (max-width: 1150px){
     h1{
         font-size: 6em;
     }
 
-    blockquote{
-        .quote{
-            width: 215px;
-            height: 195px;
-            background-size: 100%;
-            font-size: 1.1em;
-        }
-        .by{
-            margin-left: 2.2%;
+    .slide{
+        blockquote{
+            .quote{
+                width: 215px;
+                height: 195px;
+                background-size: 100%;
+                font-size: .9em;
+                padding-top: 45px;
+            }
+            .by{
+                margin-left: 2.2%;
+            }
         }
     }
 
@@ -34,13 +43,22 @@
             }
         }
     }
-
+    
+    #header{
+        left: -10px;
+    }
     #footer{
         padding-left: 20px;
         padding-right: 20px;
     }
     #main-menu{
         width: 150px;
+    }
+}
+
+@media (max-width: 1100px){
+    .container {
+        max-width: 950px;
     }
 }
 
@@ -105,7 +123,10 @@
         .w50{
             width: 100%;
             p{
-                padding: 0 20px;
+                padding: 0 20px !important;
+            }
+            h2, h3, h4, h5, h5{
+                padding: 0 50px;
             }
         }
     }
@@ -113,9 +134,10 @@
     .slide{
         blockquote{
             margin-left: 0;
+            text-align: center;
             .by{
                 display: block;
-                margin: 0 auto;
+                margin: 10px auto 0;
             }
         }
     }
@@ -150,7 +172,7 @@
             max-width: none;
         }
     }
-    #tv{
+    .tv{
         left: -40px;
         right: 0;
         margin: auto;
@@ -183,9 +205,10 @@
         h2{
             a{
                 &:before{
-                    .size(45px);
-                    left: -55px;
-                    font-size: 45px;
+                    .size(35px);
+                    left: -40px;
+                    font-size: 35px;
+                    top: 12px;
                 }
             }
         }
@@ -230,11 +253,24 @@
             font-size: 2em;
         }
     }
+
+    #vous{
+        h2{
+            a{
+                &:before{
+                    .size(30px);
+                    left: -35px;
+                    font-size: 30px;
+                    top: 10px;
+                }
+            }
+        }
+    }
 }
 
 @media (max-width: 480px){
     h1{
-        font-size: 2.6em;
+        font-size: 2.5em;
         .small{
             font-size: .45em;
             margin: 0 0 -.05em;
@@ -250,6 +286,9 @@
         }
         .w50{
             p{
+                padding: 0 !important;
+            }
+            h2, h3, h4, h5, h6{
                 padding: 0;
             }
         }
@@ -326,12 +365,26 @@
 }
 
 @media(max-height: 680px){
+    .section{
+        .section-cell{
+            padding: 20px 0;
+        }
+    }
+
     .bullshitBtn{
         &.top-left, &.top-center, &.top-right{
             top: 5vh;
         }
         &.bottom-left, &.bottom-center, &.bottom-right{
             bottom: 5vh;
+        }
+    }
+}
+
+@media(max-height: 500px){
+    .head{
+        .container{
+            padding-bottom: 10px;
         }
     }
 }

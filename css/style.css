@@ -346,6 +346,7 @@ body {
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: url(../layoutImg/texture-black.png) 50% 50% fixed;
 }
 h1,
 h2,
@@ -714,13 +715,13 @@ button {
 .bullshit.big.full {
   width: 100%;
   height: 100%;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
 }
 .bullshit.big.full img {
   max-width: 90%;
-  -webkit-transition: 0.1s;
-  -moz-transition: 0.1s;
-  -o-transition: 0.1s;
-  transition: 0.1s;
 }
 /******* MODULES *******/
 .container {
@@ -769,6 +770,13 @@ button {
 }
 .page-content h6 {
   font-size: .85em;
+}
+.page-content .w50 h2,
+.page-content .w50 h3,
+.page-content .w50 h4,
+.page-content .w50 h5,
+.page-content .w50 h5 {
+  padding: 0 80px;
 }
 .section {
   display: table;
@@ -856,13 +864,19 @@ button {
   overflow: hidden;
   text-indent: -99em;
   color: #fff;
+  font-weight: 700;
+}
+.ie10 .slider #next,
+.ie10 .slider #prev,
+.ie9 .slider #next,
+.ie9 .slider #prev {
+  font-weight: normal;
 }
 .slider #next:before,
 .slider #prev:before {
   display: block;
   text-indent: 0;
   font-size: 40px;
-  font-weight: 700;
 }
 .slider #next:hover,
 .slider #prev:hover,
@@ -888,6 +902,12 @@ button {
 .slider #prev:hover {
   left: -5px;
 }
+_:-ms-input-placeholder #next:before,
+.slider #next:before,
+_:-ms-input-placeholder #prev:before,
+.slider #prev:before {
+  font-weight: normal;
+}
 .slide {
   width: 100%;
   position: absolute;
@@ -898,6 +918,7 @@ button {
 .slide .txt {
   display: inline-block;
   vertical-align: top;
+  box-sizing: border-box;
 }
 .slide .img {
   width: 35%;
@@ -974,7 +995,7 @@ button {
   position: relative;
   overflow: hidden;
 }
-#tv {
+.tv {
   width: 301px;
   height: 742px;
   position: absolute;
@@ -985,9 +1006,10 @@ button {
 }
 .blog-list li {
   display: inline-block;
-  position: relative;
   width: 47.73%;
   height: 47.73%;
+  position: relative;
+  vertical-align: top;
 }
 .blog-list li:first-child {
   margin: 0 4.54% 4.44% 0;
@@ -1061,6 +1083,9 @@ button {
 .left {
   text-align: left;
 }
+.bg-white {
+  background: #fff;
+}
 .bg-purple {
   background: #b5006a url(../layoutImg/texture-purple.png) 50% 50% fixed;
 }
@@ -1070,8 +1095,9 @@ button {
 .bg-blue {
   background: #2ac0ce url(../layoutImg/texture-blue.png) 50% 50% fixed;
 }
-.bg-mauve {
-  background: #b47498 url(../layoutImg/texture-blue.png) 50% 50% fixed;
+.bg-mauve,
+.head .fd {
+  background: #b5006a url(../layoutImg/texture-blue.png) 50% 50% fixed;
 }
 .bg-pink {
   background: #ff5fac;
@@ -1097,6 +1123,7 @@ button {
 }
 .table {
   display: table;
+  width: 100%;
 }
 .w50 {
   display: inline-block;
@@ -1165,8 +1192,15 @@ button {
   background-image: url(../layoutImg/logoMoustache.png);
 }
 .purple #logo {
-  background: url(../layoutImg/logo-rose.png) 50% 50% no-repeat;
+  background: url(../layoutImg/logo-rose.png) no-repeat;
+  background-position: 50% 50% !important;
   background-size: 120px;
+}
+.lt-ie9 .purple #logo {
+  background: url(../layoutImg/logo-rose-small.png) no-repeat;
+}
+.lt-ie9 #logo {
+  background: url(../layoutImg/logo-small.png) 50% 50% no-repeat;
 }
 #main-menu {
   width: 160px;
@@ -1212,6 +1246,7 @@ button {
   padding-top: 70px;
   padding-bottom: 40px;
   overflow: hidden;
+  background: #fff;
   color: #9f9f9f;
   /*.w50{
         overflow: hidden;
@@ -1357,20 +1392,38 @@ button {
 }
 /******* WRAPPER *******/
 /******* ENTETE *******/
+.head {
+  overflow: hidden;
+}
 .head .container {
   padding-top: 5px;
   padding-bottom: 70px;
 }
-/******* PAGE TYPE *******/
-/******* ACCUEIL *******/
-#pipe {
-  max-width: 90%;
+.head .container.on + img {
+  opacity: 0;
+}
+.head img {
+  -webkit-transition: opacity 0.1s ease-in-out;
+  -moz-transition: opacity 0.1s ease-in-out;
+  -o-transition: opacity 0.1s ease-in-out;
+  transition: opacity 0.1s ease-in-out;
+}
+.head img,
+.head .fd {
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   margin: auto;
+}
+.head .fd {
+  opacity: .3;
+}
+/******* PAGE TYPE *******/
+/******* ACCUEIL *******/
+#pipe {
+  max-width: 90%;
   z-index: -1;
 }
 #vous h2 {
@@ -1382,6 +1435,7 @@ button {
 #vous h2 a {
   display: inline-block;
   position: relative;
+  text-decoration: none;
 }
 #vous h2 a:before {
   display: block;
@@ -1398,6 +1452,9 @@ button {
   -moz-transition: 0.15s ease-in-out;
   -o-transition: 0.15s ease-in-out;
   transition: 0.15s ease-in-out;
+}
+.lt-ie9 #vous h2 a:before {
+  display: none;
 }
 #vous h2 a:hover,
 #vous h2 a:focus {
@@ -1481,6 +1538,9 @@ button {
 #live .blog-list {
   padding: 0 0 0 10px;
 }
+#live .blog-list img {
+  width: 100%;
+}
 #instagram {
   padding: 0 10px 0 0;
   /*.black-hover-link{
@@ -1512,6 +1572,9 @@ button {
   display: block;
   margin: 20px 0 0;
 }
+#instagram img {
+  width: 100%;
+}
 #bgMasques {
   position: absolute;
   top: 0;
@@ -1526,8 +1589,13 @@ button {
   -o-transition: 0.3s opacity 0.1s ease-in-out;
   transition: 0.3s opacity 0.1s ease-in-out;
 }
-#bgMasques.on {
+#bgMasques.on,
+.no-js #bgMasques,
+.isMobile #bgMasques {
   opacity: 1;
+}
+.isMobile #bgMasques {
+  background-attachment: scroll;
 }
 /* @end */
 /* @end */
@@ -1540,22 +1608,31 @@ button {
     right: 0;
   }
 }
+@media (max-width: 1260px) {
+  .container {
+    max-width: 1050px;
+  }
+}
 @media (max-width: 1150px) {
   h1 {
     font-size: 6em;
   }
-  blockquote .quote {
+  .slide blockquote .quote {
     width: 215px;
     height: 195px;
     background-size: 100%;
-    font-size: 1.1em;
+    font-size: .9em;
+    padding-top: 45px;
   }
-  blockquote .by {
+  .slide blockquote .by {
     margin-left: 2.2%;
   }
   .black-hover-link .hover em,
   .black-hover-link .hover i {
     font-size: 1.1em;
+  }
+  #header {
+    left: -10px;
   }
   #footer {
     padding-left: 20px;
@@ -1563,6 +1640,11 @@ button {
   }
   #main-menu {
     width: 150px;
+  }
+}
+@media (max-width: 1100px) {
+  .container {
+    max-width: 950px;
   }
 }
 @media (max-width: 979px) {
@@ -1626,14 +1708,22 @@ button {
     width: 100%;
   }
   .page-content .w50 p {
-    padding: 0 20px;
+    padding: 0 20px !important;
+  }
+  .page-content .w50 h2,
+  .page-content .w50 h3,
+  .page-content .w50 h4,
+  .page-content .w50 h5,
+  .page-content .w50 h5 {
+    padding: 0 50px;
   }
   .slide blockquote {
     margin-left: 0;
+    text-align: center;
   }
   .slide blockquote .by {
     display: block;
-    margin: 0 auto;
+    margin: 10px auto 0;
   }
   .bullshit.big {
     width: 480px;
@@ -1661,7 +1751,7 @@ button {
     margin: 50px 0;
     max-width: none;
   }
-  #tv {
+  .tv {
     left: -40px;
     right: 0;
     margin: auto;
@@ -1686,10 +1776,11 @@ button {
     background-size: 80%;
   }
   #vous h2 a:before {
-    width: 45px;
-    height: 45px;
-    left: -55px;
-    font-size: 45px;
+    width: 35px;
+    height: 35px;
+    left: -40px;
+    font-size: 35px;
+    top: 12px;
   }
   #confiance h2 {
     margin-left: 0;
@@ -1722,10 +1813,17 @@ button {
   h2.light {
     font-size: 2em;
   }
+  #vous h2 a:before {
+    width: 30px;
+    height: 30px;
+    left: -35px;
+    font-size: 30px;
+    top: 10px;
+  }
 }
 @media (max-width: 480px) {
   h1 {
-    font-size: 2.6em;
+    font-size: 2.5em;
   }
   h1 .small {
     font-size: .45em;
@@ -1744,6 +1842,13 @@ button {
     padding: 0 0 0 20px;
   }
   .page-content .w50 p {
+    padding: 0 !important;
+  }
+  .page-content .w50 h2,
+  .page-content .w50 h3,
+  .page-content .w50 h4,
+  .page-content .w50 h5,
+  .page-content .w50 h6 {
     padding: 0;
   }
   .bullshit.big {
@@ -1812,6 +1917,9 @@ button {
   }
 }
 @media (max-height: 680px) {
+  .section .section-cell {
+    padding: 20px 0;
+  }
   .bullshitBtn.top-left,
   .bullshitBtn.top-center,
   .bullshitBtn.top-right {
@@ -1821,6 +1929,11 @@ button {
   .bullshitBtn.bottom-center,
   .bullshitBtn.bottom-right {
     bottom: 5vh;
+  }
+}
+@media (max-height: 500px) {
+  .head .container {
+    padding-bottom: 10px;
   }
 }
 /* @end */

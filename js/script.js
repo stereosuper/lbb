@@ -1,10 +1,37 @@
+/* POLYFILL CLOSEST */
+(function (ELEMENT) {
+	ELEMENT.matches = ELEMENT.matches || ELEMENT.mozMatchesSelector || ELEMENT.msMatchesSelector || ELEMENT.oMatchesSelector || ELEMENT.webkitMatchesSelector;
+
+	ELEMENT.closest = ELEMENT.closest || function closest(selector) {
+		var element = this;
+
+		while (element) {
+			if (element.matches(selector)) {
+				break;
+			}
+
+			element = element.parentElement;
+		}
+
+		return element;
+	};
+}(Element.prototype));
+
+
+/* VARIABLES */
 var firstAnimSlider = false,
 	currentSlide = 0,
-	body = document.getElementsByTagName('body'),
+	body = document.getElementsByTagName('body')[0],
+	htmlTag = document.getElementsByTagName('html')[0],
 	pageContent = document.getElementById('page-content'),
 	header = document.getElementById('header'),
-	menu = document.getElementById('main-menu');
+	menu = document.getElementById('main-menu'),
+	splitTlAnimTxt = [], decalTxt = '+=60',
+	animsTxt, windowHeight = window.innerHeight,
+	windowWidth = window.innerWidth;;
 
+
+/* FONCTIONS GENERALES */
 function scrollTo(to, duration){
     if(duration < 0) return;
     var scrollTop = document.body.scrollTop + document.documentElement.scrollTop,
@@ -76,7 +103,7 @@ function getStyle(oElm, strCssRule){
 })();*/
 
 
-
+/* FONCTIONS SPECIFIQUES */
 
 function setSlider(slider){
 	var slides = slider.querySelectorAll('.slide'),
@@ -86,13 +113,14 @@ function setSlider(slider){
 		height = 0, posX = '25%', timing = .3,
 		tlAnims = new TimelineLite();
 
+	if(hasClass(htmlTag, 'lt-ie9')) posX = '150%';
+
 	function slideNext(){
 		TweenLite.to( slides[currentSlide], timing, {left: posX, opacity: 0, onComplete: function(){
 			currentSlide < nbSlides - 1 ? currentSlide ++ : currentSlide = 0;
 			TweenLite.fromTo( slides[currentSlide], timing, {left: '-'+posX}, {left: 0, opacity: 1, ease:Power2.easeInOut} );
 			tlAnims.staggerFromTo( slides[currentSlide].querySelectorAll('.anim-slide'), timing, {x: '-200px', opacity: 0}, {x: 0, opacity: 1, ease:Power2.easeInOut}, .2 );
 		}} );
-		//	TweenLite.delayedCall(5, slideNext);
 	}
 
 	function slidePrev(){
@@ -120,8 +148,6 @@ function setSlider(slider){
 	next.innerHTML = 'Next';
 	slider.appendChild(next);
 	addEventListener(next, 'click', slideNext);
-
-	//TweenLite.delayedCall(5, slideNext);
 }
 
 function animFirstSlide(container){
@@ -212,9 +238,9 @@ function bullshitGenerator(){
 		],
 		tabs = [purpleShits, yellowShits, blueShits],
 		sections = [
-			document.getElementsByClassName('bg-purple')[0],
-			document.getElementsByClassName('bg-yellow')[0],
-			document.getElementsByClassName('bg-blue')[0]
+			document.querySelector('.bg-purple'),
+			document.querySelector('.bg-yellow'),
+			document.querySelector('.bg-blue')
 		],
 		positions = ['top-left', 'top-right', 'top-center', 'bottom-left', 'bottom-right', 'bottom-center'],
 		i = 0, j, buttons = [], imgsBefore = [], imgsAfter = [], divsAfter = [], rands = [], limit = 3, length = 0,
@@ -226,7 +252,7 @@ function bullshitGenerator(){
 			TweenLite.set(imgById, {css:{className:'-=full'}});
 			TweenLite.set(imgById, {css:{className:'-=big'}});
 			setTimeout( function(){
-				imgById.remove();
+				imgById.parentNode.removeChild(imgById);
 			}, transitionClose );
 		}else{
 			section.appendChild(img);
@@ -282,7 +308,7 @@ function bullshitGenerator(){
 						var that = this;
 						TweenLite.set(that, {css:{className:'-=full'}});
 						TweenLite.set(that, {css:{className:'-=big'}});
-						setTimeout( function(){ that.remove(); }, transitionClose );
+						setTimeout( function(){ that.parentNode.removeChild(that); }, transitionClose );
 					});
 				}else{
 					TweenLite.set(buttons[i][j], {css:{className:'+=not-a-btn'}});
@@ -478,53 +504,60 @@ function animMenuScroll(){
 /**** INIT ****/
 window.onscroll = function(e){
 	myScroll = document.documentElement['scrollTop'] || document.body['scrollTop'];
-	
-	animTxtScroll();
 
-	if(masques !== null)
+	if(!isMobile.any)
+		animTxtScroll();
+
+	if(masques !== null && !isMobile.any)
 		animBackgroundScroll();
 
-	if(!firstAnimSlider)
+	if(!firstAnimSlider && !isMobile.any)
 		animFirstSlide();
 
-	if(pageContent !== null)
+	if(pageContent !== null && windowWidth > 979)
 		animMenuScroll();
 	
 }
 
 function init(){
-	windowHeight = window.innerHeight;
+	if(isMobile.any){
+		TweenLite.set(body, {css: {className: '+=isMobile'}});
+	}else{
+		var logo = document.getElementById('logo'),
+			logoSprites = ['mouche', 'banane', 'moustache', 'bisou'],
+			rand = Math.floor(Math.random()*logoSprites.length),
+			tweenLogo = TweenMax.spriteSheet(logo, {
+							width: 720,
+							stepX: 180,
+							stepY: 180,
+							count: 24
+						}, 1, { delay: 0.1, paused: true });
+		TweenLite.set(logo, {css: {className: '+=sprite '+logoSprites[rand]}});
+		addEventListener(logo, 'mouseover', function(){
+			if(!hasClass(header, 'purple'))
+				tweenLogo.play();
+		});
+		addEventListener(logo, 'mouseout', function(){
+			if(!hasClass(header, 'purple'))
+				tweenLogo.reverse();
+		});
+	}
 
-	if(hasClass(body, 'home'))
+	if(hasClass(body, 'home')){
 		bullshitGenerator();
+	}
 
-	var logo = document.getElementById('logo'),
-		logoSprites = ['mouche', 'banane', 'moustache', 'bisou'],
-		rand = Math.floor(Math.random()*logoSprites.length),
-		tweenLogo = TweenMax.spriteSheet(logo, {
-						width: 720,
-						stepX: 180,
-						stepY: 180,
-						count: 24
-					}, 1, { delay: 0.1, paused: true });
-	TweenLite.set(logo, {css: {className: '+=sprite '+logoSprites[rand]}})
-	addEventListener(logo, 'mouseover', function(){
-		tweenLogo.play();
-	});
-	addEventListener(logo, 'mouseout', function(){
-		tweenLogo.reverse();
-	});
-
-	animsTxt = document.getElementsByClassName('animTxt');
-	if(animsTxt.length){
-		splitTlAnimTxt = [], decalTxt = '+=60';
-		var i = 0, nbAnims = animsTxt.length, splitText = [];
-		
-		for(i; i<nbAnims; i++){
-			splitText[i] = new SplitText(animsTxt[i], {type:'words'});
-			splitTlAnimTxt[i] = new TimelineLite();
+	if(!hasClass(htmlTag, 'lt-ie9')){
+		animsTxt = document.querySelectorAll('.animTxt');
+		if(animsTxt.length){
+			var i = 0, nbAnims = animsTxt.length, splitText = [];
+			
+			for(i; i<nbAnims; i++){
+				splitText[i] = new SplitText(animsTxt[i], {type:'words'});
+				splitTlAnimTxt[i] = new TimelineLite();
+			}
+			animTxt(splitText);
 		}
-		animTxt(splitText);
 	}
 
 	var phrase = document.getElementById('phrase-creuse');
@@ -533,7 +566,7 @@ function init(){
 	var youSection = document.getElementById('vous');
 	if(youSection !== null) linksHoverYou(youSection);
 
-	var sliders = document.getElementsByClassName('slider');
+	var sliders = document.querySelectorAll('.slider');
 	if(sliders.length){
 		var i = 0, nbSliders = sliders.length;
 		for(i; i<nbSliders; i++){
@@ -541,13 +574,16 @@ function init(){
 		}
 	}
 
-	masques = document.getElementById('bgMasques');
-	if(masques !== null){
-		animBgOn = false, liveBgPos1 = -100, liveBgPosFinal1 = 0,
-		liveBgPos2 = 200, liveBgPosFinal2 = 100, masquesTop = document.getElementById('live').offsetTop,
-		tweenBg = TweenLite.fromTo(masques, 25, {backgroundPosition: liveBgPos1+'% '+liveBgPos2+'%'}, {backgroundPosition: liveBgPosFinal1+'% '+liveBgPosFinal2+'%', ease:Linear.easeNone, onComplete: animBackground, onCompleteParams: ['complete'], paused: true});
-		animBackground();
+	if(!isMobile.any){
+		masques = document.getElementById('bgMasques');
+		if(masques !== null){
+			animBgOn = false, liveBgPos1 = -100, liveBgPosFinal1 = 0,
+			liveBgPos2 = 200, liveBgPosFinal2 = 100, masquesTop = document.getElementById('live').offsetTop,
+			tweenBg = TweenLite.fromTo(masques, 25, {backgroundPosition: liveBgPos1+'% '+liveBgPos2+'%'}, {backgroundPosition: liveBgPosFinal1+'% '+liveBgPosFinal2+'%', ease:Linear.easeNone, onComplete: animBackground, onCompleteParams: ['complete'], paused: true});
+			animBackground();
+		}
 	}
+	
 
 	var blogList = document.querySelector('.blog-list');
 	if(blogList !== null){
@@ -592,7 +628,7 @@ function init(){
 		});
 	}
 
-	var scrollToBtn = document.getElementsByClassName('scrollTo');
+	var scrollToBtn = document.querySelectorAll('.scrollTo');
 	if(scrollToBtn.length){
 		var i = 0, nbBtn = scrollToBtn.length;
 		for(i; i<nbBtn; i++){

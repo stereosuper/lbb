@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--[if lt IE 9]> <html lang='fr-FR' class='no-js lt-ie9 lt-ie10'> <![endif]-->
-<!--[if IE 9]> <html lang='fr-FR' class="no-js lt-ie10"> <![endif]-->
+<!--[if IE 9]> <html lang='fr-FR' class='no-js lt-ie10'> <![endif]-->
 <!--[if gt IE 9]><!--> <html lang='fr-FR' class='no-js'> <!--<![endif]-->
 
 	<head>
@@ -11,6 +11,7 @@
 	  	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
 
 	  	<link rel='stylesheet' href='css/style.css'>
+	  	<script src='js/modernizr.min.js'></script>
 	</head>
 
 	<body class='page'>
@@ -19,13 +20,14 @@
 
 		<main id='wrapper' role='main'>
 			
-			<header class='head bg-mauve section'>
+			<header class='head section bg-white'>
 				<div class='section-cell'>
 					<div class='container'>
 						<strong class='sup-title'>Une amorce de titre</strong>
 						<h1 class='animTxt'>Un titre super drôle</h1>
-						<img src='layoutImg/pipe.png' alt="On aime l'improvisation" width='586' height='453' id='pipe'>
 					</div>
+					<img src='img/cat.jpg' alt="Cat">
+					<div class='fd'></div>
 				</div>
 			</header>
 

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <!--[if lt IE 9]> <html lang='fr-FR' class='no-js lt-ie9 lt-ie10'> <![endif]-->
-<!--[if IE 9]> <html lang='fr-FR' class="no-js lt-ie10"> <![endif]-->
+<!--[if IE 9]> <html lang='fr-FR' class='no-js ie9 lt-ie10'> <![endif]-->
+<!--[if IE 10]> <html lang='fr-FR' class='no-js ie10'> <![endif]-->
 <!--[if gt IE 9]><!--> <html lang='fr-FR' class='no-js'> <!--<![endif]-->
 
 	<head>
@@ -11,6 +12,7 @@
 	  	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
 
 	  	<link rel='stylesheet' href='css/style.css'>
+	  	<script src='js/modernizr.min.js'></script>
 	</head>
 
 	<body class='home'>
@@ -56,7 +58,7 @@
 									<article>
 										<div class='img anim-slide'>
 											<img src='img/naoned.png' width='130' height='43' alt='Naoned'>
-											<div id='tv'></div>
+											<div class='tv'></div>
 										</div><div class='txt'>
 											<h3 class='anim-slide'>Et si nous échangions notre patrimoine immatériel?</h3>
 											<div class='anim-slide'>
@@ -77,7 +79,7 @@
 									<article>
 										<div class='img anim-slide'>
 											<img src='img/naoned.png' width='130' height='43' alt='Naoned'>
-											<div id='tv'></div>
+											<div class='tv'></div>
 										</div><div class='txt'>
 											<h3 class='anim-slide'>Un deuxième titre</h3>
 											<div class='anim-slide'>
@@ -98,7 +100,7 @@
 									<article>
 										<div class='img anim-slide'>
 											<img src='img/naoned.png' width='130' height='43' alt='Naoned'>
-											<div id='tv'></div>
+											<div class='tv'></div>
 										</div><div class='txt'>
 											<h3 class='anim-slide'>Le troisième</h3>
 											<div class='anim-slide'>

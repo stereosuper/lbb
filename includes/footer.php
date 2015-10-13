@@ -42,8 +42,9 @@
   		</div>
   	</footer>
 	
-	<script src='js/modernizr.min.js'></script>
+	
   	<!--<script src='js/jquery-1.11.2.min.js'></script>-->
+    <script src='js/isMobile.min.js'></script>
   	<script src='js/tweenMax.min.js'></script>
   	<script src='js/tweenSprite.min.js'></script>
   	<script src='js/splitText.min.js'></script>

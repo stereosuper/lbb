@@ -153,6 +153,7 @@ function setSlider(slider){
 function animFirstSlide(container){
 	if(document.getElementById('confiance') !== null){
 		var container = document.getElementById('confiance'), slides = container.querySelectorAll('.slide');
+		TweenLite.set(slides[0].querySelectorAll('.anim-slide'), {opacity: 0});
 		if(myScroll >= container.offsetTop - windowHeight/3){
 			firstAnimSlider = true;
 			var posX = '25%', timing = .3, tlAnims = new TimelineLite();
@@ -513,6 +514,7 @@ window.onscroll = function(e){
 
 		if(!firstAnimSlider)
 			animFirstSlide();
+
 	}
 	
 	if(pageContent !== null && windowWidth > 979)

@@ -1183,16 +1183,16 @@ _:-ms-input-placeholder #prev:before,
   background-position: 0 0;
 }
 #logo.mouche {
-  background-image: url(../layoutImg/logoMouche.png);
+  background-image: url(../layoutImg/_logo-mouche.png);
 }
 #logo.banane {
-  background-image: url(../layoutImg/logoBanane.png);
+  background-image: url(../layoutImg/_logo-banane.png);
 }
 #logo.bisou {
-  background-image: url(../layoutImg/logoBisou.png);
+  background-image: url(../layoutImg/_logo-bisou.png);
 }
 #logo.moustache {
-  background-image: url(../layoutImg/logoMoustache.png);
+  background-image: url(../layoutImg/_logo-moustache.png);
 }
 .purple #logo {
   background: url(../layoutImg/logo-rose.png) no-repeat;
@@ -1948,6 +1948,28 @@ _:-ms-input-placeholder #prev:before,
 }
 /* @end */
 /* retina */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi) {
+  #logo {
+    background: url(../layoutImg/logo-small.png) 50% 50% no-repeat;
+  }
+  #logo.mouche {
+    background-image: url(../layoutImg/_logo-mouche@2x.png);
+  }
+  #logo.banane {
+    background-image: url(../layoutImg/_logo-banane@2x.png);
+  }
+  #logo.bisou {
+    background-image: url(../layoutImg/_logo-bisou@2x.png);
+  }
+  #logo.moustache {
+    background-image: url(../layoutImg/_logo-moustache@2x.png);
+  }
+  .purple #logo {
+    background: url(../layoutImg/logo-rose.png) no-repeat;
+    background-position: 50% 50% !important;
+    background-size: 120px;
+  }
+}
 /* ==|== print styles =======================================================
    ========================================================================== */
 @media print {

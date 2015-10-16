@@ -368,6 +368,94 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
+	"\/layoutImg\/_logo-banane.png": {
+		"fileType": 32768,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 77931,
+		"inputAbbreviatedPath": "\/layoutImg\/_logo-banane.png",
+		"outputAbbreviatedPath": "\/layoutImg\/_logo-banane.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/layoutImg\/_logo-banane@2x.png": {
+		"fileType": 32768,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 197695,
+		"inputAbbreviatedPath": "\/layoutImg\/_logo-banane@2x.png",
+		"outputAbbreviatedPath": "\/layoutImg\/_logo-banane@2x.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/layoutImg\/_logo-bisou.png": {
+		"fileType": 32768,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 59972,
+		"inputAbbreviatedPath": "\/layoutImg\/_logo-bisou.png",
+		"outputAbbreviatedPath": "\/layoutImg\/_logo-bisou.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/layoutImg\/_logo-bisou@2x.png": {
+		"fileType": 32768,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 129649,
+		"inputAbbreviatedPath": "\/layoutImg\/_logo-bisou@2x.png",
+		"outputAbbreviatedPath": "\/layoutImg\/_logo-bisou@2x.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/layoutImg\/_logo-mouche.png": {
+		"fileType": 32768,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 84914,
+		"inputAbbreviatedPath": "\/layoutImg\/_logo-mouche.png",
+		"outputAbbreviatedPath": "\/layoutImg\/_logo-mouche.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/layoutImg\/_logo-mouche@2x.png": {
+		"fileType": 32768,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 211680,
+		"inputAbbreviatedPath": "\/layoutImg\/_logo-mouche@2x.png",
+		"outputAbbreviatedPath": "\/layoutImg\/_logo-mouche@2x.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/layoutImg\/_logo-moustache.png": {
+		"fileType": 32768,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 60027,
+		"inputAbbreviatedPath": "\/layoutImg\/_logo-moustache.png",
+		"outputAbbreviatedPath": "\/layoutImg\/_logo-moustache.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/layoutImg\/_logo-moustache@2x.png": {
+		"fileType": 32768,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 135886,
+		"inputAbbreviatedPath": "\/layoutImg\/_logo-moustache@2x.png",
+		"outputAbbreviatedPath": "\/layoutImg\/_logo-moustache@2x.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/layoutImg\/bulle.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -423,50 +511,6 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/layoutImg\/logoBanane.png": {
-		"fileType": 32768,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 197695,
-		"inputAbbreviatedPath": "\/layoutImg\/logoBanane.png",
-		"outputAbbreviatedPath": "\/layoutImg\/logoBanane.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/layoutImg\/logoBisou.png": {
-		"fileType": 32768,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 129980,
-		"inputAbbreviatedPath": "\/layoutImg\/logoBisou.png",
-		"outputAbbreviatedPath": "\/layoutImg\/logoBisou.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/layoutImg\/logoMouche.png": {
-		"fileType": 32768,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 197879,
-		"inputAbbreviatedPath": "\/layoutImg\/logoMouche.png",
-		"outputAbbreviatedPath": "\/layoutImg\/logoMouche.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/layoutImg\/logoMoustache.png": {
-		"fileType": 32768,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 135886,
-		"inputAbbreviatedPath": "\/layoutImg\/logoMoustache.png",
-		"outputAbbreviatedPath": "\/layoutImg\/logoMoustache.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
 	"\/layoutImg\/masque-pink.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -504,7 +548,7 @@
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 27528,
+		"initialSize": 34703,
 		"inputAbbreviatedPath": "\/layoutImg\/texture-black.png",
 		"outputAbbreviatedPath": "\/layoutImg\/texture-black.png",
 		"outputPathIsOutsideProject": 0,

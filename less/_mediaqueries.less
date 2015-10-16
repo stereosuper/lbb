@@ -100,7 +100,50 @@
         top: -10px;
     }
     #main-menu{
+        width: 85px;
         top: 20px;
+        div{
+            padding: 30px;
+            position: fixed;
+            top: 0;
+            left: 100%;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            text-align: center;
+            > div{
+                display: table;
+                width: 100%;
+                height: 100%;
+            }
+            .logo{
+                display: block;
+                position: absolute;
+                top: -10px;
+                left: -10px;
+                z-index: 1;
+            }
+            ul{
+                display: table-cell;
+                vertical-align: middle;
+                font-size: 1.1em;
+            }
+            li{
+                margin: 2vh 0;
+            }
+            .transform(rotateY(90deg));
+            .transform-origin(100% 100%);
+            .perspective-origin(50% 50%);
+            .transition(.8s);
+            .menuOpen &{
+                .animation(bounce .5s);
+                .transform(rotateY(0deg));
+                left: 0;
+            }
+        }
+    }
+    #burger{
+        display: block;
     }
 
     .head{
@@ -410,7 +453,7 @@
 /* retina */
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi) {
     
-    #logo{
+    .logo{
         background: url(../layoutImg/logo-small.png) 50% 50% no-repeat;
         &.mouche{
             background-image: url(../layoutImg/_logo-mouche@2x.png);

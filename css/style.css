@@ -323,6 +323,47 @@ menu {
 .icon-arrow:before {
   content: "\e602";
 }
+@-webkit-keyframes bounce {
+  0% {
+    -webkit-transform: perspective(3000) rotateY(90deg);
+    -moz-transform: perspective(3000) rotateY(90deg);
+    -o-transform: perspective(3000) rotateY(90deg);
+    -ms-transform: perspective(3000) rotateY(90deg);
+    transform: perspective(3000) rotateY(90deg);
+  }
+  40% {
+    -webkit-transform: perspective(3000) rotateY(10deg);
+    -moz-transform: perspective(3000) rotateY(10deg);
+    -o-transform: perspective(3000) rotateY(10deg);
+    -ms-transform: perspective(3000) rotateY(10deg);
+    transform: perspective(3000) rotateY(10deg);
+    left: 20px;
+  }
+  60% {
+    -webkit-transform: perspective(3000) rotateY(20deg);
+    -moz-transform: perspective(3000) rotateY(20deg);
+    -o-transform: perspective(3000) rotateY(20deg);
+    -ms-transform: perspective(3000) rotateY(20deg);
+    transform: perspective(3000) rotateY(20deg);
+    left: 40px;
+  }
+  80% {
+    -webkit-transform: perspective(3000) rotateY(5deg);
+    -moz-transform: perspective(3000) rotateY(5deg);
+    -o-transform: perspective(3000) rotateY(5deg);
+    -ms-transform: perspective(3000) rotateY(5deg);
+    transform: perspective(3000) rotateY(5deg);
+    left: 10px;
+  }
+  100% {
+    -webkit-transform: perspective(3000) rotateY(0deg);
+    -moz-transform: perspective(3000) rotateY(0deg);
+    -o-transform: perspective(3000) rotateY(0deg);
+    -ms-transform: perspective(3000) rotateY(0deg);
+    transform: perspective(3000) rotateY(0deg);
+    left: 0;
+  }
+}
 /* @group Styles */
 /* @group General */
 ::-moz-selection {
@@ -1163,12 +1204,12 @@ _:-ms-input-placeholder #prev:before,
   position: fixed;
   z-index: 10;
 }
-#logo {
+.logo {
   display: block;
   width: 180px;
   height: 180px;
   float: left;
-  background: url(../layoutImg/logo.png) 50% 50%;
+  background: url(../layoutImg/logo-small.png) 50% 50%;
   background-repeat: no-repeat;
   background-size: 120px;
   text-indent: -999em;
@@ -1178,31 +1219,31 @@ _:-ms-input-placeholder #prev:before,
   -o-transition: none;
   transition: none;
 }
-#logo.sprite {
+.logo.sprite {
   background-size: 720px;
   background-position: 0 0;
 }
-#logo.mouche {
+.logo.mouche {
   background-image: url(../layoutImg/_logo-mouche.png);
 }
-#logo.banane {
+.logo.banane {
   background-image: url(../layoutImg/_logo-banane.png);
 }
-#logo.bisou {
+.logo.bisou {
   background-image: url(../layoutImg/_logo-bisou.png);
 }
-#logo.moustache {
+.logo.moustache {
   background-image: url(../layoutImg/_logo-moustache.png);
 }
-.purple #logo {
-  background: url(../layoutImg/logo-rose.png) no-repeat;
+.purple .logo {
+  background: url(../layoutImg/logo-rose-small.png) no-repeat;
   background-position: 50% 50% !important;
   background-size: 120px;
 }
-.lt-ie9 .purple #logo {
+.lt-ie9 .purple .logo {
   background: url(../layoutImg/logo-rose-small.png) no-repeat;
 }
-.lt-ie9 #logo {
+.lt-ie9 .logo {
   background: url(../layoutImg/logo-small.png) 50% 50% no-repeat;
 }
 #main-menu {
@@ -1241,8 +1282,35 @@ _:-ms-input-placeholder #prev:before,
   width: 5px;
   overflow: visible;
 }
+#main-menu .logo {
+  display: none;
+}
+#main-menu .logo:hover,
+#main-menu .logo:focus {
+  opacity: 1;
+}
 #burger {
   display: none;
+  width: 30px;
+  height: 18px;
+  position: relative;
+}
+#burger span {
+  display: block;
+  width: 30px;
+  height: 2px;
+  position: absolute;
+  background: #fff;
+  border-radius: 70px;
+}
+#burger .b1 {
+  top: 0;
+}
+#burger .b2 {
+  top: 8px;
+}
+#burger .b3 {
+  top: 16px;
 }
 /******* FOOTER *******/
 #footer {
@@ -1688,7 +1756,70 @@ _:-ms-input-placeholder #prev:before,
     top: -10px;
   }
   #main-menu {
+    width: 85px;
     top: 20px;
+  }
+  #main-menu div {
+    padding: 30px;
+    position: fixed;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    text-align: center;
+    -webkit-transform: rotateY(90deg);
+    -moz-transform: rotateY(90deg);
+    -o-transform: rotateY(90deg);
+    -ms-transform: rotateY(90deg);
+    transform: rotateY(90deg);
+    -webkit-transform-origin: 100% 100%;
+    -moz-transform-origin: 100% 100%;
+    -o-transform-origin: 100% 100%;
+    -ms-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+    -webkit-perspective-origin: 50% 50%;
+    -moz-perspective-origin: 50% 50%;
+    perspective-origin: 50% 50%;
+    -webkit-transition: 0.8s;
+    -moz-transition: 0.8s;
+    -o-transition: 0.8s;
+    transition: 0.8s;
+  }
+  #main-menu div > div {
+    display: table;
+    width: 100%;
+    height: 100%;
+  }
+  #main-menu div .logo {
+    display: block;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    z-index: 1;
+  }
+  #main-menu div ul {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 1.1em;
+  }
+  #main-menu div li {
+    margin: 2vh 0;
+  }
+  .menuOpen #main-menu div {
+    -webkit-animation: bounce 0.5s;
+    -moz-animation: bounce 0.5s;
+    -o-animation: bounce 0.5s;
+    animation: bounce 0.5s;
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -o-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+    left: 0;
+  }
+  #burger {
+    display: block;
   }
   .head {
     padding-top: 140px;
@@ -1949,22 +2080,22 @@ _:-ms-input-placeholder #prev:before,
 /* @end */
 /* retina */
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi) {
-  #logo {
+  .logo {
     background: url(../layoutImg/logo-small.png) 50% 50% no-repeat;
   }
-  #logo.mouche {
+  .logo.mouche {
     background-image: url(../layoutImg/_logo-mouche@2x.png);
   }
-  #logo.banane {
+  .logo.banane {
     background-image: url(../layoutImg/_logo-banane@2x.png);
   }
-  #logo.bisou {
+  .logo.bisou {
     background-image: url(../layoutImg/_logo-bisou@2x.png);
   }
-  #logo.moustache {
+  .logo.moustache {
     background-image: url(../layoutImg/_logo-moustache@2x.png);
   }
-  .purple #logo {
+  .purple .logo {
     background: url(../layoutImg/logo-rose.png) no-repeat;
     background-position: 50% 50% !important;
     background-size: 120px;

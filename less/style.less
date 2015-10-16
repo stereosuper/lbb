@@ -14,6 +14,14 @@
 
 @transition: .15s ease-in-out;
 
+@-webkit-keyframes bounce{
+    0%{ .transform(perspective(3000) rotateY(90deg)); }
+    40%{ .transform(perspective(3000) rotateY(10deg)); left: 20px; }
+    60%{ .transform(perspective(3000) rotateY(20deg)); left: 40px; }
+    80%{ .transform(perspective(3000) rotateY(5deg)); left: 10px; }
+    100%{ .transform(perspective(3000) rotateY(0deg)); left: 0; }
+}
+
 /* @group Styles */
 
 /* @group General */
@@ -783,11 +791,11 @@ _:-ms-input-placeholder, .slider{
     z-index: 10;
 }
 
-#logo{
+.logo{
     display: block;
     .size(180px);
     float: left;
-    background: url(../layoutImg/logo.png) 50% 50%;
+    background: url(../layoutImg/logo-small.png) 50% 50%;
     background-repeat: no-repeat;
     background-size: 120px;
     text-indent: -999em;
@@ -810,7 +818,7 @@ _:-ms-input-placeholder, .slider{
         background-image: url(../layoutImg/_logo-moustache.png);
     }
     .purple &{
-        background: url(../layoutImg/logo-rose.png) no-repeat;
+        background: url(../layoutImg/logo-rose-small.png) no-repeat;
         .lt-ie9 &{
             background: url(../layoutImg/logo-rose-small.png) no-repeat;
         }
@@ -857,10 +865,36 @@ _:-ms-input-placeholder, .slider{
             }
         }
     }
+    .logo{
+        display: none;
+        &:hover, &:focus{
+            opacity: 1;
+        }
+    }
 }
 
 #burger{
     display: none;
+    width: 30px;
+    height: 18px;
+    position: relative;
+    span{
+        display: block;
+        width: 30px;
+        height: 2px;
+        position: absolute;
+        background: #fff;
+        border-radius: 70px;
+    }
+    .b1{
+        top: 0;
+    }
+    .b2{
+        top: 8px;
+    }
+    .b3{
+        top: 16px;
+    }
 }
 
 

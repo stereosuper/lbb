@@ -526,23 +526,37 @@ function init(){
 	if(isMobile.any){
 		TweenLite.set(body, {css: {className: '+=isMobile'}});
 	}else{
-		var logo = document.getElementById('logo'),
+		var logos = document.querySelectorAll('.logo'),
 			logoSprites = ['mouche', 'banane', 'moustache', 'bisou'],
 			rand = Math.floor(Math.random()*logoSprites.length),
-			tweenLogo = TweenMax.spriteSheet(logo, {
-							width: 720,
-							stepX: 180,
-							stepY: 180,
-							count: 24
-						}, 1, { delay: 0.1, paused: true });
-		TweenLite.set(logo, {css: {className: '+=sprite '+logoSprites[rand]}});
-		addEventListener(logo, 'mouseover', function(){
-			if(!hasClass(header, 'purple'))
-				tweenLogo.play();
-		});
-		addEventListener(logo, 'mouseout', function(){
-			if(!hasClass(header, 'purple'))
-				tweenLogo.reverse();
+			tweenLogo = [], i = 0;
+
+		for(i; i<logos.length; i++){
+			(function(i){
+				tweenLogo[i] = TweenMax.spriteSheet(logos[i], {
+					width: 720,
+					stepX: 180,
+					stepY: 180,
+					count: 24
+				}, 1, { delay: 0.1, paused: true });
+
+				TweenLite.set(logos[i], {css: {className: '+=sprite '+logoSprites[rand]}});
+				addEventListener(logos[i], 'mouseover', function(){
+					if(!hasClass(header, 'purple'))
+						tweenLogo[i].play();
+				});
+				addEventListener(logos[i], 'mouseout', function(){
+					if(!hasClass(header, 'purple'))
+						tweenLogo[i].reverse();
+				});
+			}(i));
+		}
+	}
+
+	if(windowWidth < 980){
+		var burger = document.getElementById('burger');
+		addEventListener(burger, 'click', function(){
+			hasClass(body, 'menuOpen') ? TweenLite.set(body, {css: {className: '-=menuOpen'}}) : TweenLite.set(body, {css: {className: '+=menuOpen'}});
 		});
 	}
 

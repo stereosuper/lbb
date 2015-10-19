@@ -102,7 +102,7 @@
     #main-menu{
         width: 85px;
         top: 20px;
-        div{
+        > div{
             padding: 30px;
             position: fixed;
             top: 0;
@@ -131,15 +131,14 @@
             li{
                 margin: 2vh 0;
             }
-            .transform(rotateY(90deg));
+            .transform(perspective(3000) rotateY(90deg));
             .transform-origin(100% 100%);
             .perspective-origin(50% 50%);
-            .transition(.8s);
-            .menuOpen &{
+            /*.menuOpen &{
                 .animation(bounce .5s);
                 .transform(rotateY(0deg));
                 left: 0;
-            }
+            }*/
         }
     }
     #burger{

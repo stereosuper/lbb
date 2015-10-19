@@ -556,7 +556,16 @@ function init(){
 	if(windowWidth < 980){
 		var burger = document.getElementById('burger');
 		addEventListener(burger, 'click', function(){
-			hasClass(body, 'menuOpen') ? TweenLite.set(body, {css: {className: '-=menuOpen'}}) : TweenLite.set(body, {css: {className: '+=menuOpen'}});
+			if(hasClass(body, 'menuOpen')){
+				TweenLite.to(menu.querySelector('div'), .4, {left: '100%', onComplete: function(){
+					TweenLite.set(menu.querySelector('div'), {rotationY: 90});
+					TweenLite.set(body, {css: {className: '-=menuOpen'}});
+				}});
+			}else{
+				TweenLite.to(menu.querySelector('div'), 1, {rotationY: 0, left: 0, ease:Bounce.easeOut, onComplete: function(){
+					TweenLite.set(body, {css: {className: '+=menuOpen'}});
+				}});
+			}
 		});
 	}
 

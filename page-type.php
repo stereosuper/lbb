@@ -26,7 +26,7 @@
 						<strong class='sup-title'>Une amorce de titre</strong>
 						<h1 class='animTxt'>Un titre super drôle</h1>
 					</div>
-					<img src='img/cat.jpg' alt="Cat">
+					<img src='img/cat.jpg' alt='Cat' class='img'>
 					<div class='fd'></div>
 				</div>
 			</header>

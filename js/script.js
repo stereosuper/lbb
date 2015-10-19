@@ -56,12 +56,6 @@ function addEventListener(el, eventName, handler){
 	}
 }
 
-/*function addClass(el, className){
-	el.classList ? el.classList.add(className) : el.className += ' ' + className;
-}
-function removeClass(el, className){
-	el.classList ? el.classList.remove(className) : el.className = el.className.replace(new RegExp('(^|\\b)' + className.split('').join('|') + '(\\b|$)', 'gi'), ' ');
-}*/
 function hasClass(el, className){
 	return el.classList ? el.classList.contains(className) : new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
 }
@@ -93,17 +87,8 @@ function getStyle(oElm, strCssRule){
 	return strValue;
 }
 
-/*window.requestAnimFrame = (function(){
-  return  window.requestAnimationFrame       ||
-          window.webkitRequestAnimationFrame ||
-          window.mozRequestAnimationFrame    ||
-          function( callback ){
-            window.setTimeout(callback, 1000 / 60);
-          };
-})();*/
 
-
-/* FONCTIONS SPECIFIQUES */
+/**** ON READY FUNCTIONS ****/
 
 function setSlider(slider){
 	var slides = slider.querySelectorAll('.slide'),
@@ -502,7 +487,7 @@ function animMenuScroll(){
 
 
 
-/**** INIT ****/
+/**** ON SCROLL ****/
 window.onscroll = function(e){
 	myScroll = document.documentElement['scrollTop'] || document.body['scrollTop'];
 
@@ -522,6 +507,7 @@ window.onscroll = function(e){
 	
 }
 
+/**** INIT (ON DOCUMENT READY) ****/
 function init(){
 	if(isMobile.any){
 		TweenLite.set(body, {css: {className: '+=isMobile'}});
@@ -553,21 +539,18 @@ function init(){
 		}
 	}
 
-	if(windowWidth < 980){
-		var burger = document.getElementById('burger');
-		addEventListener(burger, 'click', function(){
-			if(hasClass(body, 'menuOpen')){
-				TweenLite.to(menu.querySelector('div'), .4, {left: '100%', onComplete: function(){
-					TweenLite.set(menu.querySelector('div'), {rotationY: 90});
-					TweenLite.set(body, {css: {className: '-=menuOpen'}});
-				}});
-			}else{
-				TweenLite.to(menu.querySelector('div'), 1, {rotationY: 0, left: 0, ease:Bounce.easeOut, onComplete: function(){
-					TweenLite.set(body, {css: {className: '+=menuOpen'}});
-				}});
-			}
-		});
-	}
+	var burger = document.getElementById('burger');
+	addEventListener(burger, 'click', function(){
+		if(hasClass(htmlTag, 'menuOpen')){
+			TweenLite.set(htmlTag, {css: {className: '-=menuOpen'}});
+			TweenLite.to(menu.querySelector('div'), .4, {left: '100%', onComplete: function(){
+				TweenLite.set(menu.querySelector('div'), {rotationY: 90});
+			}});
+		}else{
+			TweenLite.set(htmlTag, {css: {className: '+=menuOpen'}});
+			TweenLite.to(menu.querySelector('div'), 1, {rotationY: 0, left: 0, ease:Bounce.easeOut});
+		}
+	});
 
 	if(hasClass(body, 'home')){
 		bullshitGenerator();
@@ -656,7 +639,7 @@ function init(){
 	}
 
 	var scrollToBtn = document.querySelectorAll('.scrollTo');
-	if(scrollToBtn.length){
+	if(scrollToBtn.length && !isMobile.windows.phone){
 		var i = 0, nbBtn = scrollToBtn.length;
 		for(i; i<nbBtn; i++){
 			addEventListener(scrollToBtn[i], 'click', function(e){
@@ -680,5 +663,51 @@ function ready(fn){
 		});
 	}
 }
-
 ready(init);
+
+/**** ON LOAD FUNCTIONS ****/
+
+function preloader(){
+	if(document.images){
+		var imgVous1 = new Image(), imgVous2 = new Image(), imgVous3 = new Image(), imgVous4 = new Image(),
+			imgLogoRose = new Image(), imgLogoRoseBis = new Image(),
+			imgLogo1 = new Image(), imgLogo1Bis = new Image(), imgLogo2 = new Image(), imgLogo2Bis = new Image(),
+			imgLogo3 = new Image(), imgLogo3Bis = new Image(), imgLogo4 = new Image(), imgLogo4Bis = new Image(),
+			imgBullShit1 = new Image(), imgBullShit2 = new Image();
+
+		imgVous1.src = 'layoutImg/vous/fouet.png';
+		imgVous2.src = 'layoutImg/vous/noise.png';
+		imgVous3.src = 'layoutImg/vous/teletubies.png';
+		imgVous4.src = 'layoutImg/vous/tronconneuse.png';
+
+		imgLogoRose.src = 'layoutImg/logo-rose.png';
+		imgLogoRoseBis.src = 'layoutImg/logo-rose-small.png';
+
+		imgLogo1.src = 'layoutImg/_logo-banane@2x.png';
+		imgLogo1Bis.src = 'layoutImg/_logo-banane.png';
+		imgLogo2.src = 'layoutImg/_logo-bisou@2x.png';
+		imgLogo2Bis.src = 'layoutImg/_logo-bisou.png';
+		imgLogo3.src = 'layoutImg/_logo-mouche@2x.png';
+		imgLogo3Bis.src = 'layoutImg/_logo-mouche.png';
+		imgLogo4.src = 'layoutImg/_logo-moustache@2x.png';
+		imgLogo4Bis.src = 'layoutImg/_logo-moustache.png';
+
+		imgBullShit1.src = 'img/bullshit/licorne.gif';
+		imgBullShit2.src = 'img/bullshit/lama.jpg';
+	}
+}
+
+/**** INIT (ON DOCUMENT LOAD) ****/
+function onLoadEvt(func){
+	var oldonload = window.onload;
+	if(typeof window.onload != 'function'){
+		window.onload = func;
+	}else{
+		window.onload = function(){
+			if(oldonload)
+				oldonload();
+			func();
+		}
+	}
+}
+onLoadEvt(preloader);

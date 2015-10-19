@@ -16,6 +16,7 @@
 		</div>
 	</div>
 	<button id='burger'>
+		<i>Menu</i>
 		<span class='b1'></span>
 		<span class='b2'></span>
 		<span class='b3'></span>

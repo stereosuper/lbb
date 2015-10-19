@@ -27,7 +27,7 @@
 						<strong class='sup-title'>Bonjour :</strong>
 						<h1><span class='animTxt small'>Nous sommes </span><span class='animTxt'>sérieusement drôles</span></h1>
 						<a href='#vous' class='btn btn-down scrollTo'>Découvrez comment</a>
-						<img src='layoutImg/pipe.png' alt="On aime l'improvisation" width='586' height='453' id='pipe'>
+						<img src='layoutImg/pipe.png' alt="On aime l'improvisation" width='586' height='453' id='pipe' class='img'>
 					</div>
 				</div>
 			</header>

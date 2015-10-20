@@ -511,6 +511,28 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/layoutImg\/ampoules.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 20316,
+		"inputAbbreviatedPath": "\/layoutImg\/ampoules.png",
+		"outputAbbreviatedPath": "\/layoutImg\/ampoules.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/layoutImg\/bananes.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 23310,
+		"inputAbbreviatedPath": "\/layoutImg\/bananes.png",
+		"outputAbbreviatedPath": "\/layoutImg\/bananes.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/layoutImg\/bulle.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -566,6 +588,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/layoutImg\/mask.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2295,
+		"inputAbbreviatedPath": "\/layoutImg\/mask.png",
+		"outputAbbreviatedPath": "\/layoutImg\/mask.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/layoutImg\/masque-pink.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -584,6 +617,17 @@
 		"initialSize": 68882,
 		"inputAbbreviatedPath": "\/layoutImg\/masques-pink.png",
 		"outputAbbreviatedPath": "\/layoutImg\/masques-pink.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/layoutImg\/peignes.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 18327,
+		"inputAbbreviatedPath": "\/layoutImg\/peignes.png",
+		"outputAbbreviatedPath": "\/layoutImg\/peignes.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0

@@ -5,9 +5,8 @@
 <nav role='navigation' id='main-menu' class='menu'>
 	<a class='logo' href='./'>la Belle Boîte</a>
 	<div>
-		
 		<div>
-			<ul>
+			<ul class='big-menu'>
 				<li class='actif'><a href='./'>Accueil</a></li>
 				<li>
 					<a href='#'>la Belle Boîte</a>

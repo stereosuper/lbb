@@ -721,6 +721,7 @@ _:-ms-input-placeholder, .slider{
     li{
         display: inline-block;
         .size(32%);
+        vertical-align: top;
         &.two{
             margin: 0 2% 2%;
         }
@@ -728,17 +729,8 @@ _:-ms-input-placeholder, .slider{
             margin: 0 2%;
         }
     }
-    .hover{
-        display: block;
-        padding: 10px;
+    .hover, .contact-link{
         position: absolute;
-        top: 238px;
-        bottom: 12px;
-        left: 12px;
-        right: 12px;
-        overflow: hidden;
-        background: fade(@yellow, 80%);
-        color: #fff;
         &:before{
             content: '';
             width: 0px;
@@ -748,8 +740,27 @@ _:-ms-input-placeholder, .slider{
         }
         > span{
             display: inline-block;
+            width: 98%;
             vertical-align: middle;
         }
+    }
+    .hover{
+        display: block;
+        padding: 10px;
+        top: 238px;
+        bottom: 12px;
+        left: 12px;
+        right: 12px;
+        overflow: hidden;
+        background: fade(@yellow, 80%);
+        .link{
+            margin-top: 50px;
+            opacity: 0;
+        }
+    }
+    .link{
+        display: inline-block;
+        .transition(color @transition);
     }
     .title{
         display: block;
@@ -761,11 +772,40 @@ _:-ms-input-placeholder, .slider{
         margin-top: 20px;
         opacity: 0;
     }
-    .link{
-        display: inline-block;
-        margin-top: 50px;
-        opacity: 0;
-        .transition(color @transition);
+    a{
+        display: block;
+        color: #fff;
+    }
+    .contact-link{
+        top: 0;
+        bottom: 0;
+        background-image: url(../layoutImg/ampoules.png);
+        > span{
+            padding: 0 39px;
+        }
+    }
+}
+
+.contact-link{
+    display: block;
+    text-decoration: none;
+    background-position: 40px -40px;
+    .transition(none);
+    i{
+        display: block;
+        margin: 0 0 5px;
+        color: @txt;
+    }
+    &.big-link{
+        padding: 25px;
+        margin: 50px 0 0;
+        background-color: fade(#fff, 50%);
+    }
+    &.peignes{
+        background-image: url(../layoutImg/peignes.png);
+    }
+    &.bananes{
+        background-image: url(../layoutImg/bananes.png);
     }
 }
 
@@ -922,13 +962,9 @@ _:-ms-input-placeholder, .slider{
         padding: 0;
         margin: 0;
     }
-    > div{
-        div{
-            > ul{
-                > li  > a{
-                    text-transform: uppercase;
-                }
-            }
+    .big-menu{
+        > li  > a{
+            text-transform: uppercase;
         }
     }
     a{
@@ -969,6 +1005,21 @@ _:-ms-input-placeholder, .slider{
         li{
             margin: 2px 0;
         }
+    }
+}
+
+#fdMenu{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    background: fade(#000, 70%);
+    opacity: 0;
+    .transition(opacity .7s ease-in-out);
+    .menuOpen &{
+        top: 0;
+        opacity: 1;
     }
 }
 

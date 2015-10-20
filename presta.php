@@ -101,10 +101,13 @@
 										</span>
 									</span>
 								</a>
-							</li><li class='contact-link'>
-								<a href='#'>
-									<i>Vous avez une lumineuse idée d'atelier à nous suggérer ?</i>
-									<span class='link'>contactez-nous</span>
+							</li><li>
+								<img src='layoutImg/mask.png' alt='' width='300' height='300'>
+								<a href='#' class='contact-link'>
+									<span>
+										<i>Vous avez une lumineuse idée d'atelier à nous suggérer ?</i>
+										<span class='link'>contactez-nous</span>
+									</span>
 								</a>
 							</li>
 						</ul>
@@ -185,6 +188,10 @@
 								</a>
 							</li>
 						</ul>
+						<a href='#' class='contact-link big-link peignes'>
+							<i>Vous souhaitez une intervention personnalisée au poil ?</i>
+							<span class='link'>contactez-nous</span>
+						</a>
 					</div>
 				</div>
 			</section>
@@ -262,6 +269,10 @@
 								</a>
 							</li>
 						</ul>
+						<a href='#' class='contact-link big-link bananes'>
+							<i>Vous souhaitez une formation personnalisée bien mûre ?</i>
+							<span class='link'>contactez-nous</span>
+						</a>
 					</div>
 				</div>
 			</section>

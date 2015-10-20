@@ -11,6 +11,17 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/img\/bille.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 79514,
+		"inputAbbreviatedPath": "\/img\/bille.jpg",
+		"outputAbbreviatedPath": "\/img\/bille.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/img\/blog1.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -154,6 +165,28 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/img\/dis-le.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 79984,
+		"inputAbbreviatedPath": "\/img\/dis-le.jpg",
+		"outputAbbreviatedPath": "\/img\/dis-le.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/en-piste.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 113212,
+		"inputAbbreviatedPath": "\/img\/en-piste.jpg",
+		"outputAbbreviatedPath": "\/img\/en-piste.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/img\/escargot.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -176,6 +209,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/img\/impro.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 90898,
+		"inputAbbreviatedPath": "\/img\/impro.jpg",
+		"outputAbbreviatedPath": "\/img\/impro.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/img\/naoned.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -183,6 +227,17 @@
 		"initialSize": 5422,
 		"inputAbbreviatedPath": "\/img\/naoned.png",
 		"outputAbbreviatedPath": "\/img\/naoned.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/on-se-connait.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 113852,
+		"inputAbbreviatedPath": "\/img\/on-se-connait.jpg",
+		"outputAbbreviatedPath": "\/img\/on-se-connait.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -748,6 +803,15 @@
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/page-type.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/presta.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/presta.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0

@@ -1,18 +1,18 @@
   	<footer role='contentinfo' id='footer' class='container'>
   		<div>
   			<div class='w50'>
-                  <div class='phrase'>
+                <div class='phrase'>
                     <span class='sup-title'>la Belle Boîte vous offre cette phrase creuse :</span>
                     <div id='phrase-creuse'>
-                      <p class='h3'><span>Stop aux acronymes, travaillons l'U.M.1</span></p>
-                      <button class='sub-title'><span class='icon-loop'></span> une autre phrase creuse ?</button>
-                      <div id='cisors'>
-                        <div id="cisors1" class='icon-half-cisors cisors'></div>
-                        <div id="cisors2" class='icon-half-cisors2 cisors'></div>
-                      </div>
+                        <p class='h3'><span>Stop aux acronymes, travaillons l'U.M.1</span></p>
+                        <button class='sub-title'><span class='icon-loop'></span> une autre phrase creuse ?</button>
+                        <div id='cisors'>
+                            <div id="cisors1" class='icon-half-cisors cisors'></div>
+                            <div id="cisors2" class='icon-half-cisors2 cisors'></div>
+                        </div>
                     </div>
-                  </div>
-                </div><div class='w50'>
+                </div>
+            </div><div class='w50'>
   			  	<div class='menu w50'>
   			  		<span class='sup-title'>la Belle Boîte</span>
   					<ul>

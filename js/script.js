@@ -591,9 +591,7 @@ function init(){
 			tweenBg = TweenLite.fromTo(masques, 25, {backgroundPosition: liveBgPos1+'% '+liveBgPos2+'%'}, {backgroundPosition: liveBgPosFinal1+'% '+liveBgPosFinal2+'%', ease:Linear.easeNone, onComplete: animBackground, onCompleteParams: ['complete'], paused: true});
 			animBackground();
 		}
-	}
-	
-	if(!isMobile.any){
+
 		var blogList = document.querySelector('.blog-list');
 		if(blogList !== null){
 			var blackLinks = blogList.querySelectorAll('.black-hover-link'),
@@ -636,6 +634,41 @@ function init(){
 				tw4Inst.reverse();
 			});
 		}
+
+		var prestaList = document.querySelectorAll('.presta-list');
+		if(prestaList !== null){
+			var j = 0, nbPrestaList = prestaList.length, tlOrangeLinks = [], tw1 = [], 
+			tw2 = [], tw3 = [], tw4 = [], orangeLinks = [], nbOrangeLinsk = [];
+			for(j; j < nbPrestaList; j++){
+				
+				var i = 0;
+				orangeLinks[j] = prestaList[j].querySelectorAll('.orange-link');
+				nbOrangeLinsk[j] = orangeLinks[j].length;
+				tlOrangeLinks[j] = []; tw1[j] = []; tw2[j] = []; tw3[j] = []; tw4[j] = [];
+
+				for(i; i < nbOrangeLinsk[j]; i++){
+					(function(j, i){
+
+						tw1[j][i] = new TweenMax.to(orangeLinks[j][i].querySelector('.hover'), .15, {top: '12px', overflow: 'visible', ease: Linear.easeNone});
+						tw2[j][i] = new TweenMax.to(orangeLinks[j][i].querySelector('.cat'), .2, {opacity: '1', marginTop: '10px', ease: Linear.easeNone});
+						tw3[j][i] = new TweenMax.to(orangeLinks[j][i].querySelector('.link'), .25, {opacity: '1', marginTop: '0', ease: Linear.easeNone});
+						
+						tlOrangeLinks[j][i] = new TimelineMax({paused: true}).add(tw1[j][i]).add(tw2[j][i]).add(tw3[j][i]);
+						tw4[j][i] = tlOrangeLinks[j][i].tweenFromTo(0, .6, {ease: Power2.easeInOut, paused: true});
+						
+						addEventListener(orangeLinks[j][i], 'mouseover', function(){
+							tw4[j][i].play();
+							
+						});
+						addEventListener(orangeLinks[j][i], 'mouseout', function(){
+							tw4[j][i].reverse();
+						});
+
+					}(j, i));
+				}
+
+			}
+		}
 	}
 
 	var scrollToBtn = document.querySelectorAll('.scrollTo');
@@ -669,19 +702,8 @@ ready(init);
 
 function preloader(){
 	if(document.images){
-		var imgVous1 = new Image(), imgVous2 = new Image(), imgVous3 = new Image(), imgVous4 = new Image(),
-			imgLogoRose = new Image(), imgLogoRoseBis = new Image(),
-			imgLogo1 = new Image(), imgLogo1Bis = new Image(), imgLogo2 = new Image(), imgLogo2Bis = new Image(),
-			imgLogo3 = new Image(), imgLogo3Bis = new Image(), imgLogo4 = new Image(), imgLogo4Bis = new Image(),
-			imgBullShit1 = new Image(), imgBullShit2 = new Image();
-
-		imgVous1.src = 'layoutImg/vous/fouet.png';
-		imgVous2.src = 'layoutImg/vous/noise.png';
-		imgVous3.src = 'layoutImg/vous/teletubies.png';
-		imgVous4.src = 'layoutImg/vous/tronconneuse.png';
-
-		imgLogoRose.src = 'layoutImg/logo-rose.png';
-		imgLogoRoseBis.src = 'layoutImg/logo-rose-small.png';
+		var imgLogo1 = new Image(), imgLogo1Bis = new Image(), imgLogo2 = new Image(), imgLogo2Bis = new Image(),
+			imgLogo3 = new Image(), imgLogo3Bis = new Image(), imgLogo4 = new Image(), imgLogo4Bis = new Image();
 
 		imgLogo1.src = 'layoutImg/_logo-banane@2x.png';
 		imgLogo1Bis.src = 'layoutImg/_logo-banane.png';
@@ -692,8 +714,26 @@ function preloader(){
 		imgLogo4.src = 'layoutImg/_logo-moustache@2x.png';
 		imgLogo4Bis.src = 'layoutImg/_logo-moustache.png';
 
-		imgBullShit1.src = 'img/bullshit/licorne.gif';
-		imgBullShit2.src = 'img/bullshit/lama.jpg';
+		if(hasClass(body, 'home')){
+			var imgVous1 = new Image(), imgVous2 = new Image(), imgVous3 = new Image(), imgVous4 = new Image(),
+				imgBullShit1 = new Image(), imgBullShit2 = new Image();
+				
+			imgVous1.src = 'layoutImg/vous/fouet.png';
+			imgVous2.src = 'layoutImg/vous/noise.png';
+			imgVous3.src = 'layoutImg/vous/teletubies.png';
+			imgVous4.src = 'layoutImg/vous/tronconneuse.png';
+
+			imgBullShit1.src = 'img/bullshit/licorne.gif';
+			imgBullShit2.src = 'img/bullshit/lama.jpg';
+		}
+
+		if(hasClass(body, 'page')){
+			var imgLogoRose = new Image(), imgLogoRoseBis = new Image();
+
+			imgLogoRose.src = 'layoutImg/logo-rose.png';
+			imgLogoRoseBis.src = 'layoutImg/logo-rose-small.png';
+		}
+		
 	}
 }
 

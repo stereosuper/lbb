@@ -922,8 +922,16 @@ _:-ms-input-placeholder, .slider{
         padding: 0;
         margin: 0;
     }
+    > div{
+        div{
+            > ul{
+                > li  > a{
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
     a{
-        text-transform: uppercase;
         color: #fff;
         &:hover, &:focus{
             opacity: .7;
@@ -951,6 +959,15 @@ _:-ms-input-placeholder, .slider{
         display: none;
         &:hover, &:focus{
             opacity: 1;
+        }
+    }
+    .submenu{
+        display: none;
+        width: 110px;
+        margin: 0 0 20px;
+        text-align: left;
+        li{
+            margin: 2px 0;
         }
     }
 }

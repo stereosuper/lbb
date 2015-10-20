@@ -1330,8 +1330,10 @@ _:-ms-input-placeholder #prev:before,
   padding: 0;
   margin: 0;
 }
-#main-menu a {
+#main-menu > div div > ul > li > a {
   text-transform: uppercase;
+}
+#main-menu a {
   color: #fff;
 }
 #main-menu a:hover,
@@ -1359,6 +1361,15 @@ _:-ms-input-placeholder #prev:before,
 #main-menu .logo:hover,
 #main-menu .logo:focus {
   opacity: 1;
+}
+#main-menu .submenu {
+  display: none;
+  width: 110px;
+  margin: 0 0 20px;
+  text-align: left;
+}
+#main-menu .submenu li {
+  margin: 2px 0;
 }
 #burger {
   display: none;
@@ -1919,7 +1930,6 @@ _:-ms-input-placeholder #prev:before,
     top: 35px;
   }
   .js #main-menu > div {
-    padding: 30px;
     position: fixed;
     top: 0;
     left: 100%;
@@ -1952,20 +1962,41 @@ _:-ms-input-placeholder #prev:before,
     width: 100%;
     height: 100%;
   }
-  .js #main-menu > div .logo {
-    display: block;
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    z-index: 1;
-  }
-  .js #main-menu > div ul {
+  .js #main-menu > div > div > ul {
     display: table-cell;
     vertical-align: middle;
     font-size: 1.1em;
   }
-  .js #main-menu > div li {
-    margin: 2vh 0;
+  .js #main-menu > div > div > ul > li:first-child {
+    margin: 30px 0 0;
+  }
+  .js #main-menu > div > div > ul > li > a {
+    display: block;
+    padding: 2vh 0;
+    margin: 0 0 15px;
+    border-bottom: 1px dashed;
+  }
+  .js #main-menu > div > div > ul > li > a:before,
+  .js #main-menu > div > div > ul > li > a:after {
+    display: none;
+  }
+  .js #main-menu .logo {
+    display: block;
+    position: fixed;
+    top: -10px;
+    left: -10px;
+    z-index: 1;
+    opacity: 0;
+    -webkit-transition: 0.7s opacity 0.1s;
+    -moz-transition: 0.7s opacity 0.1s;
+    -o-transition: 0.7s opacity 0.1s;
+    transition: 0.7s opacity 0.1s;
+  }
+  #main-menu .submenu {
+    display: inline-block;
+  }
+  .menuOpen #main-menu .logo {
+    opacity: 1;
   }
   .js #burger {
     display: block;
@@ -2178,6 +2209,41 @@ _:-ms-input-placeholder #prev:before,
   .slider #prev:before {
     font-size: 30px;
   }
+  /*.js{
+        #main-menu{
+            > div{
+                >div{
+                    > ul{
+                        > li{
+                            text-align: left;
+                            > a{
+                                padding: 2vh 0 2vh 150px;
+                            }
+                        }
+                    }
+                }
+            }
+            .submenu{
+                margin-left: 150px;
+            }
+        }
+    }*/
+  #header {
+    top: 20px;
+    left: 20px;
+  }
+  .js #main-menu .logo {
+    top: 20px;
+    left: 20px;
+  }
+  .logo {
+    width: 80px;
+    height: 80px;
+  }
+  .logo.sprite {
+    background: url(../layoutImg/logo.png) 50% 50%;
+    background-size: 80px;
+  }
   #footer .menu {
     width: 100%;
     margin: 0 0 30px;
@@ -2249,8 +2315,8 @@ _:-ms-input-placeholder #prev:before,
   }
 }
 @media (max-height: 680px) and (max-width: 979px) {
-  #main-menu > div ul {
-    padding: 100px 0 0;
+  #main-menu > div div > ul {
+    padding: 70px 0 0;
   }
 }
 @media (max-height: 500px) {

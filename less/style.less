@@ -59,7 +59,7 @@ body{
     }
 }
 
-h1, h2, .h2, h3, .h3, h4, h5{
+h1, h2, .h2, h3, .h3, h4, h5, .h5{
     font-weight: normal;
     .geomanistBold(1em);
     line-height: 1em;
@@ -96,8 +96,8 @@ h4{
     font-size: 1.8em;
     margin: 1.4em 0;
 }
-h5{
-    font-size: 1.5em;
+h5, .h5{
+    font-size: 1.4em;
     margin: 1.6em 0;
 }
 h6{
@@ -308,12 +308,33 @@ button{
     }
 }
 
+.btn-down{
+    &.icon-down{
+        display: inline-block;
+        .size(70px);
+        position: relative;
+        font-size: 70px;
+        color: #fff;
+        text-decoration: none;
+        &:before{
+            display: block;
+            position: absolute;
+            top: 0;
+        }
+        &:hover, &:focus{
+            color: @purple;
+            &:before{
+                top: 5px;
+            }
+        }
+    }
+}
+
 .link{
     position: relative;
     .klinicBold(1em);
     color: @purple;
     text-decoration: underline;
-    margin-left: 15px;
     &:before{
         content: '\e806';
         position: absolute;
@@ -394,6 +415,8 @@ button{
         }
     }
 }
+
+
 /******* MODULES *******/
 
 .container{
@@ -502,6 +525,67 @@ button{
         &:before{
             display: none;
         }
+    }
+}
+
+.second-menu{
+    width: 100%;
+    height: 70px;
+    border-bottom: 2px dashed;
+    position: fixed;
+    top: -70px;
+    z-index: 12;
+    overflow: hidden;
+    ul{
+        &:extend(.reset-ul all);
+        width: 730px;
+        position: relative;
+        margin: 0 auto;
+    }
+    li{
+        position: absolute;
+        top: 0;
+        line-height: 70px;
+        .transition(top .3s ease-in-out);
+        &.left{
+            left: 0;
+        }
+        &.right{
+            right: 0;
+        }
+        &.up{
+            a{
+                &:before{
+                    content: '\e807';
+                }
+            }
+            &.hide{
+                top: 70px;
+            }
+        }
+        &.down{
+            a{
+                &:before{
+                    content: '\e805';
+                }
+            }
+            &.hide{
+                top: -70px;
+            }
+        }
+    }
+    a{
+        text-decoration: none;
+        &:before{
+            position: absolute;
+            left: -30px;
+            &:extend(.icomoon);
+            font-size: 35px;
+            line-height: 70px;
+        }
+    }
+    .isMobile &{
+        display: none;
     }
 }
 
@@ -747,7 +831,7 @@ _:-ms-input-placeholder, .slider{
     .hover{
         display: block;
         padding: 10px;
-        top: 238px;
+        top: 80%;
         bottom: 12px;
         left: 12px;
         right: 12px;
@@ -784,6 +868,19 @@ _:-ms-input-placeholder, .slider{
             padding: 0 39px;
         }
     }
+    .no-js &, .isMobile &{
+        .hover{
+            top: 12px;
+            .link{
+                margin-top: 0;
+                opacity: 1;
+            }
+        }
+        .cat{
+            margin-top: 10px;
+            opacity: 1;
+        }
+    }
 }
 
 .contact-link{
@@ -806,6 +903,11 @@ _:-ms-input-placeholder, .slider{
     }
     &.bananes{
         background-image: url(../layoutImg/bananes.png);
+    }
+    &:hover, &:focus{
+        .link{
+            color: @pink;
+        }
     }
 }
 
@@ -1232,6 +1334,16 @@ _:-ms-input-placeholder, .slider{
             }
         }
     }
+    .presta &{
+        height: 80vh;
+        .section-cell{
+            padding-bottom: 0;
+        }
+        .container{
+            padding-top: 70px;
+            padding-bottom: 0;
+        }
+    }
     .img{
         .transition(opacity .1s ease-in-out);
     }
@@ -1364,10 +1476,6 @@ _:-ms-input-placeholder, .slider{
             background-image: url(../layoutImg/vous/fouet.png);
         }
     }
-    p{
-        max-width: 540px;
-        margin: 50px auto;
-    }
 }
 #bgVous{
     position: absolute;
@@ -1451,6 +1559,88 @@ _:-ms-input-placeholder, .slider{
     }
     .isMobile &{
         background-attachment: scroll;
+    }
+}
+
+
+/******* PRESTAS *******/
+
+.presta{
+    h2{
+        padding: 0 20px 10px;
+        border-bottom: 1px dashed;
+    }
+    .second-menu{
+        background: @yellow;
+        border-color: #ffd140;
+    }
+}
+
+.presta-slider{
+    ul{
+        &:extend(.reset-ul all);
+        position: relative;
+    }
+    .presta-slide{
+        max-width: 540px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        > div{
+            margin: 50px 0 0;
+        }
+        p{
+            margin: 0;
+        }
+    }
+    .presta-nav{
+        padding: 30px;
+        margin: 1.5vh 0 3vh;
+        li{
+            display: inline-block;
+        }
+        button{
+            display: block;
+            .size(11px);
+            margin: 0 3px;
+            text-indent: -99em;
+            overflow: hidden;
+            background: fade(#fff, 50%);
+            border-radius: 99%;
+            &:hover{
+                background: fade(#fff, 80%);
+            }
+            &.actif{
+                background: @purple;
+            }
+        }
+    }
+}
+
+#ateliers{
+    background: url(../layoutImg/vous/noise.png) 45% 0 no-repeat;
+}
+#interventions{
+    background: url(../layoutImg/vous/tronconneuse.png) 10% 100% no-repeat;
+}
+#formations{
+    background: url(../layoutImg/vous/fouet.png) 50% 0 no-repeat;
+}
+
+.plus-presta{
+    padding: 0 0 40px;
+    h2{
+        color: #fff;
+        span{
+            display: block;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+    }
+    .btn{
+        margin: 0 40px 5px;
     }
 }
 

@@ -39,6 +39,12 @@
             }
         }
     }
+
+    .presta-list{
+        .title{
+            font-size: 1.3em;
+        }
+    }
 }
 
 @media (max-width: 1150px){
@@ -85,11 +91,48 @@
             }
         }
     }
+
+    .presta-list{
+        .hover{
+            top: 77%;
+            font-size: .9em;
+        }
+    }
 }
 
 @media (max-width: 979px){
     .container{
         padding: 0 20px;
+    }
+
+    .second-menu{
+        ul{
+            width: 100%;
+        }
+        li{
+            left: 35px;
+            &.left{
+                left: 35px;
+            }
+            &.right{
+                right: 20px;
+                left: auto;
+            }
+        }
+        a{
+            font-size: 1.1em;
+            &:before{
+                left: -25px;
+                font-size: 25px;
+            }
+        }
+    }
+
+    .presta-list{
+        .hover{
+            top: 79%;
+            font-size: .95em;
+        }
     }
     
 
@@ -187,7 +230,7 @@
     h4{
         font-size: 1.5em;
     }
-    h5{
+    h5, .h5{
         font-size: 1.2em;
     }
     h6{
@@ -253,6 +296,21 @@
         left: -40px;
         right: 0;
         margin: auto;
+    }
+
+    .presta-list{
+        li{
+            .size(49%);
+            &:nth-child(even){
+                margin: 0 0 2% 2%;
+            }
+            &.five{
+                margin: 0;
+            }
+        }
+        .hover{
+            top: 81%;
+        }
     }
 
     #footer{
@@ -346,6 +404,25 @@
         }
     }
 
+    .second-menu{
+        a{
+            font-size: .9em;
+            &:before{
+                left: -20px;
+                font-size: 20px;
+            }
+        }
+        li{
+            left: 25px;
+            &.left{
+                left: 25px;
+            }
+            &.right{
+                right: 10px;
+            }
+        }
+    }
+
     #vous{
         h2, .h2{
             a{
@@ -356,6 +433,21 @@
                     top: 10px;
                 }
             }
+        }
+    }
+}
+
+@media (max-width: 550px){
+    .presta-list{
+        li{
+            .size(100%);
+            max-width: 360px;
+            &:nth-child(even){
+                margin: 3% 0;
+            }
+        }
+        .hover{
+            top: 85%;
         }
     }
 }
@@ -401,6 +493,10 @@
                 font-size: 30px;
             }
         }
+    }
+
+    .second-menu{
+        display: none;
     }
     
     #header{
@@ -511,6 +607,18 @@
         }
         &.bottom-left, &.bottom-center, &.bottom-right{
             bottom: 5vh;
+        }
+    }
+
+    .second-menu{
+        height: 50px;
+        li{
+            line-height: 50px;
+        }
+        a{
+            &:before{
+                line-height: 50px;
+            }
         }
     }
 

@@ -285,6 +285,7 @@ menu {
 .btn.btn-down:before,
 .btn.btn-right:before,
 .link:before,
+.second-menu a:before,
 .slider #next,
 .slider #prev,
 #vous h2 a:before,
@@ -303,6 +304,9 @@ menu {
 }
 .icon-down:before {
   content: '\e805';
+}
+.icon-up:before {
+  content: '\e807';
 }
 .icon-half-cisors:before {
   content: '\e803';
@@ -373,7 +377,8 @@ h2,
 h3,
 .h3,
 h4,
-h5 {
+h5,
+.h5 {
   font-family: 'geomanist-bold', sans-serif;
   font-size: 1em;
   font-weight: normal;
@@ -424,8 +429,9 @@ h4 {
   font-size: 1.8em;
   margin: 1.4em 0;
 }
-h5 {
-  font-size: 1.5em;
+h5,
+.h5 {
+  font-size: 1.4em;
   margin: 1.6em 0;
 }
 h6 {
@@ -658,6 +664,28 @@ button {
 .btn.btn-right:focus:before {
   left: 15px;
 }
+.btn-down.icon-down {
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+  position: relative;
+  font-size: 70px;
+  color: #fff;
+  text-decoration: none;
+}
+.btn-down.icon-down:before {
+  display: block;
+  position: absolute;
+  top: 0;
+}
+.btn-down.icon-down:hover,
+.btn-down.icon-down:focus {
+  color: #b5006a;
+}
+.btn-down.icon-down:hover:before,
+.btn-down.icon-down:focus:before {
+  top: 5px;
+}
 .link {
   position: relative;
   font-family: 'klinicBold', sans-serif;
@@ -666,7 +694,6 @@ button {
   font-style: normal;
   color: #b5006a;
   text-decoration: underline;
-  margin-left: 15px;
 }
 .link:before {
   content: '\e806';
@@ -874,24 +901,83 @@ button {
 }
 .reset-ul,
 .menu ul,
+.second-menu ul,
 .slider ul,
 .blog-list,
-.presta-list {
+.presta-list,
+.presta-slider ul {
   padding: 0;
   margin: 0;
 }
 .reset-ul li,
 .menu ul li,
+.second-menu ul li,
 .slider ul li,
 .blog-list li,
-.presta-list li {
+.presta-list li,
+.presta-slider ul li {
   margin: 0;
 }
 .reset-ul li:before,
 .menu ul li:before,
+.second-menu ul li:before,
 .slider ul li:before,
 .blog-list li:before,
-.presta-list li:before {
+.presta-list li:before,
+.presta-slider ul li:before {
+  display: none;
+}
+.second-menu {
+  width: 100%;
+  height: 70px;
+  border-bottom: 2px dashed;
+  position: fixed;
+  top: -70px;
+  z-index: 12;
+  overflow: hidden;
+}
+.second-menu ul {
+  width: 730px;
+  position: relative;
+  margin: 0 auto;
+}
+.second-menu li {
+  position: absolute;
+  top: 0;
+  line-height: 70px;
+  -webkit-transition: top 0.3s ease-in-out;
+  -moz-transition: top 0.3s ease-in-out;
+  -o-transition: top 0.3s ease-in-out;
+  transition: top 0.3s ease-in-out;
+}
+.second-menu li.left {
+  left: 0;
+}
+.second-menu li.right {
+  right: 0;
+}
+.second-menu li.up a:before {
+  content: '\e807';
+}
+.second-menu li.up.hide {
+  top: 70px;
+}
+.second-menu li.down a:before {
+  content: '\e805';
+}
+.second-menu li.down.hide {
+  top: -70px;
+}
+.second-menu a {
+  text-decoration: none;
+}
+.second-menu a:before {
+  position: absolute;
+  left: -30px;
+  font-size: 35px;
+  line-height: 70px;
+}
+.isMobile .second-menu {
   display: none;
 }
 .slider {
@@ -1154,7 +1240,7 @@ _:-ms-input-placeholder #prev:before,
 .presta-list .hover {
   display: block;
   padding: 10px;
-  top: 238px;
+  top: 80%;
   bottom: 12px;
   left: 12px;
   right: 12px;
@@ -1197,6 +1283,20 @@ _:-ms-input-placeholder #prev:before,
 .presta-list .contact-link > span {
   padding: 0 39px;
 }
+.no-js .presta-list .hover,
+.isMobile .presta-list .hover {
+  top: 12px;
+}
+.no-js .presta-list .hover .link,
+.isMobile .presta-list .hover .link {
+  margin-top: 0;
+  opacity: 1;
+}
+.no-js .presta-list .cat,
+.isMobile .presta-list .cat {
+  margin-top: 10px;
+  opacity: 1;
+}
 .contact-link {
   display: block;
   text-decoration: none;
@@ -1221,6 +1321,10 @@ _:-ms-input-placeholder #prev:before,
 }
 .contact-link.bananes {
   background-image: url(../layoutImg/bananes.png);
+}
+.contact-link:hover .link,
+.contact-link:focus .link {
+  color: #ff5fac;
 }
 /******* CLASSES GENERALES  *******/
 .center,
@@ -1675,6 +1779,16 @@ _:-ms-input-placeholder #prev:before,
 .head .container.on + img {
   opacity: 0;
 }
+.presta .head {
+  height: 80vh;
+}
+.presta .head .section-cell {
+  padding-bottom: 0;
+}
+.presta .head .container {
+  padding-top: 70px;
+  padding-bottom: 0;
+}
 .head .img {
   -webkit-transition: opacity 0.1s ease-in-out;
   -moz-transition: opacity 0.1s ease-in-out;
@@ -1810,10 +1924,6 @@ _:-ms-input-placeholder #prev:before,
 #vous.fade4 #bgVous {
   background-image: url(../layoutImg/vous/fouet.png);
 }
-#vous p {
-  max-width: 540px;
-  margin: 50px auto;
-}
 #bgVous {
   position: absolute;
   top: 0;
@@ -1897,6 +2007,78 @@ _:-ms-input-placeholder #prev:before,
 .isMobile #bgMasques {
   background-attachment: scroll;
 }
+/******* PRESTAS *******/
+.presta h2 {
+  padding: 0 20px 10px;
+  border-bottom: 1px dashed;
+}
+.presta .second-menu {
+  background: #ffc200;
+  border-color: #ffd140;
+}
+.presta-slider ul {
+  position: relative;
+}
+.presta-slider .presta-slide {
+  max-width: 540px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.presta-slider .presta-slide > div {
+  margin: 50px 0 0;
+}
+.presta-slider .presta-slide p {
+  margin: 0;
+}
+.presta-slider .presta-nav {
+  padding: 30px;
+  margin: 1.5vh 0 3vh;
+}
+.presta-slider .presta-nav li {
+  display: inline-block;
+}
+.presta-slider .presta-nav button {
+  display: block;
+  width: 11px;
+  height: 11px;
+  margin: 0 3px;
+  text-indent: -99em;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 99%;
+}
+.presta-slider .presta-nav button:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+.presta-slider .presta-nav button.actif {
+  background: #b5006a;
+}
+#ateliers {
+  background: url(../layoutImg/vous/noise.png) 45% 0 no-repeat;
+}
+#interventions {
+  background: url(../layoutImg/vous/tronconneuse.png) 10% 100% no-repeat;
+}
+#formations {
+  background: url(../layoutImg/vous/fouet.png) 50% 0 no-repeat;
+}
+.plus-presta {
+  padding: 0 0 40px;
+}
+.plus-presta h2 {
+  color: #fff;
+}
+.plus-presta h2 span {
+  display: block;
+  max-width: 650px;
+  margin: 0 auto;
+}
+.plus-presta .btn {
+  margin: 0 40px 5px;
+}
 /* @end */
 /* @end */
 /* @group Responsive horizontal */
@@ -1939,6 +2121,9 @@ _:-ms-input-placeholder #prev:before,
   .page-content .w50 h5 {
     padding: 0 50px;
   }
+  .presta-list .title {
+    font-size: 1.3em;
+  }
 }
 @media (max-width: 1150px) {
   h1 {
@@ -1972,10 +2157,38 @@ _:-ms-input-placeholder #prev:before,
   .black-hover-link .hover .content {
     font-size: .9em;
   }
+  .presta-list .hover {
+    top: 77%;
+    font-size: .9em;
+  }
 }
 @media (max-width: 979px) {
   .container {
     padding: 0 20px;
+  }
+  .second-menu ul {
+    width: 100%;
+  }
+  .second-menu li {
+    left: 35px;
+  }
+  .second-menu li.left {
+    left: 35px;
+  }
+  .second-menu li.right {
+    right: 20px;
+    left: auto;
+  }
+  .second-menu a {
+    font-size: 1.1em;
+  }
+  .second-menu a:before {
+    left: -25px;
+    font-size: 25px;
+  }
+  .presta-list .hover {
+    top: 79%;
+    font-size: .95em;
   }
   #header,
   #main-menu {
@@ -2081,7 +2294,8 @@ _:-ms-input-placeholder #prev:before,
   h4 {
     font-size: 1.5em;
   }
-  h5 {
+  h5,
+  .h5 {
     font-size: 1.2em;
   }
   h6 {
@@ -2136,6 +2350,19 @@ _:-ms-input-placeholder #prev:before,
     left: -40px;
     right: 0;
     margin: auto;
+  }
+  .presta-list li {
+    width: 49%;
+    height: 49%;
+  }
+  .presta-list li:nth-child(even) {
+    margin: 0 0 2% 2%;
+  }
+  .presta-list li.five {
+    margin: 0;
+  }
+  .presta-list .hover {
+    top: 81%;
   }
   #footer {
     text-align: center;
@@ -2210,6 +2437,22 @@ _:-ms-input-placeholder #prev:before,
   .h2.light {
     font-size: 2em;
   }
+  .second-menu a {
+    font-size: .9em;
+  }
+  .second-menu a:before {
+    left: -20px;
+    font-size: 20px;
+  }
+  .second-menu li {
+    left: 25px;
+  }
+  .second-menu li.left {
+    left: 25px;
+  }
+  .second-menu li.right {
+    right: 10px;
+  }
   #vous h2 a:before,
   #vous .h2 a:before {
     width: 30px;
@@ -2217,6 +2460,19 @@ _:-ms-input-placeholder #prev:before,
     left: -35px;
     font-size: 30px;
     top: 10px;
+  }
+}
+@media (max-width: 550px) {
+  .presta-list li {
+    width: 100%;
+    height: 100%;
+    max-width: 360px;
+  }
+  .presta-list li:nth-child(even) {
+    margin: 3% 0;
+  }
+  .presta-list .hover {
+    top: 85%;
   }
 }
 @media (max-width: 480px) {
@@ -2265,6 +2521,9 @@ _:-ms-input-placeholder #prev:before,
   .slider #next:before,
   .slider #prev:before {
     font-size: 30px;
+  }
+  .second-menu {
+    display: none;
   }
   #header {
     top: 20px;
@@ -2360,6 +2619,15 @@ _:-ms-input-placeholder #prev:before,
   .bullshitBtn.bottom-center,
   .bullshitBtn.bottom-right {
     bottom: 5vh;
+  }
+  .second-menu {
+    height: 50px;
+  }
+  .second-menu li {
+    line-height: 50px;
+  }
+  .second-menu a:before {
+    line-height: 50px;
   }
 }
 @media (max-height: 680px) and (max-width: 979px) {

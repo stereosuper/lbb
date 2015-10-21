@@ -28,7 +28,11 @@ var firstAnimSlider = false,
 	menu = document.getElementById('main-menu'),
 	splitTlAnimTxt = [], decalTxt = '+=60',
 	animsTxt, windowHeight = window.innerHeight,
-	windowWidth = window.innerWidth;;
+	windowWidth = window.innerWidth,
+	fixedMenu = document.getElementById('fixedMenu'),
+	prestaSectionAteliers = document.getElementById('ateliers'),
+	prestaSectionInterventions = document.getElementById('interventions')/*,
+	prestaSectionFormations = document.getElementById('formations')*/;
 
 
 /* FONCTIONS GENERALES */
@@ -190,7 +194,7 @@ function animBackgroundScroll(){
 
 
 function linksHoverYou(section){
-	var links = section.querySelectorAll('a'), nbLinks = links.length, i = 0;
+	var links = section.querySelectorAll('a.animTxt'), nbLinks = links.length, i = 0;
 
 	for(i; i<nbLinks; i++){
 		(function(i){
@@ -485,6 +489,87 @@ function animMenuScroll(){
 	}
 }
 
+function animFixedMenu(){
+	if(myScroll > 200){
+		TweenLite.to(fixedMenu, .3, {top: 0});
+		var links = fixedMenu.querySelectorAll('li');
+		if(myScroll >= prestaSectionAteliers.offsetTop + prestaSectionAteliers.offsetHeight){
+			if(myScroll >= prestaSectionInterventions.offsetTop + prestaSectionInterventions.offsetHeight){
+				if(!hasClass(fixedMenu, 'step3')){
+					TweenLite.set(links[0], {css: {className: '-=hide'}});
+					TweenLite.set(links[1], {css: {className: 'up'}});
+					TweenLite.set(links[1], {css: {className: '+=right'}});
+					TweenLite.set(links[2], {css: {className: '+=hide'}});
+
+					TweenLite.set(fixedMenu, {css: {className: 'second-menu step3'}});
+				}
+			}else{
+				if(!hasClass(fixedMenu, 'step2')){
+					TweenLite.set(links[0], {css: {className: '-=hide'}});
+					hasClass(fixedMenu, 'step3') ? TweenLite.set(links[1], {css: {className: 'down hide right'}}) : TweenLite.set(links[1], {css: {className: 'down hide'}});
+					TweenLite.set(links[2], {css: {className: '-=hide'}});
+
+					TweenLite.set(fixedMenu, {css: {className: 'second-menu step2'}});
+				}
+			}
+		}else{
+			if(!hasClass(fixedMenu, 'step1')){
+				TweenLite.set(links[0], {css: {className: '+=hide'}});
+				TweenLite.set(links[1], {css: {className: 'down'}});
+				TweenLite.set(links[2], {css: {className: '-=hide'}});
+
+				TweenLite.set(fixedMenu, {css: {className: 'second-menu step1'}});
+			}
+		}
+	}else{
+		TweenLite.to(fixedMenu, .3, {top: '-70px'});
+	}
+}
+
+function setPrestaSlider(slider){
+	var slides = slider.querySelectorAll('.presta-slide'),
+		nbSlides = slides.length, i = 0,
+		height = 0, posX = '25%', timing = .3, 
+		buttons = [], buttonsLi = [],
+		buttonsList = document.createElement('ul'),
+		currentSlidePresta = 0;
+
+	if(hasClass(htmlTag, 'lt-ie9')) posX = '150%';
+
+	function slide(){
+		/*TweenLite.to( slides[currentSlide], timing, {left: posX, opacity: 0, onComplete: function(){
+			currentSlide < nbSlides - 1 ? currentSlide ++ : currentSlide = 0;
+			TweenLite.fromTo( slides[currentSlide], timing, {left: '-'+posX}, {left: 0, opacity: 1, ease:Power2.easeInOut} );
+			tlAnims.staggerFromTo( slides[currentSlide].querySelectorAll('.anim-slide'), timing, {x: '-200px', opacity: 0}, {x: 0, opacity: 1, ease:Power2.easeInOut}, .2 );
+		}} );*/
+
+		TweenLite.to( slides[currentSlidePresta], timing, {left: posX, opacity: 0, onComplete: function(){
+			currentSlidePresta < nbSlides - 1 ? currentSlidePresta ++ : currentSlidePresta = 0;
+			TweenLite.fromTo( slides[currentSlidePresta], timing, {left: '-'+posX}, {left: 0, opacity: 1, ease:Power2.easeInOut} );
+			TweenLite.set(buttons, {css: {className: ''}});
+			TweenLite.set(buttons[currentSlidePresta], {css: {className: 'actif'}});
+		}} );
+	}
+
+	buttonsList.setAttribute('class', 'presta-nav');
+	slider.appendChild(buttonsList);
+
+	for(i; i < nbSlides; i++){
+		buttonsLi[i] = document.createElement('li');
+		buttons[i] = document.createElement('button');
+		buttons[i].innerHTML = i;
+		buttonsLi[i].appendChild(buttons[i]);
+		buttonsList.appendChild(buttonsLi[i]);
+		addEventListener(buttons[i], 'click', slide);
+		if(i > 0) TweenLite.set(slides[i], {left: posX, opacity: 0});
+		if(slides[i].offsetHeight > height) height = slides[i].offsetHeight;
+	}
+	
+	TweenLite.set(slider.querySelector('ul'), {height: height+'px'});
+	TweenLite.set(slides[0], {opacity: 1});
+	TweenLite.set(buttons[0], {css: {className: 'actif'}});
+}
+
 
 
 /**** ON SCROLL ****/
@@ -499,6 +584,9 @@ window.onscroll = function(e){
 
 		if(!firstAnimSlider)
 			animFirstSlide();
+
+		if(fixedMenu != null)
+			animFixedMenu();
 
 	}
 	
@@ -582,6 +670,9 @@ function init(){
 			setSlider(sliders[i]);
 		}
 	}
+
+	var prestaSlider = document.getElementById('prestaSlider');
+	if(prestaSlider !== null) setPrestaSlider(prestaSlider);
 
 	if(!isMobile.any){
 		masques = document.getElementById('bgMasques');
@@ -672,11 +763,14 @@ function init(){
 
 		var prestaLinksBg = document.querySelectorAll('.contact-link');
 		if(prestaLinksBg != null){
-			var i = 0, nbPrestaLinksBg = prestaLinksBg.length, tweenPrestaBg = [];
+			var i = 0, nbPrestaLinksBg = prestaLinksBg.length, tweenPrestaBg = [], pos = 40;
 			for(i; i<nbPrestaLinksBg; i++){
 
 				(function(i){
-					tweenPrestaBg[i] = TweenLite.to(prestaLinksBg[i], 1, {backgroundPosition: '+=40px -=40px', repeat:-1, ease:Linear.easeNone, paused: true});
+					tweenPrestaBg[i] = TweenMax.to(prestaLinksBg[i], 1, {backgroundPosition: '+='+pos+'px -='+pos+'px', ease:Linear.easeNone, paused: true, onComplete: function(){
+						pos += 40;
+						this.updateTo({backgroundPosition: pos+'px '+pos+'px'}, true);
+					}});
 
 					addEventListener(prestaLinksBg[i], 'mouseover', function(){
 						tweenPrestaBg[i].play();

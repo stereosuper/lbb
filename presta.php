@@ -19,6 +19,14 @@
 		
 		<?php include_once('includes/header.php'); ?>
 
+		<nav role='navigation' class='second-menu' id='fixedMenu'>
+			<ul>
+				<li class='left up hide'><a href='#ateliers' class='h5 scrollTo'>Les ateliers super</a></li>
+				<li class='left down'><a href='#interventions' class='h5 scrollTo'>Les interventions spectaculaires</a></li>
+				<li class='right down'><a href='#formations' class='h5 scrollTo'>Les formations géniales</a></li>
+			</ul>
+		</nav>
+
 		<main id='wrapper' role='main' class='bg-yellow'>
 			
 			<header class='head section' id='vous'>
@@ -28,27 +36,54 @@
 						<h1 class='h2 light'>
 							<a href='#' class='animTxt'>Nous</a> 
 							<strong class='animTxt'>conçevons & animons</strong><span class='animTxt'> des</span> 
-							<a href='#' class='animTxt'>spectacles</a><span class='animTxt'>, des</span> 
-							<a href='#' class='animTxt'>ateliers</a><span class='animTxt'>, des</span> <a href='#' class='animTxt'>formations</a><span>.</span>
+							<a href='#interventions' class='animTxt scrollTo'>spectacles</a><span class='animTxt'>, des</span> 
+							<a href='#ateliers' class='animTxt scrollTo'>ateliers</a><span class='animTxt'>, des</span> <a href='#formations' class='animTxt scrollTo'>formations</a><span>.</span>
 						</h1>
 						<span class='sub-title'>( et tout un tas d'autres trucs qui nous amusent )</span>
-						<p class='black'>
-							Nous faisons en sorte de réinventer notre métiers à chaque nouveau client. Pour autant, nous avons pensé que certaines compétences présentaient un intérêt commercial à un être synthétisées et présentées proprement. bla bla bla Notre méthode et bla bla notre expertise.<br><br>
+						<div id='prestaSlider' class='presta-slider'>
+							<ul>
+								<li class='presta-slide'>
+									<div>
+										<p class='black'>
+											Nous faisons en sorte de réinventer notre métiers à chaque nouveau client. Pour autant, nous avons pensé que certaines compétences présentaient un intérêt commercial à un être synthétisées et présentées proprement. bla bla bla Notre méthode et bla bla notre expertise.<br><br>
 
-							Pour une demande spécifique contactez-nous
-						</p>
+											Pour une demande spécifique contactez-nous
+										</p>
+									</div>
+								</li>
+								<li class='presta-slide'>
+									<div>
+										<p class='black'>
+											Nous faisons en sorte de réinventer notre métiers à chaque nouveau client. Pour autant, nous avons pensé que certaines compétences présentaient un intérêt commercial à un être synthétisées et présentées proprement. bla bla bla Notre méthode et bla bla notre expertise.<br><br>
+
+											Pour une demande spécifique contactez-nous
+										</p>
+									</div>
+								</li>
+								<li class='presta-slide'>
+									<div>
+										<p class='black'>
+											Nous faisons en sorte de réinventer notre métiers à chaque nouveau client. Pour autant, nous avons pensé que certaines compétences présentaient un intérêt commercial à un être synthétisées et présentées proprement. bla bla bla Notre méthode et bla bla notre expertise.<br><br>
+
+											Pour une demande spécifique contactez-nous
+										</p>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<a href='#ateliers' class='icon-down scrollTo btn-down'></a>
 					</div>
 				</div>
 			</header>
 
 			<section id='ateliers' class='section'>
 				<div class='section-cell'>
-					<div class='container'><h2>Les ateliers super</h2></div>
+					<h2>Les ateliers super</h2>
 					<div class='container'>
 						<ul class='presta-list'>
 							<li>
 								<a href='#' class='orange-link'>
-									<img src='img/on-se-connait.jpg' alt='' width='300' height='300'>
+									<img src='img/on-se-connait.jpg' alt='' width='360' height='360'>
 									<span class='hover'>
 										<span>
 											<strong class='title'>On se connait ?</strong>
@@ -59,7 +94,7 @@
 								</a>
 							</li><li class='two'>
 								<a href='#' class='orange-link'>
-									<img src='img/impro.jpg' alt='' width='300' height='300'>
+									<img src='img/impro.jpg' alt='' width='360' height='360'>
 									<span class='hover'>
 										<span>
 											<strong class='title'>Improvisations</strong>
@@ -70,7 +105,7 @@
 								</a>
 							</li><li>
 								<a href='#' class='orange-link'>
-									<img src='img/dis-le.jpg' alt='' width='300' height='300'>
+									<img src='img/dis-le.jpg' alt='' width='360' height='360'>
 									<span class='hover'>
 										<span>
 											<strong class='title'>Dis le haut & fort</strong>
@@ -81,7 +116,7 @@
 								</a>
 							</li><li>
 								<a href='#' class='orange-link'>
-									<img src='img/en-piste.jpg' alt='' width='300' height='300'>
+									<img src='img/en-piste.jpg' alt='' width='360' height='360'>
 									<span class='hover'>
 										<span>
 											<strong class='title'>En piste</strong>
@@ -92,7 +127,7 @@
 								</a>
 							</li><li class='five'>
 								<a href='#' class='orange-link'>
-									<img src='img/bille.jpg' alt='' width='300' height='300'>
+									<img src='img/bille.jpg' alt='' width='360' height='360'>
 									<span class='hover'>
 										<span>
 											<strong class='title'>Roule ta bille</strong>
@@ -102,7 +137,7 @@
 									</span>
 								</a>
 							</li><li>
-								<img src='layoutImg/mask.png' alt='' width='300' height='300'>
+								<img src='layoutImg/mask.png' alt='' width='360' height='360'>
 								<a href='#' class='contact-link'>
 									<span>
 										<i>Vous avez une lumineuse idée d'atelier à nous suggérer ?</i>
@@ -117,12 +152,12 @@
 
 			<section id='interventions' class='section'>
 				<div class='section-cell'>
-					<div class='container'><h2>Les interventions spectaculaires</h2></div>
+					<h2>Les interventions spectaculaires</h2>
 					<div class='container'>
 						<ul class='presta-list'>
 							<li>
 								<a href='#' class='orange-link'>
-									<img src='img/on-se-connait.jpg' alt='' width='300' height='300'>
+									<img src='img/on-se-connait.jpg' alt='' width='360' height='360'>
 									<span class='hover'>
 										<span>
 											<strong class='title'>On se connait ?</strong>
@@ -133,7 +168,7 @@
 								</a>
 							</li><li class='two'>
 								<a href='#' class='orange-link'>
-									<img src='img/impro.jpg' alt='' width='300' height='300'>
+									<img src='img/impro.jpg' alt='' width='360' height='360'>
 									<span class='hover'>
 										<span>
 											<strong class='title'>Improvisations</strong>
@@ -144,7 +179,7 @@
 								</a>
 							</li><li>
 								<a href='#' class='orange-link'>
-									<img src='img/dis-le.jpg' alt='' width='300' height='300'>
+									<img src='img/dis-le.jpg' alt='' width='360' height='360'>
 									<span class='hover'>
 										<span>
 											<strong class='title'>Dis le haut & fort</strong>
@@ -155,7 +190,7 @@
 								</a>
 							</li><li>
 								<a href='#' class='orange-link'>
-									<img src='img/en-piste.jpg' alt='' width='300' height='300'>
+									<img src='img/en-piste.jpg' alt='' width='360' height='360'>
 									<span class='hover'>
 										<span>
 											<strong class='title'>En piste</strong>
@@ -166,7 +201,7 @@
 								</a>
 							</li><li class='five'>
 								<a href='#' class='orange-link'>
-									<img src='img/bille.jpg' alt='' width='300' height='300'>
+									<img src='img/bille.jpg' alt='' width='360' height='360'>
 									<span class='hover'>
 										<span>
 											<strong class='title'>Roule ta bille</strong>
@@ -177,7 +212,7 @@
 								</a>
 							</li><li>
 								<a href='#' class='orange-link'>
-									<img src='img/en-piste.jpg' alt='' width='300' height='300'>
+									<img src='img/en-piste.jpg' alt='' width='360' height='360'>
 									<span class='hover'>
 										<span>
 											<strong class='title'>En piste</strong>
@@ -198,12 +233,12 @@
 
 			<section id='formations' class='section'>
 				<div class='section-cell'>
-					<div class='container'><h2>Les formations géniales</h2></div>
+					<h2>Les formations géniales</h2>
 					<div class='container'>
 						<ul class='presta-list'>
 							<li>
 								<a href='#' class='orange-link'>
-									<img src='img/on-se-connait.jpg' alt='' width='300' height='300'>
+									<img src='img/on-se-connait.jpg' alt='' width='360' height='360'>
 									<span class='hover'>
 										<span>
 											<strong class='title'>On se connait ?</strong>
@@ -214,7 +249,7 @@
 								</a>
 							</li><li class='two'>
 								<a href='#' class='orange-link'>
-									<img src='img/impro.jpg' alt='' width='300' height='300'>
+									<img src='img/impro.jpg' alt='' width='360' height='360'>
 									<span class='hover'>
 										<span>
 											<strong class='title'>Improvisations</strong>
@@ -225,7 +260,7 @@
 								</a>
 							</li><li>
 								<a href='#' class='orange-link'>
-									<img src='img/dis-le.jpg' alt='' width='300' height='300'>
+									<img src='img/dis-le.jpg' alt='' width='360' height='360'>
 									<span class='hover'>
 										<span>
 											<strong class='title'>Dis le haut & fort</strong>
@@ -236,7 +271,7 @@
 								</a>
 							</li><li>
 								<a href='#' class='orange-link'>
-									<img src='img/en-piste.jpg' alt='' width='300' height='300'>
+									<img src='img/en-piste.jpg' alt='' width='360' height='360'>
 									<span class='hover'>
 										<span>
 											<strong class='title'>En piste</strong>
@@ -247,7 +282,7 @@
 								</a>
 							</li><li class='five'>
 								<a href='#' class='orange-link'>
-									<img src='img/bille.jpg' alt='' width='300' height='300'>
+									<img src='img/bille.jpg' alt='' width='360' height='360'>
 									<span class='hover'>
 										<span>
 											<strong class='title'>Roule ta bille</strong>
@@ -258,7 +293,7 @@
 								</a>
 							</li><li>
 								<a href='#' class='orange-link'>
-									<img src='img/en-piste.jpg' alt='' width='300' height='300'>
+									<img src='img/en-piste.jpg' alt='' width='360' height='360'>
 									<span class='hover'>
 										<span>
 											<strong class='title'>En piste</strong>
@@ -277,8 +312,8 @@
 				</div>
 			</section>
 
-			<aside class='center'>
-				<div class='container'><h2>Des intervenants hyper pro et des clients super cools</h2></div>
+			<aside class='center plus-presta'>
+				<h2><span>Des intervenants hyper pro et des clients super cools</span></h2>
 				<div class='container'>
 					<a href='#' class='btn btn-right'>Nos intervenants</a>
 					<a href='#' class='btn btn-right'>Nos clients</a>

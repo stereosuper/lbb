@@ -194,14 +194,14 @@
                 opacity: 0;
                 transition: .4s opacity .1s;
            }
+           .submenu{
+               display: inline-block;
+           }
         }
         .menuOpen &{
             .logo{
                 opacity: 1;
             }
-        }
-        .submenu{
-            display: inline-block;
         }
     }
 
@@ -211,6 +211,23 @@
 
     .head{
         padding-top: 140px;
+        .presta &{
+            .container{
+                padding-top: 0;
+            }
+        }
+    }
+
+    .presta-slider{
+        .presta-slide{
+            > div{
+                margin: 40px 0 0;
+            }
+        }
+        .presta-nav{
+            padding: 20px;
+            margin: 1vh 0 0;
+        }
     }
 }
 
@@ -542,6 +559,15 @@
     }
 }
 
+@media (max-width: 400px){
+    /* fix ie */
+    .presta-list{
+        img{
+            width: 100%;
+        }
+    }
+}
+
 @media (max-width: 360px){
     .bullshit{
         &.big{
@@ -627,7 +653,7 @@
     }
 
     @media (max-width: 979px){
-        #main-menu{
+        .js #main-menu{
             > div{
                 div > ul{
                     padding: 70px 0 0;
@@ -651,7 +677,7 @@
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi) {
     
     .logo{
-        background-image: url(../layoutImg/logo-small.png);
+        background-image: url(../layoutImg/logo.png);
         &.mouche{
             background-image: url(../layoutImg/_logo-mouche@2x.png);
         }

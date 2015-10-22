@@ -817,6 +817,7 @@ _:-ms-input-placeholder, .slider{
         > span{
             display: inline-block;
             width: 98%;
+            box-sizing: border-box;
             vertical-align: middle;
         }
     }
@@ -1033,16 +1034,10 @@ _:-ms-input-placeholder, .slider{
     &.moustache{
         background-image: url(../layoutImg/_logo-moustache.png);
     }
-    .purple &, .no-js .page &{
+    .purple &, .no-js .page-template-default &{
         background: url(../layoutImg/logo-rose-small.png) no-repeat;
-        .lt-ie9 &{
-            background: url(../layoutImg/logo-rose-small.png) no-repeat;
-        }
         background-position: 50% 50% !important;
         background-size: 120px;
-    }
-    .lt-ie9 &{
-        background: url(../layoutImg/logo-small.png) 50% 50% no-repeat;
     }
 }
 
@@ -1070,7 +1065,7 @@ _:-ms-input-placeholder, .slider{
             opacity: 1;
         }
     }
-    &.purple, .no-js .page &{
+    &.purple, .no-js .page-template-default &{
         a{
             color: @purple;
         }
@@ -1196,7 +1191,7 @@ _:-ms-input-placeholder, .slider{
     overflow: hidden;
     color: @grey;
     > div{
-        .page &{
+        .page-template-default &{
             border-top: 2px solid #e9e9e9;
             padding: 30px 0 0;
         }
@@ -1309,7 +1304,7 @@ _:-ms-input-placeholder, .slider{
 /******* WRAPPER *******/
 
 #wrapper{
-
+    overflow: hidden;
 }
 
 
@@ -1356,7 +1351,7 @@ _:-ms-input-placeholder, .slider{
 
 /******* PAGE TYPE *******/
 
-.page{
+.page-template-default{
     
 }
 
@@ -1576,6 +1571,9 @@ _:-ms-input-placeholder, .slider{
         p{
             margin: 0;
         }
+        .no-js &{
+            position: relative;
+        }
     }
     .presta-nav{
         padding: 30px;
@@ -1589,6 +1587,7 @@ _:-ms-input-placeholder, .slider{
             margin: 0 3px;
             text-indent: -99em;
             overflow: hidden;
+            background: #fff;
             background: fade(#fff, 50%);
             border-radius: 99%;
             &:hover{
@@ -1596,6 +1595,10 @@ _:-ms-input-placeholder, .slider{
             }
             &.actif{
                 background: @purple;
+            }
+            .isMobile &{
+                .size(17px);
+                margin: 0 5px;
             }
         }
     }

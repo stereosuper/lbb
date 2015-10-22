@@ -14,7 +14,7 @@
 	  	<script src='js/modernizr.min.js'></script>
 	</head>
 
-	<body class='page'>
+	<body class='page-template-default'>
 		
 		<?php include_once('includes/header.php'); ?>
 

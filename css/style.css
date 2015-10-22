@@ -1208,6 +1208,7 @@ _:-ms-input-placeholder #prev:before,
 .presta-list .contact-link > span {
   display: inline-block;
   width: 98%;
+  box-sizing: border-box;
   vertical-align: middle;
 }
 .presta-list .hover {
@@ -1420,17 +1421,10 @@ _:-ms-input-placeholder #prev:before,
   background-image: url(../layoutImg/_logo-moustache.png);
 }
 .purple .logo,
-.no-js .page .logo {
+.no-js .page-template-default .logo {
   background: url(../layoutImg/logo-rose-small.png) no-repeat;
   background-position: 50% 50% !important;
   background-size: 120px;
-}
-.lt-ie9 .purple .logo,
-.lt-ie9 .no-js .page .logo {
-  background: url(../layoutImg/logo-rose-small.png) no-repeat;
-}
-.lt-ie9 .logo {
-  background: url(../layoutImg/logo-small.png) 50% 50% no-repeat;
 }
 #main-menu {
   width: 160px;
@@ -1460,7 +1454,7 @@ _:-ms-input-placeholder #prev:before,
   opacity: 1;
 }
 #main-menu.purple a,
-.no-js .page #main-menu a {
+.no-js .page-template-default #main-menu a {
   color: #b5006a;
 }
 #main-menu .actif a {
@@ -1585,7 +1579,7 @@ _:-ms-input-placeholder #prev:before,
   overflow: hidden;
   color: #9f9f9f;
 }
-.page #footer > div {
+.page-template-default #footer > div {
   border-top: 2px solid #e9e9e9;
   padding: 30px 0 0;
 }
@@ -1699,6 +1693,9 @@ _:-ms-input-placeholder #prev:before,
   top: 3px;
 }
 /******* WRAPPER *******/
+#wrapper {
+  overflow: hidden;
+}
 /******* ENTETE *******/
 .head {
   overflow: hidden;
@@ -1947,6 +1944,9 @@ _:-ms-input-placeholder #prev:before,
 .presta-slider .presta-slide p {
   margin: 0;
 }
+.no-js .presta-slider .presta-slide {
+  position: relative;
+}
 .presta-slider .presta-nav {
   padding: 30px;
   margin: 1.5vh 0 3vh;
@@ -1961,6 +1961,7 @@ _:-ms-input-placeholder #prev:before,
   margin: 0 3px;
   text-indent: -99em;
   overflow: hidden;
+  background: #fff;
   background: rgba(255, 255, 255, 0.5);
   border-radius: 99%;
 }
@@ -1969,6 +1970,11 @@ _:-ms-input-placeholder #prev:before,
 }
 .presta-slider .presta-nav button.actif {
   background: #b5006a;
+}
+.isMobile .presta-slider .presta-nav button {
+  width: 17px;
+  height: 17px;
+  margin: 0 5px;
 }
 #ateliers,
 #fdAteliers,
@@ -2227,17 +2233,27 @@ _:-ms-input-placeholder #prev:before,
     -webkit-transition: .4s opacity .1s;
             transition: .4s opacity .1s;
   }
+  .js #main-menu .submenu {
+    display: inline-block;
+  }
   .menuOpen #main-menu .logo {
     opacity: 1;
-  }
-  #main-menu .submenu {
-    display: inline-block;
   }
   .js #burger {
     display: block;
   }
   .head {
     padding-top: 140px;
+  }
+  .presta .head .container {
+    padding-top: 0;
+  }
+  .presta-slider .presta-slide > div {
+    margin: 40px 0 0;
+  }
+  .presta-slider .presta-nav {
+    padding: 20px;
+    margin: 1vh 0 0;
   }
 }
 @media (max-width: 767px) {
@@ -2526,6 +2542,12 @@ _:-ms-input-placeholder #prev:before,
     padding-top: 100px;
   }
 }
+@media (max-width: 400px) {
+  /* fix ie */
+  .presta-list img {
+    width: 100%;
+  }
+}
 @media (max-width: 360px) {
   .bullshit.big {
     width: 300px;
@@ -2601,7 +2623,7 @@ _:-ms-input-placeholder #prev:before,
   }
 }
 @media (max-height: 680px) and (max-width: 979px) {
-  #main-menu > div div > ul {
+  .js #main-menu > div div > ul {
     padding: 70px 0 0;
   }
 }
@@ -2614,7 +2636,7 @@ _:-ms-input-placeholder #prev:before,
 /* retina */
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi) {
   .logo {
-    background-image: url(../layoutImg/logo-small.png);
+    background-image: url(../layoutImg/logo.png);
   }
   .logo.mouche {
     background-image: url(../layoutImg/_logo-mouche@2x.png);

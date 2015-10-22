@@ -31,8 +31,9 @@ var firstAnimSlider = false,
 	windowWidth = window.innerWidth,
 	fixedMenu = document.getElementById('fixedMenu'),
 	prestaSectionAteliers = document.getElementById('ateliers'),
-	prestaSectionInterventions = document.getElementById('interventions')/*,
-	prestaSectionFormations = document.getElementById('formations')*/;
+	prestaSectionInterventions = document.getElementById('interventions'),
+	prestaSectionFormations = document.getElementById('formations'),
+	lastScrollTop = 0, scrollDir;
 
 
 /* FONCTIONS GENERALES */
@@ -93,10 +94,33 @@ function getStyle(oElm, strCssRule){
 
 function getIndex(node){
 	var childs = node.parentNode.childNodes, nbChilds = childs.length, i = 0;
-  	for (i; i < nbChilds; i++){
-    	if (node === childs[i]) break;
-  	}
-  	return i;
+	for (i; i < nbChilds; i++){
+		if (node === childs[i]) break;
+	}
+	return i;
+}
+
+function detectScrollDir(){
+	if(myScroll > lastScrollTop){
+		scrollDir = -1;
+	}else if(myScroll < lastScrollTop){
+		scrollDir = 1;
+	}else{
+		scrollDir = 0;
+	}
+	lastScrollTop = myScroll;
+}
+
+function isVisible(el){
+	var top = el.offsetTop,
+		height = el.offsetHeight;
+
+	while(el.offsetParent){
+		el = el.offsetParent;
+		top += el.offsetTop;
+	}
+
+	return( top < (window.pageYOffset + window.innerHeight) && (top + height) > window.pageYOffset );
 }
 
 
@@ -577,6 +601,22 @@ function setPrestaSlider(slider){
 	TweenLite.set(buttons[0], {css: {className: 'actif'}});
 }
 
+function parallaxPresta(elt, bgPosX){
+	var eltParent = elt.parentNode.parentNode,
+		scrollElt = myScroll/500, scrollBg = myScroll/1000;
+	if(isVisible(eltParent)){
+		detectScrollDir();
+		if(scrollDir < 0){
+			TweenLite.to(elt, .1, {top: '-='+scrollElt, ease:Linear.easeNone});
+			TweenLite.to(eltParent, .1, {backgroundPosition: bgPosX+' +=0.5%', ease:Linear.easeNone});
+		}else{
+			TweenLite.to(elt, .1, {top: '+='+scrollElt, ease:Linear.easeNone});
+			TweenLite.to(eltParent, .1, {backgroundPosition: bgPosX+' -=0.5%', ease:Linear.easeNone});
+		}
+	}
+	console.log(scrollBg);
+}
+
 
 
 /**** ON SCROLL ****/
@@ -599,6 +639,13 @@ window.onscroll = function(e){
 	
 	if(pageContent !== null && windowWidth > 979)
 		animMenuScroll();
+
+	if(hasClass(body, 'presta')){
+		parallaxPresta(document.getElementById('fdAteliers'), '45%');
+		parallaxPresta(document.getElementById('fdInterventions'), '10%');
+		parallaxPresta(document.getElementById('fdFormations'), '50%');
+	}
+		
 	
 }
 

@@ -14,14 +14,6 @@
 
 @transition: .15s ease-in-out;
 
-/*@-webkit-keyframes bounce{
-    0%{ .transform(perspective(3000) rotateY(90deg)); }
-    40%{ .transform(perspective(3000) rotateY(10deg)); left: 20px; }
-    60%{ .transform(perspective(3000) rotateY(20deg)); left: 40px; }
-    80%{ .transform(perspective(3000) rotateY(5deg)); left: 10px; }
-    100%{ .transform(perspective(3000) rotateY(0deg)); left: 0; }
-}*/
-
 /* @group Styles */
 
 /* @group General */
@@ -173,7 +165,7 @@ blockquote{
 
 a, button{
     color: @purple;
-    .transition(@transition);
+    transition: @transition;
     &:focus, &:hover{
         color: @pink;
     }
@@ -201,7 +193,7 @@ button{
         left: 0;
         right: 0;
         background: @purple;
-        .transition(@transition);
+        transition: @transition;
     }
 }
 
@@ -287,7 +279,7 @@ button{
     &.btn-down{
         &:before{
             content: '\e805';
-            .transition(top @transition);
+            transition: top @transition;
         }
         &:hover, &:focus{
             &:before{
@@ -298,7 +290,7 @@ button{
     &.btn-right{
         &:before{
             content: '\e806';
-            .transition(left @transition);
+            transition: left @transition;
         }
         &:hover, &:focus{
             &:before{
@@ -394,21 +386,21 @@ button{
     border-radius: 100%;
     cursor: pointer;
     text-align: center;
-    .transition(.4s ease-in-out);
+    transition: .4s ease-in-out;
     img{
         min-width: 200px;
         max-width: initial;
         position: absolute;
         top: 50%;
         left: 50%;
-        .transform(translate(-50%, -50%));
+        transform: translate(-50%, -50%);
     }
     &.big{
         .size(760px);
-        .transition(.8s ease-in-out);
+        transition: .8s ease-in-out;
         &.full{
             .size(100%);
-            .transition(none);
+            transition: none;
             img{
                 max-width: 90%;
             }
@@ -426,7 +418,7 @@ button{
     z-index: 1;
     margin: 0 auto;
     opacity: 1;
-    .transition(opacity .1s ease-in-out);
+    transition: opacity .1s ease-in-out;
     &.on{
         opacity: 0;
     }
@@ -546,7 +538,7 @@ button{
         position: absolute;
         top: 0;
         line-height: 70px;
-        .transition(top .3s ease-in-out);
+        transition: top .3s ease-in-out;
         &.left{
             left: 0;
         }
@@ -844,7 +836,7 @@ _:-ms-input-placeholder, .slider{
     }
     .link{
         display: inline-block;
-        .transition(color @transition);
+        transition: color @transition;
     }
     .title{
         display: block;
@@ -887,7 +879,7 @@ _:-ms-input-placeholder, .slider{
     display: block;
     text-decoration: none;
     background-position: 40px -40px;
-    .transition(none);
+    transition: none;
     i{
         display: block;
         margin: 0 0 5px;
@@ -1024,7 +1016,7 @@ _:-ms-input-placeholder, .slider{
     background-size: 120px;
     text-indent: -999em;
     overflow: hidden;
-    .transition(none);
+    transition: none;
     &.sprite{
         background-size: 720px;
         background-position: 0 0;
@@ -1118,7 +1110,7 @@ _:-ms-input-placeholder, .slider{
     z-index: 1;
     background: fade(#000, 70%);
     opacity: 0;
-    .transition(opacity .7s ease-in-out);
+    transition: opacity .7s ease-in-out;
     .menuOpen &{
         top: 0;
         opacity: 1;
@@ -1138,7 +1130,7 @@ _:-ms-input-placeholder, .slider{
         position: absolute;
         background: #fff;
         border-radius: 70px;
-        .transition(@transition);
+        transition: @transition;
     }
     .b1{
         top: 0;
@@ -1154,7 +1146,7 @@ _:-ms-input-placeholder, .slider{
         position: absolute;
         top: -3px;
         left: -52px;
-        .transition(.3s all .05s ease-in-out);
+        transition: .3s all .05s ease-in-out;
     }
     &:hover{
         opacity: .8;
@@ -1178,19 +1170,19 @@ _:-ms-input-placeholder, .slider{
     .menuOpen &{
         position: fixed;
         span{
-            .transition(.3s all .05s ease-in-out);
+            transition: .3s ease-in-out .05s ;
         }
         .b1, .b3{
             top: 9px;
         }
         .b1{
-            .transform(rotate(140deg));
+            transform: rotate(140deg);
         }
         .b2, i{
             opacity: 0;
         }
         .b3{
-            .transform(rotate(45deg));
+            transform: rotate(45deg);
         }
     }
 }
@@ -1236,7 +1228,7 @@ _:-ms-input-placeholder, .slider{
     }
 }
 #phrase-creuse{
-    padding: 25px 50px 40px;
+    padding: 25px 45px 40px;
     border: 1px dashed;
     position: relative;
     margin: 25px 0 0;
@@ -1252,8 +1244,8 @@ _:-ms-input-placeholder, .slider{
         }
         &:hover, &:focus{
             span{
-                .transform(rotate(360deg));
-                .transition(transform .4s ease-in-out);
+                transform: rotate(360deg);
+                transition: transform .4s ease-in-out;
             }
         }
         .no-js &{
@@ -1276,37 +1268,37 @@ _:-ms-input-placeholder, .slider{
     left: 30px;
     &.open{
         #cisors1{
-            .transform(rotate(15deg));
+            transform: rotate(15deg);
         }
         #cisors2{
-            .transform(rotate(-15deg));
+            transform: rotate(-15deg);
         }
     }
     &.close{
         #cisors1{
-            .transform(rotate(-7deg));
+            transform: rotate(-7deg);
         }
         #cisors2{
-            .transform(rotate(7deg));
+            transform: rotate(7deg);
         }
     }
     &.on-right{
-        .transform(rotate(90deg));
+        transform: rotate(90deg);
     }
     &.on-bottom{
-        .transform(rotate(180deg));
+        transform: rotate(180deg);
     }
     &.on-left{
-        .transform(rotate(270deg));
+        transform: rotate(270deg);
     }
 }
 .cisors{
     position: absolute;
     font-size: 50px;
     color: @purple;
-    .transition(.1s);
+    transition: .1s;
     &.close{
-        .transition(.2s);
+        transition: .2s;
     }
 }
 #cisors2{
@@ -1345,7 +1337,7 @@ _:-ms-input-placeholder, .slider{
         }
     }
     .img{
-        .transition(opacity .1s ease-in-out);
+        transition: opacity .1s ease-in-out;
     }
     .img, .fd{
         position: absolute;
@@ -1406,19 +1398,14 @@ _:-ms-input-placeholder, .slider{
                 &:extend(.icomoon);
                 color: #fff;
                 opacity: 0;
-                .transition(@transition);
+                transition: @transition;
                 .lt-ie9 &{
                     display: none;
                 }
             }
             &:hover, &:focus{
                 color: #fff;
-                .no-js &{
-                    &:after{
-                        background: #fff;
-                    }
-                }
-                div{
+                div, .no-js &{
                     &:after{
                         background: #fff;
                     }
@@ -1438,7 +1425,7 @@ _:-ms-input-placeholder, .slider{
         }
     }
     strong, span{
-        .transition(@transition);
+        transition: @transition;
     }
     &.fade{
         strong, span, a{
@@ -1452,7 +1439,7 @@ _:-ms-input-placeholder, .slider{
         }
         #bgVous{
             opacity: 1;
-            .transition(opacity .5s ease-in-out);
+            transition: opacity .5s ease-in-out;
         }
     }
     &.fade1{
@@ -1535,14 +1522,6 @@ _:-ms-input-placeholder, .slider{
     img{
         width: 100%;
     }
-    /*.black-hover-link{
-        &:hover, &:focus{
-            .hover{
-                top: 0;
-                height: 250px;
-            }
-        }
-    }*/
 }
 #bgMasques{
     position: absolute;
@@ -1553,7 +1532,7 @@ _:-ms-input-placeholder, .slider{
     background: url(../layoutImg/masques-pink.png) fixed;
     background-position: 0 100%;
     opacity: 0;
-    .transition(.3s opacity .1s ease-in-out);
+    transition: opacity .3s ease-in-out .1s;
     &.on, .no-js &, .isMobile &{
         opacity: 1;
     }
@@ -1569,6 +1548,8 @@ _:-ms-input-placeholder, .slider{
     h2{
         padding: 0 20px 10px;
         border-bottom: 1px dashed;
+        position: relative;
+        z-index: 1;
     }
     .second-menu{
         background: @yellow;
@@ -1582,6 +1563,7 @@ _:-ms-input-placeholder, .slider{
         position: relative;
     }
     .presta-slide{
+        width: 100%;
         max-width: 540px;
         position: absolute;
         top: 0;
@@ -1619,14 +1601,53 @@ _:-ms-input-placeholder, .slider{
     }
 }
 
+#ateliers, #fdAteliers, #interventions, #fdInterventions, #formations, #fdFormations{
+    background-repeat: no-repeat;
+}
+#fdAteliers, #fdInterventions, #fdFormations{
+    max-width: 80%;
+    position: absolute;
+    background-size: 100%;
+}
+#ateliers, #fdAteliers{
+    background-image: url(../layoutImg/vous/noise.png);
+}
 #ateliers{
-    background: url(../layoutImg/vous/noise.png) 45% 0 no-repeat;
+    background-position: 45% 0;
+}
+#fdAteliers{
+    .size(497px, 510px);
+    bottom: 50px;
+    left: 7%;
+    transform: rotate(-60deg);
+}
+#interventions, #fdInterventions{
+    background-image: url(../layoutImg/vous/tronconneuse.png);
 }
 #interventions{
-    background: url(../layoutImg/vous/tronconneuse.png) 10% 100% no-repeat;
+    background-position: 10% 100%;
+}
+#fdInterventions{
+    .size(671px, 393px);
+    top: -65px;
+    left: 25%;
+    right: 0;
+    margin: auto;
+    transform: rotate(-35deg);
+}
+#formations, #fdFormations{
+    background-image: url(../layoutImg/vous/fouet.png);
 }
 #formations{
-    background: url(../layoutImg/vous/fouet.png) 50% 0 no-repeat;
+    background-position: 50% 0;
+}
+#fdFormations{
+    .size(572px, 399px);
+    left: 0;
+    right: 0;
+    bottom: -40px;
+    margin: auto;
+    transform: rotate(180deg);
 }
 
 .plus-presta{

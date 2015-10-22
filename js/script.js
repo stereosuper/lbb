@@ -91,6 +91,14 @@ function getStyle(oElm, strCssRule){
 	return strValue;
 }
 
+function getIndex(node){
+	var childs = node.parentNode.childNodes, nbChilds = childs.length, i = 0;
+  	for (i; i < nbChilds; i++){
+    	if (node === childs[i]) break;
+  	}
+  	return i;
+}
+
 
 /**** ON READY FUNCTIONS ****/
 
@@ -442,14 +450,17 @@ function animTxtScroll(){
 		if(myScroll >= sections[i].offsetTop + windowHeight/3){
 			decalTxt = '+=100';
 			splitTlAnimTxt[i].reverse();
-			addClassOn(containers[i]);
+			if(!hasClass(body, 'presta'))
+				addClassOn(containers[i]);
 		}else{
 			if(myScroll >= sections[i].offsetTop - windowHeight/2){
-				removeClassOn(containers[i]);
+				if(!hasClass(body, 'presta'))
+					removeClassOn(containers[i]);
 				splitTlAnimTxt[i].play();
 			}else{
 				splitTlAnimTxt[i].reverse();
-				addClassOn(containers[i]);
+				if(!hasClass(body, 'presta'))
+					addClassOn(containers[i]);
 				
 			}
 		}
@@ -536,18 +547,13 @@ function setPrestaSlider(slider){
 
 	if(hasClass(htmlTag, 'lt-ie9')) posX = '150%';
 
-	function slide(){
-		/*TweenLite.to( slides[currentSlide], timing, {left: posX, opacity: 0, onComplete: function(){
-			currentSlide < nbSlides - 1 ? currentSlide ++ : currentSlide = 0;
-			TweenLite.fromTo( slides[currentSlide], timing, {left: '-'+posX}, {left: 0, opacity: 1, ease:Power2.easeInOut} );
-			tlAnims.staggerFromTo( slides[currentSlide].querySelectorAll('.anim-slide'), timing, {x: '-200px', opacity: 0}, {x: 0, opacity: 1, ease:Power2.easeInOut}, .2 );
-		}} );*/
-
-		TweenLite.to( slides[currentSlidePresta], timing, {left: posX, opacity: 0, onComplete: function(){
-			currentSlidePresta < nbSlides - 1 ? currentSlidePresta ++ : currentSlidePresta = 0;
-			TweenLite.fromTo( slides[currentSlidePresta], timing, {left: '-'+posX}, {left: 0, opacity: 1, ease:Power2.easeInOut} );
+	function slide(newSlidePresta){
+		TweenLite.to( slider.querySelector('.presta-slide.actif'), timing, {left: posX, opacity: 0, onComplete: function(){
+			TweenLite.set(slider.querySelector('.presta-slide.actif'), {css: {className: '-=actif'}});
+			TweenLite.set(slides[newSlidePresta], {css: {className: '+=actif'}});
+			TweenLite.fromTo( slides[newSlidePresta], timing, {left: '-'+posX}, {left: 0, opacity: 1, ease:Power2.easeInOut} );
 			TweenLite.set(buttons, {css: {className: ''}});
-			TweenLite.set(buttons[currentSlidePresta], {css: {className: 'actif'}});
+			TweenLite.set(buttons[newSlidePresta], {css: {className: 'actif'}});
 		}} );
 	}
 
@@ -560,13 +566,14 @@ function setPrestaSlider(slider){
 		buttons[i].innerHTML = i;
 		buttonsLi[i].appendChild(buttons[i]);
 		buttonsList.appendChild(buttonsLi[i]);
-		addEventListener(buttons[i], 'click', slide);
+		addEventListener(buttons[i], 'click', function(){ slide(getIndex(this.parentNode)); });
 		if(i > 0) TweenLite.set(slides[i], {left: posX, opacity: 0});
 		if(slides[i].offsetHeight > height) height = slides[i].offsetHeight;
 	}
 	
 	TweenLite.set(slider.querySelector('ul'), {height: height+'px'});
 	TweenLite.set(slides[0], {opacity: 1});
+	TweenLite.set(slides[0], {css: {className: '+=actif'}});
 	TweenLite.set(buttons[0], {css: {className: 'actif'}});
 }
 

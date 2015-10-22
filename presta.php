@@ -45,7 +45,7 @@
 								<li class='presta-slide'>
 									<div>
 										<p class='black'>
-											Nous faisons en sorte de réinventer notre métiers à chaque nouveau client. Pour autant, nous avons pensé que certaines compétences présentaient un intérêt commercial à un être synthétisées et présentées proprement. bla bla bla Notre méthode et bla bla notre expertise.<br><br>
+											1 - Nous faisons en sorte de réinventer notre métiers à chaque nouveau client. Pour autant, nous avons pensé que certaines compétences présentaient un intérêt commercial à un être synthétisées et présentées proprement. bla bla bla Notre méthode et bla bla notre expertise.<br><br>
 
 											Pour une demande spécifique contactez-nous
 										</p>
@@ -54,7 +54,7 @@
 								<li class='presta-slide'>
 									<div>
 										<p class='black'>
-											Nous faisons en sorte de réinventer notre métiers à chaque nouveau client. Pour autant, nous avons pensé que certaines compétences présentaient un intérêt commercial à un être synthétisées et présentées proprement. bla bla bla Notre méthode et bla bla notre expertise.<br><br>
+											2 - Nous faisons en sorte de réinventer notre métiers à chaque nouveau client. Pour autant, nous avons pensé que certaines compétences présentaient un intérêt commercial à un être synthétisées et présentées proprement. bla bla bla Notre méthode et bla bla notre expertise.<br><br>
 
 											Pour une demande spécifique contactez-nous
 										</p>
@@ -63,7 +63,7 @@
 								<li class='presta-slide'>
 									<div>
 										<p class='black'>
-											Nous faisons en sorte de réinventer notre métiers à chaque nouveau client. Pour autant, nous avons pensé que certaines compétences présentaient un intérêt commercial à un être synthétisées et présentées proprement. bla bla bla Notre méthode et bla bla notre expertise.<br><br>
+											3 - Nous faisons en sorte de réinventer notre métiers à chaque nouveau client. Pour autant, nous avons pensé que certaines compétences présentaient un intérêt commercial à un être synthétisées et présentées proprement. bla bla bla Notre méthode et bla bla notre expertise.<br><br>
 
 											Pour une demande spécifique contactez-nous
 										</p>
@@ -147,6 +147,7 @@
 							</li>
 						</ul>
 					</div>
+					<div id='fdAteliers'></div>
 				</div>
 			</section>
 
@@ -228,6 +229,7 @@
 							<span class='link'>contactez-nous</span>
 						</a>
 					</div>
+					<div id='fdInterventions'></div>
 				</div>
 			</section>
 
@@ -309,6 +311,7 @@
 							<span class='link'>contactez-nous</span>
 						</a>
 					</div>
+					<div id='fdFormations'></div>
 				</div>
 			</section>
 

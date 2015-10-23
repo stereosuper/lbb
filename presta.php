@@ -15,7 +15,7 @@
 	  	<script src='js/modernizr.min.js'></script>
 	</head>
 
-	<body class='presta'>
+	<body class='page-template-presta'>
 		
 		<?php include_once('includes/header.php'); ?>
 
@@ -147,7 +147,8 @@
 							</li>
 						</ul>
 					</div>
-					<div id='fdAteliers'></div>
+					<div class='bg-ateliers' id='bgA1'></div>
+					<div class='bg-ateliers' id='bgA2'></div>
 				</div>
 			</section>
 
@@ -229,7 +230,8 @@
 							<span class='link'>contactez-nous</span>
 						</a>
 					</div>
-					<div id='fdInterventions'></div>
+					<div class='bg-interventions' id='bgI1'></div>
+					<div class='bg-interventions' id='bgI2'></div>
 				</div>
 			</section>
 
@@ -311,7 +313,8 @@
 							<span class='link'>contactez-nous</span>
 						</a>
 					</div>
-					<div id='fdFormations'></div>
+					<div class='bg-formations' id='bgF1'></div>
+					<div class='bg-formations' id='bgF2'></div>
 				</div>
 			</section>
 

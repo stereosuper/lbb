@@ -1707,13 +1707,13 @@ _:-ms-input-placeholder #prev:before,
 .head .container.on + img {
   opacity: 0;
 }
-.presta .head {
+.page-template-presta .head {
   height: 80vh;
 }
-.presta .head .section-cell {
+.page-template-presta .head .section-cell {
   padding-bottom: 0;
 }
-.presta .head .container {
+.page-template-presta .head .container {
   padding-top: 70px;
   padding-bottom: 0;
 }
@@ -1746,8 +1746,8 @@ _:-ms-input-placeholder #prev:before,
   margin-right: auto;
   margin-bottom: .25em;
 }
-.presta #vous h2,
-.presta #vous .h2 {
+.page-template-presta #vous h2,
+.page-template-presta #vous .h2 {
   margin-top: 0;
 }
 #vous h2 a,
@@ -1916,13 +1916,13 @@ _:-ms-input-placeholder #prev:before,
   background-attachment: scroll;
 }
 /******* PRESTAS *******/
-.presta h2 {
+.page-template-presta h2 {
   padding: 0 20px 10px;
   border-bottom: 1px dashed;
   position: relative;
   z-index: 1;
 }
-.presta .second-menu {
+.page-template-presta .second-menu {
   background: #ffc200;
   border-color: #ffd140;
 }
@@ -1976,47 +1976,45 @@ _:-ms-input-placeholder #prev:before,
   height: 17px;
   margin: 0 5px;
 }
-#ateliers,
-#fdAteliers,
-#interventions,
-#fdInterventions,
-#formations,
-#fdFormations {
+.bg-ateliers,
+.bg-interventions,
+.bg-formations {
   background-repeat: no-repeat;
-}
-#fdAteliers,
-#fdInterventions,
-#fdFormations {
   max-width: 80%;
   position: absolute;
   background-size: 100%;
 }
-#ateliers,
-#fdAteliers {
-  background-image: url(../layoutImg/vous/noise.png);
-}
-#ateliers {
-  background-position: 45% 0;
-}
-#fdAteliers {
+.bg-ateliers {
   width: 497px;
   height: 510px;
+  background-image: url(../layoutImg/vous/noise.png);
+}
+#bgA1 {
   bottom: 50px;
   left: 7%;
   -webkit-transform: rotate(-60deg);
       -ms-transform: rotate(-60deg);
           transform: rotate(-60deg);
 }
-#interventions,
-#fdInterventions {
-  background-image: url(../layoutImg/vous/tronconneuse.png);
+#bgA2 {
+  top: -40px;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
-#interventions {
-  background-position: 10% 100%;
-}
-#fdInterventions {
+.bg-interventions {
   width: 671px;
   height: 393px;
+  background-image: url(../layoutImg/vous/tronconneuse.png);
+}
+#bgI1 {
+  left: 5%;
+  bottom: 60px;
+  -webkit-transform: rotate(30deg);
+      -ms-transform: rotate(30deg);
+          transform: rotate(30deg);
+}
+#bgI2 {
   top: -65px;
   left: 25%;
   right: 0;
@@ -2025,23 +2023,22 @@ _:-ms-input-placeholder #prev:before,
       -ms-transform: rotate(-35deg);
           transform: rotate(-35deg);
 }
-#formations,
-#fdFormations {
-  background-image: url(../layoutImg/vous/fouet.png);
-}
-#formations {
-  background-position: 50% 0;
-}
-#fdFormations {
+.bg-formations {
   width: 572px;
   height: 399px;
   left: 0;
   right: 0;
-  bottom: -40px;
   margin: auto;
+  background-image: url(../layoutImg/vous/fouet.png);
+}
+#bgF1 {
+  bottom: -40px;
   -webkit-transform: rotate(180deg);
       -ms-transform: rotate(180deg);
           transform: rotate(180deg);
+}
+#bgF2 {
+  top: 0;
 }
 .plus-presta {
   padding: 0 0 40px;
@@ -2245,7 +2242,7 @@ _:-ms-input-placeholder #prev:before,
   .head {
     padding-top: 140px;
   }
-  .presta .head .container {
+  .page-template-presta .head .container {
     padding-top: 0;
   }
   .presta-slider .presta-slide > div {
@@ -2404,11 +2401,6 @@ _:-ms-input-placeholder #prev:before,
   }
   #live .blog-list {
     padding: 0;
-  }
-  #ateliers,
-  #formations,
-  #interventions {
-    background-size: 80%;
   }
 }
 @media (max-width: 600px) {

@@ -53,4 +53,63 @@
   	<script src="js/tweenEasePack.min.js"></script>
   	<script src="js/tweenLite.min.js"></script>
   	<script src="js/timelineLite.min.js"></script>-->
+    <script>
+      var sentences = [
+        "Stop aux acronymes, travaillons l'U.M.1",
+        "Une autre phrase creuse",
+        "Des trucs et des machins"
+      ];
+      
+      function preloader(){
+        if(document.images){
+          var imgLogo1 = new Image(), imgLogo1Bis = new Image(), imgLogo2 = new Image(), imgLogo2Bis = new Image(),
+            imgLogo3 = new Image(), imgLogo3Bis = new Image(), imgLogo4 = new Image(), imgLogo4Bis = new Image();
+
+          imgLogo1.src = 'layoutImg/_logo-banane@2x.png';
+          imgLogo1Bis.src = 'layoutImg/_logo-banane.png';
+          imgLogo2.src = 'layoutImg/_logo-bisou@2x.png';
+          imgLogo2Bis.src = 'layoutImg/_logo-bisou.png';
+          imgLogo3.src = 'layoutImg/_logo-mouche@2x.png';
+          imgLogo3Bis.src = 'layoutImg/_logo-mouche.png';
+          imgLogo4.src = 'layoutImg/_logo-moustache@2x.png';
+          imgLogo4Bis.src = 'layoutImg/_logo-moustache.png';
+
+          if(hasClass(body, 'home')){
+            var imgVous1 = new Image(), imgVous2 = new Image(), imgVous3 = new Image(), imgVous4 = new Image(),
+              imgBullShit1 = new Image(), imgBullShit2 = new Image();
+              
+            imgVous1.src = 'layoutImg/vous/fouet.png';
+            imgVous2.src = 'layoutImg/vous/noise.png';
+            imgVous3.src = 'layoutImg/vous/teletubies.png';
+            imgVous4.src = 'layoutImg/vous/tronconneuse.png';
+
+            imgBullShit1.src = 'img/bullshit/licorne.gif';
+            imgBullShit2.src = 'img/bullshit/lama.jpg';
+          }
+
+          if(hasClass(body, 'page-template-default')){
+            var imgLogoRose = new Image(), imgLogoRoseBis = new Image();
+
+            imgLogoRose.src = 'layoutImg/logo-rose.png';
+            imgLogoRoseBis.src = 'layoutImg/logo-rose-small.png';
+          }
+          
+        }
+      }
+
+      /**** INIT (ON DOCUMENT LOAD) ****/
+      function onLoadEvt(func){
+        var oldonload = window.onload;
+        if(typeof window.onload != 'function'){
+          window.onload = func;
+        }else{
+          window.onload = function(){
+            if(oldonload)
+              oldonload();
+            func();
+          }
+        }
+      }
+      onLoadEvt(preloader);
+    </script>
   	<script src='js/script.js'></script>

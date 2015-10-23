@@ -245,20 +245,7 @@ function linksHoverYou(section){
 
 
 function bullshitGenerator(){
-	// for each element: img to display, action to execute (false si rien), img to display after the action (false si rien)
-	var purpleShits = [
-			['img/bullshit/profond-purple.png', false, false],
-			['img/bullshit/entreprise-purple.png', false, false]
-		],
-		yellowShits = [
-			['img/bullshit/no-clic-yellow.png', 'click', 'img/bullshit/licorne.gif'],
-			['img/bullshit/fuck-yellow.png', false, false]
-		],
-		blueShits = [
-			['img/bullshit/no-clic-blue.png', 'click', 'img/bullshit/lama.jpg'],
-			['img/bullshit/profond-blue.png', false, false]
-		],
-		tabs = [purpleShits, yellowShits, blueShits],
+	var tabs = [purpleShits, yellowShits, blueShits],
 		sections = [
 			document.querySelector('.bg-purple'),
 			document.querySelector('.bg-yellow'),
@@ -343,12 +330,7 @@ function bullshitGenerator(){
 }
 
 function setSentences(container){
-	var sentences = [
-			"Stop aux acronymes, travaillons l'U.M.1",
-			"Une autre phrase creuse",
-			"Des trucs et des machins"
-		],
-		nbSentences = sentences.length,
+	var	nbSentences = sentences.length,
 		btn = container.querySelector('button'),
 		sentenceContainer = container.querySelector('p'),
 		actualSentence = 0,
@@ -474,16 +456,16 @@ function animTxtScroll(){
 		if(myScroll >= sections[i].offsetTop + windowHeight/3){
 			decalTxt = '+=100';
 			splitTlAnimTxt[i].reverse();
-			if(!hasClass(body, 'presta'))
+			if(!hasClass(body, 'page-template-presta'))
 				addClassOn(containers[i]);
 		}else{
 			if(myScroll >= sections[i].offsetTop - windowHeight/2){
-				if(!hasClass(body, 'presta'))
+				if(!hasClass(body, 'page-template-presta'))
 					removeClassOn(containers[i]);
 				splitTlAnimTxt[i].play();
 			}else{
 				splitTlAnimTxt[i].reverse();
-				if(!hasClass(body, 'presta'))
+				if(!hasClass(body, 'page-template-presta'))
 					addClassOn(containers[i]);
 				
 			}
@@ -581,40 +563,43 @@ function setPrestaSlider(slider){
 		}} );
 	}
 
-	buttonsList.setAttribute('class', 'presta-nav');
-	slider.appendChild(buttonsList);
+	if(nbSlides > 1){
+		buttonsList.setAttribute('class', 'presta-nav');
+		slider.appendChild(buttonsList);
+	}
 
 	for(i; i < nbSlides; i++){
-		buttonsLi[i] = document.createElement('li');
-		buttons[i] = document.createElement('button');
-		buttons[i].innerHTML = i;
-		buttonsLi[i].appendChild(buttons[i]);
-		buttonsList.appendChild(buttonsLi[i]);
-		addEventListener(buttons[i], 'click', function(){ slide(getIndex(this.parentNode)); });
-		if(i > 0) TweenLite.set(slides[i], {left: posX, opacity: 0});
+		if(nbSlides > 1){
+			buttonsLi[i] = document.createElement('li');
+			buttons[i] = document.createElement('button');
+			buttons[i].innerHTML = i;
+			buttonsLi[i].appendChild(buttons[i]);
+			buttonsList.appendChild(buttonsLi[i]);
+			addEventListener(buttons[i], 'click', function(){ slide(getIndex(this.parentNode)); });
+			if(i > 0) TweenLite.set(slides[i], {left: posX, opacity: 0});
+		}
 		if(slides[i].offsetHeight > height) height = slides[i].offsetHeight;
 	}
 	
 	TweenLite.set(slider.querySelector('ul'), {height: height+'px'});
-	TweenLite.set(slides[0], {opacity: 1});
-	TweenLite.set(slides[0], {css: {className: '+=actif'}});
-	TweenLite.set(buttons[0], {css: {className: 'actif'}});
+	if(nbSlides > 1){
+		TweenLite.set(slides[0], {css: {className: '+=actif'}});
+		TweenLite.set(buttons[0], {css: {className: 'actif'}});
+	}
 }
 
-function parallaxPresta(elt, bgPosX){
-	var eltParent = elt.parentNode.parentNode,
-		scrollElt = myScroll/500, scrollBg = myScroll/1000;
+function parallaxPresta(elt){
+	var eltParent = elt[0].parentNode.parentNode;
+
 	if(isVisible(eltParent)){
-		detectScrollDir();
 		if(scrollDir < 0){
-			TweenLite.to(elt, .1, {top: '-='+scrollElt, ease:Linear.easeNone});
-			TweenLite.to(eltParent, .1, {backgroundPosition: bgPosX+' +=0.5%', ease:Linear.easeNone});
+			TweenLite.to(elt[0], .1, {bottom: '+=1px', rotation: '-=.2deg', ease:Linear.easeNone});
+			TweenLite.to(elt[1], .1, {top: '+=1px', ease:Linear.easeNone});
 		}else{
-			TweenLite.to(elt, .1, {top: '+='+scrollElt, ease:Linear.easeNone});
-			TweenLite.to(eltParent, .1, {backgroundPosition: bgPosX+' -=0.5%', ease:Linear.easeNone});
+			TweenLite.to(elt[0], .1, {bottom: '-=1px', rotation: '+=.2deg', ease:Linear.easeNone});
+			TweenLite.to(elt[1], .1, {top: '-=1px', ease:Linear.easeNone});
 		}
 	}
-	console.log(scrollBg);
 }
 
 
@@ -640,10 +625,11 @@ window.onscroll = function(e){
 	if(pageContent !== null && windowWidth > 979)
 		animMenuScroll();
 
-	if(hasClass(body, 'presta')){
-		parallaxPresta(document.getElementById('fdAteliers'), '45%');
-		parallaxPresta(document.getElementById('fdInterventions'), '10%');
-		parallaxPresta(document.getElementById('fdFormations'), '50%');
+	if(hasClass(body, 'page-template-presta')){
+		detectScrollDir();
+		parallaxPresta(document.querySelectorAll('.bg-ateliers'));
+		parallaxPresta(document.querySelectorAll('.bg-interventions'));
+		parallaxPresta(document.querySelectorAll('.bg-formations'));
 	}
 		
 	
@@ -864,57 +850,3 @@ function ready(fn){
 	}
 }
 ready(init);
-
-/**** ON LOAD FUNCTIONS ****/
-
-function preloader(){
-	if(document.images){
-		var imgLogo1 = new Image(), imgLogo1Bis = new Image(), imgLogo2 = new Image(), imgLogo2Bis = new Image(),
-			imgLogo3 = new Image(), imgLogo3Bis = new Image(), imgLogo4 = new Image(), imgLogo4Bis = new Image();
-
-		imgLogo1.src = 'layoutImg/_logo-banane@2x.png';
-		imgLogo1Bis.src = 'layoutImg/_logo-banane.png';
-		imgLogo2.src = 'layoutImg/_logo-bisou@2x.png';
-		imgLogo2Bis.src = 'layoutImg/_logo-bisou.png';
-		imgLogo3.src = 'layoutImg/_logo-mouche@2x.png';
-		imgLogo3Bis.src = 'layoutImg/_logo-mouche.png';
-		imgLogo4.src = 'layoutImg/_logo-moustache@2x.png';
-		imgLogo4Bis.src = 'layoutImg/_logo-moustache.png';
-
-		if(hasClass(body, 'home')){
-			var imgVous1 = new Image(), imgVous2 = new Image(), imgVous3 = new Image(), imgVous4 = new Image(),
-				imgBullShit1 = new Image(), imgBullShit2 = new Image();
-				
-			imgVous1.src = 'layoutImg/vous/fouet.png';
-			imgVous2.src = 'layoutImg/vous/noise.png';
-			imgVous3.src = 'layoutImg/vous/teletubies.png';
-			imgVous4.src = 'layoutImg/vous/tronconneuse.png';
-
-			imgBullShit1.src = 'img/bullshit/licorne.gif';
-			imgBullShit2.src = 'img/bullshit/lama.jpg';
-		}
-
-		if(hasClass(body, 'page')){
-			var imgLogoRose = new Image(), imgLogoRoseBis = new Image();
-
-			imgLogoRose.src = 'layoutImg/logo-rose.png';
-			imgLogoRoseBis.src = 'layoutImg/logo-rose-small.png';
-		}
-		
-	}
-}
-
-/**** INIT (ON DOCUMENT LOAD) ****/
-function onLoadEvt(func){
-	var oldonload = window.onload;
-	if(typeof window.onload != 'function'){
-		window.onload = func;
-	}else{
-		window.onload = function(){
-			if(oldonload)
-				oldonload();
-			func();
-		}
-	}
-}
-onLoadEvt(preloader);

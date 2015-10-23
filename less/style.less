@@ -1321,7 +1321,7 @@ _:-ms-input-placeholder, .slider{
             }
         }
     }
-    .presta &{
+    .page-template-presta &{
         height: 80vh;
         .section-cell{
             padding-bottom: 0;
@@ -1369,7 +1369,7 @@ _:-ms-input-placeholder, .slider{
         margin-left: auto;
         margin-right: auto;
         margin-bottom: .25em;
-        .presta &{
+        .page-template-presta &{
             margin-top: 0;
         }
         a{
@@ -1539,7 +1539,7 @@ _:-ms-input-placeholder, .slider{
 
 /******* PRESTAS *******/
 
-.presta{
+.page-template-presta{
     h2{
         padding: 0 20px 10px;
         border-bottom: 1px dashed;
@@ -1604,53 +1604,56 @@ _:-ms-input-placeholder, .slider{
     }
 }
 
-#ateliers, #fdAteliers, #interventions, #fdInterventions, #formations, #fdFormations{
+.bg-ateliers, .bg-interventions, .bg-formations{
     background-repeat: no-repeat;
-}
-#fdAteliers, #fdInterventions, #fdFormations{
     max-width: 80%;
     position: absolute;
     background-size: 100%;
 }
-#ateliers, #fdAteliers{
+.bg-ateliers{
+    .size(497px, 510px);
     background-image: url(../layoutImg/vous/noise.png);
 }
-#ateliers{
-    background-position: 45% 0;
-}
-#fdAteliers{
-    .size(497px, 510px);
+#bgA1{
     bottom: 50px;
     left: 7%;
     transform: rotate(-60deg);
 }
-#interventions, #fdInterventions{
-    background-image: url(../layoutImg/vous/tronconneuse.png);
-}
-#interventions{
-    background-position: 10% 100%;
-}
-#fdInterventions{
-    .size(671px, 393px);
-    top: -65px;
-    left: 25%;
+#bgA2{
+    top: -40px;
+    left: 0;
     right: 0;
     margin: auto;
-    transform: rotate(-35deg);
 }
-#formations, #fdFormations{
-    background-image: url(../layoutImg/vous/fouet.png);
+.bg-interventions{
+    .size(671px, 393px);
+    background-image: url(../layoutImg/vous/tronconneuse.png);
 }
-#formations{
-    background-position: 50% 0;
+#bgI1{
+    left: 5%;
+    bottom: 60px;
+    transform: rotate(30deg);
 }
-#fdFormations{
+#bgI2{
+   top: -65px;
+   left: 25%;
+   right: 0;
+   margin: auto;
+   transform: rotate(-35deg); 
+}
+.bg-formations{
     .size(572px, 399px);
     left: 0;
     right: 0;
-    bottom: -40px;
     margin: auto;
+    background-image: url(../layoutImg/vous/fouet.png);
+}
+#bgF1{
+    bottom: -40px;
     transform: rotate(180deg);
+}
+#bgF2{
+    top: 0;
 }
 
 .plus-presta{

@@ -2,9 +2,13 @@
 
 @media (max-width: 1350px){
     img{
-        &.align-right, &.align-left{
+        &.alignright, &.alignleft{
             display: block;
             float: none;
+            margin: 10px auto;
+        }
+        &.alignnone{
+            max-width: 100%;
             margin: 10px auto;
         }
     }
@@ -30,10 +34,7 @@
         p{
             padding: 0 20px;
         }
-        .w50{
-            p{
-                padding: 0 20px !important;
-            }
+        .ezcol{
             h2, h3, h4, h5, h5{
                 padding: 0 50px;
             }
@@ -255,7 +256,7 @@
     }
 
     .page-content{
-        .w50{
+        .ezcol{
             width: 100%;
         }
     }
@@ -485,10 +486,7 @@
         ul{
             padding: 0 0 0 20px;
         }
-        .w50{
-            p{
-                padding: 0 !important;
-            }
+        .ezcol{
             h2, h3, h4, h5, h6{
                 padding: 0;
             }

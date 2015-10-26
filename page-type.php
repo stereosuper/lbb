@@ -48,7 +48,7 @@
 					le brassage génétique indispensable à toute population.
 				</p>
 
-				<img src='img/escargots.jpg' alt='Escargots' class='align-left'/>
+				<p><img src='img/escargots.jpg' alt='Escargots' class='alignleft'/></p>
 
 				<h3>Environnement</h3>
 
@@ -86,7 +86,7 @@
 						Le monde est composé de flèches et de molécules, et d'électricité, comme le Big-Bang tu vois, et tout ça ensemble,
 						ça forme l'Univers.
 					</p>
-					<span>J.C. VanDamme</span>
+					<p>J.C. VanDamme</p>
 				</blockquote>
 
 				<ul>
@@ -114,7 +114,7 @@
 				</p>
 				<p class='center'><a href='#' class='btn btn-down'>Clic vers le bas</a></p>
 
-				<img src='img/escargot.jpg' alt='Escargot'/>
+				<p><img src='img/escargot.jpg' alt='Escargot'/></p>
 
 				<h4>Prédateurs</h4>
 

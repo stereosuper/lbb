@@ -405,6 +405,9 @@ function setSentences(container){
 	}
 
 	function newSentence(){
+		// set size to the container <p> so it won't move on sentence changing
+		TweenLite.set(sentenceContainer, {width: sentenceContainer.offsetWidth + 'px', height: sentenceContainer.offsetHeight + 'px'});
+		
 		animCisors();
 
 		var rand = Math.floor( Math.random()*nbSentences );
@@ -423,9 +426,6 @@ function setSentences(container){
 			TweenLite.set(cisors, {css:{className:'+=open'}});
 		}});
 	}
-
-	// set size to the container <p> so it won't move on sentence changing
-	TweenLite.set(sentenceContainer, {width: sentenceContainer.offsetWidth + 'px', height: sentenceContainer.offsetHeight + 'px'});
 
 	addEventListener(btn, 'click', newSentence);
 
@@ -631,8 +631,18 @@ window.onscroll = function(e){
 		parallaxPresta(document.querySelectorAll('.bg-interventions'));
 		parallaxPresta(document.querySelectorAll('.bg-formations'));
 	}
-		
-	
+
+}
+
+window.onresize = function(){
+	windowHeight = window.innerHeight;
+	windowWidth = window.innerWidth;
+
+	if(hasClass(htmlTag, 'menuOpen')){
+		windowWidth > 979 ? TweenLite.set(document.getElementById('fdMenu'), {css: {className: '+=close'}}) : TweenLite.set(document.getElementById('fdMenu'), {css: {className: '-=close'}});
+	}else if(hasClass(htmlTag, 'menuClose') && windowWidth > 979){
+		TweenLite.set(menu.querySelector('div'), {rotationY: 0});
+	}
 }
 
 /**** INIT (ON DOCUMENT READY) ****/
@@ -671,11 +681,13 @@ function init(){
 	addEventListener(burger, 'click', function(){
 		if(hasClass(htmlTag, 'menuOpen')){
 			TweenLite.set(htmlTag, {css: {className: '-=menuOpen'}});
+			TweenLite.set(htmlTag, {css: {className: '+=menuClose'}});
 			TweenLite.to(menu.querySelector('div'), .4, {left: '100%', onComplete: function(){
 				TweenLite.set(menu.querySelector('div'), {rotationY: 90});
 			}});
 		}else{
 			TweenLite.set(htmlTag, {css: {className: '+=menuOpen'}});
+			TweenLite.set(htmlTag, {css: {className: '-=menuClose'}});
 			TweenLite.to(menu.querySelector('div'), 1, {rotationY: 0, left: 0, ease:Bounce.easeOut});
 		}
 	});

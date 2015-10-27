@@ -1454,6 +1454,10 @@ _:-ms-input-placeholder #prev:before,
   top: 0;
   opacity: 1;
 }
+#fdMenu.close {
+  top: 100%;
+  opacity: 0;
+}
 #burger {
   display: none;
   width: 30px;

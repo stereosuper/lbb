@@ -1041,7 +1041,7 @@ _:-ms-input-placeholder, .slider{
             opacity: 1;
         }
     }
-    .submenu{
+    .sub-menu{
         display: none;
         width: 110px;
         margin: 0 0 20px;
@@ -1396,6 +1396,7 @@ _:-ms-input-placeholder, .slider{
             }
             &:hover, &:focus{
                 color: #fff;
+                opacity: 1 !important;
                 div, .no-js &{
                     &:after{
                         background: #fff;
@@ -1419,8 +1420,10 @@ _:-ms-input-placeholder, .slider{
         transition: @transition;
     }
     &.fade{
-        strong, span, a{
-            opacity: .2;
+        h2, .h2{
+            strong, span, a{
+                opacity: .2;
+            }
         }
         .on{
             opacity: 1;

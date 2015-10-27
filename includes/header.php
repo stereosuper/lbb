@@ -10,7 +10,7 @@
 				<li class='actif'><a href='./'>Accueil</a></li>
 				<li>
 					<a href='#'>la Belle Boîte</a>
-					<ul class='submenu'>
+					<ul class='sub-menu'>
 						<li><a href='#'>pourquoi</a></li>
 						<li><a href='#'>pour qui ?</a></li>
 						<li><a href='#'>l'équipe</a></li>
@@ -18,7 +18,7 @@
 				</li>
 				<li>
 					<a href='#'>Pour Vous</a>
-					<ul class='submenu'>
+					<ul class='sub-menu'>
 						<li><a href='#'>prestations</a></li>
 						<li><a href='#'>ateliers</a></li>
 						<li><a href='#'>interventions</a></li>

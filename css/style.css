@@ -1430,13 +1430,13 @@ _:-ms-input-placeholder #prev:before,
 #main-menu .logo:focus {
   opacity: 1;
 }
-#main-menu .submenu {
+#main-menu .sub-menu {
   display: none;
   width: 110px;
   margin: 0 0 20px;
   text-align: left;
 }
-#main-menu .submenu li {
+#main-menu .sub-menu li {
   margin: 2px 0;
 }
 #fdMenu {
@@ -1788,6 +1788,7 @@ _:-ms-input-placeholder #prev:before,
 #vous h2 a:focus,
 #vous .h2 a:focus {
   color: #fff;
+  opacity: 1 !important;
 }
 #vous h2 a:hover div:after,
 #vous .h2 a:hover div:after,
@@ -1821,9 +1822,12 @@ _:-ms-input-placeholder #prev:before,
   -webkit-transition: 0.15s ease-in-out;
           transition: 0.15s ease-in-out;
 }
-#vous.fade strong,
-#vous.fade span,
-#vous.fade a {
+#vous.fade h2 strong,
+#vous.fade .h2 strong,
+#vous.fade h2 span,
+#vous.fade .h2 span,
+#vous.fade h2 a,
+#vous.fade .h2 a {
   opacity: .2;
 }
 #vous.fade .on {
@@ -2239,7 +2243,7 @@ _:-ms-input-placeholder #prev:before,
     -webkit-transition: .4s opacity .1s;
             transition: .4s opacity .1s;
   }
-  .js #main-menu .submenu {
+  .js #main-menu .sub-menu {
     display: inline-block;
   }
   .menuOpen #main-menu .logo {

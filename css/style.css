@@ -1235,8 +1235,9 @@ _:-ms-input-placeholder #prev:before,
   display: block;
   text-decoration: none;
   background-position: 40px -40px;
-  -webkit-transition: background-color 0.2s ease-in-out;
-          transition: background-color 0.2s ease-in-out;
+  background-color: #ffe180;
+  -webkit-transition: none;
+          transition: none;
 }
 .contact-link i {
   display: block;
@@ -1246,17 +1247,12 @@ _:-ms-input-placeholder #prev:before,
 .contact-link.big-link {
   padding: 25px;
   margin: 50px 0 0;
-  background-color: #ffe180;
 }
 .contact-link.peignes {
   background-image: url(../layoutImg/peignes.png);
 }
 .contact-link.bananes {
   background-image: url(../layoutImg/bananes.png);
-}
-.contact-link:hover,
-.contact-link:focus {
-  background-color: #fff;
 }
 .contact-link:hover .link,
 .contact-link:focus .link {

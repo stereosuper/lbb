@@ -832,10 +832,12 @@ function init(){
 					}});
 
 					addEventListener(prestaLinksBg[i], 'mouseover', function(){
+						TweenMax.to(prestaLinksBg[i], .8, {backgroundColor: '#fff', ease: Bounce.easeOut});
 						tweenPrestaBg[i].play();
 						
 					});
 					addEventListener(prestaLinksBg[i], 'mouseout', function(){
+						TweenMax.to(prestaLinksBg[i], .3, {backgroundColor: '#ffe180'});
 						tweenPrestaBg[i].pause();
 					});
 				}(i));
@@ -851,6 +853,7 @@ function init(){
 				e.preventDefault();
 				var target = document.getElementById(this.getAttribute('href').replace('#', ''));
 				scrollTo(target.offsetTop, 300);
+				this.blur();
 			});
 		}
 	}

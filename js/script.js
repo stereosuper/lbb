@@ -1,18 +1,14 @@
 /* POLYFILL CLOSEST */
-(function (ELEMENT) {
+(function (ELEMENT){
 	ELEMENT.matches = ELEMENT.matches || ELEMENT.mozMatchesSelector || ELEMENT.msMatchesSelector || ELEMENT.oMatchesSelector || ELEMENT.webkitMatchesSelector;
-
 	ELEMENT.closest = ELEMENT.closest || function closest(selector) {
 		var element = this;
-
-		while (element) {
-			if (element.matches(selector)) {
+		while(element){
+			if(element.matches(selector)){
 				break;
 			}
-
 			element = element.parentElement;
 		}
-
 		return element;
 	};
 }(Element.prototype));
@@ -507,8 +503,8 @@ function animMenuScroll(){
 }
 
 function animFixedMenu(){
-	if(myScroll > 200){
-		TweenLite.to(fixedMenu, .3, {top: 0});
+	if(myScroll > 200 && myScroll + windowHeight < htmlTag.offsetHeight){
+		TweenLite.to(fixedMenu, .3, {bottom: 0});
 		var links = fixedMenu.querySelectorAll('li');
 		if(myScroll >= prestaSectionAteliers.offsetTop + prestaSectionAteliers.offsetHeight){
 			if(myScroll >= prestaSectionInterventions.offsetTop + prestaSectionInterventions.offsetHeight){
@@ -539,7 +535,7 @@ function animFixedMenu(){
 			}
 		}
 	}else{
-		TweenLite.to(fixedMenu, .3, {top: '-70px'});
+		TweenLite.to(fixedMenu, .3, {bottom: '-70px'});
 	}
 }
 

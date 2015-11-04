@@ -90,7 +90,7 @@ function getStyle(oElm, strCssRule){
 
 function getIndex(node){
 	var childs = node.parentNode.childNodes, nbChilds = childs.length, i = 0;
-	for (i; i < nbChilds; i++){
+	for(i; i < nbChilds; i++){
 		if (node === childs[i]) break;
 	}
 	return i;
@@ -545,7 +545,8 @@ function setPrestaSlider(slider){
 		height = 0, posX = '25%', timing = .3, 
 		buttons = [], buttonsLi = [],
 		buttonsList = document.createElement('ul'),
-		currentSlidePresta = 0;
+		currentSlidePresta = 0,
+		links = [], j = 0;
 
 	if(hasClass(htmlTag, 'lt-ie9')) posX = '150%';
 
@@ -575,6 +576,16 @@ function setPrestaSlider(slider){
 			if(i > 0) TweenLite.set(slides[i], {left: posX, opacity: 0});
 		}
 		if(slides[i].offsetHeight > height) height = slides[i].offsetHeight;
+		
+		links[i] = slides[i].querySelectorAll('.btnPrestaSlide');
+
+		for(j; j<links[i].length; j++){
+			addEventListener(links[i][j], 'click', function(e){
+				e.preventDefault();
+				var href = this.getAttribute('href').replace('#', ''), slideTarget = document.getElementById(href);
+				slide(getIndex(slideTarget));
+			});
+		}
 	}
 	
 	TweenLite.set(slider.querySelector('ul'), {height: height+'px'});
@@ -789,11 +800,11 @@ function init(){
 					(function(j, i){
 
 						twO1[j][i] = new TweenMax.to(orangeLinks[j][i].querySelector('.hover'), .15, {top: '12px', overflow: 'visible', ease: Linear.easeNone});
-						twO2[j][i] = new TweenMax.to(orangeLinks[j][i].querySelector('.cat'), .2, {opacity: '1', marginTop: '10px', ease: Linear.easeNone});
+						twO2[j][i] = new TweenMax.to(orangeLinks[j][i].querySelector('.cat'), .25, {opacity: '1', marginTop: '10px', ease: Linear.easeNone});
 						twO3[j][i] = new TweenMax.to(orangeLinks[j][i].querySelector('.link'), .25, {opacity: '1', marginTop: '0', ease: Linear.easeNone});
 						
 						tlOrangeLinks[j][i] = new TimelineMax({paused: true}).add(twO1[j][i]).add(twO2[j][i]).add(twO3[j][i]);
-						twO4[j][i] = tlOrangeLinks[j][i].tweenFromTo(0, .6, {ease: Power2.easeInOut, paused: true});
+						twO4[j][i] = tlOrangeLinks[j][i].tweenFromTo(0, .65, {ease: Power2.easeInOut, paused: true});
 						
 						addEventListener(orangeLinks[j][i], 'mouseover', function(){
 							twO4[j][i].play();

@@ -41,35 +41,38 @@
 						</h1>
 						<span class='sub-title'>( et tout un tas d'autres trucs qui nous amusent )</span>
 						<div id='prestaSlider' class='presta-slider'>
-							<ul>
-								<li class='presta-slide'>
+							<ul><li class='presta-slide' id='slide1'>
 									<div>
 										<p class='black'>
-											1 - Nous faisons en sorte de réinventer notre métiers à chaque nouveau client. Pour autant, nous avons pensé que certaines compétences présentaient un intérêt commercial à un être synthétisées et présentées proprement. bla bla bla Notre méthode et bla bla notre expertise.<br><br>
-
+											1 - Nous faisons en sorte de réinventer notre métiers à chaque nouveau client. 
+											Pour autant, nous avons pensé que certaines compétences présentaient un intérêt 
+											commercial à un être synthétisées et présentées proprement. 
+											bla bla bla Notre <a href='#slide2' class='btnPrestaSlide'>méthode</a> et 
+											bla bla notre <a href='#slide3' class='btnPrestaSlide'>expertise</a>.<br><br>
 											Pour une demande spécifique contactez-nous
 										</p>
 									</div>
-								</li>
-								<li class='presta-slide'>
+								</li><li class='presta-slide' id='slide2'>
 									<div>
 										<p class='black'>
-											2 - Nous faisons en sorte de réinventer notre métiers à chaque nouveau client. Pour autant, nous avons pensé que certaines compétences présentaient un intérêt commercial à un être synthétisées et présentées proprement. bla bla bla Notre méthode et bla bla notre expertise.<br><br>
-
+											2 - Nous faisons en sorte de réinventer notre métiers à chaque nouveau client. 
+											Pour autant, nous avons pensé que certaines compétences présentaient un intérêt 
+											commercial à un être synthétisées et présentées proprement. 
+											bla bla bla Notre méthode et bla bla notre expertise.<br><br>
 											Pour une demande spécifique contactez-nous
 										</p>
 									</div>
-								</li>
-								<li class='presta-slide'>
+								</li><li class='presta-slide' id='slide3'>
 									<div>
 										<p class='black'>
-											3 - Nous faisons en sorte de réinventer notre métiers à chaque nouveau client. Pour autant, nous avons pensé que certaines compétences présentaient un intérêt commercial à un être synthétisées et présentées proprement. bla bla bla Notre méthode et bla bla notre expertise.<br><br>
-
+											3 - Nous faisons en sorte de réinventer notre métiers à chaque nouveau client. 
+											Pour autant, nous avons pensé que certaines compétences présentaient un intérêt 
+											commercial à un être synthétisées et présentées proprement. 
+											bla bla bla Notre méthode et bla bla notre expertise.<br><br>
 											Pour une demande spécifique contactez-nous
 										</p>
 									</div>
-								</li>
-							</ul>
+								</li></ul>
 						</div>
 						<a href='#ateliers' class='icon-down scrollTo btn-down'></a>
 					</div>
@@ -137,7 +140,7 @@
 									</span>
 								</a>
 							</li><li>
-								<img src='layoutImg/mask.png' alt='' width='360' height='360'>
+								<img src='layoutImg/mask.jpg' alt='' width='360' height='360'>
 								<a href='#' class='contact-link'>
 									<span>
 										<i>Vous avez une lumineuse idée d'atelier à nous suggérer ?</i>

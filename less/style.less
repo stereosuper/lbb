@@ -489,7 +489,7 @@ button{
 .second-menu{
     width: 100%;
     height: 70px;
-    border-top: 2px dashed;
+    border-top: 1px dashed #fff;
     position: fixed;
     bottom: -70px;
     z-index: 12;
@@ -812,7 +812,7 @@ _:-ms-input-placeholder, .slider{
     }
     .cat{
         display: block;
-        margin-top: 20px;
+        margin-top: 40px;
         opacity: 0;
     }
     a{
@@ -846,7 +846,7 @@ _:-ms-input-placeholder, .slider{
     display: block;
     text-decoration: none;
     background-position: 40px -40px;
-    transition: none;
+    transition: background-color .2s ease-in-out;
     i{
         display: block;
         margin: 0 0 5px;
@@ -855,7 +855,7 @@ _:-ms-input-placeholder, .slider{
     &.big-link{
         padding: 25px;
         margin: 50px 0 0;
-        background-color: fade(#fff, 50%);
+        background-color: #ffe180;
     }
     &.peignes{
         background-image: url(../layoutImg/peignes.png);
@@ -864,6 +864,7 @@ _:-ms-input-placeholder, .slider{
         background-image: url(../layoutImg/bananes.png);
     }
     &:hover, &:focus{
+        background-color: #fff;
         .link{
             color: @pink;
         }
@@ -1548,7 +1549,7 @@ _:-ms-input-placeholder, .slider{
     }
     .second-menu{
         background: @yellow;
-        border-color: #ffd140;
+        //border-color: #ffd140;
     }
 }
 
@@ -1570,6 +1571,9 @@ _:-ms-input-placeholder, .slider{
         }
         p{
             margin: 0;
+        }
+        &.actif{
+            z-index: 1;
         }
         .no-js &{
             position: relative;

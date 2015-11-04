@@ -867,7 +867,7 @@ button {
 .second-menu {
   width: 100%;
   height: 70px;
-  border-top: 2px dashed;
+  border-top: 1px dashed #fff;
   position: fixed;
   bottom: -70px;
   z-index: 12;
@@ -1202,7 +1202,7 @@ _:-ms-input-placeholder #prev:before,
 }
 .presta-list .cat {
   display: block;
-  margin-top: 20px;
+  margin-top: 40px;
   opacity: 0;
 }
 .presta-list a {
@@ -1235,8 +1235,8 @@ _:-ms-input-placeholder #prev:before,
   display: block;
   text-decoration: none;
   background-position: 40px -40px;
-  -webkit-transition: none;
-          transition: none;
+  -webkit-transition: background-color 0.2s ease-in-out;
+          transition: background-color 0.2s ease-in-out;
 }
 .contact-link i {
   display: block;
@@ -1246,13 +1246,17 @@ _:-ms-input-placeholder #prev:before,
 .contact-link.big-link {
   padding: 25px;
   margin: 50px 0 0;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: #ffe180;
 }
 .contact-link.peignes {
   background-image: url(../layoutImg/peignes.png);
 }
 .contact-link.bananes {
   background-image: url(../layoutImg/bananes.png);
+}
+.contact-link:hover,
+.contact-link:focus {
+  background-color: #fff;
 }
 .contact-link:hover .link,
 .contact-link:focus .link {
@@ -1939,7 +1943,6 @@ _:-ms-input-placeholder #prev:before,
 }
 .page-template-presta .second-menu {
   background: #ffc200;
-  border-color: #ffd140;
 }
 .presta-slider ul {
   position: relative;
@@ -1958,6 +1961,9 @@ _:-ms-input-placeholder #prev:before,
 }
 .presta-slider .presta-slide p {
   margin: 0;
+}
+.presta-slider .presta-slide.actif {
+  z-index: 1;
 }
 .no-js .presta-slider .presta-slide {
   position: relative;

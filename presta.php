@@ -77,6 +77,7 @@
 						<a href='#ateliers' class='icon-down scrollTo btn-down'></a>
 					</div>
 				</div>
+				<div id='bgVous'></div>
 			</header>
 
 			<section id='ateliers' class='section'>

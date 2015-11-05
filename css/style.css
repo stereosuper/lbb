@@ -1867,6 +1867,9 @@ _:-ms-input-placeholder #prev:before,
   background-repeat: no-repeat;
   background-position: 50% 60%;
 }
+.page-template-presta #bgVous {
+  bottom: 20%;
+}
 #confiance {
   overflow: hidden;
 }

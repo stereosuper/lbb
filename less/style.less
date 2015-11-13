@@ -517,9 +517,9 @@ button{
                     content: '\e807';
                 }
             }
-            &.hide{
+            /*&.hide{
                 top: 70px;
-            }
+            }*/
         }
         &.down{
             a{
@@ -527,9 +527,9 @@ button{
                     content: '\e805';
                 }
             }
-            &.hide{
+            /*&.hide{
                 top: -70px;
-            }
+            }*/
         }
     }
     a{
@@ -764,12 +764,13 @@ _:-ms-input-placeholder, .slider{
         display: inline-block;
         .size(32%);
         vertical-align: top;
-        &.two{
+        /*&:nth-child(2){
             margin: 0 2% 2%;
         }
-        &.five{
+        &:nth-child(5){
             margin: 0 2%;
-        }
+        }*/
+        margin: 0.66%;
     }
     .hover, .contact-link{
         position: absolute;
@@ -838,6 +839,40 @@ _:-ms-input-placeholder, .slider{
         .cat{
             margin-top: 10px;
             opacity: 1;
+        }
+    }
+}
+
+.presta-filtres{
+    margin: 0 0 20px;
+    span{
+        display: inline-block;
+        margin: 0 0 10px;
+        color: @txt;
+    }
+    ul{
+        display: inline-block;
+        max-width: 650px;
+        vertical-align: top;
+        &:extend(.reset-ul all);
+        margin: 0 0 0 10px;
+        //text-align: left;
+        li{
+            display: inline-block;
+            margin: 0 5px 10px;
+        }
+    }
+    button{
+        .geomanistBold(1em);
+        border-bottom: 2px solid @purple;
+        &:hover, &:focus{
+            border-color: @pink;
+        }
+        &.actif{
+            cursor: auto;
+            color: #fff;
+            border-style: dotted;
+            border-color: #fff;
         }
     }
 }
@@ -1374,12 +1409,13 @@ _:-ms-input-placeholder, .slider{
             display: inline-block;
             position: relative;
             text-decoration: none;
-            .no-js &{
+            &:extend(.underline all);
+            /*.no-js &{
                 &:extend(.underline all);
             }
             div{
                 &:extend(.underline all);
-            }
+            }*/
             &:before{
                 display: block;
                 .size(60px);
@@ -1399,10 +1435,13 @@ _:-ms-input-placeholder, .slider{
             &:hover, &:focus{
                 color: #fff;
                 opacity: 1 !important;
-                div, .no-js &{
+                /*div, .no-js &{
                     &:after{
                         background: #fff;
                     }
+                }*/
+                &:after{
+                    background: #fff;
                 }
             }
             &:hover{
@@ -1451,14 +1490,15 @@ _:-ms-input-placeholder, .slider{
     }
     &.fade3{
         #bgVous{
-            background-image: url(../layoutImg/vous/noise.png);
-        }
-    }
-    &.fade4{
-        #bgVous{
+            //background-image: url(../layoutImg/vous/noise.png);
             background-image: url(../layoutImg/vous/fouet.png);
         }
     }
+    /*&.fade4{
+        #bgVous{
+            background-image: url(../layoutImg/vous/fouet.png);
+        }
+    }*/
 }
 #bgVous{
     position: absolute;
@@ -1553,6 +1593,11 @@ _:-ms-input-placeholder, .slider{
     .second-menu{
         background: @yellow;
         //border-color: #ffd140;
+    }
+    .section:not(.head){
+        .container{
+            min-height: 680px;
+        }
     }
 }
 

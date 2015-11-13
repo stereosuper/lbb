@@ -21,9 +21,11 @@
 
 		<nav role='navigation' class='second-menu' id='fixedMenu'>
 			<ul>
-				<li class='left up hide'><a href='#ateliers' class='h5 scrollTo'>Les ateliers super</a></li>
+				<!--<li class='left up hide'><a href='#ateliers' class='h5 scrollTo'>Les ateliers super</a></li>
 				<li class='left down'><a href='#interventions' class='h5 scrollTo'>Les interventions spectaculaires</a></li>
-				<li class='right down'><a href='#formations' class='h5 scrollTo'>Les formations géniales</a></li>
+				<li class='right down'><a href='#formations' class='h5 scrollTo'>Les formations géniales</a></li>-->
+				<li class='left down'><a href='#ateliers' class='h5 scrollTo'>Les ateliers & les formations</a></li>
+				<li class='right down'><a href='#interventions' class='h5 scrollTo'>Les interventions spectaculaires</a></li>
 			</ul>
 		</nav>
 
@@ -33,11 +35,17 @@
 				<div class='section-cell'>
 					<div class='container'>
 						<strong class='sup-title'>Pour vous,</strong>
-						<h1 class='h2 light'>
+						<!--<h1 class='h2 light'>
 							<a href='#' class='animTxt'>Nous</a> 
 							<strong class='animTxt'>conçevons & animons</strong><span class='animTxt'> des</span> 
 							<a href='#interventions' class='animTxt scrollTo'>spectacles</a><span class='animTxt'>, des</span> 
 							<a href='#ateliers' class='animTxt scrollTo'>ateliers</a><span class='animTxt'>, des</span> <a href='#formations' class='animTxt scrollTo'>formations</a><span>.</span>
+						</h1>-->
+						<h1 class='h2 light'>
+							<a href='#' class='animTxt'>Nous</a> 
+							<strong class='animTxt'>conçevons & animons</strong><span class='animTxt'> des</span> 
+							<a href='#ateliers' class='animTxt scrollTo'>ateliers et formations</a><span class='animTxt'>, des</span>
+							<a href='#interventions' class='animTxt scrollTo'>spectacles</a>.</span>
 						</h1>
 						<span class='sub-title'>( et tout un tas d'autres trucs qui nous amusent )</span>
 						<div id='prestaSlider' class='presta-slider'>
@@ -82,60 +90,71 @@
 
 			<section id='ateliers' class='section'>
 				<div class='section-cell'>
-					<h2>Les ateliers super</h2>
+					<h2>Les ateliers & formations</h2>
 					<div class='container'>
+						<div class='presta-filtres'>
+							<span>Les thèmes abordés:</span>
+							<ul>
+								<li><button class='actif' data-cat-name='all'>Tous</button></li>
+								<li><button data-cat-name='cohesion'>Cohésion</button></li>
+								<li><button data-cat-name='intelligence'>Intelligence collective</button></li>
+								<li><button data-cat-name='creativite'>Créativité</button></li>
+								<li><button data-cat-name='societe'>Société</button></li>
+								<li><button data-cat-name='management'>Management</button></li>
+							</ul>
+						</div>
 						<ul class='presta-list'>
-							<li>
+							<li data-cat='cohesion' class='presta-item'>
 								<a href='#' class='orange-link'>
 									<img src='img/on-se-connait.jpg' alt='' width='360' height='360'>
 									<span class='hover'>
 										<span>
 											<strong class='title'>On se connait ?</strong>
-											<span class='cat'>Cohésion & expression</span>
+											<span class='cat'>Teambuilding</span>
 											<span class='link'>Je brûle d'en savoir plus</span>
 										</span>
 									</span>
 								</a>
-							</li><li class='two'>
+							</li><li data-cat='cohesion' class='presta-item'>
 								<a href='#' class='orange-link'>
 									<img src='img/impro.jpg' alt='' width='360' height='360'>
 									<span class='hover'>
 										<span>
 											<strong class='title'>Improvisations</strong>
-											<span class='cat'>Cohésion & expression</span>
+											<span class='cat'>Teambuilding</span>
 											<span class='link'>Je brûle d'en savoir plus</span>
 										</span>
 									</span>
 								</a>
-							</li><li>
+							</li><li data-cat='creativite' class='presta-item'>
 								<a href='#' class='orange-link'>
 									<img src='img/dis-le.jpg' alt='' width='360' height='360'>
 									<span class='hover'>
 										<span>
 											<strong class='title'>Dis le haut & fort</strong>
-											<span class='cat'>Cohésion & expression</span>
+											<span class='cat'>Teambuilding</span>
 											<span class='link'>Je brûle d'en savoir plus</span>
 										</span>
 									</span>
 								</a>
-							</li><li>
+							</li><li data-cat='intelligence' class='presta-item'>
 								<a href='#' class='orange-link'>
 									<img src='img/en-piste.jpg' alt='' width='360' height='360'>
 									<span class='hover'>
 										<span>
 											<strong class='title'>En piste</strong>
-											<span class='cat'>Cohésion & expression</span>
+											<span class='cat'>Teambuilding</span>
 											<span class='link'>Je brûle d'en savoir plus</span>
 										</span>
 									</span>
 								</a>
-							</li><li class='five'>
+							</li><li data-cat='cohesion' class='presta-item'>
 								<a href='#' class='orange-link'>
 									<img src='img/bille.jpg' alt='' width='360' height='360'>
 									<span class='hover'>
 										<span>
 											<strong class='title'>Roule ta bille</strong>
-											<span class='cat'>Cohésion & expression</span>
+											<span class='cat'>Teambuilding</span>
 											<span class='link'>Je brûle d'en savoir plus</span>
 										</span>
 									</span>
@@ -239,7 +258,7 @@
 				</div>
 			</section>
 
-			<section id='formations' class='section'>
+			<!--<section id='formations' class='section'>
 				<div class='section-cell'>
 					<h2>Les formations géniales</h2>
 					<div class='container'>
@@ -320,7 +339,7 @@
 					<div class='bg-formations' id='bgF1'></div>
 					<div class='bg-formations' id='bgF2'></div>
 				</div>
-			</section>
+			</section>-->
 
 			<aside class='center plus-presta'>
 				<h2><span>Des intervenants hyper pro et des clients super cools</span></h2>

@@ -127,7 +127,7 @@ function setSlider(slider){
 		nbSlides = slides.length, i = 0,
 		next = document.createElement('button'),
 		prev = document.createElement('button'),
-		height = 0, posX = '25%', timing = .3,
+		height = 0, posX = '25%', timing = 0.3,
 		tlAnims = new TimelineLite();
 
 	if(hasClass(htmlTag, 'lt-ie9')) posX = '150%';
@@ -136,7 +136,7 @@ function setSlider(slider){
 		TweenLite.to( slides[currentSlide], timing, {left: posX, opacity: 0, onComplete: function(){
 			currentSlide < nbSlides - 1 ? currentSlide ++ : currentSlide = 0;
 			TweenLite.fromTo( slides[currentSlide], timing, {left: '-'+posX}, {left: 0, opacity: 1, ease:Power2.easeInOut} );
-			tlAnims.staggerFromTo( slides[currentSlide].querySelectorAll('.anim-slide'), timing, {x: '-200px', opacity: 0}, {x: 0, opacity: 1, ease:Power2.easeInOut}, .2 );
+			tlAnims.staggerFromTo( slides[currentSlide].querySelectorAll('.anim-slide'), timing, {x: '-200px', opacity: 0}, {x: 0, opacity: 1, ease:Power2.easeInOut}, 0.2 );
 		}} );
 	}
 
@@ -144,7 +144,7 @@ function setSlider(slider){
 		TweenLite.to( slides[currentSlide], timing, {left: '-'+posX, opacity: 0, onComplete: function(){
 			currentSlide > 0 ? currentSlide -- : currentSlide = nbSlides - 1;
 			TweenLite.fromTo( slides[currentSlide], timing, {left: posX}, {left: 0, opacity: 1, ease:Power2.easeInOut} );
-			tlAnims.staggerFromTo( slides[currentSlide].querySelectorAll('.anim-slide'), timing, {x: '200px', opacity: 0}, {x: 0, opacity: 1, ease:Power2.easeInOut}, .2 );
+			tlAnims.staggerFromTo( slides[currentSlide].querySelectorAll('.anim-slide'), timing, {x: '200px', opacity: 0}, {x: 0, opacity: 1, ease:Power2.easeInOut}, 0.2 );
 		}} );
 	}
 
@@ -169,14 +169,15 @@ function setSlider(slider){
 
 function animFirstSlide(container){
 	if(document.getElementById('confiance') !== null){
-		var container = document.getElementById('confiance'), slides = container.querySelectorAll('.slide');
+		var container = document.getElementById('confiance'), slides = container.querySelectorAll('.slide'),
+			posX = '25%', timing = 0.3, tlAnims = new TimelineLite();
+
 		TweenLite.set(slides[0].querySelectorAll('.anim-slide'), {opacity: 0});
 		if(myScroll >= container.offsetTop - windowHeight/3){
 			firstAnimSlider = true;
-			var posX = '25%', timing = .3, tlAnims = new TimelineLite();
 			TweenLite.to( slides[0], timing, {left: posX, opacity: 0, onComplete: function(){
 				TweenLite.fromTo( slides[1], timing, {left: '-'+posX}, {left: 0, opacity: 1, ease:Power2.easeInOut} );
-				tlAnims.staggerFromTo( slides[1].querySelectorAll('.anim-slide'), timing, {x: '-200px', opacity: 0}, {x: 0, opacity: 1, ease:Power2.easeInOut}, .2 );
+				tlAnims.staggerFromTo( slides[1].querySelectorAll('.anim-slide'), timing, {x: '-200px', opacity: 0}, {x: 0, opacity: 1, ease:Power2.easeInOut}, 0.2 );
 			}} );
 			currentSlide = 1;
 		}
@@ -249,7 +250,7 @@ function bullshitGenerator(){
 		],
 		positions = ['top-left', 'top-right', 'top-center', 'bottom-left', 'bottom-right', 'bottom-center'],
 		i = 0, j, buttons = [], imgsBefore = [], imgsAfter = [], divsAfter = [], rands = [], limit = 3, length = 0,
-		transitionOpen = .8, transitionClose = 400, nbTabs = tabs.length;
+		transitionOpen = 0.8, transitionClose = 400, nbTabs = tabs.length;
 
 	function shitAppens(section, img, id){
 		var imgById = section.querySelector('#'+id);
@@ -261,7 +262,7 @@ function bullshitGenerator(){
 			}, transitionClose );
 		}else{
 			section.appendChild(img);
-			TweenLite.set(img, {css:{className:'+=big'}, delay: .01, onComplete: function(){
+			TweenLite.set(img, {css:{className:'+=big'}, delay: 0.01, onComplete: function(){
 				TweenLite.set(img, {css:{className:'+=full'}, delay: transitionOpen});
 			}});
 		}	
@@ -349,14 +350,14 @@ function setSentences(container){
 
 		if(cisorsLeft < limitRight && cisorsTop < limitBottom && !bottom){
 
-			TweenLite.to(cisors, .3, {left: cisorsLeft+'px'});
+			TweenLite.to(cisors, 0.3, {left: cisorsLeft+'px'});
 			cisorsLeft += 15;
 		
 		}else if(cisorsLeft >= limitRight && cisorsTop < limitBottom){
 
 			cisorsLeft = cisorsMaxLeft;
 			TweenLite.set(cisors, {left: cisorsLeft+'px'});
-			TweenLite.to(cisors, .3, {top: cisorsTop+'px'});
+			TweenLite.to(cisors, 0.3, {top: cisorsTop+'px'});
 			TweenLite.set(cisors, {css:{className:'+=on-right'}});
 			cisorsTop += 15;
 
@@ -366,7 +367,7 @@ function setSentences(container){
 			cisorsTop = cisorsMaxTop;
 
 			TweenLite.set(cisors, {top: cisorsTop+'px'});
-			TweenLite.to(cisors, .3, {left: cisorsLeft+'px'});
+			TweenLite.to(cisors, 0.3, {left: cisorsLeft+'px'});
 			TweenLite.set(cisors, {css:{className:'-=on-right'}});
 			TweenLite.set(cisors, {css:{className:'+=on-bottom'}});
 			cisorsLeft -= 15;
@@ -375,14 +376,14 @@ function setSentences(container){
 
 		}else if(cisorsLeft > limitLeft && cisorsTop >= limitBottom && bottom){
 			
-			TweenLite.to(cisors, .3, {left: cisorsLeft+'px'});
+			TweenLite.to(cisors, 0.3, {left: cisorsLeft+'px'});
 			cisorsLeft -= 15;
 
 		}else if(cisorsLeft <= limitLeft && cisorsTop > 25 && bottom){
 			
 			cisorsLeft = limitLeft - 55;
 			TweenLite.set(cisors, {left: cisorsLeft+'px'});
-			TweenLite.to(cisors, .3, {top: cisorsTop+'px'});
+			TweenLite.to(cisors, 0.3, {top: cisorsTop+'px'});
 			TweenLite.set(cisors, {css:{className:'-=on-bottom'}});
 			TweenLite.set(cisors, {css:{className:'+=on-left'}});
 			cisorsTop -= 15;
@@ -401,7 +402,7 @@ function setSentences(container){
 	}
 
 	function newSentence(){
-		// set size to the container <p> so it won't move on sentence changing
+		// set size to the container <p> so it won't move on sentence change
 		TweenLite.set(sentenceContainer, {width: sentenceContainer.offsetWidth + 'px', height: sentenceContainer.offsetHeight + 'px'});
 		
 		animCisors();
@@ -413,10 +414,10 @@ function setSentences(container){
 		}
 		actualSentence = rand;
 
-		TweenLite.fromTo(sentenceContainer, .2, {opacity: 1}, {opacity: 0, onComplete: function(){
+		TweenLite.fromTo(sentenceContainer, 0.2, {opacity: 1}, {opacity: 0, onComplete: function(){
 			btn.blur();
 			sentenceContainer.querySelector('span').innerHTML = sentences[rand];
-			TweenLite.fromTo(sentenceContainer, .2, {opacity: 0}, {opacity: 1});
+			TweenLite.fromTo(sentenceContainer, 0.2, {opacity: 0}, {opacity: 1});
 
 			TweenLite.set(cisors, {css:{className:'-=close'}});
 			TweenLite.set(cisors, {css:{className:'+=open'}});
@@ -437,12 +438,12 @@ function animTxtScroll(){
 
 	function addClassOn(container){
 		if(!hasClass(container, 'on'))
-			TweenLite.set(container, {css:{className:'+=on'}, delay: .2});
+			TweenLite.set(container, {css:{className:'+=on'}, delay: 0.2});
 	}
 
 	function removeClassOn(container){
 		if(hasClass(container, 'on'))
-			TweenLite.set(container, {css:{className:'-=on'}, delay: .2});
+			TweenLite.set(container, {css:{className:'-=on'}, delay: 0.2});
 	}
 	
 	// anims txt
@@ -463,7 +464,6 @@ function animTxtScroll(){
 				splitTlAnimTxt[i].reverse();
 				if(!hasClass(body, 'page-template-presta'))
 					addClassOn(containers[i]);
-				
 			}
 		}
 	}
@@ -504,9 +504,9 @@ function animMenuScroll(){
 
 function animFixedMenu(){
 	if(myScroll > 200 && myScroll + windowHeight < htmlTag.offsetHeight){
-		TweenLite.to(fixedMenu, .3, {bottom: 0});
 		var links = fixedMenu.querySelectorAll('li');
-		if(myScroll >= prestaSectionAteliers.offsetTop + prestaSectionAteliers.offsetHeight){
+		TweenLite.to(fixedMenu, 0.3, {bottom: 0});
+		/*if(myScroll >= prestaSectionAteliers.offsetTop + prestaSectionAteliers.offsetHeight){
 			if(myScroll >= prestaSectionInterventions.offsetTop + prestaSectionInterventions.offsetHeight){
 				if(!hasClass(fixedMenu, 'step3')){
 					TweenLite.set(links[0], {css: {className: '-=hide'}});
@@ -533,20 +533,42 @@ function animFixedMenu(){
 
 				TweenLite.set(fixedMenu, {css: {className: 'second-menu step1'}});
 			}
+		}*/
+		if(myScroll >= prestaSectionAteliers.offsetTop){
+			if(myScroll >= prestaSectionInterventions.offsetTop){
+				if(!hasClass(fixedMenu, 'step3')){
+					TweenLite.set(links[0], {css: {className: 'up'}});
+					TweenLite.set(links[1], {css: {className: 'right up'}});
+
+					TweenLite.set(fixedMenu, {css: {className: 'second-menu step3'}});
+				}
+			}else{
+				if(!hasClass(fixedMenu, 'step2')){
+					TweenLite.set(links[0], {css: {className: 'up'}});
+					TweenLite.set(links[1], {css: {className: 'right down'}});
+
+					TweenLite.set(fixedMenu, {css: {className: 'second-menu step2'}});
+				}
+			}
+		}else{
+			if(!hasClass(fixedMenu, 'step1')){
+				TweenLite.set(links[0], {css: {className: 'down'}});
+				TweenLite.set(links[1], {css: {className: 'right down'}});
+
+				TweenLite.set(fixedMenu, {css: {className: 'second-menu step1'}});
+			}
 		}
 	}else{
-		TweenLite.to(fixedMenu, .3, {bottom: '-70px'});
+		TweenLite.to(fixedMenu, 0.3, {bottom: '-70px'});
 	}
 }
 
 function setPrestaSlider(slider){
 	var slides = slider.querySelectorAll('.presta-slide'),
 		nbSlides = slides.length, i = 0,
-		height = 0, posX = '25%', timing = .3, 
-		buttons = [], buttonsLi = [],
-		buttonsList = document.createElement('ul'),
-		currentSlidePresta = 0,
-		links = [], j = 0;
+		height = 0, posX = '25%', timing = 0.3,
+		buttons = [], buttonsLi = [], buttonsList = document.createElement('ul'),
+		currentSlidePresta = 0, links = [], j = 0;
 
 	if(hasClass(htmlTag, 'lt-ie9')) posX = '150%';
 
@@ -614,11 +636,11 @@ function parallaxPresta(elt){
 
 	if(isVisible(eltParent)){
 		if(scrollDir < 0){
-			TweenLite.to(elt[0], .1, {bottom: '+=1px', rotation: '-=.2deg', ease:Linear.easeNone});
-			TweenLite.to(elt[1], .1, {top: '+=1px', ease:Linear.easeNone});
+			TweenLite.to(elt[0], 0.1, {bottom: '+=1px', rotation: '-=.2deg', ease:Linear.easeNone});
+			TweenLite.to(elt[1], 0.1, {top: '+=1.5px', ease:Linear.easeNone});
 		}else{
-			TweenLite.to(elt[0], .1, {bottom: '-=1px', rotation: '+=.2deg', ease:Linear.easeNone});
-			TweenLite.to(elt[1], .1, {top: '-=1px', ease:Linear.easeNone});
+			TweenLite.to(elt[0], 0.1, {bottom: '-=1px', rotation: '+=.2deg', ease:Linear.easeNone});
+			TweenLite.to(elt[1], 0.1, {top: '-=1.5px', ease:Linear.easeNone});
 		}
 	}
 }
@@ -638,7 +660,7 @@ window.onscroll = function(e){
 		if(!firstAnimSlider)
 			animFirstSlide();
 
-		if(fixedMenu != null)
+		if(fixedMenu !== null)
 			animFixedMenu();
 
 	}
@@ -650,7 +672,7 @@ window.onscroll = function(e){
 		detectScrollDir();
 		parallaxPresta(document.querySelectorAll('.bg-ateliers'));
 		parallaxPresta(document.querySelectorAll('.bg-interventions'));
-		parallaxPresta(document.querySelectorAll('.bg-formations'));
+		//parallaxPresta(document.querySelectorAll('.bg-formations'));
 	}
 
 }
@@ -703,7 +725,7 @@ function init(){
 		if(hasClass(htmlTag, 'menuOpen')){
 			TweenLite.set(htmlTag, {css: {className: '-=menuOpen'}});
 			TweenLite.set(htmlTag, {css: {className: '+=menuClose'}});
-			TweenLite.to(menu.querySelector('div'), .4, {left: '100%', onComplete: function(){
+			TweenLite.to(menu.querySelector('div'), 0.4, {left: '100%', onComplete: function(){
 				TweenLite.set(menu.querySelector('div'), {rotationY: 90});
 			}});
 		}else{
@@ -750,8 +772,12 @@ function init(){
 	if(!isMobile.any){
 		masques = document.getElementById('bgMasques');
 		if(masques !== null){
-			animBgOn = false, liveBgPos1 = -100, liveBgPosFinal1 = 0,
-			liveBgPos2 = 200, liveBgPosFinal2 = 100, masquesTop = document.getElementById('live').offsetTop,
+			animBgOn = false;
+			liveBgPos1 = -100;
+			liveBgPosFinal1 = 0;
+			liveBgPos2 = 200;
+			liveBgPosFinal2 = 100;
+			masquesTop = document.getElementById('live').offsetTop;
 			tweenBg = TweenLite.fromTo(masques, 25, {backgroundPosition: liveBgPos1+'% '+liveBgPos2+'%'}, {backgroundPosition: liveBgPosFinal1+'% '+liveBgPosFinal2+'%', ease:Linear.easeNone, onComplete: animBackground, onCompleteParams: ['complete'], paused: true});
 			animBackground();
 		}
@@ -763,12 +789,12 @@ function init(){
 			for(i; i < nbBlackLinsk; i++){
 				(function(i){
 					
-					tw1[i] = new TweenMax.to(blackLinks[i].querySelector('.hover'), .15, {padding: '10px', top: '12px', overflow: 'visible', ease: Linear.easeNone});
-					tw2[i] = new TweenMax.to(blackLinks[i].querySelector('.sup-title'), .2, {opacity: '1', marginTop: '0', ease: Linear.easeNone});
-					tw3[i] = new TweenMax.to(blackLinks[i].querySelector('.content'), .25, {opacity: '1', marginTop: '0', ease: Linear.easeNone});
+					tw1[i] = new TweenMax.to(blackLinks[i].querySelector('.hover'), 0.15, {padding: '10px', top: '12px', overflow: 'visible', ease: Linear.easeNone});
+					tw2[i] = new TweenMax.to(blackLinks[i].querySelector('.sup-title'), 0.2, {opacity: '1', marginTop: '0', ease: Linear.easeNone});
+					tw3[i] = new TweenMax.to(blackLinks[i].querySelector('.content'), 0.25, {opacity: '1', marginTop: '0', ease: Linear.easeNone});
 					
 					tlBlackLinks[i] = new TimelineMax({paused: true}).add(tw1[i]).add(tw2[i]).add(tw3[i]);
-					tw4[i] = tlBlackLinks[i].tweenFromTo(0, .6, {ease: Power2.easeInOut, paused: true});
+					tw4[i] = tlBlackLinks[i].tweenFromTo(0, 0.6, {ease: Power2.easeInOut, paused: true});
 					
 					addEventListener(blackLinks[i], 'mouseover', function(){
 						tw4[i].play();
@@ -785,11 +811,13 @@ function init(){
 		var instagram = document.getElementById('instagram');
 		if(instagram !== null){
 			var instagramLink = instagram.querySelector('.black-hover-link'),
-				tw1Inst = new TweenMax.to(instagramLink.querySelector('.hover'), .15, {padding: '10px', top: '0', height: '250px', overflow: 'visible', ease: Power2.easeOut}),
-				tw2Inst = new TweenMax.to(instagramLink.querySelector('.sup-title'), .2, {opacity: '1', marginTop: '0', ease: Power2.easeOut}),
-				tw3Inst = new TweenMax.to(instagramLink.querySelector('.content'), .25, {opacity: '1', marginTop: '0', ease: Power2.easeOut}),
+				
+				tw1Inst = new TweenMax.to(instagramLink.querySelector('.hover'), 0.15, {padding: '10px', top: '0', height: '250px', overflow: 'visible', ease: Power2.easeOut}),
+				tw2Inst = new TweenMax.to(instagramLink.querySelector('.sup-title'), 0.2, {opacity: '1', marginTop: '0', ease: Power2.easeOut}),
+				tw3Inst = new TweenMax.to(instagramLink.querySelector('.content'), 0.25, {opacity: '1', marginTop: '0', ease: Power2.easeOut}),
+				
 				tlInstagramLink = new TimelineMax({paused: true}).add(tw1Inst).add(tw2Inst).add(tw3Inst),
-				tw4Inst = tlInstagramLink.tweenFromTo(0, .6, {ease: Power2.easeInOut, paused: true});
+				tw4Inst = tlInstagramLink.tweenFromTo(0, 0.6, {ease: Power2.easeInOut, paused: true});
 
 			addEventListener(instagramLink, 'mouseover', function(){
 				tw4Inst.play();
@@ -801,11 +829,11 @@ function init(){
 
 		var prestaList = document.querySelectorAll('.presta-list');
 		if(prestaList !== null){
-			var j = 0, nbPrestaList = prestaList.length, tlOrangeLinks = [], twO1 = [], 
-			twO2 = [], twO3 = [], twO4 = [], orangeLinks = [], nbOrangeLinsk = [];
+			var j = 0, nbPrestaList = prestaList.length, tlOrangeLinks = [], twO1 = [],
+			twO2 = [], twO3 = [], twO4 = [], orangeLinks = [], nbOrangeLinsk = [], i = 0;
+			
 			for(j; j < nbPrestaList; j++){
-				
-				var i = 0;
+				i = 0;
 				orangeLinks[j] = prestaList[j].querySelectorAll('.orange-link');
 				nbOrangeLinsk[j] = orangeLinks[j].length;
 				tlOrangeLinks[j] = []; twO1[j] = []; twO2[j] = []; twO3[j] = []; twO4[j] = [];
@@ -813,12 +841,12 @@ function init(){
 				for(i; i < nbOrangeLinsk[j]; i++){
 					(function(j, i){
 
-						twO1[j][i] = new TweenMax.to(orangeLinks[j][i].querySelector('.hover'), .15, {top: '12px', overflow: 'visible', ease: Linear.easeNone});
-						twO2[j][i] = new TweenMax.to(orangeLinks[j][i].querySelector('.cat'), .25, {opacity: '1', marginTop: '10px', ease: Linear.easeNone});
-						twO3[j][i] = new TweenMax.to(orangeLinks[j][i].querySelector('.link'), .25, {opacity: '1', marginTop: '0', ease: Linear.easeNone});
+						twO1[j][i] = new TweenMax.to(orangeLinks[j][i].querySelector('.hover'), 0.15, {top: '12px', overflow: 'visible', ease: Linear.easeNone});
+						twO2[j][i] = new TweenMax.to(orangeLinks[j][i].querySelector('.cat'), 0.25, {opacity: '1', marginTop: '10px', ease: Linear.easeNone});
+						twO3[j][i] = new TweenMax.to(orangeLinks[j][i].querySelector('.link'), 0.25, {opacity: '1', marginTop: '0', ease: Linear.easeNone});
 						
 						tlOrangeLinks[j][i] = new TimelineMax({paused: true}).add(twO1[j][i]).add(twO2[j][i]).add(twO3[j][i]);
-						twO4[j][i] = tlOrangeLinks[j][i].tweenFromTo(0, .65, {ease: Power2.easeInOut, paused: true});
+						twO4[j][i] = tlOrangeLinks[j][i].tweenFromTo(0, 0.65, {ease: Power2.easeInOut, paused: true});
 						
 						addEventListener(orangeLinks[j][i], 'mouseover', function(){
 							twO4[j][i].play();
@@ -837,6 +865,7 @@ function init(){
 		var prestaLinksBg = document.querySelectorAll('.contact-link');
 		if(prestaLinksBg != null){
 			var i = 0, nbPrestaLinksBg = prestaLinksBg.length, tweenPrestaBg = [], pos = 40;
+			
 			for(i; i<nbPrestaLinksBg; i++){
 
 				(function(i){
@@ -846,18 +875,44 @@ function init(){
 					}});
 
 					addEventListener(prestaLinksBg[i], 'mouseover', function(){
-						TweenMax.to(prestaLinksBg[i], .8, {backgroundColor: '#fff', ease: Bounce.easeOut});
+						TweenMax.to(prestaLinksBg[i], 0.8, {backgroundColor: '#fff', ease: Bounce.easeOut});
 						tweenPrestaBg[i].play();
 						
 					});
 					addEventListener(prestaLinksBg[i], 'mouseout', function(){
-						TweenMax.to(prestaLinksBg[i], .3, {backgroundColor: '#ffe180'});
+						TweenMax.to(prestaLinksBg[i], 0.3, {backgroundColor: '#ffe180'});
 						tweenPrestaBg[i].pause();
 					});
 				}(i));
 			}
 		}
 	}
+
+	var prestaFiltresContainer = document.querySelector('.presta-filtres');
+	if(prestaFiltresContainer !== null){
+		var prestaFiltres = prestaFiltresContainer.querySelectorAll('button'), i = 0,
+			nbFiltres = prestaFiltres.length, prestaList = prestaFiltresContainer.parentNode.querySelector('.presta-list'),
+			prestaItems = prestaList.querySelectorAll('.presta-item'), prestaSection = prestaFiltresContainer.closest('.section');
+		
+		for(i; i<nbFiltres; i++){
+			addEventListener(prestaFiltres[i], 'click', function(e){
+				var data = this.getAttribute('data-cat-name'), dataItems = document.querySelectorAll('[data-cat="'+data+'"]');
+
+				scrollTo(prestaSection.offsetTop + 60, 300);
+
+				TweenLite.set(prestaFiltres, {css: {className: '-=actif'}});
+				TweenLite.set(this, {css: {className: '+=actif'}})
+
+				if(data !== 'all'){
+					TweenLite.set(prestaItems, {css: {className: '+=hidden'}});
+					TweenLite.set(dataItems, {css: {className: '-=hidden'}});
+				}else{
+					TweenLite.set(prestaItems, {css: {className: '-=hidden'}});
+				}
+			});
+		}
+	}
+
 
 	var scrollToBtn = document.querySelectorAll('.scrollTo');
 	if(scrollToBtn.length && !isMobile.windows.phone){

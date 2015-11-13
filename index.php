@@ -36,11 +36,17 @@
 				<div class='section-cell'>
 					<div class='container'>
 						<strong class='sup-title'>Pour vous,</strong>
-						<h2 class='light'>
+						<!--<h2 class='light'>
 							<a href='#' class='animTxt'>Nous</a> 
 							<strong class='animTxt'>conçevons & animons</strong><span class='animTxt'> des</span> 
 							<a href='#' class='animTxt'>spectacles</a><span class='animTxt'>, des</span> 
 							<a href='#' class='animTxt'>ateliers</a><span class='animTxt'>, des</span> <a href='#' class='animTxt'>formations</a><span>.</span>
+						</h2>-->
+						<h2 class='light'>
+							<a href='#' class='animTxt'>Nous</a> 
+							<strong class='animTxt'>conçevons & animons</strong><span class='animTxt'> des</span> 
+							<a href='#ateliers' class='animTxt scrollTo'>ateliers et formations</a><span class='animTxt'>, des</span>
+							<a href='#interventions' class='animTxt scrollTo'>spectacles</a>.</span>
 						</h2>
 						<span class='sub-title'>( et tout un tas d'autres trucs qui nous amusent )</span>
 					</div>

@@ -14,156 +14,76 @@
 	  	<script src='js/modernizr.min.js'></script>
 	</head>
 
-	<body class='page-template-default'>
+	<body class='single-presta'>
 		
 		<?php include_once('includes/header.php'); ?>
 
 		<main id='wrapper' role='main'>
 			
 			<header class='head section bg-yellow'>
+				<a href='#' class='back-link'>Retour</a>
 				<div class='section-cell'>
 					<div class='container'>
-						<strong class='sup-title'>Une amorce de titre</strong>
-						<h1 class='animTxt'>Un titre super drôle</h1>
+						<strong class='sup-title'>Atelier de teambuilding par le théatre</strong>
+						<h1 class='animTxt'>On se connait ?</h1>
+						<strong class='sup-title'>Cohésion, expression | 3h | 8 - 15 participants</strong>
+						<a href='#' class='btn btn-download'>La fiche complète</a>
+						<div class='img-presta'>
+							<img src='img/nana.png'>
+							<h2>La cohésion de l'équipe est impeccacle !</h2>
+						</div>
 					</div>
-					<img src='img/cat.jpg' alt='Cat' class='img'>
-					<div class='fd'></div>
 				</div>
 			</header>
 
 			<article class='page-content container' id='page-content'>
-				<p>
-					Les escargots terrestres pulmonates et les limaces ont une <strong>ouverture de reproduction d'un côté du corps</strong>, 
-					près de l'avant, à travers lequel l'organe reproducteur externe est extrudé afin que l'échange de sperme 
-					puisse avoir lieu. La fécondation peut alors avoir lieu et les œufs se développer. Dès le début de 
-					l'accouplement, <a href='#'>chaque individu enfonce un dard calcaire</a> dans <em>la chair de son congénère</em>, ce dard d'amour 
-					contenant une glande secrétant des hormones qui favorisent la fécondation dans la bourse copulatrice11.
-				</p>
-
-				<h2>La spermathèque</h2>
-
-				<p>
-					Les escargots, entre autres animaux, possèdent une spermathèque. Lorsqu'une nouvelle portée d’œufs arrive, 
-					ceux-ci sont donc fécondés par un mélange de spermatozoïdes provenant de différents individus. Cela favorise 
-					le brassage génétique indispensable à toute population.
-				</p>
-
-				<p><img src='img/escargots.jpg' alt='Escargots' class='alignleft'/></p>
-
-				<h3>Environnement</h3>
-
-				<p>
-					Les escargots peuvent pour partie refléter la qualité de leur environnement en accumulant dans leur chair ou 
-					dans leur coquille certains polluants ou toxiques présents dans leur milieu. Leur mucus les protège des agressions 
-					extérieures, bactériennes et fongiques notamment. Il contribue à leur régulation thermique. Comme ce mucus est 
-					riche en acide sialique, la cible du virus grippal, la question a été posée de leur capacité à abriter une partie 
-					du cycle du virus grippal. Certaines espèces sont inféodées à un milieu particulier (roselière, boisements 
-					(pour l'Hélice des bois par exemple), etc. ce qui leur confère aussi une valeur d'indicateur.
-				</p>
-				<p>
-					Les escargots terrestres sont très sensibles aux paramètres thermohygrométriques et semblent également sensibles 
-					à la pollution lumineuse qui peut dérégler leur système chronobiologique et perturber les phases d'estivation 
-					(photo ci-contre) ou d'hibernation.
-				</p>
-				<p>
-					Les escargots ont disparu d'une grande partie des territoires agricoles cultivés à cause des pesticides. 
-					Le réseau bocager leur permet de mieux survivre, et il est permis d'espérer que les bandes enherbées rendues 
-					récemment obligatoires sur certaines surfaces en Europe puissent augmenter leurs chances de survie dans les 
-					milieux cultivés.
-				</p>
-
-				<h4>Prédateurs</h4>
-
-				<p>
-					Les escargots sont un élément important des réseaux trophiques. Ils ont de nombreux prédateurs tels que des mammifères, 
-					rongeurs ou hérissons notamment, ou des oiseaux, mais aussi parfois d'autres escargots tels que le bulime tronqué. 
-					Il existe même un rapace, le milan des marais dont la nourriture quasi exclusive est constituée de gros escargots 
-					aquatiques sud-américains de la famille des Ampullariidae, dont essentiellement Pomacea bridgesii.
-				</p>
-
-				<blockquote>
-					<p>
-						Le monde est composé de flèches et de molécules, et d'électricité, comme le Big-Bang tu vois, et tout ça ensemble,
-						ça forme l'Univers.
-					</p>
-					<p>J.C. VanDamme</p>
-				</blockquote>
-
-				<ul>
-					<li>Les escargots sont un élément important des réseaux trophiques.</li>
-					<li>Ils ont de nombreux prédateurs tels que des mammifères, rongeurs ou hérissons notamment, ou des oiseaux.</li>
-					<li>Mais aussi parfois d'autres escargots tels que le bulime tronqué.</li>
-					<li>Il existe même un rapace.</li>
-					<li>Le milan des marais dont la nourriture quasi exclusive est constituée de gros escargots aquatiques sud-américains
-						de la famille des Ampullariidae, dont essentiellement Pomacea bridgesii.</li>
-				</ul>
-
-				<h3>Environnement</h3>
-
-				<p>
-					Les escargots peuvent pour partie refléter la qualité de leur environnement en accumulant dans leur chair ou dans 
-					leur coquille certains polluants ou toxiques présents dans leur milieu. Leur mucus les protège des agressions extérieures, 
-					bactériennes et fongiques notamment. Il contribue à leur régulation thermique. Comme ce mucus est riche en acide sialique, 
-					la cible du virus grippal, la question a été posée de leur capacité à abriter une partie du cycle du virus grippal. 
-					Certaines espèces sont inféodées à un milieu particulier (roselière, boisements (pour l'Hélice des bois par exemple), 
-					etc. ce qui leur confère aussi une valeur d'indicateur.
-				</p>
-				<p>
-					Les escargots terrestres sont très sensibles aux paramètres thermohygrométriques et semblent également sensibles à 
-					la pollution lumineuse qui peut dérégler leur système chronobiologique.
-				</p>
-				<p class='center'><a href='#' class='btn btn-down'>Clic vers le bas</a></p>
-
-				<p><img src='img/escargot.jpg' alt='Escargot'/></p>
-
-				<h4>Prédateurs</h4>
-
-				<p>
-					Les escargots sont un élément important des réseaux trophiques. Ils ont de nombreux prédateurs tels que des mammifères, 
-					rongeurs ou hérissons notamment, ou des oiseaux, mais aussi parfois d'autres escargots tels que le bulime tronqué. 
-					Il existe même un rapace, le milan des marais dont la nourriture quasi exclusive est constituée de gros escargots 
-					aquatiques sud-américains de la famille des Ampullariidae, dont essentiellement Pomacea bridgesii.
-				</p>
-				<p><a href='#' class='btn btn-right'>Clic</a> <a href='#' class='btn btn-right'>Clic</a> <a href='#' class='btn btn-right'>Clic</a></p>
-				
-				<div class='w50 first'>
-					<h5>Prédateurs</h5>
-
-					<p>
-						Les escargots sont un élément important des réseaux trophiques. Ils ont de nombreux prédateurs tels que des mammifères, 
-						rongeurs ou hérissons notamment, ou des oiseaux, mais aussi parfois d'autres escargots tels que le bulime tronqué. 
-						Il existe même un rapace, le milan des marais dont la nourriture quasi exclusive est constituée de gros escargots 
-						aquatiques sud-américains de la famille des Ampullariidae, dont essentiellement Pomacea bridgesii.
-					</p>
-				</div><div class='w50'>
-					<h5>Prédateurs</h5>
-
-					<p>
-						Les escargots sont un élément important des réseaux trophiques. Ils ont de nombreux prédateurs tels que des mammifères, 
-						rongeurs ou hérissons notamment, ou des oiseaux, mais aussi parfois d'autres escargots tels que le bulime tronqué. 
-						Il existe même un rapace, le milan des marais dont la nourriture quasi exclusive est constituée de gros escargots 
-						aquatiques sud-américains de la famille des Ampullariidae, dont essentiellement Pomacea bridgesii.
-					</p>
-				</div>
-
-				<div class='w50 first'>
-					<h5>Prédateurs</h5>
-
-					<p>
-						Les escargots sont un élément important des réseaux trophiques. Ils ont de nombreux prédateurs tels que des mammifères, 
-						rongeurs ou hérissons notamment, ou des oiseaux, mais aussi parfois d'autres escargots tels que le bulime tronqué. 
-						Il existe même un rapace, le milan des marais dont la nourriture quasi exclusive est constituée de gros escargots 
-						aquatiques sud-américains de la famille des Ampullariidae, dont essentiellement Pomacea bridgesii.
-					</p>
-				</div><div class='w50'>
-					<h5>Prédateurs</h5>
-
-					<p>
-						Les escargots sont un élément important des réseaux trophiques. Ils ont de nombreux prédateurs tels que des mammifères, 
-						rongeurs ou hérissons notamment, ou des oiseaux, mais aussi parfois d'autres escargots tels que le bulime tronqué. 
-						Il existe même un rapace, le milan des marais dont la nourriture quasi exclusive est constituée de gros escargots 
-						aquatiques sud-américains de la famille des Ampullariidae, dont essentiellement Pomacea bridgesii.
-					</p>
+				<aside class='presta-sidebar'>
+					<span>Cible</span>
+					<p>Managers, collaborateurs de différents services, sites ou régions. Comités de direction.</p>
+					<span>Durée</span>
+					<p>3h d'atelier.</p>
+					<span>Lieu</span>
+					<p>Interne à l'entreprise ou dans un de nos théatres partenaires.</p>
+					<span>Numérus Clausus</span>
+					<p>Entre 8 et 15 participants par coach.<br>Nous disposons d'une équipe de 10 coachs.</p>
+					<a href='#' class='btn btn-right'>Demande de devis</a>
+				</aside><div class='presta-content'>
+					<h3>Objectifs</h3>
+					<ul>
+						<li>
+							Lorsqu’une équipe s’étoffe, lorsqu’une entreprise se réorganise pour mieux s’adapter, 
+							il est utile de <strpng>permettre à vos collaborateurs de s’exprimer et d’expérimenter à nouveau 
+							les bénéfices de cette solidarité</strong> qui fait parfois défaut.
+						</li>
+					</ul>
+					<h3>Méthode</h3>
+					<ul>
+						<li>
+							Lorsqu’une équipe s’étoffe, lorsqu’une entreprise se réorganise pour <strong>mieux s’adapter</strong>,
+							il est utile de permettre à vos collaborateurs de s’exprimer et d’expérimenter à nouveau 
+							les bénéfices de cette solidarité qui fait parfois défaut.
+						</li>
+						<li>
+							<strong>Le jeu et le plaisir sont les moteurs de l’engagement</strong> et de 
+							l’apprentissage. D’abord avec la totalité du groupe, puis en 
+							équipe plus restreinte, nous vous amenons à appréhender les 
+							relations interpersonnelles sous un angle différent.
+						</li>
+						<li>
+							Enfin, la dernière partie du module peut s’adapter pour 
+							éclairer vos problématiques : culture d’entreprise, posture 
+							manageriale, organisation, valorisation et reconnaissance, etc.
+						</li>
+					</ul>
+					<h3>Résultats</h3>
+					<ul>
+						<li>
+							Nous ne nous contentons pas de «passer un bon moment». Certes, c’est un bon début mais ce n’est 
+							pas suffisant ! Notre module démontre à tous les participants qu’ils sont capables de se dépasser, 
+							de sortir de leur zone de confort, et que <strong>la solidarité est indispensable dans le fonctionnement du groupe</strong>.
+						</li>
+					</ul>
+					<p class='note'>(Ce module n’est pas livré avec un livre de recettes des meilleures verrines aux crevettes.)</p>
 				</div>
 			</article>
 

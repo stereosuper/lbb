@@ -220,6 +220,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/img\/nana.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 278624,
+		"inputAbbreviatedPath": "\/img\/nana.png",
+		"outputAbbreviatedPath": "\/img\/nana.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/img\/naoned.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -540,6 +551,17 @@
 		"initialSize": 5523,
 		"inputAbbreviatedPath": "\/layoutImg\/bulle.png",
 		"outputAbbreviatedPath": "\/layoutImg\/bulle.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/layoutImg\/bulle2.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 6777,
+		"inputAbbreviatedPath": "\/layoutImg\/bulle2.png",
+		"outputAbbreviatedPath": "\/layoutImg\/bulle2.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0

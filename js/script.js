@@ -452,6 +452,8 @@ function animTxtScroll(){
 		containers[i] = sections[i].querySelector('.container');
 		if(myScroll >= sections[i].offsetTop + windowHeight/3){
 			decalTxt = '+=100';
+			if(animsTxt[i].closest('.light') !== null)
+				TweenLite.set(animsTxt[i].closest('.light').querySelectorAll('a'), {css: {className: '-=border'}});
 			splitTlAnimTxt[i].reverse();
 			if(!hasClass(body, 'page-template-presta'))
 				addClassOn(containers[i]);
@@ -461,6 +463,8 @@ function animTxtScroll(){
 					removeClassOn(containers[i]);
 				splitTlAnimTxt[i].play();
 			}else{
+				if(animsTxt[i].closest('.light') !== null)
+					TweenLite.set(animsTxt[i].closest('.light').querySelectorAll('a'), {css: {className: '-=border'}});
 				splitTlAnimTxt[i].reverse();
 				if(!hasClass(body, 'page-template-presta'))
 					addClassOn(containers[i]);
@@ -746,7 +750,10 @@ function init(){
 			
 			for(i; i<nbAnims; i++){
 				splitText[i] = new SplitText(animsTxt[i], {type:'words'});
-				splitTlAnimTxt[i] = new TimelineLite();
+				splitTlAnimTxt[i] = new TimelineLite({onComplete: function(){
+					if(animsTxt[i].closest('.light') !== null)
+						TweenLite.set(animsTxt[i].closest('.light').querySelectorAll('a'), {css: {className: '+=border'}});
+				}});
 			}
 			animTxt(splitText);
 		}

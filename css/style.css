@@ -285,12 +285,14 @@ menu {
 .btn.btn-down:before,
 .btn.btn-right:before,
 .link:before,
+.back-link:before,
 .second-menu a:before,
 .slider #next,
 .slider #prev,
 #vous h2 a:before,
 #vous .h2 a:before,
-#instagram .meta:before {
+#instagram .meta:before,
+.presta-sidebar span:before {
   font-family: 'icomoon';
   speak: none;
   font-style: normal;
@@ -299,8 +301,23 @@ menu {
   text-transform: none;
   line-height: 1;
 }
+.icon-horloge:before {
+  content: '\e901';
+}
+.icon-fusee:before {
+  content: '\e902';
+}
+.icon-main:before {
+  content: '\e903';
+}
+.icon-map2:before {
+  content: '\e904';
+}
 .icon-right-small:before {
   content: '\e806';
+}
+.icon-left-small:before {
+  content: '\e900';
 }
 .icon-down:before {
   content: '\e805';
@@ -379,7 +396,7 @@ h5,
   line-height: 1em;
 }
 h1 {
-  font-size: 6.7em;
+  font-size: 4em;
   margin: 0 0 .35em;
 }
 h1 .small {
@@ -529,14 +546,14 @@ button {
   border: 0;
 }
 .underline,
-#vous h2 a,
-#vous .h2 a {
+#vous h2 a.border,
+#vous .h2 a.border {
   position: relative;
   text-decoration: none;
 }
 .underline:after,
-#vous h2 a:after,
-#vous .h2 a:after {
+#vous h2 a.border:after,
+#vous .h2 a.border:after {
   content: '';
   display: block;
   height: 3px;
@@ -552,7 +569,7 @@ button {
   display: inline-block;
   padding: 15px 25px;
   border: 3px solid;
-  font-family: 'geomanist', sans-serif;
+  font-family: 'geomanist-bold', sans-serif;
   font-size: 0.89em;
   font-weight: normal;
   font-style: normal;
@@ -690,6 +707,22 @@ button {
 .link:hover {
   color: #ff5fac;
 }
+.back-link {
+  padding: 0 0 0 20px;
+  position: relative;
+  font-family: 'geomanist-bold', sans-serif;
+  font-size: 0.9em;
+  font-weight: normal;
+  font-style: normal;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.back-link:before {
+  content: '\e900';
+  position: absolute;
+  top: 3px;
+  left: 0;
+}
 .bullshitBtn {
   position: absolute;
   opacity: .7;
@@ -772,6 +805,12 @@ button {
 }
 .bullshit.big.full img {
   max-width: 90%;
+}
+.note {
+  font-family: 'klinicIt', sans-serif;
+  font-size: 0.7em;
+  font-weight: normal;
+  font-style: normal;
 }
 /******* MODULES *******/
 .container {
@@ -1040,7 +1079,7 @@ _:-ms-input-placeholder #prev:before,
 .slide blockquote .quote {
   width: 244px;
   height: 220px;
-  padding: 50px 30px 50px 55px;
+  padding: 50px 35px 50px 55px;
   background: url(../layoutImg/bulle.png) no-repeat 100% 0;
   font-family: 'marker', sans-serif;
   font-size: 1em;
@@ -1581,7 +1620,8 @@ _:-ms-input-placeholder #prev:before,
   color: #9f9f9f;
 }
 .page-template-default #footer > div,
-.single #footer > div {
+.single #footer > div,
+.single-presta #footer > div {
   border-top: 2px solid #e9e9e9;
   padding: 30px 0 0;
 }
@@ -1720,7 +1760,7 @@ _:-ms-input-placeholder #prev:before,
   padding-bottom: 0;
 }
 .page-template-default .head {
-  height: 80vh;
+  height: 75vh;
 }
 .head .img {
   -webkit-transition: opacity 0.1s ease-in-out;
@@ -1785,6 +1825,9 @@ _:-ms-input-placeholder #prev:before,
   margin: 0 5px 5px 0;
 }
 /******* ACCUEIL *******/
+.home h1 {
+  font-size: 6.7em;
+}
 #pipe {
   max-width: 90%;
   z-index: -1;
@@ -2127,6 +2170,123 @@ _:-ms-input-placeholder #prev:before,
 .plus-presta .btn {
   margin: 0 40px 5px;
 }
+/******* SINGLE PRESTA *******/
+.single-presta h1 {
+  max-width: 850px;
+  padding: 0 0 0 325px;
+  color: #b5006a;
+}
+.single-presta .head {
+  min-height: 700px;
+  max-height: 810px;
+  padding-bottom: 0;
+  text-align: left;
+}
+.single-presta .head .section-cell {
+  height: 100%;
+  display: block;
+  padding: 0;
+}
+.single-presta .head .container {
+  padding: 55px 0 0;
+  height: 100%;
+}
+.single-presta .head .sup-title {
+  padding: 0 0 0 325px;
+}
+.single-presta .head .img-presta {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.single-presta .head .img-presta img {
+  display: inline-block;
+}
+.single-presta .head h2 {
+  display: inline-block;
+  width: 250px;
+  height: 224px;
+  padding: 67px 35px 50px 55px;
+  margin: 0 0 0 -100px;
+  background: url(../layoutImg/bulle2.png) no-repeat 100% 0;
+  font-family: 'marker', sans-serif;
+  font-size: 1em;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.6em;
+  text-align: center;
+  color: #b5006a;
+}
+.single-presta .head .btn {
+  position: absolute;
+  right: 0;
+  bottom: 20px;
+}
+.single-presta .head .back-link {
+  position: absolute;
+  left: 4%;
+  margin: 0 0 0 180px;
+  top: 110px;
+}
+.single-presta .page-content h2,
+.single-presta .page-content h3,
+.single-presta .page-content h4,
+.single-presta .page-content h5,
+.single-presta .page-content h6,
+.single-presta .page-content ul,
+.single-presta .page-content p {
+  padding-left: 0;
+  padding-right: 0;
+}
+.single-presta .page-content ul,
+.single-presta .page-content p {
+  margin: 1em 0 3em;
+}
+.presta-sidebar {
+  display: inline-block;
+  width: 25%;
+  vertical-align: top;
+  padding: 10px 0 0;
+  margin: 1.5em 15% 0 0;
+}
+.presta-sidebar span {
+  margin: 0 0 0 30px;
+  border-bottom: 1px dashed #b5006a;
+  font-family: 'geomanist-bold', sans-serif;
+  font-size: 1em;
+  font-weight: normal;
+  font-style: normal;
+}
+.presta-sidebar span:before {
+  display: block;
+  position: absolute;
+  font-size: 20px;
+  color: #b5006a;
+}
+.presta-sidebar span:first-of-type:before {
+  content: '\e902';
+  font-size: 23px;
+}
+.presta-sidebar span:nth-of-type(2):before {
+  content: '\e901';
+}
+.presta-sidebar span:nth-of-type(3):before {
+  content: '\e904';
+}
+.presta-sidebar span:nth-of-type(4):before {
+  content: '\e903';
+}
+.page-content .presta-sidebar p {
+  margin-left: 30px;
+  font-family: 'klinicIt', sans-serif;
+  font-size: 0.8em;
+  font-weight: normal;
+  font-style: normal;
+}
+.presta-content {
+  display: inline-block;
+  width: 60%;
+}
 /* @end */
 /* @end */
 /* @group Responsive horizontal */
@@ -2176,7 +2336,7 @@ _:-ms-input-placeholder #prev:before,
 }
 @media (max-width: 1150px) {
   h1 {
-    font-size: 6em;
+    font-size: 3em;
   }
   .slide blockquote .quote {
     width: 215px;
@@ -2198,6 +2358,13 @@ _:-ms-input-placeholder #prev:before,
   #main-menu {
     width: 150px;
   }
+  .home h1 {
+    font-size: 6em;
+  }
+  .single-presta .head .back-link {
+    left: 0;
+    margin: 0 0 0 160px;
+  }
 }
 @media (max-width: 1100px) {
   .container {
@@ -2209,6 +2376,10 @@ _:-ms-input-placeholder #prev:before,
   .presta-list .hover {
     top: 77%;
     font-size: .9em;
+  }
+  .single-presta .head h1,
+  .single-presta .head .sup-title {
+    padding: 0 0 0 250px;
   }
 }
 @media (max-width: 979px) {
@@ -2326,10 +2497,25 @@ _:-ms-input-placeholder #prev:before,
     padding: 20px;
     margin: 1vh 0 0;
   }
+  .single-presta .head {
+    text-align: center;
+  }
+  .single-presta .head h1,
+  .single-presta .head .sup-title {
+    padding-left: 0;
+  }
+  .single-presta .head h1 {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 600px;
+  }
+  .single-presta .head .back-link {
+    top: 70px;
+  }
 }
 @media (max-width: 767px) {
   h1 {
-    font-size: 5em;
+    font-size: 2.5em;
   }
   h2,
   .h2 {
@@ -2442,8 +2628,11 @@ _:-ms-input-placeholder #prev:before,
     float: none;
     margin: 0 0 50px;
   }
+  .home h1 {
+    font-size: 5em;
+  }
   .home .head .bullshitBtn,
-  #confiance .bullshitBtn {
+  .home #confiance .bullshitBtn {
     display: none;
   }
   #vous.fade .section-cell {
@@ -2477,11 +2666,19 @@ _:-ms-input-placeholder #prev:before,
   #live .blog-list {
     padding: 0;
   }
+  .presta-sidebar {
+    margin: 30px 0 100px;
+  }
+  .presta-sidebar,
+  .presta-content {
+    display: block;
+    width: 100%;
+  }
+  .single-presta .page-content ul {
+    padding: 0 0 0 20px;
+  }
 }
 @media (max-width: 600px) {
-  h1 {
-    font-size: 4em;
-  }
   h2,
   .h2 {
     font-size: 2em;
@@ -2505,6 +2702,9 @@ _:-ms-input-placeholder #prev:before,
   }
   .second-menu li.right {
     right: 10px;
+  }
+  .home h1 {
+    font-size: 4em;
   }
   #vous h2 a:before,
   #vous .h2 a:before {
@@ -2530,10 +2730,10 @@ _:-ms-input-placeholder #prev:before,
   }
 }
 @media (max-width: 480px) {
-  h1 {
+  .home h1 {
     font-size: 2.5em;
   }
-  h1 .small {
+  .home h1 .small {
     font-size: .45em;
     margin: 0 0 -0.05em;
   }

@@ -18,6 +18,13 @@
 		
 		<?php include_once('includes/header.php'); ?>
 
+		<nav role='navigation' class='second-menu nav-single' id='fixedMenu'>
+			<ul>
+				<li class='left'><a href='#' class='h5'>La fiche précédente</a></li>
+				<li class='right'><a href='#' class='h5'>La fiche suivante</a></li>
+			</ul>
+		</nav>
+
 		<main id='wrapper' role='main'>
 			
 			<header class='head section bg-yellow'>
@@ -27,25 +34,28 @@
 						<strong class='sup-title'>Atelier de teambuilding par le théatre</strong>
 						<h1 class='animTxt'>On se connait ?</h1>
 						<strong class='sup-title'>Cohésion, expression | 3h | 8 - 15 participants</strong>
-						<a href='#' class='btn btn-download'>La fiche complète</a>
 						<div class='img-presta'>
 							<img src='img/nana.png'>
 							<h2>La cohésion de l'équipe est impeccacle !</h2>
 						</div>
+						<a href='#' class='btn btn-download'>La fiche complète</a>
 					</div>
 				</div>
 			</header>
 
 			<article class='page-content container' id='page-content'>
 				<aside class='presta-sidebar'>
-					<span>Cible</span>
-					<p>Managers, collaborateurs de différents services, sites ou régions. Comités de direction.</p>
-					<span>Durée</span>
-					<p>3h d'atelier.</p>
-					<span>Lieu</span>
-					<p>Interne à l'entreprise ou dans un de nos théatres partenaires.</p>
-					<span>Numérus Clausus</span>
-					<p>Entre 8 et 15 participants par coach.<br>Nous disposons d'une équipe de 10 coachs.</p>
+					<div>
+						<span>Cible</span>
+						<p>Managers, collaborateurs de différents services, sites ou régions. Comités de direction.</p>
+						<span>Durée</span>
+						<p>3h d'atelier.</p>
+					</div><div>
+						<span>Lieu</span>
+						<p>Interne à l'entreprise ou dans un de nos théatres partenaires.</p>
+						<span>Numérus Clausus</span>
+						<p>Entre 8 et 15 participants par coach.<br>Nous disposons d'une équipe de 10 coachs.</p>
+					</div>
 					<a href='#' class='btn btn-right'>Demande de devis</a>
 				</aside><div class='presta-content'>
 					<h3>Objectifs</h3>

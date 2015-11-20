@@ -25,6 +25,7 @@ var firstAnimSlider = false,
 	splitTlAnimTxt = [], decalTxt = '+=60',
 	animsTxt, windowHeight = window.innerHeight,
 	windowWidth = window.innerWidth,
+	fixedMenuStep = document.getElementById('fixedMenuStep'),
 	fixedMenu = document.getElementById('fixedMenu'),
 	prestaSectionAteliers = document.getElementById('ateliers'),
 	prestaSectionInterventions = document.getElementById('interventions'),
@@ -336,8 +337,7 @@ function setSentences(container){
 		cisorsLeft = parseInt(getStyle(cisors, 'left')),
 		containerHeight = container.offsetHeight,
 		containerWidth = container.offsetWidth,
-		limitTop = cisorsTop,
-		limitLeft = cisorsLeft,
+		limitTop = cisorsTop, limitLeft = cisorsLeft,
 		limitRight = containerWidth - 25,
 		limitBottom = containerHeight - 28,
 		cisorsMaxLeft = containerWidth + 24,
@@ -506,10 +506,10 @@ function animMenuScroll(){
 	}
 }
 
-function animFixedMenu(){
+function animFixedMenuStep(){
 	if(myScroll > 200 && myScroll + windowHeight < htmlTag.offsetHeight){
-		var links = fixedMenu.querySelectorAll('li');
-		TweenLite.to(fixedMenu, 0.3, {bottom: 0});
+		var links = fixedMenuStep.querySelectorAll('li');
+		TweenLite.to(fixedMenuStep, 0.3, {bottom: 0});
 		/*if(myScroll >= prestaSectionAteliers.offsetTop + prestaSectionAteliers.offsetHeight){
 			if(myScroll >= prestaSectionInterventions.offsetTop + prestaSectionInterventions.offsetHeight){
 				if(!hasClass(fixedMenu, 'step3')){
@@ -540,31 +540,35 @@ function animFixedMenu(){
 		}*/
 		if(myScroll >= prestaSectionAteliers.offsetTop){
 			if(myScroll >= prestaSectionInterventions.offsetTop){
-				if(!hasClass(fixedMenu, 'step3')){
+				if(!hasClass(fixedMenuStep, 'step3')){
 					TweenLite.set(links[0], {css: {className: 'up'}});
 					TweenLite.set(links[1], {css: {className: 'right up'}});
 
-					TweenLite.set(fixedMenu, {css: {className: 'second-menu step3'}});
+					TweenLite.set(fixedMenuStep, {css: {className: 'second-menu step3'}});
 				}
 			}else{
-				if(!hasClass(fixedMenu, 'step2')){
+				if(!hasClass(fixedMenuStep, 'step2')){
 					TweenLite.set(links[0], {css: {className: 'up'}});
 					TweenLite.set(links[1], {css: {className: 'right down'}});
 
-					TweenLite.set(fixedMenu, {css: {className: 'second-menu step2'}});
+					TweenLite.set(fixedMenuStep, {css: {className: 'second-menu step2'}});
 				}
 			}
 		}else{
-			if(!hasClass(fixedMenu, 'step1')){
+			if(!hasClass(fixedMenuStep, 'step1')){
 				TweenLite.set(links[0], {css: {className: 'down'}});
 				TweenLite.set(links[1], {css: {className: 'right down'}});
 
-				TweenLite.set(fixedMenu, {css: {className: 'second-menu step1'}});
+				TweenLite.set(fixedMenuStep, {css: {className: 'second-menu step1'}});
 			}
 		}
 	}else{
-		TweenLite.to(fixedMenu, 0.3, {bottom: '-70px'});
+		TweenLite.to(fixedMenuStep, 0.3, {bottom: '-70px'});
 	}
+}
+
+function animFixedMenu(){
+	myScroll > 200 && myScroll + windowHeight < htmlTag.offsetHeight ? TweenLite.to(fixedMenu, 0.3, {bottom: 0}) : TweenLite.to(fixedMenu, 0.3, {bottom: '-70px'});
 }
 
 function setPrestaSlider(slider){
@@ -663,6 +667,9 @@ window.onscroll = function(e){
 
 		if(!firstAnimSlider)
 			animFirstSlide();
+
+		if(fixedMenuStep !== null)
+			animFixedMenuStep();
 
 		if(fixedMenu !== null)
 			animFixedMenu();

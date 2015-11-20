@@ -19,7 +19,7 @@
 		
 		<?php include_once('includes/header.php'); ?>
 
-		<nav role='navigation' class='second-menu' id='fixedMenu'>
+		<nav role='navigation' class='second-menu' id='fixedMenuStep'>
 			<ul>
 				<!--<li class='left up hide'><a href='#ateliers' class='h5 scrollTo'>Les ateliers super</a></li>
 				<li class='left down'><a href='#interventions' class='h5 scrollTo'>Les interventions spectaculaires</a></li>

@@ -218,6 +218,52 @@ button{
         border-color: darken(@purple, 10%);
         color: #fff;
     }
+    &.btn-down, &.btn-right, &.btn-download{
+        padding-left: 35px;
+        position: relative;
+        &:before{
+            display: block;
+            .size(18px);
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 12px;
+            margin: auto;
+            &:extend(.icomoon);
+            font-size: 18px;
+        }
+    }
+    &.btn-down{
+        &:before{
+            content: '\e805';
+            transition: top @transition;
+        }
+        &:hover, &:focus{
+            &:before{
+                top: 5px;
+            }
+        }
+    }
+    &.btn-right{
+        &:before{
+            content: '\e806';
+            transition: left @transition;
+        }
+        &:hover, &:focus{
+            &:before{
+                left: 15px;
+            }
+        }
+    }
+    &.btn-download{
+        padding-left: 45px;
+        &:before{
+            content: '\e905';
+            .size(22px);
+            top: -2px;
+            font-size: 22px;
+        }
+    }
     .section &{
         color: #fff;
         &:hover, &:focus{
@@ -262,43 +308,6 @@ button{
         &:active{
             background: darken(@pink, 10%);
             border-color: darken(@pink, 10%);
-        }
-    }
-    &.btn-down, &.btn-right{
-        padding-left: 35px;
-        position: relative;
-        &:before{
-            display: block;
-            .size(18px);
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 12px;
-            margin: auto;
-            &:extend(.icomoon);
-            font-size: 18px;
-        }
-    }
-    &.btn-down{
-        &:before{
-            content: '\e805';
-            transition: top @transition;
-        }
-        &:hover, &:focus{
-            &:before{
-                top: 5px;
-            }
-        }
-    }
-    &.btn-right{
-        &:before{
-            content: '\e806';
-            transition: left @transition;
-        }
-        &:hover, &:focus{
-            &:before{
-                left: 15px;
-            }
         }
     }
 }
@@ -512,6 +521,7 @@ button{
     bottom: -70px;
     z-index: 12;
     overflow: hidden;
+    background: @yellow;
     ul{
         &:extend(.reset-ul all);
         width: 730px;
@@ -550,14 +560,37 @@ button{
             }*/
         }
     }
+    &.nav-single{
+        li{
+            &.left{
+                a{
+                    &:before{
+                        content: '\e900';
+                    }
+                }
+            }
+            &.right{
+                a{
+                    &:after{
+                        content: '\e806';
+                    }
+                }
+            }
+        }
+    }
     a{
         text-decoration: none;
-        &:before{
+        &:before, &:after{
             position: absolute;
-            left: -30px;
             &:extend(.icomoon);
             font-size: 35px;
             line-height: 70px;
+        }
+        &:before{
+            left: -30px;
+        }
+        &:after{
+            right: -30px;
         }
     }
     .isMobile &{
@@ -1616,10 +1649,6 @@ _:-ms-input-placeholder, .slider{
         position: relative;
         z-index: 1;
     }
-    .second-menu{
-        background: @yellow;
-        //border-color: #ffd140;
-    }
     .section:not(.head){
         .container{
             min-height: 680px;
@@ -1755,11 +1784,11 @@ _:-ms-input-placeholder, .slider{
 .single-presta{
     h1{
         max-width: 850px;
-        padding: 0 0 0 325px;
+        padding: 0 0 0 310px;
         color: @purple;
     }
     .head{
-        min-height: 700px;
+        min-height: 550px;
         max-height: 810px;
         padding-bottom: 0;
         text-align: left;
@@ -1769,42 +1798,30 @@ _:-ms-input-placeholder, .slider{
             padding: 0;
         }
         .container{
-            padding: 55px 0 0;
+            padding-top: 55px;
+            /*min-height: 550px;
+            max-height: 810px;
+            height: 90vh;*/
             height: 100%;
         }
         .sup-title{
-            padding: 0 0 0 325px;
-        }
-        .img-presta{
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            img{
-                display: inline-block;
-            }
-        }
-        h2{
-            display: inline-block;
-            width: 250px;
-            height: 224px;
-            padding: 67px 35px 50px 55px;
-            margin: 0 0 0 -100px;
-            background: url(../layoutImg/bulle2.png) no-repeat 100% 0;
-            .marker(1em);
-            line-height: 1.6em;
-            text-align: center;
-            color: @purple;
+            padding: 0 0 0 310px;
         }
         .btn{
             position: absolute;
-            right: 0;
+            right: 130px;
             bottom: 20px;
+            background: @yellow;
+            &:hover, &:focus{
+                background: #fff;
+            }
         }
         .back-link{
             position: absolute;
             left: 4%;
+            top: 100px;
             margin: 0 0 0 180px;
-            top: 110px;
+            z-index: 2;
         }
     }
     .page-content{
@@ -1817,6 +1834,32 @@ _:-ms-input-placeholder, .slider{
         }
     }
 }
+
+.img-presta{
+    width: 580px;
+    max-width: 100%;
+    position: absolute;
+    left: 130px;
+    bottom: 0;
+    img{
+        display: inline-block;
+        width: 72%;
+    }
+    h2{
+        display: inline-block;
+        width: 43%;
+        height: 224px;
+        padding: 67px 35px 50px 55px;
+        margin: 0 0 0 -100px;
+        background: url(../layoutImg/bulle2.png) no-repeat 100% 0;
+        background-size: 100%;
+        .marker(1em);
+        line-height: 1.6em;
+        text-align: center;
+        color: @purple;
+    }
+}
+
 .presta-sidebar{
     display: inline-block;
     width: 25%;
@@ -1824,12 +1867,15 @@ _:-ms-input-placeholder, .slider{
     padding: 10px 0 0;
     margin: 1.5em 15% 0 0;
     span{
-        margin: 0 0 0 30px;
+        position: relative;
         border-bottom: 1px dashed @purple;
+        margin: 0 0 0 30px;
         .geomanistBold(1em);
         &:before{
             display: block;
             position: absolute;
+            top: 0;
+            left: -30px;
             font-size: 20px;
             color: @purple;
             &:extend(.icomoon);

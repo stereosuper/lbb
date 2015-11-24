@@ -14,7 +14,7 @@
 	  	<script src='js/modernizr.min.js'></script>
 	</head>
 
-	<body class='single-presta'>
+	<body class='single-prestation'>
 		
 		<?php include_once('includes/header.php'); ?>
 
@@ -32,7 +32,7 @@
 				<div class='section-cell'>
 					<div class='container'>
 						<strong class='sup-title'>Atelier de teambuilding par le théatre</strong>
-						<h1 class='animTxt'>On se connait ?</h1>
+						<h1>On se connait ?</h1>
 						<strong class='sup-title'>Cohésion, expression | 3h | 8 - 15 participants</strong>
 						<div class='img-presta'>
 							<img src='img/nana.png'>

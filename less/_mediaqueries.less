@@ -20,6 +20,19 @@
     #main-menu{
         right: 0;
     }
+
+    .single-prestation{
+        h1{
+            &.small{
+                padding: 0 0 0 110px;
+            }
+        }
+        .head{
+            .back-link{
+                margin: 0 0 0 125px;
+            }
+        }
+    }
 }
 
 @media (max-width: 1260px){
@@ -43,11 +56,12 @@
 
     .presta-list{
         .title{
+            height: 47px;
             font-size: 1.3em;
         }
     }
 
-    .single-presta{
+    .single-prestation{
         h1, .head .sup-title{
             padding: 0 0 0 220px;
         }
@@ -91,7 +105,7 @@
         }
     }
 
-    .single-presta{
+    .single-prestation{
         .head{
             .back-link{
                 left: 0;
@@ -116,8 +130,16 @@
 
     .presta-list{
         .hover{
-            top: 77%;
+            top: 67%;
             font-size: .9em;
+        }
+    }
+
+    .single-prestation{
+        h1{
+            &.small{
+                font-size: 2.4em;
+            }
         }
     }
 }
@@ -163,7 +185,7 @@
 
     .presta-list{
         .hover{
-            top: 79%;
+            top: 69%;
             font-size: .95em;
         }
     }
@@ -263,10 +285,14 @@
         }
     }
 
-    .single-presta{
+    .single-prestation{
         .head{
             min-height: 660px;
+            position: relative;
             text-align: center;
+            .section-cell{
+                top: 140px;
+            }
             .container{
                 padding-top: 5px;
             }
@@ -279,8 +305,11 @@
                 max-width: 600px;
             }
             .back-link{
-                top: 50px;
+                top: 50px !important;
             }
+        }
+        .page-content{
+            margin-top: 0 !important;
         }
     }
 
@@ -387,7 +416,7 @@
             }*/
         }
         .hover{
-            top: 81%;
+            top: 72%;
         }
     }
 
@@ -488,7 +517,7 @@
         display: block;
         width: 100%;
     }
-    .single-presta{
+    .single-prestation{
         .page-content{
             ul{
                 padding: 0 0 0 20px;
@@ -567,7 +596,7 @@
             }
         }
         .hover{
-            top: 85%;
+            top: 76%;
         }
     }
 
@@ -578,7 +607,7 @@
         }
     }
 
-    .single-presta{
+    .single-prestation{
         .head{
             .container{
                 padding-top: 20px;
@@ -687,15 +716,18 @@
         padding-top: 100px;
     }
 
-    .single-presta{
+    .single-prestation{
         .head{
             .back-link{
                 display: none;
             }
+            .section-cell{
+                top: 100px;
+            }
         }
     }
 
-    .single-presta{
+    .single-prestation{
         .head{
             min-height: 600px;
             .container{
@@ -770,6 +802,27 @@
 
 
 
+/*@media(min-height: 940px){
+    .single-prestation{
+        .head{
+            .btn{
+                top: 735px;
+            }
+        }
+    }
+}*/
+
+@media(max-height: 960px){
+    .single-prestation{
+        .head{
+            height: 680px;
+        }
+        .page-content{
+            margin-top: 680px;
+        }
+    }
+}
+
 @media(max-height: 850px){
     .bullshitBtn{
         &.top-left, &.top-center, &.top-right{
@@ -779,9 +832,34 @@
             bottom: 10vh;
         }
     }
+
+    .single-prestation{
+        .head{
+            height: 580px;
+        }
+        .page-content{
+            margin-top: 580px;
+        }
+    }
+
+    .img-presta{
+        width: 515px;
+        bottom: -50px;
+    }
 }
 
-@media(max-height: 700px), (max-height: 820px) and (max-width: 979px){
+@media(max-height: 800px){
+    .single-prestation{
+        .head{
+            position: relative;
+        }
+        .page-content{
+            margin-top: 0 !important;
+        }
+    }
+}
+
+@media(max-height: 960px) and (max-width: 979px){
     .img-presta{
         width: 515px;
         bottom: -50px;
@@ -810,7 +888,7 @@
             line-height: 50px;
         }
         a{
-            &:before{
+            &:before, &:after{
                 line-height: 50px;
             }
         }

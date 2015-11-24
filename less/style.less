@@ -842,7 +842,7 @@ _:-ms-input-placeholder, .slider{
     .hover{
         display: block;
         padding: 10px;
-        top: 80%;
+        top: 68%;
         bottom: 12px;
         left: 12px;
         right: 12px;
@@ -858,9 +858,15 @@ _:-ms-input-placeholder, .slider{
         transition: color @transition;
     }
     .title{
-        display: block;
+        display: table;
+        width: 100%;
+        height: 60px;
         .geomanistBold(1.67em);
         line-height: 1em;
+        span{
+            display: table-cell;
+            vertical-align: middle;
+        }
     }
     .cat{
         display: block;
@@ -1010,6 +1016,11 @@ _:-ms-input-placeholder, .slider{
     .klinic(.78em);
 }
 
+.chapeau{
+    margin-bottom: 3em;
+    .klinicIt(1.3em);
+}
+
 .table{
     display: table;
     width: 100%;
@@ -1076,7 +1087,7 @@ _:-ms-input-placeholder, .slider{
     &.moustache{
         background-image: url(../layoutImg/_logo-moustache.png);
     }
-    .purple &, .no-js .page-template-default &, .no-js .single &{
+    .purple &, .no-js .page-template-default &, .no-js .single &, .no-img.single:not(.single-prestation) &, .no-img.page-template-default &{
         background: url(../layoutImg/logo-rose-small.png) no-repeat;
         background-position: 50% 50% !important;
         background-size: 120px;
@@ -1107,7 +1118,7 @@ _:-ms-input-placeholder, .slider{
             opacity: 1;
         }
     }
-    &.purple, .no-js .page-template-default &, .no-js .single &{
+    &.purple, .no-js .page-template-default &, .no-js .single &, .no-img.single:not(.single-prestation) &, .no-img.page-template-default &{
         a{
             color: @purple;
         }
@@ -1237,7 +1248,7 @@ _:-ms-input-placeholder, .slider{
     overflow: hidden;
     color: @grey;
     > div{
-        .page-template-default &, .single &, .single-presta &{
+        .page-template-default &, .single &, .single-prestation &{
             border-top: 2px solid #e9e9e9;
             padding: 30px 0 0;
         }
@@ -1377,7 +1388,7 @@ _:-ms-input-placeholder, .slider{
             padding-bottom: 0;
         }
     }
-    .page-template-default &{
+    .page-template-default &, .single &{
         height: 75vh;
     }
     .img{
@@ -1394,6 +1405,13 @@ _:-ms-input-placeholder, .slider{
     .fd{
         &:extend(.bg-mauve);
         opacity: .3;
+    }
+    .no-img.single:not(.single-prestation) &, .no-img.page-template-default &{
+        color: @purple;
+        background: url(../layoutImg/texture-black.png) 50% 50% fixed;
+        .fd{
+            display: none;
+        }
     }
 }
 
@@ -1631,7 +1649,7 @@ _:-ms-input-placeholder, .slider{
     background-position: 0 100%;
     opacity: 0;
     transition: opacity .3s ease-in-out .1s;
-    &.on, .no-js &, .isMobile &{
+    &.on, .no-js &, .isMobile &, .blog &{
         opacity: 1;
     }
     .isMobile &{
@@ -1781,21 +1799,33 @@ _:-ms-input-placeholder, .slider{
 
 /******* SINGLE PRESTA *******/
 
-.single-presta{
+.single-prestation{
     h1{
         max-width: 850px;
         padding: 0 0 0 310px;
         color: @purple;
+        &.small{
+            max-width: 700px;
+            padding: 0 0 0 150px;
+            font-size: 2.7em;
+        }
     }
     .head{
-        min-height: 550px;
-        max-height: 810px;
+        /*min-height: 550px;
+        max-height: 810px;*/
+        height: 780px;
         padding-bottom: 0;
+        position: fixed;
+        z-index: 2;
         text-align: left;
         .section-cell{
-            height: 100%;
             display: block;
+            width: 100%;
             padding: 0;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            overflow: hidden;
         }
         .container{
             padding-top: 55px;
@@ -1811,20 +1841,30 @@ _:-ms-input-placeholder, .slider{
             position: absolute;
             right: 130px;
             bottom: 20px;
+            /*position: fixed;
+            top: 78vh;
+            bottom: auto;
+            right: 8%;
+            margin: 0 180px 0 0;*/
             background: @yellow;
+            transition: background @transition, color @transition, border @transition;
             &:hover, &:focus{
                 background: #fff;
             }
         }
         .back-link{
             position: absolute;
+            //position: fixed;
             left: 4%;
             top: 100px;
             margin: 0 0 0 180px;
             z-index: 2;
+            transition: color @transition;
         }
     }
     .page-content{
+        //margin-top: 80vh;
+        margin-top: 780px;
         h2, h3, h4, h5, h6, ul, p{
             padding-left: 0;
             padding-right: 0;
@@ -1857,6 +1897,9 @@ _:-ms-input-placeholder, .slider{
         line-height: 1.6em;
         text-align: center;
         color: @purple;
+        .lt-ie8 &{
+            width: 28%;
+        }
     }
 }
 
@@ -1912,6 +1955,51 @@ _:-ms-input-placeholder, .slider{
 .presta-content{
     display: inline-block;
     width: 60%;
+}
+
+
+
+/******* BLOG *******/
+
+.single{
+    .head{
+        .sup-title{
+            a{
+                color: #fff;
+                &:hover, &:focus{
+                    opacity: .7;
+                }
+            }
+        }
+    }
+}
+
+.post{
+    margin: 0 0 50px;
+    .img{
+        display: inline-block;
+        width: 32%;
+    }
+    .content{
+        display: inline-block;
+        width: 65%;
+        margin: 0 0 0 3%;
+        vertical-align: top;
+        h2, p{
+            padding: 0;
+            a{
+                text-decoration: none;
+            }
+        }
+        h2{
+            margin: 0;
+        }
+        p{
+            a{
+                color: @txt;
+            }
+        }
+    }
 }
 
 

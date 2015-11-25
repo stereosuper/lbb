@@ -164,6 +164,18 @@ blockquote{
 
 
 
+
+/******* FORMULAIRES *******/
+
+input{
+    padding: 6px 12px;
+    border: 0;
+    background: #fff;
+}
+
+
+
+
 /******* LIENS / BOUTONS *******/
 
 a, button{
@@ -453,6 +465,11 @@ button{
     &.on{
         opacity: 0;
     }
+}
+
+.big-container{
+    padding: 18px 5%;
+    position: relative;
 }
 
 .section{
@@ -1248,7 +1265,7 @@ _:-ms-input-placeholder, .slider{
     overflow: hidden;
     color: @grey;
     > div{
-        .page-template-default &, .single &, .single-prestation &{
+        .page-template-default &, .single &, .single-prestation &, .blog &{
             border-top: 2px solid #e9e9e9;
             padding: 30px 0 0;
         }
@@ -1388,7 +1405,7 @@ _:-ms-input-placeholder, .slider{
             padding-bottom: 0;
         }
     }
-    .page-template-default &, .single &{
+    .page-template-default &, .single &, .blog &{
         height: 75vh;
     }
     .img{
@@ -1961,7 +1978,7 @@ _:-ms-input-placeholder, .slider{
 
 /******* BLOG *******/
 
-.single{
+.single:not(.no-img){
     .head{
         .sup-title{
             a{
@@ -1975,7 +1992,7 @@ _:-ms-input-placeholder, .slider{
 }
 
 .post{
-    margin: 0 0 50px;
+    margin: 0 0 60px;
     .img{
         display: inline-block;
         width: 32%;
@@ -2000,6 +2017,99 @@ _:-ms-input-placeholder, .slider{
             }
         }
     }
+    .sup-title{
+        a{
+            color: @txt;
+            &:hover, &:focus{
+                color: @purple;
+            }
+        }
+    }
+    &:first-of-type{
+        h2{
+            font-size: 2.8em;
+        }
+        .img{
+            width: 47%;
+        }
+        .content{
+            width: 50%;
+        }
+    }
+}
+
+.nav-blog{
+    &:extend(.second-menu);
+    background: @pink;
+    a, p, button{
+        color: #fff;
+    }
+}
+
+.search{
+    width: 220px;
+    position: relative;
+    float: left;
+    input{
+        &:not([type=submit]){
+            width: 100%;
+        }
+        &[type=submit]{
+            height: 100%;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+    }
+}
+
+.share{
+    width: 105px;
+    position: absolute;
+    top: 6px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    p{
+        margin: 0 0 5px;
+        .klinicIt(.9em);
+    }
+    ul{
+        &:extend(.reset-ul all);
+    }
+    li{
+        display: inline-block;
+        &:nth-child(2){
+            margin: 0 7px;
+        }
+    }
+    a{
+        display: block;
+        width: 30px;
+        height: 30px;
+        border: 3px solid #fff;
+        font-size: 14px;
+        line-height: 26px;
+        text-decoration: none;
+        &:before{
+            display: inline-block;
+            transform-origin: 50% 50%;
+            transition: transform @transition;
+        }
+        &:hover, &:focus{
+            background: #fff;
+            color: @pink;
+            &:before{
+                transform: scale(1.3);
+            }
+        }
+    }
+}
+
+.cats-btn{
+    float: right;
+    .geomanistBold(1.1em);
 }
 
 

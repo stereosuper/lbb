@@ -1003,6 +1003,20 @@ function init(){
 	}
 
 
+	var catsBtn = document.getElementById('catsBtn');
+	if(catsBtn !== null){
+		var catsMenu = catsBtn.closest('#fixedMenu'), closeCats = document.getElementById('closeCats');
+		addEventListener(catsBtn, 'click', function(){
+			hasClass(catsMenu, 'cats-visible') ? TweenLite.set(catsMenu, {css: {className: '-=cats-visible'}}) : TweenLite.set(catsMenu, {css: {className: '+=cats-visible'}});
+		});
+		addEventListener(closeCats, 'click', function(){
+			if(hasClass(catsMenu, 'cats-visible')){
+				TweenLite.set(catsMenu, {css: {className: '-=cats-visible'}});
+			}
+		});
+	}
+
+
 	var scrollToBtn = document.querySelectorAll('.scrollTo');
 	if(scrollToBtn.length && !isMobile.windows.phone){
 		var i = 0, nbBtn = scrollToBtn.length;

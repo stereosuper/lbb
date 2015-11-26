@@ -19,12 +19,12 @@
 /* @group General */
 
 ::-moz-selection{ 
-	background: #000;  
+	background: @purple;  
 	color: #fff;
 	text-shadow: none; 
 }
 ::selection{ 
-	background: #000;  
+	background: @purple;  
 	color: #fff; 
 	text-shadow: none; 
 }
@@ -112,10 +112,14 @@ em, i{
 ol, ul{
     margin: 5em 0;
     padding: 0 0 0 20px;
+    li{
+        margin: .8em 0;
+    }
+}
+ul{
     list-style: none;
     li{
         position: relative;
-        margin: .8em 0;
         &:before{
             position: absolute;
             left: -20px;
@@ -171,6 +175,25 @@ input{
     padding: 6px 12px;
     border: 0;
     background: #fff;
+    color: @purple;
+    transition: @transition;
+    &:focus{
+        outline: @purple auto 3px;
+    }
+}
+
+button{
+    color: #8b8b8b;
+    transition: @transition;
+    &:focus, &:hover{
+        color: @pink;
+    }
+    &:focus{
+        outline: 0;
+    }
+    &:active{
+        color: @purple;
+    }
 }
 
 
@@ -178,7 +201,7 @@ input{
 
 /******* LIENS / BOUTONS *******/
 
-a, button{
+a{
     color: @purple;
     transition: @transition;
     &:focus, &:hover{
@@ -771,7 +794,7 @@ _:-ms-input-placeholder, .slider{
         &:first-child{
             margin: 0 4.54% 4.44% 0;
         }
-        &.last{
+        &:last-child{
             margin: 0 0 0 4.54%;
         }
     }
@@ -939,7 +962,9 @@ _:-ms-input-placeholder, .slider{
     button{
         .geomanistBold(1em);
         border-bottom: 2px solid @purple;
+        color: @purple;
         &:hover, &:focus{
+            color: @pink;
             border-color: @pink;
         }
         &.actif{
@@ -1200,6 +1225,9 @@ _:-ms-input-placeholder, .slider{
         background: #fff;
         border-radius: 70px;
         transition: @transition;
+        .no-img.single:not(.single-prestation) &, .no-img.page-template-default &{
+            background: @purple;
+        }
     }
     .b1{
         top: 0;
@@ -1216,6 +1244,9 @@ _:-ms-input-placeholder, .slider{
         top: -3px;
         left: -52px;
         transition: .3s all .05s ease-in-out;
+        .no-img.single:not(.single-prestation) &, .no-img.page-template-default &{
+            color: @purple;
+        }
     }
     &:hover{
         opacity: .8;
@@ -1265,7 +1296,7 @@ _:-ms-input-placeholder, .slider{
     overflow: hidden;
     color: @grey;
     > div{
-        .page-template-default &, .single &, .single-prestation &, .blog &{
+        .page-template-default &, .single &, .single-prestation &, .blog &, .archive &, .search &{
             border-top: 2px solid #e9e9e9;
             padding: 30px 0 0;
         }
@@ -1405,7 +1436,7 @@ _:-ms-input-placeholder, .slider{
             padding-bottom: 0;
         }
     }
-    .page-template-default &, .single &, .blog &{
+    .page-template-default &, .single &, .blog &, .archive &, .search &{
         height: 75vh;
     }
     .img{
@@ -1440,7 +1471,7 @@ _:-ms-input-placeholder, .slider{
     p{
         padding: 0 75px;
     }
-    h2, h3, h4, h5, h6, ul{
+    h2, h3, h4, h5, h6, ul, ol{
         padding: 0 155px;
     }
     h2{
@@ -1666,7 +1697,7 @@ _:-ms-input-placeholder, .slider{
     background-position: 0 100%;
     opacity: 0;
     transition: opacity .3s ease-in-out .1s;
-    &.on, .no-js &, .isMobile &, .blog &{
+    &.on, .no-js &, .isMobile &, .blog &, .archive &, .search &{
         opacity: 1;
     }
     .isMobile &{
@@ -1882,11 +1913,11 @@ _:-ms-input-placeholder, .slider{
     .page-content{
         //margin-top: 80vh;
         margin-top: 780px;
-        h2, h3, h4, h5, h6, ul, p{
+        h2, h3, h4, h5, h6, ul, ol, p{
             padding-left: 0;
             padding-right: 0;
         }
-        ul, p{
+        ul, p, ol{
             margin: 1em 0 3em;
         }
     }
@@ -1993,15 +2024,30 @@ _:-ms-input-placeholder, .slider{
 
 .post{
     margin: 0 0 60px;
-    .img{
-        display: inline-block;
-        width: 32%;
+    &.has-img{
+        .img{
+            display: inline-block;
+            width: 32%;
+        }
+        .content{
+            display: inline-block;
+            width: 65%;
+            margin: 0 0 0 3%;
+            vertical-align: top;
+        }
+        &:first-of-type{
+            .img{
+                width: 47%;
+            }
+            .content{
+                width: 50%;
+            }
+        }
+    }
+    img{
+        width: 100%;
     }
     .content{
-        display: inline-block;
-        width: 65%;
-        margin: 0 0 0 3%;
-        vertical-align: top;
         h2, p{
             padding: 0;
             a{
@@ -2018,6 +2064,7 @@ _:-ms-input-placeholder, .slider{
         }
     }
     .sup-title{
+        line-height: 1.2em;
         a{
             color: @txt;
             &:hover, &:focus{
@@ -2029,54 +2076,88 @@ _:-ms-input-placeholder, .slider{
         h2{
             font-size: 2.8em;
         }
-        .img{
-            width: 47%;
-        }
-        .content{
-            width: 50%;
-        }
     }
 }
 
 .nav-blog{
     &:extend(.second-menu);
     background: @pink;
-    a, p, button{
+    transition: height @transition;
+    a, p{
         color: #fff;
+    }
+    &.cats-visible{
+        height: 155px;
+        transition: .4s height @transition;
+        .searchform, .share{
+            width: 0;
+            opacity: 0;
+            transition: opacity @transition, .2s width 0s linear;
+        }
+        .cats-container{
+            left: 5%;
+            margin-left: 0;
+            transition: @transition;
+        }
+        .cats-btn{
+            .geomanist(1.1em);
+            text-decoration: none;
+            &:after{
+                display: none;
+            }
+        }
+        .cats{
+            opacity: 1;
+        }
+    }
+    .share{
+        display: block;
+        width: 105px;
+        position: absolute;
+        top: 6px;
+        left: 90px;
+        right: 0;
+        margin: auto;
     }
 }
 
-.search{
+.searchform{
     width: 220px;
     position: relative;
     float: left;
+    transition: .4s opacity @transition;
     input{
-        &:not([type=submit]){
-            width: 100%;
-        }
-        &[type=submit]{
+        width: 100%;
+    }
+    button{
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        overflow: hidden;
+        &:before{
+            content: '\e909';
+            display: block;
+            width: 34px;
             height: 100%;
-            position: absolute;
-            top: 0;
-            right: 0;
+            line-height: 34px;
+            &:extend(.icomoon);
         }
     }
 }
 
 .share{
-    width: 105px;
-    position: absolute;
-    top: 6px;
-    left: 0;
-    right: 0;
-    margin: auto;
+    display: none;
     text-align: center;
+    transition: .4s opacity @transition;
     p{
+        padding: 0 !important;
         margin: 0 0 5px;
         .klinicIt(.9em);
     }
     ul{
         &:extend(.reset-ul all);
+        padding: 0 !important;
     }
     li{
         display: inline-block;
@@ -2107,9 +2188,118 @@ _:-ms-input-placeholder, .slider{
     }
 }
 
+.cats-container{
+    width: 90%;
+    position: absolute;
+    top: 18px;
+    bottom: 18px;
+    left: 95%;
+    margin-left: -110px;
+    transition: .2s @transition;
+}
 .cats-btn{
-    float: right;
+    padding: 0 25px 0 0;
+    position: relative;
+    margin: 5px 0 0;
+    vertical-align: top;
     .geomanistBold(1.1em);
+    color: #fff;
+    text-decoration: underline;
+    &:after{
+        content: '\e806';
+        position: absolute;
+        top: 3px;
+        right: 0;
+        font-size: 25px;
+        &:extend(.icomoon);
+        text-decoration: none;
+    }
+    &:hover, &:focus{
+        color: @purple;
+    }
+}
+.cats{
+    display: inline-block;
+    width: 75%;
+    &:extend(.reset-ul all);
+    margin: 8px 0 0 2%;
+    opacity: 0;
+    transition: @transition;
+    li{
+        display: inline-block;
+        width: 25%;
+        height: 45px;
+        padding: 0 15px 0 0;
+        vertical-align: top;
+        margin: 0 0 15px;
+    }
+    a{
+        .geomanistBold(.9em);
+        &:hover, &:focus{
+            color: @purple;
+        }
+    }
+}
+.close-cats{
+    display: block;
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    top: 5px;
+    right: 0;
+    overflow: hidden;
+    color: #fff;
+    &:before{
+        content: '\e90a';
+        display: block;
+        font-size: 22px;
+        &:extend(.icomoon);
+    }
+    &:hover, &:focus{
+        transform: rotate(90deg);
+        color: @purple;
+    }
+}
+
+.pagination{
+    margin: 120px 0 0;
+    ul{
+        &:extend(.reset-ul all);
+        &:extend(.clearfix all);
+        padding: 0 !important;
+    }
+    a{
+        position: relative;
+        .geomanistBold(1.3em);
+        text-decoration: none;
+        &:before{
+            display: block;
+            font-size: 25px;
+            position: absolute;
+            top: 5px;
+            &:extend(.icomoon);
+        }
+    }
+    .next{
+        a{
+            padding: 0 0 0 10px;
+            float: left;
+            &:before{
+                content: '\e900';
+                left: -10px;
+            }
+        }
+    }
+    .prev{
+        a{
+            padding: 0 10px 0 0;
+            float: right;
+            &:before{
+                content: '\e806';
+                right: -10px;
+            }
+        }
+    }
 }
 
 

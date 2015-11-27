@@ -281,8 +281,8 @@ menu {
 }*/
 @font-face {
   font-family: 'icomoon';
-  src: url('../fonts/icomoon.eot?1b6ycd');
-  src: url('../fonts/icomoon.eot?1b6ycd#iefix') format('embedded-opentype'), url('../fonts/icomoon.woff2?1b6ycd') format('woff2'), url('../fonts/icomoon.ttf?1b6ycd') format('truetype'), url('../fonts/icomoon.woff?1b6ycd') format('woff'), url('../fonts/icomoon.svg?1b6ycd#icomoon') format('svg');
+  src: url('../fonts/icomoon.eot');
+  src: url('../fonts/icomoon.eot#iefix') format('embedded-opentype'), url('../fonts/icomoon.woff2') format('woff2'), url('../fonts/icomoon.ttf') format('truetype'), url('../fonts/icomoon.woff') format('woff'), url('../fonts/icomoon.svg#icomoon') format('svg');
 }
 [class^='icon-'],
 [class*=' icon-'],
@@ -416,6 +416,7 @@ h2,
 h3,
 .h3,
 h4,
+.h4,
 h5,
 .h5 {
   font-family: 'geomanist-bold', sans-serif;
@@ -464,7 +465,8 @@ h3,
   font-size: 2.2em;
   margin: 1em 0;
 }
-h4 {
+h4,
+.h4 {
   font-size: 1.8em;
   margin: 1.4em 0;
 }
@@ -554,16 +556,40 @@ blockquote p + p:before {
   content: '― ';
 }
 /******* FORMULAIRES *******/
-input {
+input,
+textarea {
   padding: 6px 12px;
-  border: 0;
+  border: 1px solid #565656;
   background: #fff;
-  color: #b5006a;
+  color: #565656;
   -webkit-transition: 0.15s ease-in-out;
           transition: 0.15s ease-in-out;
 }
-input:focus {
-  outline: #b5006a auto 3px;
+input:hover,
+textarea:hover {
+  border-color: #8b8b8b;
+}
+input:focus,
+textarea:focus {
+  border-color: #b5006a;
+  outline: 0;
+}
+input {
+  margin: 0 80px 35px 0;
+}
+input[type=text] {
+  width: 200px;
+}
+input[type=email],
+input[type=url] {
+  width: 250px;
+}
+textarea {
+  display: block;
+  width: 100%;
+  max-width: 760px;
+  height: 180px;
+  margin: 0 0 35px;
 }
 button {
   color: #8b8b8b;
@@ -578,6 +604,24 @@ button:focus {
   outline: 0;
 }
 button:active {
+  color: #b5006a;
+}
+label {
+  display: inline-block;
+  min-width: 110px;
+  margin: 10px 0;
+}
+label span {
+  color: #b5006a;
+}
+fieldset fieldset {
+  display: inline-block;
+  vertical-align: top;
+}
+.error {
+  max-width: 760px;
+  padding: 10px 20px;
+  border: 3px solid;
   color: #b5006a;
 }
 /******* LIENS / BOUTONS *******/
@@ -951,7 +995,8 @@ button {
 .presta-slider ul,
 .share ul,
 .cats,
-.pagination ul {
+.pagination ul,
+.commentlist {
   padding: 0;
   margin: 0;
 }
@@ -965,7 +1010,8 @@ button {
 .presta-slider ul li,
 .share ul li,
 .cats li,
-.pagination ul li {
+.pagination ul li,
+.commentlist li {
   margin: 0;
 }
 .reset-ul li:before,
@@ -978,7 +1024,8 @@ button {
 .presta-slider ul li:before,
 .share ul li:before,
 .cats li:before,
-.pagination ul li:before {
+.pagination ul li:before,
+.commentlist li:before {
   display: none;
 }
 .second-menu,
@@ -2587,6 +2634,14 @@ _:-ms-input-placeholder #prev:before,
 }
 .searchform input {
   width: 100%;
+  border-color: #fff;
+  color: #b5006a;
+}
+.searchform input:hover {
+  border-color: #8b8b8b;
+}
+.searchform input:focus {
+  border-color: #b5006a;
 }
 .searchform button {
   height: 100%;
@@ -2770,6 +2825,58 @@ _:-ms-input-placeholder #prev:before,
 .pagination .prev a:before {
   content: '\e806';
   right: -10px;
+}
+.comments {
+  margin: 100px 0 70px;
+}
+.comments h2 {
+  padding: 0 0 10px;
+  border-bottom: 1px dashed;
+}
+.comments .h4 {
+  color: #565656;
+}
+.commentform {
+  padding: 0 0 35px;
+}
+.commentlist {
+  max-width: 760px;
+}
+.commentlist li {
+  padding: 40px 0;
+  border-bottom: 1px dashed;
+}
+.commentlist li:first-child {
+  padding-top: 0;
+}
+.commentlist .img {
+  display: inline-block;
+  width: 62px;
+  height: 62px;
+  border: 1px solid transparent;
+  margin: 0 20px 10px 0;
+  overflow: hidden;
+  background: #d8d8d8;
+  border-radius: 100%;
+}
+.commentlist .content {
+  display: inline-block;
+  max-width: 660px;
+  vertical-align: top;
+}
+.commentmeta {
+  margin: 0;
+}
+.commentmeta a {
+  text-decoration: none;
+}
+.commentmeta i {
+  display: block;
+  font-size: .9em;
+  color: #8b8b8b;
+}
+.commentmeta + p {
+  margin: 20px 0 0;
 }
 /* @end */
 /* @end */
@@ -3074,7 +3181,8 @@ _:-ms-input-placeholder #prev:before,
   .h3 {
     font-size: 1.8em;
   }
-  h4 {
+  h4,
+  .h4 {
     font-size: 1.5em;
   }
   h5,
@@ -3083,6 +3191,9 @@ _:-ms-input-placeholder #prev:before,
   }
   h6 {
     font-size: 1em;
+  }
+  input {
+    margin: 0 50px 20px 0;
   }
   .page-content {
     font-size: .9em;
@@ -3506,16 +3617,18 @@ _:-ms-input-placeholder #prev:before,
     width: 100%;
   }
   .nav-blog {
-    height: 100px;
+    height: 115px;
   }
   .nav-blog.cats-visible .searchform {
+    width: 100%;
     opacity: 1;
   }
   .searchform {
+    width: 100%;
     float: none;
   }
   .cats-container {
-    margin: 55px 0 0;
+    margin: 65px 0 0;
   }
   .cats-btn {
     top: -50px;

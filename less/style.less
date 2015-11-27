@@ -51,7 +51,7 @@ body{
     }
 }
 
-h1, h2, .h2, h3, .h3, h4, h5, .h5{
+h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5{
     font-weight: normal;
     .geomanistBold(1em);
     line-height: 1em;
@@ -84,7 +84,7 @@ h3, .h3{
     font-size: 2.2em;
     margin: 1em 0;
 }
-h4{
+h4, .h4{
     font-size: 1.8em;
     margin: 1.4em 0;
 }
@@ -171,15 +171,37 @@ blockquote{
 
 /******* FORMULAIRES *******/
 
-input{
+input, textarea{
     padding: 6px 12px;
-    border: 0;
+    border: 1px solid @txt;
     background: #fff;
-    color: @purple;
+    color: @txt;
     transition: @transition;
-    &:focus{
-        outline: @purple auto 3px;
+    &:hover{
+        border-color: #8b8b8b;
     }
+    &:focus{
+        border-color: @purple;
+        outline: 0;
+    }
+}
+
+input{
+    margin: 0 80px 35px 0;
+    &[type=text]{
+        width: 200px;
+    }
+    &[type=email], &[type=url]{
+        width: 250px;
+    }
+}
+
+textarea{
+    display: block;
+    width: 100%;
+    max-width: 760px;
+    height: 180px;
+    margin: 0 0 35px;
 }
 
 button{
@@ -194,6 +216,29 @@ button{
     &:active{
         color: @purple;
     }
+}
+
+label{
+    display: inline-block;
+    min-width: 110px;
+    margin: 10px 0;
+    span{
+        color: @purple;
+    }
+}
+
+fieldset{
+    fieldset{
+        display: inline-block;
+        vertical-align: top;
+    }
+}
+
+.error{
+    max-width: 760px;
+    padding: 10px 20px;
+    border: 3px solid;
+    color: #b5006a;
 }
 
 
@@ -2128,6 +2173,14 @@ _:-ms-input-placeholder, .slider{
     transition: .4s opacity @transition;
     input{
         width: 100%;
+        border-color: #fff;
+        color: @purple;
+        &:hover{
+            border-color: #8b8b8b;
+        }
+        &:focus{
+            border-color: @purple;
+        }
     }
     button{
         height: 100%;
@@ -2299,6 +2352,60 @@ _:-ms-input-placeholder, .slider{
                 right: -10px;
             }
         }
+    }
+}
+
+.comments{
+    margin: 100px 0 70px;
+    h2{
+        padding: 0 0 10px;
+        border-bottom: 1px dashed;
+    }
+    .h4{
+        color: @txt;
+    }
+}
+.commentform{
+    padding: 0 0 35px;
+}
+.commentlist{
+    max-width: 760px;
+    &:extend(.reset-ul all);
+    li{
+        padding: 40px 0;
+        border-bottom: 1px dashed;
+        &:first-child{
+            padding-top: 0;
+        }
+    }
+    .img{
+        display: inline-block;
+        width: 62px;
+        height: 62px;
+        border: 1px solid transparent;
+        margin: 0 20px 10px 0;
+        overflow: hidden;
+        background: #d8d8d8;
+        border-radius: 100%;
+    }
+    .content{
+        display: inline-block;
+        max-width: 660px;
+        vertical-align: top;
+    }
+}
+.commentmeta{
+    margin: 0;
+    a{
+        text-decoration: none;
+    }
+    i{
+        display: block;
+        font-size: .9em;
+        color: #8b8b8b;
+    }
+    + p{
+        margin: 20px 0 0;
     }
 }
 

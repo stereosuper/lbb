@@ -29,6 +29,7 @@
 	text-shadow: none; 
 }
 
+
 html{
     font-size: 62.5%;
     &.menuOpen{
@@ -156,7 +157,7 @@ blockquote{
         padding: 0;
         margin: 20px 0;
         line-height: 1.4em;
-        + p{
+        + p:not(.by){
             font-size: .85em;
             &:before{
                 content: '― ';
@@ -171,7 +172,17 @@ blockquote{
 
 /******* FORMULAIRES *******/
 
-input, textarea{
+::-webkit-input-placeholder{
+    color: #8b8b8b;
+}
+::-moz-placeholder{
+    color: #8b8b8b;
+}
+:-ms-input-placeholder{
+    color: #8b8b8b;
+}
+
+input, textarea, select{
     padding: 6px 12px;
     border: 1px solid @txt;
     background: #fff;
@@ -607,6 +618,9 @@ button{
     z-index: 12;
     overflow: hidden;
     background: @yellow;
+    .lt-ie10 &{
+        bottom: 0 !important;
+    }
     ul{
         &:extend(.reset-ul all);
         width: 730px;
@@ -1228,7 +1242,7 @@ _:-ms-input-placeholder, .slider{
     }
     .sub-menu{
         display: none;
-        width: 110px;
+        width: 160px;
         margin: 0 0 20px;
         text-align: left;
         li{
@@ -2122,12 +2136,23 @@ _:-ms-input-placeholder, .slider{
             font-size: 2.8em;
         }
     }
+    &:hover{
+        .img, .content p a{
+            opacity: .8;
+        }
+        h2 a{
+            color: @pink;
+        }
+    }
 }
 
 .nav-blog{
     &:extend(.second-menu);
     background: @pink;
     transition: height @transition;
+    .lt-ie10 &{
+        bottom: 0 !important;
+    }
     a, p{
         color: #fff;
     }
@@ -2314,6 +2339,77 @@ _:-ms-input-placeholder, .slider{
     }
 }
 
+.isMobile{
+    .nav-blog{
+        position: relative;
+        bottom: 0 !important;
+        z-index: 0;
+        transition: none;
+        .single &{
+            border: 0;
+        }
+        &.cats-visible{
+            height: auto;
+            transition: none;
+            .searchform{
+                width: 220px;
+            }
+            .close-cats{
+                right: 0;
+                opacity: 1;
+            }
+        }
+        .share{
+            display: none;
+        }
+    }
+
+    .share{
+        display: block;
+        border-top: 2px dashed #d8d8d8;
+        border-bottom: 2px dashed #d8d8d8;
+        padding: 20px 0;
+        p{
+            font-size: 1.1em;
+        }
+    }
+
+    .searchform{
+        float: right;
+    }
+    
+    .cats{
+        display: block;
+        width: 100%;
+        margin: 0;
+        li{
+            display: block;
+            width: 100%;
+            height: auto;
+            padding: 0;
+            margin: 0 0 10px;
+        }
+    }
+    .cats-container{
+        position: relative;
+        width: 100%;
+        top: 0;
+        bottom: 0;
+        left: 0 !important;
+        margin: 60px 0 0;
+    }
+    .cats-btn{
+        position: absolute;
+        top: -60px;
+    }
+    .close-cats{
+        top: -55px;
+        right: -50px;
+        opacity: 0;
+        transition: transform @transition, opacity @transition;
+    }
+}
+
 .pagination{
     margin: 120px 0 0;
     ul{
@@ -2409,6 +2505,18 @@ _:-ms-input-placeholder, .slider{
     }
 }
 
+
+
+/******* CONTACT *******/
+
+.contactform{
+    label{
+        width: 140px;
+        padding: 0 10px 0 0;
+        vertical-align: middle;
+        text-align: right;
+    }
+}
 
 
 /* @end */

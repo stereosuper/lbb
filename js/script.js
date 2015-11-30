@@ -735,9 +735,6 @@ window.onscroll = function(e){
 			stPrestaHead = sectionPrestaHead.querySelectorAll('.sup-title'),
 			titlePrestaHead = sectionPrestaHead.querySelector('h1'),
 			btnPrestaHead = sectionPrestaHead.querySelector('.btn'),
-			/*ratio = windowHeight > 950 ? 0.1 : 0.11,
-			newMargin = windowHeight > 950 ? 55 : 65,
-			newTopBtn = windowHeight > 950 ? 9 : 9.5;*/
 			ratio = 0.8,
 			newMargin = windowHeight > 960 ? 550 : 450,
 			newTopBtn = 90,
@@ -751,22 +748,26 @@ window.onscroll = function(e){
 		detectScrollDir();
 
 		if(myScroll*ratio < newMargin){
-			TweenLite.set(prestaSingleHead, {marginTop: -myScroll*ratio+'px'});
+			TweenLite.set(prestaSingleHead, {y: -myScroll*ratio+'px'});
 			TweenLite.set(sectionPrestaHead, {paddingTop: myScroll*ratio+'px'});
+			TweenLite.set(pageContent, {y: (myScroll*ratio)/5+'px'});
 			if(btnPrestaHead !== null) TweenLite.set(btnPrestaHead, {bottom: 20+myScroll*ratio*0.11+'px'});
 			TweenLite.set(backPrestaHead, {top: 100+myScroll*ratio+'px'});
-			if(myScroll*ratio >= newMargin/2 && scrollDir < 0){
+			if(myScroll*ratio >= newMargin/5 && scrollDir < 0){
 				TweenLite.to(imgPrestaHead, 0.3, {opacity: 0});
+			}
+			if(myScroll*ratio >= newMargin/2 && scrollDir < 0){
 				TweenLite.to(stPrestaHead, 0.3, {opacity: 0});
 				TweenLite.set(titlePrestaHead, {css: {className: '+=small'}});
 			}else if(myScroll*ratio < newMargin/2 && scrollDir > 0){
-				TweenLite.to(imgPrestaHead, 0.3, {opacity: 1});
 				TweenLite.to(stPrestaHead, 0.3, {opacity: 1});
 				TweenLite.set(titlePrestaHead, {css: {className: '-=small'}});
+				TweenLite.to(imgPrestaHead, 0.3, {opacity: 1});
 			}
 		}else if(myScroll*ratio > newMargin){
-			TweenLite.set(prestaSingleHead, {marginTop: '-'+newMargin+'px'});
+			TweenLite.set(prestaSingleHead, {y: '-'+newMargin+'px'});
 			TweenLite.set(sectionPrestaHead, {paddingTop: newMargin+'px'});
+			TweenLite.set(pageContent, {y: '110px'});
 			if(btnPrestaHead !== null) TweenLite.set(btnPrestaHead, {bottom: newTopBtn+'px'});
 			TweenLite.set(backPrestaHead, {top: newTopBack+'px'});
 		}

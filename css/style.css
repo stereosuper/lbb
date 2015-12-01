@@ -1837,6 +1837,7 @@ _:-ms-input-placeholder #prev:before,
   color: #b5006a;
 }
 #phrase-creuse button {
+  color: #b5006a;
   font-size: .78em;
 }
 #phrase-creuse button span {
@@ -1847,6 +1848,10 @@ _:-ms-input-placeholder #prev:before,
   -webkit-transition: 0.15s ease-in-out;
   transition: 0.15s ease-in-out;
 }
+#phrase-creuse button:hover,
+#phrase-creuse button:focus {
+  color: #ff5fac;
+}
 #phrase-creuse button:hover span,
 #phrase-creuse button:focus span {
   -webkit-transform: rotate(360deg);
@@ -1854,6 +1859,9 @@ _:-ms-input-placeholder #prev:before,
           transform: rotate(360deg);
   -webkit-transition: -webkit-transform 0.4s ease-in-out;
           transition: transform 0.4s ease-in-out;
+}
+#phrase-creuse button:active {
+  color: #2ac0ce;
 }
 .no-js #phrase-creuse button {
   display: none;

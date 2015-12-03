@@ -101,6 +101,10 @@ h6{
 p{
     margin: 1.8em 0;
     line-height: 1.25em;
+    &.error, &.success{
+        padding: 10px 20px !important;
+        border: 3px solid;
+    }
 }
 
 strong, b{
@@ -183,9 +187,9 @@ blockquote{
 }
 
 input, textarea, select{
-    padding: 6px 12px;
     border: 1px solid @txt;
     margin: 0 0 35px;
+    vertical-align: top;
     background: #fff;
     color: @txt;
     transition: @transition;
@@ -203,22 +207,15 @@ input, textarea, select{
 }
 
 input, textarea{
+    padding: 6px 12px;
     &:focus{
-        ~ label{
-            &:before{
-                opacity: 1;
-            }
+        + span{
+            opacity: 1;
         }
     }
     &:required{
-        ~ label{
-            &:after{
-                content: ' *';
-                color: @purple;
-            }
-        }
         &:focus:valid{
-            ~ label{
+            + span{
                 &:before{
                     content: "Parfait, merci!";
                     color: @blue;
@@ -229,11 +226,11 @@ input, textarea{
 }
 
 input{
-    margin-right: 80px;
+    width: 100%;
     &[type=text]{
-        width: 200px;
+        max-width: 200px;
         &:focus:invalid{
-            ~ label{
+            + span{
                 &:before{
                     content: 'Veuillez compléter ce champ';
                     color: @purple;
@@ -242,11 +239,11 @@ input{
         }
     }
     &[type=email], &[type=url]{
-        width: 250px;
+        max-width: 250px;
     }
     &[type=email]{
         &:focus:invalid{
-            ~ label{
+            + span{
                 &:before{
                     content: 'Veuillez entrer une adresse mail valide';
                     color: @purple;
@@ -255,9 +252,9 @@ input{
         }
     }
     &[type=tel]{
-        width: 150px;
+        max-width: 150px;
         &:focus:invalid{
-            ~ label{
+            + span{
                 &:before{
                     content: 'Veuillez entrer un numéro de téléphone valide';
                     color: @purple;
@@ -265,15 +262,17 @@ input{
             }
         }
     }
+    &[type=search]::-webkit-search-cancel-button{
+        display: none;
+    }
 }
 
 textarea{
-    display: block;
-    width: 100%;
-    max-width: 760px;
+    display: inline-block;
+    width: 75%;
     height: 180px;
     &:focus:invalid{
-        ~ label{
+        + span{
             &:before{
                 content: 'Veuillez écrire un message';
                 color: @purple;
@@ -283,21 +282,20 @@ textarea{
 }
 
 select{
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
     height: 30px;
-    &:focus:invalid{
-        ~ label{
-            &:before{
-                content: 'Veuillez sélectionner un sujet';
-                color: @purple;
-            }
-        }
+    &:focus{
+        outline: 0;
     }
 }
 
 button{
     color: #8b8b8b;
     transition: @transition;
+    &[type=submit]{
+        margin: 0 0 0 25%;
+    }
     &:focus, &:hover{
         color: @pink;
     }
@@ -311,21 +309,14 @@ button{
 
 label{
     display: inline-block;
-    min-width: 110px;
-    position: relative;
-    float: left;
+    width: 25%;
+    padding: 0 15px 0 0;
     margin: 7px 0;
+    text-align: right;
     line-height: 1em;
-    &:before{
-        content: '';
-        display: block;
-        position: absolute;
-        left: 100%;
-        top: -30px;
-        width: 400px;
-        text-align: left;
-        opacity: 0;
-        transition: @transition;
+    &.required:after{
+        content: ' *';
+        color: @purple;
     }
     &.no-margin{
         &:before{
@@ -335,17 +326,38 @@ label{
 }
 
 fieldset{
-    fieldset{
-        display: inline-block;
-        vertical-align: top;
+    position: relative;
+    span{
+        display: block;
+        position: absolute;
+        top: -23px;
+        left: 25%;
+        opacity: 0;
+        transition: @transition;
+        &:before{
+            content: '';
+        }
+    }
+    &.error{
+        span{
+            opacity: 1;
+            &:before{
+                display: none;
+            }
+        }
+        input, textarea{
+            border-color: @purple;
+        }
     }
 }
 
 .error{
     max-width: 760px;
-    padding: 10px 20px;
-    border: 3px solid;
-    color: #b5006a;
+    color: @purple;
+}
+
+.success{
+    color: @blue;
 }
 
 
@@ -658,6 +670,7 @@ button{
     .section-cell{
         display: table-cell;
         padding: 50px 0;
+        position: relative;
         vertical-align: middle;
     }
 }
@@ -2305,6 +2318,7 @@ _:-ms-input-placeholder, .slider{
     transition: .4s opacity @transition;
     input{
         width: 100%;
+        margin: 0 0 20px;
         border-color: #fff;
         color: @purple;
         &:hover{
@@ -2569,6 +2583,7 @@ _:-ms-input-placeholder, .slider{
     }
 }
 .commentform{
+    max-width: 760px;
     padding: 0 0 35px;
 }
 .commentlist{
@@ -2618,48 +2633,67 @@ _:-ms-input-placeholder, .slider{
 
 .contactform{
     display: inline-block;
-    width: 65%;
+    width: 68%;
     padding: 0 0 0 75px;
     margin: 50px 0 0;
     label{
         width: 140px;
-        padding: 0 20px 0 0;
-        text-align: right;
     }
     input{
-        margin-right: 0;
         &[type=email]{
-            width: 300px;
+            max-width: 300px;
         }
     }
     textarea{
-        display: inline-block;
         width: 300px;
         color: #8b8b8b;
-        &:focus{
+        &:focus, &.on{
             color: @txt;
         }
     }
-    .btn{
-        margin: 0 0 0 140px;
+    button{
+        &[type=submit]{
+            margin: 0 0 0 140px;
+        }
+    }
+    fieldset{
+        span{
+            left: 145px;
+        }
+    }
+    p{
+        &.error{
+            max-width: 90%;
+            margin: 0 0 50px;
+        }
+        &.success{
+            &:extend(.contactform p.error);
+        }
     }
 }
 
 .sidebar-contact{
     display: inline-block;
-    width: 35%;
+    width: 32%;
     padding: 0 75px 0 0;
+    float: right;
     margin: 50px 0 0;
     vertical-align: top;
-    h2, p{
-        padding: 0;
-    }
     h2{
-        margin-top: 0;
+        font-size: 1.5em;
+        margin: 0 0 1em;
     }
     b{
         display: block;
         margin: 0 0 10px;
+    }
+}
+
+.page-template-contact{
+    .sidebar-contact{
+        p, h2{
+            padding: 0;
+        }
     }
 }
 

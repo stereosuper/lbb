@@ -834,7 +834,7 @@ function init(){
 		}
 	});
 
-	if(hasClass(body, 'home')){
+	if(hasClass(body, 'home') && !hasClass(htmlTag, 'lt-ie9')){
 		bullshitGenerator();
 	}
 
@@ -1014,6 +1014,26 @@ function init(){
 			if(hasClass(catsMenu, 'cats-visible')){
 				TweenLite.set(catsMenu, {css: {className: '-=cats-visible'}});
 			}
+		});
+	}
+
+	var msgTextarea = document.getElementById('message');
+	if(msgTextarea !== null){
+		addEventListener(msgTextarea, 'click', function(){
+			if(!hasClass(this, 'on')){
+				this.innerHTML = '';
+				TweenLite.set(this, {css: {className: '+=on'}});
+			}
+		});
+	}
+
+	var searchBtn = document.getElementById('searchsubmit');
+	if(searchBtn !== null){
+		var searchInput = document.getElementById('searchinput'),
+			searchForm = document.getElementById('searchform');
+		addEventListener(searchBtn, 'click', function(e){
+			e.preventDefault();
+			searchInput.value.length ? searchForm.submit() : searchInput.focus();
 		});
 	}
 

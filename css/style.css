@@ -579,21 +579,6 @@ textarea:hover,
 select:hover {
   border-color: #8b8b8b;
 }
-input:focus,
-textarea:focus,
-select:focus,
-input:invalid:focus,
-textarea:invalid:focus,
-select:invalid:focus {
-  border-color: #b5006a;
-  outline: 0;
-}
-input:valid:focus,
-textarea:valid:focus,
-select:valid:focus {
-  border-color: #2ac0ce;
-  outline: 0;
-}
 input,
 textarea {
   padding: 6px 12px;
@@ -602,9 +587,21 @@ input:focus + span,
 textarea:focus + span {
   opacity: 1;
 }
+input:focus,
+textarea:focus,
+input:invalid:focus,
+textarea:invalid:focus {
+  border-color: #b5006a;
+  outline: 0;
+}
+input:valid:focus,
+textarea:valid:focus {
+  border-color: #2ac0ce;
+  outline: 0;
+}
 input:required:focus:valid + span:before,
 textarea:required:focus:valid + span:before {
-  content: "Parfait, merci!";
+  content: "Super, merci!";
   color: #2ac0ce;
 }
 input {
@@ -612,25 +609,39 @@ input {
 }
 input[type=text] {
   max-width: 200px;
-}
-input[type=text]:focus:invalid + span:before {
-  content: 'Veuillez compléter ce champ';
-  color: #b5006a;
+  /*&:focus:invalid{
+            + span{
+                &:before{
+                    content: 'Veuillez compléter ce champ';
+                    color: @purple;
+                }
+            }
+        }*/
 }
 input[type=email],
 input[type=url] {
   max-width: 250px;
 }
-input[type=email]:focus:invalid + span:before {
-  content: 'Veuillez entrer une adresse mail valide';
-  color: #b5006a;
+input[type=email] {
+  /*&:focus:invalid{
+            + span{
+                &:before{
+                    content: 'Veuillez entrer une adresse mail valide';
+                    color: @purple;
+                }
+            }
+        }*/
 }
 input[type=tel] {
   max-width: 150px;
-}
-input[type=tel]:focus:invalid + span:before {
-  content: 'Veuillez entrer un numéro de téléphone valide';
-  color: #b5006a;
+  /*&:focus:invalid{
+            + span{
+                &:before{
+                    content: 'Veuillez entrer un numéro de téléphone valide';
+                    color: @purple;
+                }
+            }
+        }*/
 }
 input[type=search]::-webkit-search-cancel-button {
   display: none;
@@ -639,10 +650,14 @@ textarea {
   display: inline-block;
   width: 75%;
   height: 180px;
-}
-textarea:focus:invalid + span:before {
-  content: 'Veuillez écrire un message';
-  color: #b5006a;
+  /*&:focus:invalid{
+        + span{
+            &:before{
+                content: 'Veuillez écrire un message';
+                color: @purple;
+            }
+        }
+    }*/
 }
 select {
   width: 100%;
@@ -650,7 +665,11 @@ select {
   height: 30px;
 }
 select:focus {
+  border-color: #b5006a;
   outline: 0;
+}
+select.valid:focus {
+  border-color: #2ac0ce;
 }
 button {
   color: #8b8b8b;
@@ -709,6 +728,23 @@ fieldset.error span:before {
 fieldset.error input,
 fieldset.error textarea {
   border-color: #b5006a;
+}
+fieldset.error input:valid,
+fieldset.error textarea:valid {
+  border-color: #2ac0ce;
+}
+fieldset.error input:valid + span,
+fieldset.error textarea:valid + span {
+  opacity: 0;
+}
+fieldset.error select {
+  border-color: #b5006a;
+}
+fieldset.error select.valid {
+  border-color: #2ac0ce;
+}
+fieldset.error select.valid + span {
+  opacity: 0;
 }
 .error {
   max-width: 760px;
@@ -2044,7 +2080,8 @@ _:-ms-input-placeholder #prev:before,
 .single .head,
 .blog .head,
 .archive .head,
-.search .head {
+.search .head,
+.page-template-contact .head {
   height: 75vh;
 }
 .head .img {
@@ -2666,7 +2703,8 @@ _:-ms-input-placeholder #prev:before,
   text-decoration: none;
 }
 .post .content h2 {
-  margin: 0;
+  margin: 0 0 10px;
+  line-height: 1em;
 }
 .post .content p a {
   color: #565656;
@@ -3247,6 +3285,9 @@ _:-ms-input-placeholder #prev:before,
   }
   .post.has-img:first-of-type .content {
     width: 42%;
+  }
+  .post.has-img:first-of-type h2 {
+    font-size: 2.4em;
   }
   .contactform,
   .sidebar-contact {
@@ -3906,9 +3947,6 @@ _:-ms-input-placeholder #prev:before,
   }
   .single-prestation .head .container {
     padding-top: 50px;
-  }
-  .post:first-of-type h2 {
-    font-size: 2.5em;
   }
   .pagination {
     text-align: center;

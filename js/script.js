@@ -1027,6 +1027,15 @@ function init(){
 		});
 	}
 
+	var sujetSelect = document.getElementById('sujet');
+	if(sujet !== null){
+		var options = this.querySelectorAll('option');
+		addEventListener(sujet, 'change', function(){
+			if(!options[0].selected)
+				TweenLite.set(this, {css: {className: '+=valid'}});
+		});
+	}
+
 	var searchBtn = document.getElementById('searchsubmit');
 	if(searchBtn !== null){
 		var searchInput = document.getElementById('searchinput'),

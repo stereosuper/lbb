@@ -55,8 +55,8 @@
 											1 - Nous faisons en sorte de réinventer notre métiers à chaque nouveau client. 
 											Pour autant, nous avons pensé que certaines compétences présentaient un intérêt 
 											commercial à un être synthétisées et présentées proprement. 
-											bla bla bla Notre <a href='#slide2' class='btnPrestaSlide'>méthode</a> et 
-											bla bla notre <a href='#slide3' class='btnPrestaSlide'>expertise</a>.<br><br>
+											bla bla bla Notre <a href='#slide2'>méthode</a> et 
+											bla bla notre <a href='#slide3'>expertise</a>.<br><br>
 											Pour une demande spécifique contactez-nous
 										</p>
 									</div>

@@ -54,6 +54,22 @@
   	<script src="js/tweenLite.min.js"></script>
   	<script src="js/timelineLite.min.js"></script>-->
     <script>
+      // for each element: img to display, action to execute (false si rien), img to display after the action (false si rien)
+      var purpleShits = [
+          ['img/bullshit/profond-purple.png', false, false],
+          ['img/bullshit/entreprise-purple.png', false, false]
+        ],
+        yellowShits = [
+          ['img/bullshit/no-clic-yellow.png', 'click', 'img/bullshit/licorne.gif'],
+          ['img/bullshit/fuck-yellow.png', false, false]
+        ],
+        blueShits = [
+          ['img/bullshit/no-clic-blue.png', 'click', 'img/bullshit/lama.jpg'],
+          ['img/bullshit/profond-blue.png', false, false]
+        ], pinkShits = [], whiteShits = [];
+    </script>
+
+    <script>
       var sentences = [
         "Stop aux acronymes, travaillons l'U.M.1",
         "Une autre phrase creuse",

@@ -1,0 +1,51 @@
+@font-face {
+  font-family: 'icomoon';
+  src: url('fonts/icomoon.eot?1b6ycd');
+  src: url('fonts/icomoon.eot?1b6ycd#iefix') format('embedded-opentype'),
+       url('fonts/icomoon.woff2?1b6ycd') format('woff2'),
+       url('fonts/icomoon.ttf?1b6ycd') format('truetype'),
+       url('fonts/icomoon.woff?1b6ycd') format('woff'),
+       url('fonts/icomoon.svg?1b6ycd#icomoon') format('svg');
+}
+
+a.btn{
+  display: inline-block;
+  vertical-align: top;
+  text-transform: uppercase;
+  color: #b5006a;
+  position: relative;
+  padding: 15px 25px;
+  text-decoration: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 3px solid;
+}
+a.btn.btn-right, a.btn.btn-down{
+  padding-left: 35px;
+  position: relative;
+}
+a.btn.btn-right:before, a.btn.btn-down:before{
+  display: block;
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 12px;
+  margin: auto;
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  font-size: 18px;
+}
+a.btn.btn-right:before{
+  content: '\e806';
+}
+a.btn.btn-down:before{
+  content: '\e805';
+}

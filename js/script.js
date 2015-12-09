@@ -757,6 +757,7 @@ window.onscroll = function(e){
 			TweenLite.set(prestaSingleHead, {y: -myScroll*ratio+'px'});
 			TweenLite.set(sectionPrestaHead, {paddingTop: myScroll*ratio+'px'});
 			TweenLite.set(pageContent, {y: (myScroll*ratio)/5+'px'});
+			TweenLite.set(document.getElementById('wrapper'), {paddingBottom: (myScroll*ratio)/5+'px'});
 			if(btnPrestaHead !== null) TweenLite.set(btnPrestaHead, {bottom: 20+myScroll*ratio*0.11+'px'});
 			TweenLite.set(backPrestaHead, {top: 100+myScroll*ratio+'px'});
 			if(myScroll*ratio >= newMargin/5 && scrollDir < 0){
@@ -774,6 +775,7 @@ window.onscroll = function(e){
 			TweenLite.set(prestaSingleHead, {y: '-'+newMargin+'px'});
 			TweenLite.set(sectionPrestaHead, {paddingTop: newMargin+'px'});
 			TweenLite.set(pageContent, {y: '110px'});
+			TweenLite.set(document.getElementById('wrapper'), {paddingBottom: '110px'});
 			if(btnPrestaHead !== null) TweenLite.set(btnPrestaHead, {bottom: newTopBtn+'px'});
 			TweenLite.set(backPrestaHead, {top: newTopBack+'px'});
 		}

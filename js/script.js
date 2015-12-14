@@ -574,7 +574,11 @@ function animFixedMenuStep(){
 }
 
 function animFixedMenu(){
-	myScroll > 200 && myScroll + windowHeight < htmlTag.offsetHeight ? TweenLite.to(fixedMenu, 0.3, {bottom: 0}) : TweenLite.to(fixedMenu, 0.3, {bottom: '-70px'});
+	if(hasClass(fixedMenu, 'cats-visible')){
+		TweenLite.set(fixedMenu, {bottom: 0});
+	}else{
+		myScroll > 200 && myScroll + windowHeight < htmlTag.offsetHeight ? TweenLite.to(fixedMenu, 0.3, {bottom: 0}) : TweenLite.to(fixedMenu, 0.3, {bottom: '-70px'});
+	}
 }
 
 function setPrestaSlider(slider){

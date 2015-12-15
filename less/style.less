@@ -1,4 +1,4 @@
-@charset 'utf-8';
+@charset "utf-8";
 
 @import '_lesshat.less';
 @import '_norm.less';
@@ -1651,6 +1651,9 @@ _:-ms-input-placeholder, .slider{
     .fd{
         &:extend(.bg-mauve);
         opacity: .3;
+        .single-cas-client &{
+            background-color: @blue;
+        }
     }
     .no-img.single:not(.single-prestation) &, .no-img.page-template-default &{
         color: @purple;
@@ -2290,6 +2293,9 @@ _:-ms-input-placeholder, .slider{
     &:extend(.second-menu);
     background: @pink;
     transition: height @transition;
+    .single-cas-client &{
+        background: @blue;
+    }
     .lt-ie10 &{
         bottom: 0 !important;
     }
@@ -2402,6 +2408,9 @@ _:-ms-input-placeholder, .slider{
             color: @pink;
             &:before{
                 transform: scale(1.3);
+            }
+            .single-cas-client &{
+                color: @blue;
             }
         }
     }

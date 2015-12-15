@@ -1,4 +1,4 @@
-@charset 'utf-8';
+@charset "utf-8";
 article,
 aside,
 details,
@@ -2100,6 +2100,9 @@ _:-ms-input-placeholder #prev:before,
 .head .fd {
   opacity: .3;
 }
+.single-cas-client .head .fd {
+  background-color: #2ac0ce;
+}
 .no-img.single:not(.single-prestation) .head,
 .no-img.page-template-default .head {
   color: #b5006a;
@@ -2734,6 +2737,9 @@ _:-ms-input-placeholder #prev:before,
   -webkit-transition: height 0.15s ease-in-out;
           transition: height 0.15s ease-in-out;
 }
+.single-cas-client .nav-blog {
+  background: #2ac0ce;
+}
 .lt-ie10 .nav-blog {
   bottom: 0 !important;
 }
@@ -2864,6 +2870,10 @@ _:-ms-input-placeholder #prev:before,
   -webkit-transform: scale(1.3);
       -ms-transform: scale(1.3);
           transform: scale(1.3);
+}
+.single-cas-client .share a:hover,
+.single-cas-client .share a:focus {
+  color: #2ac0ce;
 }
 .cats-container {
   width: 90%;

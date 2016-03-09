@@ -3,6 +3,7 @@
 @import '_lesshat.less';
 @import '_norm.less';
 @import '_fonts.less';
+@import '_rainbow.less';
 
 @purple: #b5006a;
 //@mauve: #b47498;
@@ -49,6 +50,20 @@ body{
         position: absolute; 
         height: 100%; 
         width: 100%;
+    }
+    &.yolo{
+        transform: scaleX(-1);
+        cursor: pointer;
+    }
+    &.comic{
+        cursor: pointer;
+        *:not([class^='icon-']):not([class*=' icon-']){
+            font-family: 'comic sans ms' !important;
+            -webkit-animation:rainbow 1s infinite;
+            -ms-animation:rainbow 1s infinite;
+            -o-animation:rainbow 1s infinite;
+            animation:rainbow 1s infinite;
+        }
     }
 }
 
@@ -587,6 +602,7 @@ button{
 
 .bullshitBtn{
     position: absolute;
+    z-index: 20;
     opacity: .7;
     &.top-left, &.top-center, &.top-right{
         top: 5vh;
@@ -605,6 +621,7 @@ button{
     }
     &.not-a-btn{
         cursor: auto;
+        z-index: auto;
         opacity: .8;
         &:active{
             opacity: 1;
@@ -909,7 +926,7 @@ _:-ms-input-placeholder, .slider{
     }
     h3{
         max-width: 350px;
-        margin-bottom: 70px;
+        margin: 25px 0 70px;
     }
     .anim-slide{
         opacity: 0;
@@ -1811,13 +1828,14 @@ _:-ms-input-placeholder, .slider{
     }
     &.fade2{
         #bgVous{
-            background-image: url(../layoutImg/vous/noise.png);
+            //background-image: url(../layoutImg/vous/noise.png);
+            background-image: url(../layoutImg/vous/fouet.png);
         }
     }
     &.fade3{
         #bgVous{
-            //background-image: url(../layoutImg/vous/fouet.png);
-            background-image: url(../layoutImg/vous/tronconneuse.png);
+            //background-image: url(../layoutImg/vous/tronconneuse.png);
+            background-image: url(../layoutImg/vous/noise.png);
         }
     }
     /*&.fade4{
@@ -1985,8 +2003,10 @@ _:-ms-input-placeholder, .slider{
     background-size: 100%;
 }
 .bg-ateliers{
-    .size(497px, 510px);
-    background-image: url(../layoutImg/vous/noise.png);
+    //.size(497px, 510px);
+    //background-image: url(../layoutImg/vous/noise.png);
+    .size(572px, 399px);
+    background-image: url(../layoutImg/vous/fouet.png);
 }
 #bgA1{
     bottom: 50px;
@@ -2000,8 +2020,10 @@ _:-ms-input-placeholder, .slider{
     margin: auto;
 }
 .bg-interventions{
-    .size(671px, 393px);
-    background-image: url(../layoutImg/vous/tronconneuse.png);
+    //.size(671px, 393px);
+    //background-image: url(../layoutImg/vous/tronconneuse.png);
+    .size(497px, 510px);
+    background-image: url(../layoutImg/vous/noise.png);
 }
 #bgI1{
     left: 5%;
@@ -2015,7 +2037,7 @@ _:-ms-input-placeholder, .slider{
    margin: auto;
    transform: rotate(-35deg); 
 }
-.bg-formations{
+/*.bg-formations{
     .size(572px, 399px);
     left: 0;
     right: 0;
@@ -2028,7 +2050,7 @@ _:-ms-input-placeholder, .slider{
 }
 #bgF2{
     top: 0;
-}
+}*/
 
 .plus-presta{
     padding: 0 0 40px;
@@ -2210,9 +2232,24 @@ _:-ms-input-placeholder, .slider{
 
 /******* BLOG *******/
 
+.single-cas-client{
+    h1, .head .sup-title, .head .sup-title a{
+        color: #26b2bf;
+    }
+    .head .sup-title a{
+        &:hover, &:focus{
+            color: @blue;
+        }
+    }
+}
+
 .single:not(.no-img){
+    h1{
+        color: #fff;
+    }
     .head{
         .sup-title{
+            color: #fff;
             a{
                 color: #fff;
                 &:hover, &:focus{
@@ -2242,6 +2279,16 @@ _:-ms-input-placeholder, .slider{
             }
             .content{
                 width: 50%;
+            }
+        }
+    }
+    &.cas-client{
+        h2{
+            a{
+                color: #26b2bf;
+                &:hover, &:focus{
+                    color: @blue;
+                }
             }
         }
     }
@@ -2285,6 +2332,11 @@ _:-ms-input-placeholder, .slider{
         }
         h2 a{
             color: @pink;
+        }
+        &.cas-client{
+            h2 a{
+                color: @blue;
+            }
         }
     }
 }

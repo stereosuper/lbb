@@ -517,9 +517,16 @@
         h1{
             font-size: 5em;
         }
-        .head, #confiance{
+        #confiance{
             .bullshitBtn{
                 display: none;
+            }
+        }
+        .head{
+            .bullshitBtn{
+                &.top-left, &.top-right{
+                    display: none;
+                }
             }
         }
     }
@@ -571,6 +578,14 @@
     .img-presta{
         h2{
             font-size: .9em;
+        }
+    }
+
+    .page-template-presta{
+        .bullshitBtn{
+            &.top-left, &.top-right{
+                display: none;
+            }
         }
     }
     
@@ -730,6 +745,10 @@
         &.light{
             font-size: 2em;
         }
+    }
+
+    .bullshitBtn{
+        display: none;
     }
 
     .second-menu{

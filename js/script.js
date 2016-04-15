@@ -1082,7 +1082,7 @@ function init(){
 
 	var sujetSelect = document.getElementById('sujet');
 	if(sujetSelect !== null){
-		var options = this.querySelectorAll('option');
+		var options = sujetSelect.querySelectorAll('option');
 		addEventListener(sujetSelect, 'change', function(){
 			if(!options[0].selected)
 				TweenLite.set(this, {css: {className: '+=valid'}});

@@ -475,7 +475,6 @@ body {
 }
 body.yolo {
   -webkit-transform: scaleX(-1);
-      -ms-transform: scaleX(-1);
           transform: scaleX(-1);
   cursor: pointer;
 }
@@ -496,7 +495,7 @@ h4,
 .h4,
 h5,
 .h5 {
-  font-family: 'geomanist-bold', sans-serif;
+  font-family: 'geomanist-bold', 'geomanist', 'klinic', sans-serif;
   font-size: 1em;
   font-weight: normal;
   font-style: normal;
@@ -532,7 +531,7 @@ h2,
 }
 h2.light,
 .h2.light {
-  font-family: 'geomanist', sans-serif;
+  font-family: 'geomanist', 'klinic', sans-serif;
   font-size: 2.8em;
   font-weight: normal;
   font-style: normal;
@@ -567,7 +566,7 @@ p.success {
 }
 strong,
 b {
-  font-family: 'klinicBold', sans-serif;
+  font-family: 'klinicBold', 'klinic', sans-serif;
   font-size: 1em;
   font-weight: normal;
   font-style: normal;
@@ -575,7 +574,7 @@ b {
 em,
 i,
 blockquote {
-  font-family: 'klinicIt', sans-serif;
+  font-family: 'klinicIt', 'klinic', sans-serif;
   font-size: 1em;
   font-weight: normal;
   font-style: normal;
@@ -599,7 +598,7 @@ ul li:before {
   position: absolute;
   left: -20px;
   content: '•';
-  font-family: 'klinicBold', sans-serif;
+  font-family: 'klinicBold', 'klinic', sans-serif;
   font-size: 18px;
   font-weight: normal;
   font-style: normal;
@@ -656,7 +655,7 @@ select {
   background: #fff;
   color: #565656;
   -webkit-transition: 0.15s ease-in-out;
-          transition: 0.15s ease-in-out;
+  transition: 0.15s ease-in-out;
 }
 input:hover,
 textarea:hover,
@@ -758,7 +757,7 @@ select.valid:focus {
 button {
   color: #8b8b8b;
   -webkit-transition: 0.15s ease-in-out;
-          transition: 0.15s ease-in-out;
+  transition: 0.15s ease-in-out;
 }
 button[type=submit] {
   margin: 0 0 0 25%;
@@ -798,7 +797,7 @@ fieldset span {
   left: 25%;
   opacity: 0;
   -webkit-transition: 0.15s ease-in-out;
-          transition: 0.15s ease-in-out;
+  transition: 0.15s ease-in-out;
 }
 fieldset span:before {
   content: '';
@@ -841,7 +840,7 @@ fieldset.error select.valid + span {
 a {
   color: #b5006a;
   -webkit-transition: 0.15s ease-in-out;
-          transition: 0.15s ease-in-out;
+  transition: 0.15s ease-in-out;
 }
 a:focus,
 a:hover {
@@ -874,13 +873,13 @@ button {
   right: 0;
   background: #b5006a;
   -webkit-transition: 0.15s ease-in-out;
-          transition: 0.15s ease-in-out;
+  transition: 0.15s ease-in-out;
 }
 .btn {
   display: inline-block;
   padding: 15px 25px;
   border: 3px solid;
-  font-family: 'geomanist-bold', sans-serif;
+  font-family: 'geomanist-bold', 'geomanist', 'klinic', sans-serif;
   font-size: 0.89em;
   font-weight: normal;
   font-style: normal;
@@ -921,7 +920,7 @@ button {
 .btn.btn-down:before {
   content: '\e805';
   -webkit-transition: top 0.15s ease-in-out;
-          transition: top 0.15s ease-in-out;
+  transition: top 0.15s ease-in-out;
 }
 .btn.btn-down:hover:before,
 .btn.btn-down:focus:before {
@@ -930,7 +929,7 @@ button {
 .btn.btn-right:before {
   content: '\e806';
   -webkit-transition: left 0.15s ease-in-out;
-          transition: left 0.15s ease-in-out;
+  transition: left 0.15s ease-in-out;
 }
 .btn.btn-right:hover:before,
 .btn.btn-right:focus:before {
@@ -1013,7 +1012,7 @@ button {
 }
 .link {
   position: relative;
-  font-family: 'klinicBold', sans-serif;
+  font-family: 'klinicBold', 'klinic', sans-serif;
   font-size: 1em;
   font-weight: normal;
   font-style: normal;
@@ -1033,7 +1032,7 @@ button {
 .back-link {
   padding: 0 0 0 20px;
   position: relative;
-  font-family: 'geomanist-bold', sans-serif;
+  font-family: 'geomanist-bold', 'geomanist', 'klinic', sans-serif;
   font-size: 0.9em;
   font-weight: normal;
   font-style: normal;
@@ -1104,7 +1103,7 @@ button {
   cursor: pointer;
   text-align: center;
   -webkit-transition: 0.4s ease-in-out;
-          transition: 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
 }
 .bullshit img {
   min-width: 200px;
@@ -1113,26 +1112,25 @@ button {
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
 }
 .bullshit.big {
   width: 760px;
   height: 760px;
   -webkit-transition: 0.8s ease-in-out;
-          transition: 0.8s ease-in-out;
+  transition: 0.8s ease-in-out;
 }
 .bullshit.big.full {
   width: 100%;
   height: 100%;
   -webkit-transition: none;
-          transition: none;
+  transition: none;
 }
 .bullshit.big.full img {
   max-width: 90%;
 }
 .note {
-  font-family: 'klinicIt', sans-serif;
+  font-family: 'klinicIt', 'klinic', sans-serif;
   font-size: 0.7em;
   font-weight: normal;
   font-style: normal;
@@ -1146,7 +1144,7 @@ button {
   margin: 0 auto;
   opacity: 1;
   -webkit-transition: opacity 0.1s ease-in-out;
-          transition: opacity 0.1s ease-in-out;
+  transition: opacity 0.1s ease-in-out;
 }
 .container.on {
   opacity: 0;
@@ -1268,7 +1266,7 @@ button {
   top: 0;
   line-height: 70px;
   -webkit-transition: top 0.3s ease-in-out;
-          transition: top 0.3s ease-in-out;
+  transition: top 0.3s ease-in-out;
 }
 .second-menu li.left {
   left: 0;
@@ -1424,7 +1422,7 @@ _:-ms-input-placeholder #prev:before,
   text-align: left;
 }
 .slide blockquote b {
-  font-family: 'geomanist-bold', sans-serif;
+  font-family: 'geomanist-bold', 'geomanist', 'klinic', sans-serif;
   font-size: 1em;
   font-weight: normal;
   font-style: normal;
@@ -1440,7 +1438,7 @@ _:-ms-input-placeholder #prev:before,
   height: 220px;
   padding: 50px 35px 50px 55px;
   background: url(../layoutImg/bulle.png) no-repeat 100% 0;
-  font-family: 'marker', sans-serif;
+  font-family: 'marker', 'klinic', sans-serif;
   font-size: 1em;
   font-weight: normal;
   font-style: normal;
@@ -1457,7 +1455,7 @@ _:-ms-input-placeholder #prev:before,
 .slide blockquote .by {
   max-width: 125px;
   margin: 10px 0 10px 8%;
-  font-family: 'geomanist', sans-serif;
+  font-family: 'geomanist', 'klinic', sans-serif;
   font-size: 0.78em;
   font-weight: normal;
   font-style: normal;
@@ -1592,13 +1590,13 @@ _:-ms-input-placeholder #prev:before,
 .presta-list .link {
   display: inline-block;
   -webkit-transition: color 0.15s ease-in-out;
-          transition: color 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out;
 }
 .presta-list .title {
   display: table;
   width: 100%;
   height: 60px;
-  font-family: 'geomanist-bold', sans-serif;
+  font-family: 'geomanist-bold', 'geomanist', 'klinic', sans-serif;
   font-size: 1.67em;
   font-weight: normal;
   font-style: normal;
@@ -1658,7 +1656,7 @@ _:-ms-input-placeholder #prev:before,
   margin: 0 5px 10px;
 }
 .presta-filtres button {
-  font-family: 'geomanist-bold', sans-serif;
+  font-family: 'geomanist-bold', 'geomanist', 'klinic', sans-serif;
   font-size: 1em;
   font-weight: normal;
   font-style: normal;
@@ -1682,7 +1680,7 @@ _:-ms-input-placeholder #prev:before,
   background-position: 40px -40px;
   background-color: #ffe180;
   -webkit-transition: none;
-          transition: none;
+  transition: none;
 }
 .contact-link i {
   display: block;
@@ -1739,7 +1737,7 @@ _:-ms-input-placeholder #prev:before,
 .sup-title,
 .cat {
   display: block;
-  font-family: 'geomanist', sans-serif;
+  font-family: 'geomanist', 'klinic', sans-serif;
   font-size: 0.95em;
   font-weight: normal;
   font-style: normal;
@@ -1764,7 +1762,7 @@ _:-ms-input-placeholder #prev:before,
 }
 .chapeau {
   margin-bottom: 3em;
-  font-family: 'klinicIt', sans-serif;
+  font-family: 'klinicIt', 'klinic', sans-serif;
   font-size: 1.3em;
   font-weight: normal;
   font-style: normal;
@@ -1816,7 +1814,7 @@ _:-ms-input-placeholder #prev:before,
   text-indent: -999em;
   overflow: hidden;
   -webkit-transition: none;
-          transition: none;
+  transition: none;
 }
 .logo.sprite {
   background-size: 720px;
@@ -1848,7 +1846,7 @@ _:-ms-input-placeholder #prev:before,
   padding: 15px 0 15px 30px;
   top: 60px;
   right: 4%;
-  font-family: 'geomanist', sans-serif;
+  font-family: 'geomanist', 'klinic', sans-serif;
   font-size: 1em;
   font-weight: normal;
   font-style: normal;
@@ -1910,7 +1908,7 @@ _:-ms-input-placeholder #prev:before,
   background: rgba(0, 0, 0, 0.7);
   opacity: 0;
   -webkit-transition: opacity 0.7s ease-in-out;
-          transition: opacity 0.7s ease-in-out;
+  transition: opacity 0.7s ease-in-out;
 }
 .menuOpen #fdMenu {
   top: 0;
@@ -1935,7 +1933,7 @@ _:-ms-input-placeholder #prev:before,
   background: #fff;
   border-radius: 70px;
   -webkit-transition: 0.15s ease-in-out;
-          transition: 0.15s ease-in-out;
+  transition: 0.15s ease-in-out;
 }
 .no-img.single:not(.single-prestation) #burger span,
 .no-img.page-template-default #burger span {
@@ -1956,7 +1954,7 @@ _:-ms-input-placeholder #prev:before,
   top: -3px;
   left: -52px;
   -webkit-transition: 0.3s all 0.05s ease-in-out;
-          transition: 0.3s all 0.05s ease-in-out;
+  transition: 0.3s all 0.05s ease-in-out;
 }
 .no-img.single:not(.single-prestation) #burger i,
 .no-img.page-template-default #burger i {
@@ -1984,7 +1982,7 @@ _:-ms-input-placeholder #prev:before,
 }
 .menuOpen #burger span {
   -webkit-transition: 0.3s ease-in-out 0.05s;
-          transition: 0.3s ease-in-out 0.05s;
+  transition: 0.3s ease-in-out 0.05s;
 }
 .menuOpen #burger .b1,
 .menuOpen #burger .b3 {
@@ -1992,7 +1990,6 @@ _:-ms-input-placeholder #prev:before,
 }
 .menuOpen #burger .b1 {
   -webkit-transform: rotate(140deg);
-      -ms-transform: rotate(140deg);
           transform: rotate(140deg);
 }
 .menuOpen #burger .b2,
@@ -2001,7 +1998,6 @@ _:-ms-input-placeholder #prev:before,
 }
 .menuOpen #burger .b3 {
   -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
           transform: rotate(45deg);
 }
 /******* FOOTER *******/
@@ -2070,10 +2066,11 @@ _:-ms-input-placeholder #prev:before,
 #phrase-creuse button:hover span,
 #phrase-creuse button:focus span {
   -webkit-transform: rotate(360deg);
-      -ms-transform: rotate(360deg);
           transform: rotate(360deg);
   -webkit-transition: -webkit-transform 0.4s ease-in-out;
-          transition: transform 0.4s ease-in-out;
+  transition: -webkit-transform 0.4s ease-in-out;
+  transition: transform 0.4s ease-in-out;
+  transition: transform 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
 }
 #phrase-creuse button:active {
   color: #2ac0ce;
@@ -2089,38 +2086,31 @@ _:-ms-input-placeholder #prev:before,
 #cisors.open #cisors1,
 #phrase-creuse:hover #cisors1 {
   -webkit-transform: rotate(15deg);
-      -ms-transform: rotate(15deg);
           transform: rotate(15deg);
 }
 #cisors.open #cisors2,
 #phrase-creuse:hover #cisors2 {
   -webkit-transform: rotate(-15deg);
-      -ms-transform: rotate(-15deg);
           transform: rotate(-15deg);
 }
 #cisors.close #cisors1 {
   -webkit-transform: rotate(-7deg);
-      -ms-transform: rotate(-7deg);
           transform: rotate(-7deg);
 }
 #cisors.close #cisors2 {
   -webkit-transform: rotate(7deg);
-      -ms-transform: rotate(7deg);
           transform: rotate(7deg);
 }
 #cisors.on-right {
   -webkit-transform: rotate(90deg);
-      -ms-transform: rotate(90deg);
           transform: rotate(90deg);
 }
 #cisors.on-bottom {
   -webkit-transform: rotate(180deg);
-      -ms-transform: rotate(180deg);
           transform: rotate(180deg);
 }
 #cisors.on-left {
   -webkit-transform: rotate(270deg);
-      -ms-transform: rotate(270deg);
           transform: rotate(270deg);
 }
 .cisors {
@@ -2128,11 +2118,11 @@ _:-ms-input-placeholder #prev:before,
   font-size: 50px;
   color: #b5006a;
   -webkit-transition: .1s;
-          transition: .1s;
+  transition: .1s;
 }
 .cisors.close {
   -webkit-transition: .2s;
-          transition: .2s;
+  transition: .2s;
 }
 #cisors2 {
   top: 3px;
@@ -2172,7 +2162,7 @@ _:-ms-input-placeholder #prev:before,
 }
 .head .img {
   -webkit-transition: opacity 0.1s ease-in-out;
-          transition: opacity 0.1s ease-in-out;
+  transition: opacity 0.1s ease-in-out;
 }
 .head .img,
 .head .fd {
@@ -2296,7 +2286,7 @@ _:-ms-input-placeholder #prev:before,
   color: #fff;
   opacity: 0;
   -webkit-transition: 0.15s ease-in-out;
-          transition: 0.15s ease-in-out;
+  transition: 0.15s ease-in-out;
 }
 .lt-ie9 #vous h2 a:before,
 .lt-ie9 #vous .h2 a:before {
@@ -2332,7 +2322,7 @@ _:-ms-input-placeholder #prev:before,
 #vous .h2 strong,
 #vous h2 a,
 #vous .h2 a {
-  font-family: 'geomanist-bold', sans-serif;
+  font-family: 'geomanist-bold', 'geomanist', 'klinic', sans-serif;
   font-size: 1em;
   font-weight: normal;
   font-style: normal;
@@ -2340,7 +2330,7 @@ _:-ms-input-placeholder #prev:before,
 #vous strong,
 #vous span {
   -webkit-transition: 0.15s ease-in-out;
-          transition: 0.15s ease-in-out;
+  transition: 0.15s ease-in-out;
 }
 #vous.fade h2 strong,
 #vous.fade .h2 strong,
@@ -2359,7 +2349,7 @@ _:-ms-input-placeholder #prev:before,
 #vous.fade #bgVous {
   opacity: 1;
   -webkit-transition: opacity 0.5s ease-in-out;
-          transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
 }
 #vous.fade1 #bgVous {
   background-image: url(../layoutImg/vous/teletubies.png);
@@ -2437,7 +2427,7 @@ _:-ms-input-placeholder #prev:before,
   background-position: 0 100%;
   opacity: 0;
   -webkit-transition: opacity 0.3s ease-in-out 0.1s;
-          transition: opacity 0.3s ease-in-out 0.1s;
+  transition: opacity 0.3s ease-in-out 0.1s;
 }
 #bgMasques.on,
 .no-js #bgMasques,
@@ -2530,7 +2520,6 @@ _:-ms-input-placeholder #prev:before,
   bottom: 50px;
   left: 7%;
   -webkit-transform: rotate(-60deg);
-      -ms-transform: rotate(-60deg);
           transform: rotate(-60deg);
 }
 #bgA2 {
@@ -2548,7 +2537,6 @@ _:-ms-input-placeholder #prev:before,
   left: 5%;
   bottom: 60px;
   -webkit-transform: rotate(30deg);
-      -ms-transform: rotate(30deg);
           transform: rotate(30deg);
 }
 #bgI2 {
@@ -2557,7 +2545,6 @@ _:-ms-input-placeholder #prev:before,
   right: 0;
   margin: auto;
   -webkit-transform: rotate(-35deg);
-      -ms-transform: rotate(-35deg);
           transform: rotate(-35deg);
 }
 /*.bg-formations{
@@ -2638,7 +2625,7 @@ _:-ms-input-placeholder #prev:before,
             margin: 0 180px 0 0;*/
   background: #ffc200;
   -webkit-transition: background 0.15s ease-in-out, color 0.15s ease-in-out, border 0.15s ease-in-out;
-          transition: background 0.15s ease-in-out, color 0.15s ease-in-out, border 0.15s ease-in-out;
+  transition: background 0.15s ease-in-out, color 0.15s ease-in-out, border 0.15s ease-in-out;
 }
 .single-prestation .head .btn:hover,
 .single-prestation .head .btn:focus {
@@ -2651,7 +2638,7 @@ _:-ms-input-placeholder #prev:before,
   margin: 0 0 0 180px;
   z-index: 2;
   -webkit-transition: color 0.15s ease-in-out;
-          transition: color 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out;
 }
 .single-prestation .page-content {
   margin-top: 780px;
@@ -2691,7 +2678,7 @@ _:-ms-input-placeholder #prev:before,
   margin: 0 0 0 -100px;
   background: url(../layoutImg/bulle2.png) no-repeat 100% 0;
   background-size: 100%;
-  font-family: 'marker', sans-serif;
+  font-family: 'marker', 'klinic', sans-serif;
   font-size: 1em;
   font-weight: normal;
   font-style: normal;
@@ -2713,7 +2700,7 @@ _:-ms-input-placeholder #prev:before,
   position: relative;
   border-bottom: 1px dashed #b5006a;
   margin: 0 0 0 30px;
-  font-family: 'geomanist-bold', sans-serif;
+  font-family: 'geomanist-bold', 'geomanist', 'klinic', sans-serif;
   font-size: 1em;
   font-weight: normal;
   font-style: normal;
@@ -2741,7 +2728,7 @@ _:-ms-input-placeholder #prev:before,
 }
 .page-content .presta-sidebar p {
   margin-left: 30px;
-  font-family: 'klinicIt', sans-serif;
+  font-family: 'klinicIt', 'klinic', sans-serif;
   font-size: 0.8em;
   font-weight: normal;
   font-style: normal;
@@ -2843,7 +2830,7 @@ _:-ms-input-placeholder #prev:before,
 .nav-blog {
   background: #ff5fac;
   -webkit-transition: height 0.15s ease-in-out;
-          transition: height 0.15s ease-in-out;
+  transition: height 0.15s ease-in-out;
 }
 .single-cas-client .nav-blog {
   background: #2ac0ce;
@@ -2858,23 +2845,23 @@ _:-ms-input-placeholder #prev:before,
 .nav-blog.cats-visible {
   height: 155px;
   -webkit-transition: 0.4s height 0.15s ease-in-out;
-          transition: 0.4s height 0.15s ease-in-out;
+  transition: 0.4s height 0.15s ease-in-out;
 }
 .nav-blog.cats-visible .searchform,
 .nav-blog.cats-visible .share {
   width: 0;
   opacity: 0;
   -webkit-transition: opacity 0.15s ease-in-out, 0.2s width 0s linear;
-          transition: opacity 0.15s ease-in-out, 0.2s width 0s linear;
+  transition: opacity 0.15s ease-in-out, 0.2s width 0s linear;
 }
 .nav-blog.cats-visible .cats-container {
   left: 5%;
   margin-left: 0;
   -webkit-transition: 0.15s ease-in-out;
-          transition: 0.15s ease-in-out;
+  transition: 0.15s ease-in-out;
 }
 .nav-blog.cats-visible .cats-btn {
-  font-family: 'geomanist', sans-serif;
+  font-family: 'geomanist', 'klinic', sans-serif;
   font-size: 1.1em;
   font-weight: normal;
   font-style: normal;
@@ -2900,7 +2887,7 @@ _:-ms-input-placeholder #prev:before,
   position: relative;
   float: left;
   -webkit-transition: 0.4s opacity 0.15s ease-in-out;
-          transition: 0.4s opacity 0.15s ease-in-out;
+  transition: 0.4s opacity 0.15s ease-in-out;
 }
 .searchform input {
   width: 100%;
@@ -2932,12 +2919,12 @@ _:-ms-input-placeholder #prev:before,
   display: none;
   text-align: center;
   -webkit-transition: 0.4s opacity 0.15s ease-in-out;
-          transition: 0.4s opacity 0.15s ease-in-out;
+  transition: 0.4s opacity 0.15s ease-in-out;
 }
 .share p {
   padding: 0 !important;
   margin: 0 0 5px;
-  font-family: 'klinicIt', sans-serif;
+  font-family: 'klinicIt', 'klinic', sans-serif;
   font-size: 0.9em;
   font-weight: normal;
   font-style: normal;
@@ -2963,10 +2950,11 @@ _:-ms-input-placeholder #prev:before,
 .share a:before {
   display: inline-block;
   -webkit-transform-origin: 50% 50%;
-      -ms-transform-origin: 50% 50%;
           transform-origin: 50% 50%;
   -webkit-transition: -webkit-transform 0.15s ease-in-out;
-          transition: transform 0.15s ease-in-out;
+  transition: -webkit-transform 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out;
 }
 .share a:hover,
 .share a:focus {
@@ -2976,7 +2964,6 @@ _:-ms-input-placeholder #prev:before,
 .share a:hover:before,
 .share a:focus:before {
   -webkit-transform: scale(1.3);
-      -ms-transform: scale(1.3);
           transform: scale(1.3);
 }
 .single-cas-client .share a:hover,
@@ -2991,14 +2978,14 @@ _:-ms-input-placeholder #prev:before,
   left: 95%;
   margin-left: -110px;
   -webkit-transition: 0.2s 0.15s ease-in-out;
-          transition: 0.2s 0.15s ease-in-out;
+  transition: 0.2s 0.15s ease-in-out;
 }
 .cats-btn {
   padding: 0 25px 0 0;
   position: relative;
   margin: 5px 0 0;
   vertical-align: top;
-  font-family: 'geomanist-bold', sans-serif;
+  font-family: 'geomanist-bold', 'geomanist', 'klinic', sans-serif;
   font-size: 1.1em;
   font-weight: normal;
   font-style: normal;
@@ -3023,7 +3010,7 @@ _:-ms-input-placeholder #prev:before,
   margin: 8px 0 0 2%;
   opacity: 0;
   -webkit-transition: 0.15s ease-in-out;
-          transition: 0.15s ease-in-out;
+  transition: 0.15s ease-in-out;
 }
 .cats li {
   display: inline-block;
@@ -3034,7 +3021,7 @@ _:-ms-input-placeholder #prev:before,
   margin: 0 0 15px;
 }
 .cats a {
-  font-family: 'geomanist-bold', sans-serif;
+  font-family: 'geomanist-bold', 'geomanist', 'klinic', sans-serif;
   font-size: 0.9em;
   font-weight: normal;
   font-style: normal;
@@ -3061,7 +3048,6 @@ _:-ms-input-placeholder #prev:before,
 .close-cats:hover,
 .close-cats:focus {
   -webkit-transform: rotate(90deg);
-      -ms-transform: rotate(90deg);
           transform: rotate(90deg);
   color: #b5006a;
 }
@@ -3070,7 +3056,7 @@ _:-ms-input-placeholder #prev:before,
   bottom: 0 !important;
   z-index: 0;
   -webkit-transition: none;
-          transition: none;
+  transition: none;
 }
 .single .isMobile .nav-blog {
   border: 0;
@@ -3078,7 +3064,7 @@ _:-ms-input-placeholder #prev:before,
 .isMobile .nav-blog.cats-visible {
   height: auto;
   -webkit-transition: none;
-          transition: none;
+  transition: none;
 }
 .isMobile .nav-blog.cats-visible .searchform {
   width: 220px;
@@ -3130,8 +3116,10 @@ _:-ms-input-placeholder #prev:before,
   top: -55px;
   right: -50px;
   opacity: 0;
-  -webkit-transition: -webkit-transform 0.15s ease-in-out, opacity 0.15s ease-in-out;
-          transition: transform 0.15s ease-in-out, opacity 0.15s ease-in-out;
+  -webkit-transition: opacity 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out;
+  transition: opacity 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, opacity 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, opacity 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out;
 }
 .pagination {
   margin: 120px 0 0;
@@ -3141,7 +3129,7 @@ _:-ms-input-placeholder #prev:before,
 }
 .pagination a {
   position: relative;
-  font-family: 'geomanist-bold', sans-serif;
+  font-family: 'geomanist-bold', 'geomanist', 'klinic', sans-serif;
   font-size: 1.3em;
   font-weight: normal;
   font-style: normal;
@@ -3474,10 +3462,8 @@ _:-ms-input-placeholder #prev:before,
     background: #000;
     text-align: center;
     -webkit-transform: perspective(3000) rotateY(90deg);
-    -ms-transform: perspective(3000) rotateY(90deg);
     transform: perspective(3000) rotateY(90deg);
     -webkit-transform-origin: 100% 100%;
-    -ms-transform-origin: 100% 100%;
     transform-origin: 100% 100%;
     -webkit-perspective-origin: 50% 50%;
     perspective-origin: 50% 50%;
@@ -3515,7 +3501,7 @@ _:-ms-input-placeholder #prev:before,
     z-index: 1;
     opacity: 0;
     -webkit-transition: .4s opacity .1s;
-            transition: .4s opacity .1s;
+    transition: .4s opacity .1s;
   }
   .js #main-menu .sub-menu {
     display: inline-block;
@@ -3785,7 +3771,7 @@ _:-ms-input-placeholder #prev:before,
     bottom: 0 !important;
     z-index: 0;
     -webkit-transition: none;
-            transition: none;
+    transition: none;
   }
   .single .nav-blog {
     border: 0;
@@ -3793,7 +3779,7 @@ _:-ms-input-placeholder #prev:before,
   .nav-blog.cats-visible {
     height: auto;
     -webkit-transition: none;
-            transition: none;
+    transition: none;
   }
   .nav-blog.cats-visible .searchform {
     width: 220px;
@@ -3845,8 +3831,10 @@ _:-ms-input-placeholder #prev:before,
     top: -55px;
     right: -50px;
     opacity: 0;
-    -webkit-transition: -webkit-transform 0.15s ease-in-out, opacity 0.15s ease-in-out;
-            transition: transform 0.15s ease-in-out, opacity 0.15s ease-in-out;
+    -webkit-transition: opacity 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out;
+    transition: opacity 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out;
+    transition: transform 0.15s ease-in-out, opacity 0.15s ease-in-out;
+    transition: transform 0.15s ease-in-out, opacity 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out;
   }
   .commentform label {
     width: 100%;

@@ -3,6 +3,8 @@
     src: url('../fonts/klinic/klinicslabmedium.woff2') format('woff2'),
          url('../fonts/klinic/klinicslabmedium.woff') format('woff'),
          url('../fonts/klinic/klinicslabmedium.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
 }
 
 @font-face{
@@ -10,6 +12,8 @@
     src: url('../fonts/klinic/klinicslabbold.woff2') format('woff2'),
          url('../fonts/klinic/klinicslabbold.woff') format('woff'),
          url('../fonts/klinic/klinicslabbold.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
 }
 
 @font-face{
@@ -17,6 +21,8 @@
     src: url('../fonts/klinic/klinicslabmediumit.woff2') format('woff2'),
          url('../fonts/klinic/klinicslabmediumit.woff') format('woff'),
          url('../fonts/klinic/klinicslabmediumit.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
 }
 
 @font-face{
@@ -24,6 +30,8 @@
     src: url('../fonts/marker/permanentmarker.woff2') format('woff2'),
          url('../fonts/marker/permanentmarker.woff') format('woff'),
          url('../fonts/marker/permanentmarker.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
 }
 
 @font-face{
@@ -31,6 +39,8 @@
     src: url('../fonts/geomanist/geomanist-regular.woff2') format('woff2'),
          url('../fonts/geomanist/geomanist-regular.woff') format('woff'),
          url('../fonts/geomanist/geomanist-regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
 }
 
 /*@font-face {
@@ -56,42 +66,35 @@
     src: url('../fonts/geomanist/geomanist-bold.woff2') format('woff2'),
          url('../fonts/geomanist/geomanist-bold.woff') format('woff'),
          url('../fonts/geomanist/geomanist-bold.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
 }
 
 
 .klinic(@size){
-  font-family: 'klinic', sans-serif;
-  font-size: @size;
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'klinic', sans-serif;
+    font-size: @size;
 }
 
 .klinicBold(@size){
-  font-family: 'klinicBold', 'klinic', sans-serif;
-  font-size: @size;
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'klinicBold', 'klinic', sans-serif;
+    font-size: @size;
 }
 
 .klinicIt(@size){
-  font-family: 'klinicIt', 'klinic', sans-serif;
-  font-size: @size;
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'klinicIt', 'klinic', sans-serif;
+    font-size: @size;
 }
 
 .marker(@size){
-  font-family: 'marker', 'klinic', sans-serif;
-  font-size: @size;
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'marker', 'klinic', sans-serif;
+    font-size: @size;
 }
 
 .geomanist(@size){
-  font-family: 'geomanist', 'klinic', sans-serif;
-  font-size: @size;
-  font-weight: normal;
-  font-style: normal;}
+    font-family: 'geomanist', 'klinic', sans-serif;
+    font-size: @size;
+}
 
 /*.geomanistLight(@size){
   font-family: 'geomanist-light', sans-serif;
@@ -114,30 +117,30 @@
 .geomanistBold(@size){
   font-family: 'geomanist-bold', 'geomanist', 'klinic', sans-serif;
   font-size: @size;
-  font-weight: normal;
-  font-style: normal;
 }
 
 @font-face{
   font-family: 'icomoon';
-  src: url('../fonts/icomoon.eot');
-  src: url('fonts/icomoon.eot#iefix') format('embedded-opentype'),
-       url('../fonts/icomoon.woff2') format('woff2'),
+  //src: url('../fonts/icomoon.eot');
+  src: url('../fonts/icomoon.woff2') format('woff2'),
        url('../fonts/icomoon.woff') format('woff'),
        url('../fonts/icomoon.ttf') format('truetype'),
        url('../fonts/icomoon.svg#icomoon') format('svg');
 }
 
 [class^='icon-'], [class*=' icon-'], .icomoon{
-  font-family: 'icomoon';
+  font-family: 'icomoon' !important;
   speak: none;
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   font-variant: normal;
   text-transform: none;
   line-height: 1;
 }
 
+.icon-check:before {
+    content: '\e90b';
+}
 .icon-close:before {
   content: '\e90a';
 }

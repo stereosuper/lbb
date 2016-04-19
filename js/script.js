@@ -1,15 +1,15 @@
 /* GLOBAL */
+var body = document.getElementsByTagName('body')[0];
 function hasClass(el, className){
 	return el.classList ? el.classList.contains(className) : new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
 }
 
-var body = document.getElementsByTagName('body')[0];
 
 function init(){
 	/* POLYFILL CLOSEST */
-	(function (ELEMENT){
+	(function(ELEMENT){
 		ELEMENT.matches = ELEMENT.matches || ELEMENT.mozMatchesSelector || ELEMENT.msMatchesSelector || ELEMENT.oMatchesSelector || ELEMENT.webkitMatchesSelector;
-		ELEMENT.closest = ELEMENT.closest || function closest(selector) {
+		ELEMENT.closest = ELEMENT.closest || function closest(selector){
 			var element = this;
 			while(element){
 				if(element.matches(selector)){
@@ -36,16 +36,19 @@ function init(){
 		fixedMenu = document.getElementById('fixedMenu'),
 		prestaSectionAteliers = document.getElementById('ateliers'),
 		prestaSectionInterventions = document.getElementById('interventions'),
-		prestaSectionFormations = document.getElementById('formations'),
-		lastScrollTop = 0, scrollDir;
+		aboutSectionTeam = document.getElementById('equipe'),
+		aboutSectionIntervenants = document.getElementById('intervenants'),
+		lastScrollTop = 0, scrollDir = 1;
 
 
 	/* FONCTIONS GENERALES */
 	function scrollTo(to, duration){
 	    if(duration < 0) return;
+
 	    var scrollTop = document.body.scrollTop + document.documentElement.scrollTop,
 			difference = to - scrollTop,
 			perTick = difference / duration * 10;
+
 	    setTimeout( function(){
 			scrollTop = scrollTop + perTick;
 			document.body.scrollTop = scrollTop;
@@ -85,8 +88,7 @@ function init(){
 		var strValue = '';
 		if(document.defaultView && document.defaultView.getComputedStyle){
 			strValue = document.defaultView.getComputedStyle(oElm, '').getPropertyValue(strCssRule);
-		}
-		else if(oElm.currentStyle){
+		} else if(oElm.currentStyle){
 			strCssRule = strCssRule.replace(/\-(\w)/g, function (strMatch, p1){
 				return p1.toUpperCase();
 			});
@@ -115,8 +117,7 @@ function init(){
 	}
 
 	function isVisible(el){
-		var top = el.offsetTop,
-			height = el.offsetHeight;
+		var top = el.offsetTop, height = el.offsetHeight;
 
 		while(el.offsetParent){
 			el = el.offsetParent;
@@ -124,6 +125,14 @@ function init(){
 		}
 
 		return( top < (window.pageYOffset + window.innerHeight) && (top + height) > window.pageYOffset );
+	}
+
+	function inArray(needle, array){
+		var i = 0;
+	    for(i in array){
+	        if(array[i] == needle) return true;
+	    }
+	    return false;
 	}
 
 
@@ -140,17 +149,17 @@ function init(){
 		if(hasClass(htmlTag, 'lt-ie9')) posX = '150%';
 
 		function slideNext(){
-			TweenLite.to( slides[currentSlide], timing, {left: posX, opacity: 0, onComplete: function(){
+			TweenLite.to( slides[currentSlide], timing, {left: posX, opacity: 0, zIndex: 0, onComplete: function(){
 				currentSlide < nbSlides - 1 ? currentSlide ++ : currentSlide = 0;
-				TweenLite.fromTo( slides[currentSlide], timing, {left: '-'+posX}, {left: 0, opacity: 1, ease:Power2.easeInOut} );
+				TweenLite.fromTo( slides[currentSlide], timing, {left: '-'+posX}, {left: 0, opacity: 1, zIndex: 1, ease:Power2.easeInOut} );
 				tlAnims.staggerFromTo( slides[currentSlide].querySelectorAll('.anim-slide'), timing, {x: '-200px', opacity: 0}, {x: 0, opacity: 1, ease:Power2.easeInOut}, 0.2 );
 			}} );
 		}
 
 		function slidePrev(){
-			TweenLite.to( slides[currentSlide], timing, {left: '-'+posX, opacity: 0, onComplete: function(){
+			TweenLite.to( slides[currentSlide], timing, {left: '-'+posX, opacity: 0, zIndex: 0, onComplete: function(){
 				currentSlide > 0 ? currentSlide -- : currentSlide = nbSlides - 1;
-				TweenLite.fromTo( slides[currentSlide], timing, {left: posX}, {left: 0, opacity: 1, ease:Power2.easeInOut} );
+				TweenLite.fromTo( slides[currentSlide], timing, {left: posX}, {left: 0, opacity: 1, zIndex: 1, ease:Power2.easeInOut} );
 				tlAnims.staggerFromTo( slides[currentSlide].querySelectorAll('.anim-slide'), timing, {x: '200px', opacity: 0}, {x: 0, opacity: 1, ease:Power2.easeInOut}, 0.2 );
 			}} );
 		}
@@ -183,7 +192,7 @@ function init(){
 			if(myScroll >= container.offsetTop - windowHeight/3){
 				firstAnimSlider = true;
 				TweenLite.to( slides[0], timing, {left: posX, opacity: 0, onComplete: function(){
-					TweenLite.fromTo( slides[1], timing, {left: '-'+posX}, {left: 0, opacity: 1, ease:Power2.easeInOut} );
+					TweenLite.fromTo( slides[1], timing, {left: '-'+posX}, {left: 0, opacity: 1, zIndex: 1, ease:Power2.easeInOut} );
 					tlAnims.staggerFromTo( slides[1].querySelectorAll('.anim-slide'), timing, {x: '-200px', opacity: 0}, {x: 0, opacity: 1, ease:Power2.easeInOut}, 0.2 );
 				}} );
 				currentSlide = 1;
@@ -259,8 +268,17 @@ function init(){
 			],
 			//positions = ['top-left', 'top-right', 'top-center', 'bottom-left', 'bottom-right', 'bottom-center'],
 			positions = ['top-left', 'top-right', 'bottom-left', 'bottom-right', 'bottom-center'],
-			i = 0, j, buttons = [], imgsBefore = [], imgsAfter = [], divsAfter = [], rands = [], limit = 3, length = 0,
-			transitionOpen = 0.8, transitionClose = 400, nbTabs = tabs.length;
+			i = 0, j, buttons = [], imgsBefore = [], imgsAfter = [], divsAfter = [], rand = 0, rands = [], limit = 3,
+			length = 0, transitionOpen = 0.8, transitionClose = 400, nbTabs = tabs.length;
+
+		function removeYolo(){
+			TweenMax.set(body, {css: {className: '-=yolo'}});
+			removeEventListener(body, 'click', removeYolo);
+		}
+		function removeComic(){
+			TweenMax.set(body, {css: {className: '-=comic'}});
+			removeEventListener(body, 'click', removeComic);
+		}
 
 		function shitAppens(section, img, id){
 			var imgById = section.querySelector('#'+id);
@@ -282,6 +300,10 @@ function init(){
 			positions = ['top-left', 'top-right', 'top-center'];
 		}
 
+		if(hasClass(body, 'single-prestation')){
+			positions = ['top-right', 'bottom-left', 'bottom-right', 'bottom-center'];
+		}
+
 		for(i; i<nbTabs; i++){
 			if(sections[i]){
 				j = 0;
@@ -296,12 +318,13 @@ function init(){
 
 				for(j; j<length; j++){
 					(function(i, j){
-						rands[j] = Math.floor( Math.random()*positions.length );
-						if(rands[j-1] !== undefined && rands[j] === rands[j-1]){
-							while(rands[j] === rands[j-1]){
-								rands[j] = Math.floor( Math.random()*positions.length );
+						rand = Math.floor( Math.random()*positions.length );
+						if(rands[j-1] !== undefined /*&& rands[j] === rands[j-1]*/ && inArray(rand, rands)){
+							while(inArray(rand, rands)){
+								rand = Math.floor( Math.random()*positions.length );
 							}
 						}
+						rands[j] = rand;
 
 						imgsBefore[i][j] = document.createElement('img');
 						imgsBefore[i][j].setAttribute('src', tabs[i][j][0]);
@@ -335,11 +358,6 @@ function init(){
 								});
 							}else{
 								if(tabs[i][j][1] === 'transform'){
-									function removeYolo(){
-										TweenMax.set(body, {css: {className: '-=yolo'}});
-										removeEventListener(body, 'click', removeYolo);
-									}
-
 									addEventListener(buttons[i][j], 'click', function(){
 										if(hasClass(body, 'yolo')){
 											removeYolo();
@@ -351,11 +369,6 @@ function init(){
 										}
 									});
 								}else if(tabs[i][j][1] === 'typo'){
-									function removeComic(){
-										TweenMax.set(body, {css: {className: '-=comic'}});
-										removeEventListener(body, 'click', removeComic);
-									}
-
 									addEventListener(buttons[i][j], 'click', function(){
 										if(hasClass(body, 'comic')){
 											removeComic();
@@ -558,61 +571,25 @@ function init(){
 		}
 	}
 
-	function animFixedMenuStep(){
+	function animFixedMenuStep(section1, section2){
 		if(myScroll > 200 && myScroll + windowHeight < htmlTag.offsetHeight){
 			var links = fixedMenuStep.querySelectorAll('li');
 			TweenLite.to(fixedMenuStep, 0.3, {bottom: 0});
-			/*if(myScroll >= prestaSectionAteliers.offsetTop + prestaSectionAteliers.offsetHeight){
-				if(myScroll >= prestaSectionInterventions.offsetTop + prestaSectionInterventions.offsetHeight){
-					if(!hasClass(fixedMenu, 'step3')){
-						TweenLite.set(links[0], {css: {className: '-=hide'}});
-						TweenLite.set(links[1], {css: {className: 'up'}});
-						TweenLite.set(links[1], {css: {className: '+=right'}});
-						TweenLite.set(links[2], {css: {className: '+=hide'}});
 
-						TweenLite.set(fixedMenu, {css: {className: 'second-menu step3'}});
-					}
+			if(myScroll >= section1.offsetTop){
+				if(myScroll >= section2.offsetTop){
+					// etat 2
+					TweenLite.set(links[0], {css: {className: 'on up'}});
+					TweenLite.set(links[1], {css: {className: ''}});
 				}else{
-					if(!hasClass(fixedMenu, 'step2')){
-						TweenLite.set(links[0], {css: {className: '-=hide'}});
-						hasClass(fixedMenu, 'step3') ? TweenLite.set(links[1], {css: {className: 'down hide right'}}) : TweenLite.set(links[1], {css: {className: 'down hide'}});
-						TweenLite.set(links[2], {css: {className: '-=hide'}});
-
-						TweenLite.set(fixedMenu, {css: {className: 'second-menu step2'}});
-					}
+					// etat 1
+					TweenLite.set(links[0], {css: {className: ''}});
+					TweenLite.set(links[1], {css: {className: 'on down'}});
 				}
 			}else{
-				if(!hasClass(fixedMenu, 'step1')){
-					TweenLite.set(links[0], {css: {className: '+=hide'}});
-					TweenLite.set(links[1], {css: {className: 'down'}});
-					TweenLite.set(links[2], {css: {className: '-=hide'}});
-
-					TweenLite.set(fixedMenu, {css: {className: 'second-menu step1'}});
-				}
-			}*/
-			if(myScroll >= prestaSectionAteliers.offsetTop){
-				if(myScroll >= prestaSectionInterventions.offsetTop){
-					if(!hasClass(fixedMenuStep, 'step3')){
-						TweenLite.set(links[0], {css: {className: 'up'}});
-						TweenLite.set(links[1], {css: {className: 'right up'}});
-
-						TweenLite.set(fixedMenuStep, {css: {className: 'second-menu step3'}});
-					}
-				}else{
-					if(!hasClass(fixedMenuStep, 'step2')){
-						TweenLite.set(links[0], {css: {className: 'up'}});
-						TweenLite.set(links[1], {css: {className: 'right down'}});
-
-						TweenLite.set(fixedMenuStep, {css: {className: 'second-menu step2'}});
-					}
-				}
-			}else{
-				if(!hasClass(fixedMenuStep, 'step1')){
-					TweenLite.set(links[0], {css: {className: 'down'}});
-					TweenLite.set(links[1], {css: {className: 'right down'}});
-
-					TweenLite.set(fixedMenuStep, {css: {className: 'second-menu step1'}});
-				}
+				// etat 1
+				TweenLite.set(links[0], {css: {className: ''}});
+				TweenLite.set(links[1], {css: {className: 'on down'}});
 			}
 		}else{
 			TweenLite.to(fixedMenuStep, 0.3, {bottom: '-70px'});
@@ -627,8 +604,8 @@ function init(){
 		}
 	}
 
-	function setPrestaSlider(slider){
-		var slides = slider.querySelectorAll('.presta-slide'),
+	function setSmallSlider(slider){
+		var slides = slider.querySelectorAll('.small-slide'),
 			nbSlides = slides.length, i = 0,
 			height = 0, posX = '25%', timing = 0.3,
 			buttons = [], buttonsLi = [], buttonsList = document.createElement('ul'),
@@ -637,8 +614,8 @@ function init(){
 		if(hasClass(htmlTag, 'lt-ie9')) posX = '150%';
 
 		function slide(newSlidePresta){
-			TweenLite.to( slider.querySelector('.presta-slide.actif'), timing, {left: posX, opacity: 0, onComplete: function(){
-				TweenLite.set(slider.querySelector('.presta-slide.actif'), {css: {className: '-=actif'}});
+			TweenLite.to( slider.querySelector('.small-slide.actif'), timing, {left: posX, opacity: 0, onComplete: function(){
+				TweenLite.set(slider.querySelector('.small-slide.actif'), {css: {className: '-=actif'}});
 				TweenLite.set(slides[newSlidePresta], {css: {className: '+=actif'}});
 				TweenLite.fromTo( slides[newSlidePresta], timing, {left: '-'+posX}, {left: 0, opacity: 1, ease:Power2.easeInOut} );
 				TweenLite.set(buttons, {css: {className: ''}});
@@ -647,8 +624,8 @@ function init(){
 		}
 
 		function slidePrev(newSlidePresta){
-			TweenLite.to( slider.querySelector('.presta-slide.actif'), timing, {left: '-'+posX, opacity: 0, onComplete: function(){
-				TweenLite.set(slider.querySelector('.presta-slide.actif'), {css: {className: '-=actif'}});
+			TweenLite.to( slider.querySelector('.small-slide.actif'), timing, {left: '-'+posX, opacity: 0, onComplete: function(){
+				TweenLite.set(slider.querySelector('.small-slide.actif'), {css: {className: '-=actif'}});
 				TweenLite.set(slides[newSlidePresta], {css: {className: '+=actif'}});
 				TweenLite.fromTo( slides[newSlidePresta], timing, {left: posX}, {left: 0, opacity: 1, ease:Power2.easeInOut} );
 				TweenLite.set(buttons, {css: {className: ''}});
@@ -657,7 +634,7 @@ function init(){
 		}
 
 		if(nbSlides > 1){
-			buttonsList.setAttribute('class', 'presta-nav');
+			buttonsList.setAttribute('class', 'small-nav');
 			slider.appendChild(buttonsList);
 		}
 
@@ -670,7 +647,7 @@ function init(){
 				buttonsList.appendChild(buttonsLi[i]);
 				addEventListener(buttons[i], 'click', function(){
 					newIndex = getIndex(this.parentNode);
-					getIndex(slider.querySelector('.presta-slide.actif')) < newIndex ? slide(newIndex) : slidePrev(newIndex);
+					getIndex(slider.querySelector('.small-slide.actif')) < newIndex ? slide(newIndex) : slidePrev(newIndex);
 				});
 				if(i > 0) TweenLite.set(slides[i], {left: posX, opacity: 0});
 			}
@@ -684,7 +661,7 @@ function init(){
 						e.preventDefault();
 						var href = this.getAttribute('href').replace('#', ''), slideTarget = document.getElementById(href),
 							newIndex = getIndex(slideTarget);
-						getIndex(slider.querySelector('.presta-slide.actif')) < newIndex ? slide(newIndex) : slidePrev(newIndex);
+						getIndex(slider.querySelector('.small-slide.actif')) < newIndex ? slide(newIndex) : slidePrev(newIndex);
 					});
 				}
 			}
@@ -762,11 +739,17 @@ function init(){
 			if(masques !== null)
 				animBackgroundScroll();
 
-			if(!firstAnimSlider)
+			if(!firstAnimSlider && myScroll > 0)
 				animFirstSlide();
 
-			if(fixedMenuStep !== null)
-				animFixedMenuStep();
+			if(fixedMenuStep !== null){
+				if(prestaSectionAteliers !== null && prestaSectionInterventions !== null){
+					animFixedMenuStep(prestaSectionAteliers, prestaSectionInterventions);
+				}
+				if(aboutSectionTeam !== null && aboutSectionIntervenants !== null){
+					animFixedMenuStep(aboutSectionTeam, aboutSectionIntervenants);
+				}
+			}
 
 			if(fixedMenu !== null)
 				animFixedMenu();
@@ -827,6 +810,22 @@ function init(){
 				TweenLite.set(document.getElementById('wrapper'), {paddingBottom: '110px'});
 				if(btnPrestaHead !== null) TweenLite.set(btnPrestaHead, {bottom: newTopBtn+'px'});
 				TweenLite.set(backPrestaHead, {top: newTopBack+'px'});
+
+				TweenLite.set(imgPrestaHead, {opacity: 0});
+				TweenLite.set(stPrestaHead, {opacity: 0});
+				TweenLite.set(titlePrestaHead, {css: {className: '+=small'}});
+			}
+		}
+
+		if((hasClass(body, 'page-template-presta') || hasClass(body, 'home') || hasClass(body, 'page-template-about')) && !hasClass(htmlTag, 'lt-ie10')){
+			var i = 0, sections = document.querySelectorAll('.section'), nbSections = sections.length, hash = '';
+			for(i; i<nbSections; i++){
+				if(myScroll >= sections[i].offsetTop){
+					hash = i !== 0 ? '#'+sections[i].id : '#';
+				}
+			}
+			if(window.location.hash !== hash){
+				history.replaceState(null, null, hash);
 			}
 		}
 
@@ -917,7 +916,7 @@ function init(){
 	if(phrase !== null) setSentences(phrase);
 
 	var youSection = document.getElementById('vous');
-	if(youSection !== null) linksHoverYou(youSection);
+	if(youSection !== null && !isMobile.any) linksHoverYou(youSection);
 
 	var sliders = document.querySelectorAll('.slider');
 	if(sliders.length){
@@ -927,8 +926,14 @@ function init(){
 		}
 	}
 
-	var prestaSlider = document.getElementById('prestaSlider');
-	if(prestaSlider !== null) setPrestaSlider(prestaSlider);
+	var smallSlider = document.getElementById('smallSlider');
+	if(smallSlider !== null) setSmallSlider(smallSlider);
+
+	if(fixedMenuStep !== null){
+		var linksFixedMenu = fixedMenuStep.querySelectorAll('li');
+		TweenLite.set(linksFixedMenu[0], {width: linksFixedMenu[0].clientWidth+2, left: 0, right: 0});
+		TweenLite.set(linksFixedMenu[1], {width: linksFixedMenu[1].clientWidth+2, left: 0, right: 0});
+	}
 
 	if(!isMobile.any){
 		var live = document.getElementById('live');
@@ -951,8 +956,11 @@ function init(){
 				i = 0, nbBlackLinsk = blackLinks.length, tlBlackLinks = [], tw1 = [], tw2 = [], tw3 = [], tw4 = [];
 			for(i; i < nbBlackLinsk; i++){
 				(function(i){
-
-					tw1[i] = new TweenMax.to(blackLinks[i].querySelector('.hover'), 0.15, {padding: '10px', top: '12px', overflow: 'visible', ease: Linear.easeNone});
+					if(windowWidth > 480){
+						tw1[i] = new TweenMax.to(blackLinks[i].querySelector('.hover'), 0.15, {padding: '10px', top: '12px', overflow: 'visible', ease: Linear.easeNone});
+					}else{
+						tw1[i] = new TweenMax.to(blackLinks[i].querySelector('.hover'), 0.15, {padding: '10px', top: '0', height: '250px', overflow: 'visible', ease: Linear.easeNone});
+					}
 					tw2[i] = new TweenMax.to(blackLinks[i].querySelector('.sup-title'), 0.2, {opacity: '1', marginTop: '0', ease: Linear.easeNone});
 					tw3[i] = new TweenMax.to(blackLinks[i].querySelector('.content'), 0.25, {opacity: '1', marginTop: '0', ease: Linear.easeNone});
 
@@ -991,30 +999,30 @@ function init(){
 
 		var prestaList = document.querySelectorAll('.presta-list');
 		if(prestaList !== null){
-			var j = 0, nbPrestaList = prestaList.length, tlOrangeLinks = [], twO1 = [],
-			twO2 = [], twO3 = [], twO4 = [], orangeLinks = [], nbOrangeLinsk = [], i = 0;
+			var j = 0, nbPrestaList = prestaList.length, tlSquareLinks = [], twS1 = [],
+			twS2 = [], twS3 = [], twS4 = [], squareLinks = [], nbSquareLinsk = [], i = 0;
 
 			for(j; j < nbPrestaList; j++){
 				i = 0;
-				orangeLinks[j] = prestaList[j].querySelectorAll('.orange-link');
-				nbOrangeLinsk[j] = orangeLinks[j].length;
-				tlOrangeLinks[j] = []; twO1[j] = []; twO2[j] = []; twO3[j] = []; twO4[j] = [];
+				squareLinks[j] = prestaList[j].querySelectorAll('.square-link');
+				nbSquareLinsk[j] = squareLinks[j].length;
+				tlSquareLinks[j] = []; twS1[j] = []; twS2[j] = []; twS3[j] = []; twS4[j] = [];
 
-				for(i; i < nbOrangeLinsk[j]; i++){
+				for(i; i < nbSquareLinsk[j]; i++){
 					(function(j, i){
 
-						twO1[j][i] = new TweenMax.to(orangeLinks[j][i].querySelector('.hover'), 0.15, {top: '12px', overflow: 'visible', ease: Linear.easeNone});
-						twO2[j][i] = new TweenMax.to(orangeLinks[j][i].querySelector('.cat'), 0.25, {opacity: '1', marginTop: '10px', ease: Linear.easeNone});
-						twO3[j][i] = new TweenMax.to(orangeLinks[j][i].querySelector('.link'), 0.25, {opacity: '1', marginTop: '0', ease: Linear.easeNone});
+						twS1[j][i] = new TweenMax.to(squareLinks[j][i].querySelector('.hover'), 0.15, {top: '12px', overflow: 'visible', ease: Linear.easeNone});
+						twS2[j][i] = new TweenMax.to(squareLinks[j][i].querySelector('.cat'), 0.25, {opacity: '1', marginTop: '10px', ease: Linear.easeNone});
+						twS3[j][i] = new TweenMax.to(squareLinks[j][i].querySelector('.link'), 0.25, {opacity: '1', marginTop: '0', ease: Linear.easeNone});
 
-						tlOrangeLinks[j][i] = new TimelineMax({paused: true}).add(twO1[j][i]).add(twO2[j][i]).add(twO3[j][i]);
-						twO4[j][i] = tlOrangeLinks[j][i].tweenFromTo(0, 0.65, {ease: Power2.easeInOut, paused: true});
+						tlSquareLinks[j][i] = new TimelineMax({paused: true}).add(twS1[j][i]).add(twS2[j][i]).add(twS3[j][i]);
+						twS4[j][i] = tlSquareLinks[j][i].tweenFromTo(0, 0.65, {ease: Power2.easeInOut, paused: true});
 
-						addEventListener(orangeLinks[j][i], 'mouseover', function(){
-							twO4[j][i].play();
+						addEventListener(squareLinks[j][i], 'mouseover', function(){
+							twS4[j][i].play();
 						});
-						addEventListener(orangeLinks[j][i], 'mouseout', function(){
-							twO4[j][i].reverse();
+						addEventListener(squareLinks[j][i], 'mouseout', function(){
+							twS4[j][i].reverse();
 						});
 
 					}(j, i));
@@ -1025,11 +1033,12 @@ function init(){
 
 		var prestaLinksBg = document.querySelectorAll('.contact-link');
 		if(prestaLinksBg != null){
-			var i = 0, nbPrestaLinksBg = prestaLinksBg.length, tweenPrestaBg = [], pos = 40;
+			var i = 0, nbPrestaLinksBg = prestaLinksBg.length, tweenPrestaBg = [], pos = 40, thisColor = '';
 
 			for(i; i<nbPrestaLinksBg; i++){
-
 				(function(i){
+					thisColor = getComputedStyle(prestaLinksBg[i])['backgroundColor'];
+
 					tweenPrestaBg[i] = TweenMax.to(prestaLinksBg[i], 1, {backgroundPosition: '+='+pos+'px -='+pos+'px', ease:Linear.easeNone, paused: true, onComplete: function(){
 						pos += 40;
 						this.updateTo({backgroundPosition: pos+'px '+pos+'px'}, true);
@@ -1040,7 +1049,7 @@ function init(){
 						tweenPrestaBg[i].play();
 					});
 					addEventListener(prestaLinksBg[i], 'mouseout', function(){
-						TweenMax.to(prestaLinksBg[i], 0.3, {backgroundColor: '#ffe180'});
+						TweenMax.to(prestaLinksBg[i], 0.3, {backgroundColor: thisColor});
 						tweenPrestaBg[i].pause();
 					});
 				}(i));
@@ -1113,7 +1122,7 @@ function init(){
 		}
 	}
 
-	var backToBtn = document.querySelectorAll('.back-link');
+	/*var backToBtn = document.querySelectorAll('.backLink');
 	if(backToBtn.length){
 		var i = 0, nbBtn = backToBtn.length;
 		for(i; i<nbBtn; i++){
@@ -1121,7 +1130,7 @@ function init(){
 				window.history.back();
 			});
 		}
-	}
+	}*/
 }
 
 function ready(fn){

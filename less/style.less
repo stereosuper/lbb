@@ -1,8 +1,8 @@
 @charset "utf-8";
 
 @import '_lesshat.less';
-@import '_norm.less';
 @import '_fonts.less';
+@import '_norm.less';
 @import '_rainbow.less';
 
 @purple: #b5006a;
@@ -120,13 +120,20 @@ p{
         padding: 10px 20px !important;
         border: 3px solid;
     }
+    .small-p &{
+        max-width: 550px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 strong, b{
     .klinicBold(1em);
+    font-weight: 400;
 }
 em, i{
     .klinicIt(1em);
+    font-style: normal;
 }
 
 ol, ul{
@@ -508,12 +515,16 @@ button{
         }
     }
     .bg-purple &{
+        color: #fff;
         &:hover, &:focus{
             color: @purple;
+            background: #fff;
+            border-color: #fff;
         }
         &:active{
             background: darken(@purple, 10%);
             border-color: darken(@purple, 10%);
+            color: #fff;
         }
     }
     .bg-yellow &{
@@ -560,6 +571,9 @@ button{
         }
         &:hover, &:focus{
             color: @purple;
+            .bg-purple &{
+                color: @yellow;
+            }
             &:before{
                 top: 5px;
             }
@@ -632,6 +646,11 @@ button{
     }
     &:active{
         opacity: .4;
+    }
+    .single-prestation &{
+        &.bottom-left{
+            left: 5%;
+        }
     }
 }
 .bullshit{
@@ -716,31 +735,31 @@ button{
     vertical-align: top;
     ul{
         &:extend(.reset-ul all);
-        font-size: .78em;
+        font-size: .83em;
     }
-  a{
-    position: relative;
-    text-decoration: none;
-    &:before{
-        content: '›';
-        display: inline-block;
-        margin: 0 5px 0 0;
-    }
-    &:after{
-        width: 0;
-        position: absolute;
-        left: 0;
-        content: '-';
-        overflow: hidden;
-    }
-    &:hover, &:focus{
-        padding: 0 0 0 5px;
+    a{
+        position: relative;
+        text-decoration: none;
+        &:before{
+            content: '›';
+            display: inline-block;
+            margin: 0 5px 0 0;
+        }
         &:after{
-            width: 5px;
-            overflow: visible;
+            width: 0;
+            position: absolute;
+            left: 0;
+            content: '-';
+            overflow: hidden;
+        }
+        &:hover, &:focus{
+            padding: 0 0 0 5px;
+            &:after{
+                width: 5px;
+                overflow: visible;
+            }
         }
     }
-  }
 }
 
 .reset-ul{
@@ -766,6 +785,9 @@ button{
     .lt-ie10 &{
         bottom: 0 !important;
     }
+    .bg-purple &{
+        background: @purple;
+    }
     ul{
         &:extend(.reset-ul all);
         width: 730px;
@@ -774,15 +796,10 @@ button{
     }
     li{
         position: absolute;
-        top: 0;
+        top: -70px;
+        margin: auto !important;
         line-height: 70px;
         transition: top .3s ease-in-out;
-        &.left{
-            left: 0;
-        }
-        &.right{
-            right: 0;
-        }
         &.up{
             a{
                 &:before{
@@ -802,6 +819,9 @@ button{
             /*&.hide{
                 top: -70px;
             }*/
+        }
+        &.on{
+            top: 0;
         }
     }
     &.nav-single{
@@ -824,6 +844,12 @@ button{
     }
     a{
         text-decoration: none;
+        .bg-purple &{
+            color: #fff;
+            &:hover, &:focus{
+                color: @pink;
+            }
+        }
         &:before, &:after{
             position: absolute;
             &:extend(.icomoon);
@@ -845,6 +871,7 @@ button{
 .slider{
     padding: 0 50px;
     position: relative;
+    overflow-y: hidden;
     ul{
         height: 500px;
         position: relative;
@@ -914,18 +941,16 @@ _:-ms-input-placeholder, .slider{
     }
     .img{
         width: 35%;
-        padding: 70px 40px 0 90px;
+        padding: 40px 0 0 75px;
         position: relative;
-        img{
-            max-width: 155px;
-        }
     }
     .txt{
         width: 55%;
+        padding: 0 50px 0 0;
         margin: 0 0 0 10%;
     }
     h3{
-        max-width: 350px;
+        //max-width: 350px;
         margin: 25px 0 70px;
     }
     .anim-slide{
@@ -933,6 +958,22 @@ _:-ms-input-placeholder, .slider{
         .no-js &{
             opacity: 1;
         }
+    }
+    .logo-ref{
+        text-align: center;
+        &:not(.logo-ref-post){
+            width: 160px;
+            height: 100px;
+            line-height: 100px;
+        }
+    }
+    .logo-ref-post{
+        + img{
+            margin-top: 65px;
+        }
+    }
+    .btn{
+        float: right;
     }
     blockquote{
         max-width: none;
@@ -1092,9 +1133,18 @@ _:-ms-input-placeholder, .slider{
         right: 12px;
         overflow: hidden;
         background: fade(@yellow, 80%);
+        .bg-purple &{
+            background: fade(@purple, 80%);
+        }
         .link{
             margin-top: 50px;
             opacity: 0;
+            .bg-purple &{
+                color: @yellow;
+                &:hover, &:focus{
+                    color: #ffe180;
+                }
+            }
         }
     }
     .link{
@@ -1117,7 +1167,7 @@ _:-ms-input-placeholder, .slider{
         margin-top: 40px;
         opacity: 0;
     }
-    a{
+    .square-link{
         display: block;
         color: #fff;
     }
@@ -1141,6 +1191,29 @@ _:-ms-input-placeholder, .slider{
             margin-top: 10px;
             opacity: 1;
         }
+    }
+}
+.small-presta-list{
+    li{
+        width: 23.6%;
+        height: 23.6%;
+    }
+    .hover{
+        > span{
+            width: 97%;
+        }
+    }
+    .contact-link{
+        > span{
+            padding: 0 15px;
+        }
+    }
+    .title{
+        height: 37px;
+        font-size: 1.2em;
+    }
+    .link{
+        display: none;
     }
 }
 
@@ -1186,10 +1259,16 @@ _:-ms-input-placeholder, .slider{
     background-position: 40px -40px;
     background-color: #ffe180;
     transition: none;
+    .bg-purple &{
+        background-color: lighten(@pink, 15%);
+    }
     i{
         display: block;
         margin: 0 0 5px;
         color: @txt;
+    }
+    .link{
+        display: inline-block;
     }
     &.big-link{
         padding: 25px;
@@ -1198,6 +1277,9 @@ _:-ms-input-placeholder, .slider{
     }
     &.peignes{
         background-image: url(../layoutImg/peignes.png);
+        .bg-purple &{
+            background-image: url(../layoutImg/peignes-purple.png);
+        }
     }
     &.bananes{
         background-image: url(../layoutImg/bananes.png);
@@ -1304,11 +1386,11 @@ _:-ms-input-placeholder, .slider{
 #header{
     top: 30px;
     left: 4%;
+    z-index: 10;
 }
 
 #header, #main-menu{
     position: fixed;
-    z-index: 10;
 }
 
 .logo{
@@ -1349,11 +1431,8 @@ _:-ms-input-placeholder, .slider{
     padding: 15px 0 15px 30px;
     top: 60px;
     right: 4%;
+    z-index: 21;
     .geomanist(1em);
-    ul{
-        padding: 0;
-        margin: 0;
-    }
     .big-menu{
         > li  > a{
             text-transform: uppercase;
@@ -1361,6 +1440,7 @@ _:-ms-input-placeholder, .slider{
     }
     a{
         color: #fff;
+        font-weight: 600;
         &:hover, &:focus{
             opacity: .7;
         }
@@ -1506,7 +1586,7 @@ _:-ms-input-placeholder, .slider{
     > div{
         border-top: 2px solid #e9e9e9;
         padding: 30px 0 0;
-        .page-template-presta &, .home &{
+        .page-template-presta &, .home &, .page-template-about &{
             border: 0;
             padding: 0;
         }
@@ -1641,7 +1721,7 @@ _:-ms-input-placeholder, .slider{
             }
         }
     }
-    .page-template-presta &{
+    .page-template-presta &, .page-template-about &{
         height: 80vh;
         .section-cell{
             padding-bottom: 0;
@@ -1743,7 +1823,7 @@ _:-ms-input-placeholder, .slider{
         margin-left: auto;
         margin-right: auto;
         margin-bottom: .25em;
-        .page-template-presta &{
+        .page-template-presta &, .page-template-about &{
             margin-top: 0;
         }
         a{
@@ -1773,6 +1853,14 @@ _:-ms-input-placeholder, .slider{
                 transition: @transition;
                 .lt-ie9 &{
                     display: none;
+                }
+                .isMobile &{
+                    content: '›';
+                    left: -35px;
+                    top: 20px;
+                    font-size: 22px;
+                    opacity: 1;
+                    color: inherit;
                 }
             }
             &:hover, &:focus{
@@ -1860,8 +1948,31 @@ _:-ms-input-placeholder, .slider{
 
 #confiance{
     overflow: hidden;
-    h2{
-        margin-left: 45%;
+    hr{
+        border: 0;
+        border-bottom: 1px dashed #fff;
+        margin: 0 0 30px;
+        background: none;
+        opacity: 0.5;
+    }
+}
+.sup-title-confiance{
+    margin-left: 45%;
+}
+.logos-ref{
+    text-align: center;
+}
+.list-logos-ref{
+    padding: 0;
+    margin: 0;
+    li{
+        display: inline-block;
+        width: 90px;
+        line-height: 60px;
+        margin: 0 20px;
+        &:before{
+            display: none;
+        }
     }
 }
 
@@ -1927,7 +2038,7 @@ _:-ms-input-placeholder, .slider{
 
 /******* PRESTAS *******/
 
-.page-template-presta{
+.page-template-presta, .page-template-about{
     h2{
         padding: 0 20px 10px;
         border-bottom: 1px dashed;
@@ -1941,12 +2052,15 @@ _:-ms-input-placeholder, .slider{
     }
 }
 
-.presta-slider{
-    ul{
-        &:extend(.reset-ul all);
+.small-slider{
+    > ul{
+        &:extend(.reset-ul);
         position: relative;
+        > li{
+            &:extend(.reset-ul li all);
+        }
     }
-    .presta-slide{
+    .small-slide{
         width: 100%;
         max-width: 540px;
         position: absolute;
@@ -1954,8 +2068,39 @@ _:-ms-input-placeholder, .slider{
         left: 0;
         right: 0;
         margin: auto;
+        .page-template-about &{
+            max-width: none;
+        }
         > div{
             margin: 50px 0 0;
+        }
+        .img-slide, .txt-slide{
+            display: inline-block;
+            vertical-align: top;
+        }
+        .img-slide{
+            width: 30%;
+            padding: 10px 25px 0 0;
+        }
+        .txt-slide{
+            width: 60%;
+            text-align: left;
+            h3{
+                margin: 0 0 15px;
+                font-size: 1.8em;
+            }
+            ul{
+                margin: 0;
+                padding: 0 0 0 35px;
+            }
+            li{
+                margin: 0 0 10px;
+                &:before{
+                    .icomoon();
+                    content: '\e90b';
+                    left: -35px;
+                }
+            }
         }
         p{
             margin: 0;
@@ -1967,7 +2112,7 @@ _:-ms-input-placeholder, .slider{
             position: relative;
         }
     }
-    .presta-nav{
+    .small-nav{
         padding: 30px;
         margin: 1.5vh 0 3vh;
         li{
@@ -1987,6 +2132,9 @@ _:-ms-input-placeholder, .slider{
             }
             &.actif{
                 background: @purple;
+                .bg-purple &{
+                    background: #fff;
+                }
             }
             .isMobile &{
                 .size(17px);
@@ -2062,6 +2210,9 @@ _:-ms-input-placeholder, .slider{
             margin: 0 auto;
         }
     }
+    p{
+        color: #fff;
+    }
     .btn{
         margin: 0 40px 5px;
     }
@@ -2074,6 +2225,8 @@ _:-ms-input-placeholder, .slider{
     h1{
         max-width: 850px;
         padding: 0 0 0 310px;
+        position: relative;
+        z-index: 1;
         color: @purple;
         &.small{
             max-width: 700px;
@@ -2082,8 +2235,6 @@ _:-ms-input-placeholder, .slider{
         }
     }
     .head{
-        /*min-height: 550px;
-        max-height: 810px;*/
         height: 780px;
         padding-bottom: 0;
         position: fixed;
@@ -2099,11 +2250,8 @@ _:-ms-input-placeholder, .slider{
             overflow: hidden;
         }
         .container{
-            padding-top: 55px;
-            /*min-height: 550px;
-            max-height: 810px;
-            height: 90vh;*/
             height: 100%;
+            padding-top: 55px;
         }
         .sup-title{
             padding: 0 0 0 310px;
@@ -2112,11 +2260,6 @@ _:-ms-input-placeholder, .slider{
             position: absolute;
             right: 130px;
             bottom: 20px;
-            /*position: fixed;
-            top: 78vh;
-            bottom: auto;
-            right: 8%;
-            margin: 0 180px 0 0;*/
             background: @yellow;
             transition: background @transition, color @transition, border @transition;
             &:hover, &:focus{
@@ -2125,7 +2268,6 @@ _:-ms-input-placeholder, .slider{
         }
         .back-link{
             position: absolute;
-            //position: fixed;
             left: 4%;
             top: 100px;
             margin: 0 0 0 180px;
@@ -2134,7 +2276,6 @@ _:-ms-input-placeholder, .slider{
         }
     }
     .page-content{
-        //margin-top: 80vh;
         margin-top: 780px;
         h2, h3, h4, h5, h6, ul, ol, p{
             padding-left: 0;
@@ -2170,6 +2311,14 @@ _:-ms-input-placeholder, .slider{
         color: @purple;
         .lt-ie8 &{
             width: 28%;
+        }
+    }
+    &.paysage{
+        img{
+            vertical-align: bottom;
+        }
+        h2{
+            margin-bottom: 20px;
         }
     }
 }

@@ -2236,7 +2236,8 @@ _:-ms-input-placeholder #prev:before,
 .head .fd {
   opacity: .3;
 }
-.single-cas-client .head .fd {
+.single-cas-client .head .fd,
+.category-cas-client .head .fd {
   background-color: #2ac0ce;
 }
 .no-img.single:not(.single-prestation) .head,
@@ -2598,6 +2599,7 @@ _:-ms-input-placeholder #prev:before,
   text-transform: none;
   line-height: 1;
   content: '\e90b';
+  top: 3px;
   left: -35px;
 }
 .small-slider .small-slide p {
@@ -2965,7 +2967,8 @@ _:-ms-input-placeholder #prev:before,
   -webkit-transition: height 0.15s ease-in-out;
   transition: height 0.15s ease-in-out;
 }
-.single-cas-client .nav-blog {
+.single-cas-client .nav-blog,
+.category-cas-client .nav-blog {
   background: #2ac0ce;
 }
 .lt-ie10 .nav-blog {
@@ -3096,7 +3099,9 @@ _:-ms-input-placeholder #prev:before,
           transform: scale(1.3);
 }
 .single-cas-client .share a:hover,
-.single-cas-client .share a:focus {
+.single-cas-client .share a:focus,
+.category-cas-client .share a:hover,
+.category-cas-client .share a:focus {
   color: #2ac0ce;
 }
 .cats-container {
@@ -4217,6 +4222,9 @@ _:-ms-input-placeholder #prev:before,
   .slider #prev:before {
     font-size: 30px;
   }
+  .slide .logo-ref-post + img {
+    margin-top: 30px;
+  }
   .blog-list li {
     width: 100%;
     height: 100%;
@@ -4367,16 +4375,21 @@ _:-ms-input-placeholder #prev:before,
     padding: 0;
   }
   .slider #next {
-    right: -10px;
+    right: 0;
   }
   .slider #next:hover {
-    right: -15px;
+    right: -5px;
   }
   .slider #prev {
-    left: -10px;
+    left: 0;
   }
   .slider #prev:hover {
-    left: -15px;
+    left: -5px;
+  }
+  .slide h3 {
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
   }
   #main-menu {
     font-size: .9em;

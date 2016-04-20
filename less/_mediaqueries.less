@@ -17,6 +17,12 @@
         padding: 18px 2%;
     }
 
+    .head{
+        .back-link{
+            margin: 0 0 0 125px;
+        }
+    }
+
     #header{
         left: 0;
     }
@@ -29,11 +35,6 @@
         h1{
             &.small{
                 padding: 0 0 0 110px;
-            }
-        }
-        .head{
-            .back-link{
-                margin: 0 0 0 125px;
             }
         }
     }
@@ -99,6 +100,13 @@
         font-size: 3em;
     }
 
+    .head{
+        .back-link{
+            left: 0;
+            margin: 0 0 0 160px;
+        }
+    }
+
     .slide{
         blockquote{
             .quote{
@@ -128,15 +136,6 @@
     .home{
         h1{
             font-size: 6em;
-        }
-    }
-
-    .single-prestation{
-        .head{
-            .back-link{
-                left: 0;
-                margin: 0 0 0 160px;
-            }
         }
     }
 }
@@ -335,11 +334,16 @@
     }
 
     .head{
-        padding-top: 140px;
-        .page-template-presta &, .page-template-about{
+        .section, &.section{
+            padding-top: 140px;
+        }
+        .page-template-presta &, .page-template-about &{
             .container{
                 padding-top: 0;
             }
+        }
+        .back-link{
+            top: 50px !important;
         }
     }
 
@@ -373,9 +377,6 @@
                 margin-left: auto;
                 margin-right: auto;
                 max-width: 600px;
-            }
-            .back-link{
-                top: 50px !important;
             }
         }
         .page-content{
@@ -1062,6 +1063,7 @@
         &.sprite{
             background: url(../layoutImg/logo-small.png) 50% 50%;
             background-size: 80px !important;
+            background-position: 0 0 !important;
         }
     }
 
@@ -1076,23 +1078,20 @@
     }
 
     .head{
-        padding-top: 100px;
-    }
-
-    .single-prestation{
-        .head{
-            .back-link{
-                display: none;
-            }
-            .section-cell{
-                top: 100px;
-            }
+        .section, &.section{
+            padding-top: 100px;
+        }
+        .back-link{
+            display: none;
         }
     }
 
     .single-prestation{
         .head{
             min-height: 600px;
+            .section-cell{
+                top: 100px;
+            }
             .container{
                 padding-top: 50px;
             }
@@ -1242,16 +1241,6 @@
 }
 
 
-
-/*@media(min-height: 940px){
-    .single-prestation{
-        .head{
-            .btn{
-                top: 735px;
-            }
-        }
-    }
-}*/
 
 @media(max-height: 960px){
     .single-prestation{

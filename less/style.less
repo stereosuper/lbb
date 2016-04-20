@@ -816,9 +816,6 @@ button{
                 }
             }
         }
-        &.on{
-            top: 0;
-        }
         &.left{
             left: 0;
         }
@@ -873,6 +870,9 @@ button{
     li{
         top: -70px;
         margin: auto !important;
+        &.on{
+            top: 0;
+        }
     }
 }
 
@@ -1295,7 +1295,7 @@ _:-ms-input-placeholder, .slider{
 
 .google-text{
     font-size: .85em;
-    opacity: 0.7;
+    color: @pink;
 }
 
 
@@ -1746,6 +1746,7 @@ _:-ms-input-placeholder, .slider{
     }
     .page-template-contact &{
         height: 50vh;
+        min-height: 280px;
     }
     .img{
         transition: opacity .1s ease-in-out;

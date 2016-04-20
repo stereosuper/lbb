@@ -189,7 +189,7 @@ function init(){
 				posX = '25%', timing = 0.3, tlAnims = new TimelineLite();
 
 			TweenLite.set(slides[0].querySelectorAll('.anim-slide'), {opacity: 0});
-			if(myScroll >= container.offsetTop - windowHeight/3){
+			if(myScroll >= container.offsetTop - windowHeight/2){
 				firstAnimSlider = true;
 				TweenLite.to( slides[0], timing, {left: posX, opacity: 0, onComplete: function(){
 					TweenLite.fromTo( slides[1], timing, {left: '-'+posX}, {left: 0, opacity: 1, zIndex: 1, ease:Power2.easeInOut} );
@@ -319,7 +319,7 @@ function init(){
 				for(j; j<length; j++){
 					(function(i, j){
 						rand = Math.floor( Math.random()*positions.length );
-						if(rands[j-1] !== undefined /*&& rands[j] === rands[j-1]*/ && inArray(rand, rands)){
+						if(rands[j-1] !== undefined && inArray(rand, rands)){
 							while(inArray(rand, rands)){
 								rand = Math.floor( Math.random()*positions.length );
 							}
@@ -498,24 +498,31 @@ function init(){
 
 
 	function animTxtScroll(){
-		var splitTlAnimTxtLength = splitTlAnimTxt.length, i = 0, sections = [], containers = []/*,
-			allSections = document.getElementsByClassName('section'), j = 0, nbSections = allSections.length, allContainers = []*/;
+		var splitTlAnimTxtLength = splitTlAnimTxt.length, i = 0, sections = [], containers = [];
 
-		function addClassOn(container){
-			if(!hasClass(container, 'on'))
-				TweenLite.set(container, {css:{className:'+=on'}, delay: 0.2});
+		function addClassOn(containers){
+			var i = 0, nbContainers = containers.length;
+			for(i; i<nbContainers; i++){
+				if(!hasClass(containers[i], 'on')){
+					TweenLite.set(containers[i], {css:{className:'+=on'}, delay: 0.2});
+				}
+			}
 		}
 
-		function removeClassOn(container){
-			if(hasClass(container, 'on'))
-				TweenLite.set(container, {css:{className:'-=on'}, delay: 0.2});
+		function removeClassOn(containers){
+			var i = 0, nbContainers = containers.length;
+			for(i; i<nbContainers; i++){
+				if(hasClass(containers[i], 'on')){
+					TweenLite.set(containers[i], {css:{className:'-=on'}, delay: 0.2});
+				}
+			}
 		}
 
 		// anims txt
 		for(i; i<splitTlAnimTxtLength; i++){
 			sections[i] = animsTxt[i].closest('.section');
 			containers[i] = sections[i].querySelector('.container');
-			if(myScroll >= sections[i].offsetTop + windowHeight/3){
+			if(myScroll >= sections[i].offsetTop + windowHeight/2.5){
 				decalTxt = '+=100';
 				if(animsTxt[i].closest('.light') !== null){
 					TweenLite.set(animsTxt[i].closest('.light').querySelectorAll('a'), {css: {className: '-=border'}});
@@ -539,15 +546,17 @@ function init(){
 		}
 
 		// anims section opacity
-
-		/*for(j; j<nbSections; j++){
-			allContainers[j] = allSections[j].querySelector('.container');
-			if(myScroll >= allSections[j].offsetTop + windowHeight/4){
-				addClassOn(allContainers[j]);
-			}else{
-				myScroll >= allSections[j].offsetTop - windowHeight/4 ? removeClassOn(allContainers[j]) : addClassOn(allContainers[j]);
+		if(hasClass(body, 'home') && windowWidth > 767){
+			var allSections = document.getElementsByClassName('section'), j = 0, nbSections = allSections.length, allContainers = [];
+			for(j; j<nbSections; j++){
+				allContainers[j] = allSections[j].querySelectorAll('.container');
+				if(myScroll >= allSections[j].offsetTop + windowHeight/2.5){
+					addClassOn(allContainers[j]);
+				}else{
+					myScroll >= allSections[j].offsetTop - windowHeight/2 ? removeClassOn(allContainers[j]) : addClassOn(allContainers[j]);
+				}
 			}
-		}*/
+		}
 	}
 
 	function animTxt(splitText){
@@ -762,7 +771,6 @@ function init(){
 			detectScrollDir();
 			parallaxPresta(document.querySelectorAll('.bg-ateliers'));
 			parallaxPresta(document.querySelectorAll('.bg-interventions'));
-			//parallaxPresta(document.querySelectorAll('.bg-formations'));
 		}
 
 		if(hasClass(body, 'single-prestation') && windowHeight > 800 && windowWidth > 979){
@@ -1121,16 +1129,6 @@ function init(){
 			});
 		}
 	}
-
-	/*var backToBtn = document.querySelectorAll('.backLink');
-	if(backToBtn.length){
-		var i = 0, nbBtn = backToBtn.length;
-		for(i; i<nbBtn; i++){
-			addEventListener(backToBtn[i], 'click', function(e){
-				window.history.back();
-			});
-		}
-	}*/
 }
 
 function ready(fn){

@@ -171,6 +171,10 @@ img{
         max-width: 150%;
         margin: 0 -75px;
     }
+    &.aligncenter{
+        display: block;
+        margin: 10px auto;
+    }
 }
 
 blockquote{
@@ -1731,7 +1735,7 @@ _:-ms-input-placeholder, .slider{
             padding-bottom: 0;
         }
     }
-    .page-template-default &, .single &, .blog &, .archive &, .search &, .page-template-contact &{
+    .page-template-default &, .single &, .blog &, .archive &, .search &, .page-template-contact &, .error404 &{
         height: 75vh;
     }
     .img{
@@ -2027,6 +2031,9 @@ _:-ms-input-placeholder, .slider{
     background-position: 0 100%;
     opacity: 0;
     transition: opacity .3s ease-in-out .1s;
+    &.blue{
+        background-image: url(../layoutImg/masques-white.png);
+    }
     &.on, .no-js &, .isMobile &, .blog &, .archive &, .search &{
         opacity: 1;
     }

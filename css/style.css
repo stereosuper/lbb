@@ -629,6 +629,10 @@ img.alignnone {
   max-width: 150%;
   margin: 0 -75px;
 }
+img.aligncenter {
+  display: block;
+  margin: 10px auto;
+}
 blockquote {
   max-width: 610px;
   margin: 3.5em auto;
@@ -2212,7 +2216,8 @@ _:-ms-input-placeholder #prev:before,
 .blog .head,
 .archive .head,
 .search .head,
-.page-template-contact .head {
+.page-template-contact .head,
+.error404 .head {
   height: 75vh;
 }
 .head .img {
@@ -2515,6 +2520,9 @@ _:-ms-input-placeholder #prev:before,
   opacity: 0;
   -webkit-transition: opacity 0.3s ease-in-out 0.1s;
   transition: opacity 0.3s ease-in-out 0.1s;
+}
+#bgMasques.blue {
+  background-image: url(../layoutImg/masques-white.png);
 }
 #bgMasques.on,
 .no-js #bgMasques,

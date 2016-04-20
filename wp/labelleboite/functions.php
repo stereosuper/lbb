@@ -204,6 +204,7 @@ add_filter('menu_order', 'lbb_menu_order');
 
 // Thumbnail sizes
 function lbb_thumbnail_sizes(){
+    add_image_size( 'small-logo-ref', 90, 60, false );
     add_image_size( 'logo-ref', 160, 100, false );
     add_image_size( 'presta-thumb', 360, 360, true );
     add_image_size( 'blog-thumb', 460, 460, true );

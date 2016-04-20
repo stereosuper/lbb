@@ -9,7 +9,7 @@ get_header(); ?>
 
 		<?php if ( have_posts() ) : the_post(); ?>
 
-			<header class='head bg-purple section'>
+			<header class='head section bg-purple'>
 				<div class='section-cell'>
 					<div class='container'>
 						<strong class='sup-title'><?php the_field('headerSupTitle'); ?></strong>
@@ -97,7 +97,7 @@ get_header(); ?>
 								<h2 class='sup-title'><?php the_field('logosTitle'); ?></h2>
 								<ul class='list-logos-ref'>
 									<?php while(have_rows('logosRef', 'options')){ the_row(); ?>
-										<li><?php echo wp_get_attachment_image(get_sub_field('logo'), 'logo-ref'); ?></li>
+										<li><?php echo wp_get_attachment_image(get_sub_field('logo'), 'small-logo-ref'); ?></li>
 									<?php } ?>
 								</ul>
 							</div>

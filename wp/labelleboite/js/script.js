@@ -289,7 +289,7 @@ function init(){
 					imgById.parentNode.removeChild(imgById);
 				}, transitionClose );
 			}else{
-				section.appendChild(img);
+				body.appendChild(img);
 				TweenLite.set(img, {css:{className:'+=big'}, delay: 0.01, onComplete: function(){
 					TweenLite.set(img, {css:{className:'+=full'}, delay: transitionOpen});
 				}});
@@ -856,30 +856,32 @@ function init(){
 	if(isMobile.any){
 		TweenLite.set(body, {css: {className: '+=isMobile'}});
 	}else{
-		var logos = document.querySelectorAll('.logo'),
-			logoSprites = ['mouche', 'banane', 'moustache', 'bisou'],
-			rand = Math.floor(Math.random()*logoSprites.length),
-			tweenLogo = [], i = 0;
+		if(windowWidth > 480){
+			var logos = document.querySelectorAll('.logo'),
+				logoSprites = ['mouche', 'banane', 'moustache', 'bisou'],
+				rand = Math.floor(Math.random()*logoSprites.length),
+				tweenLogo = [], i = 0;
 
-		for(i; i<logos.length; i++){
-			(function(i){
-				tweenLogo[i] = TweenMax.spriteSheet(logos[i], {
-					width: 720,
-					stepX: 180,
-					stepY: 180,
-					count: 24
-				}, 1, { delay: 0.1, paused: true });
+			for(i; i<logos.length; i++){
+				(function(i){
+					tweenLogo[i] = TweenMax.spriteSheet(logos[i], {
+						width: 720,
+						stepX: 180,
+						stepY: 180,
+						count: 24
+					}, 1, { delay: 0.1, paused: true });
 
-				TweenLite.set(logos[i], {css: {className: '+=sprite '+logoSprites[rand]}});
-				addEventListener(logos[i], 'mouseover', function(){
-					if(!hasClass(header, 'purple'))
-						tweenLogo[i].play();
-				});
-				addEventListener(logos[i], 'mouseout', function(){
-					if(!hasClass(header, 'purple'))
-						tweenLogo[i].reverse();
-				});
-			}(i));
+					TweenLite.set(logos[i], {css: {className: '+=sprite '+logoSprites[rand]}});
+					addEventListener(logos[i], 'mouseover', function(){
+						if(!hasClass(header, 'purple'))
+							tweenLogo[i].play();
+					});
+					addEventListener(logos[i], 'mouseout', function(){
+						if(!hasClass(header, 'purple'))
+							tweenLogo[i].reverse();
+					});
+				}(i));
+			}
 		}
 	}
 

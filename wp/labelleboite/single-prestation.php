@@ -23,7 +23,7 @@
 
 		<?php if( have_posts() ) : the_post(); ?>
 
-			<header class='head section bg-yellow'>
+			<header class='head bg-yellow section'>
 				<a href='<?php the_field('lienPresta', 'options'); ?>' class='back-link'>Retour</a>
 				<div class='section-cell'>
 					<div class='container'>

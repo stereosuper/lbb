@@ -96,17 +96,19 @@ get_header(); ?>
 
         <?php if ( have_posts() ) : the_post(); ?>
 
-            <header class='head section bg-white'>
-                <div class='section-cell'>
-                    <div class='container'>
-                        <?php if(get_field('supTitle')){ ?>
-                            <strong class='sup-title'><?php the_field('supTitle'); ?></strong>
-                        <?php } ?>
-                        <h1 class='animTxt'><?php the_title(); ?></h1>
+            <header class='head bg-white'>
+                <div class='section'>
+                    <div class='section-cell'>
+                        <div class='container'>
+                            <?php if(get_field('supTitle')){ ?>
+                                <strong class='sup-title'><?php the_field('supTitle'); ?></strong>
+                            <?php } ?>
+                            <h1 class='animTxt'><?php the_title(); ?></h1>
+                        </div>
                     </div>
+                    <?php the_post_thumbnail('full', array('class' => 'img')); ?>
+                    <div class='fd'></div>
                 </div>
-                <?php the_post_thumbnail('full', array('class' => 'img')); ?>
-                <div class='fd'></div>
             </header>
 
             <section class='container page-content' id='page-content'>

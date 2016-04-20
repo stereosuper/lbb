@@ -30,7 +30,7 @@ get_header(); ?>
 										<?php
 											$output = $slide['contentSlide'];
 											if(!empty($slide['imgSlide'])){
-												$output = "<div class='img-slide'>".wp_get_attachment_image($slide['imgSlide'], 'medium')."</div><div class='txt-slide'>".$slide['contentSlide']."</div";
+												$output = "<div class='img-slide'>".wp_get_attachment_image($slide['imgSlide'], 'medium')."</div><div class='txt-slide'>".$slide['contentSlide']."</div>";
 											}
 											echo $output;
 										?>
@@ -39,6 +39,7 @@ get_header(); ?>
 							</div>
 						<?php } ?>
 						<a href='#equipe' class='icon-down scrollTo btn-down'></a>
+						<p class='google-text'><?php the_field('google', 'options'); ?></p>
 					</div>
 				</div>
 			</header>
@@ -116,7 +117,7 @@ get_header(); ?>
 					<div class='small-p'><?php the_field('prestationsTxt'); ?></div>
 					<a href='<?php the_field('lienPresta', 'options'); ?>' class='btn btn-right'><?php the_field('prestationsBtn'); ?></a>
 				</div>
-			</section>
+			</aside>
 
 		<?php else : ?>
 

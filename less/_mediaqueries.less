@@ -442,6 +442,12 @@
         font-size: 1em;
     }
 
+    .container{
+        &.on{
+            opacity: 1;
+        }
+    }
+
     .sup-title{
         line-height: 1.4em;
     }
@@ -489,7 +495,11 @@
             text-align: center;
         }
         .logo-ref{
+            position: relative;
             margin: 0 auto;
+            &:not(.logo-ref-post){
+                left: -22px;
+            }
         }
         .btn{
             float: none;
@@ -511,6 +521,7 @@
         left: -40px;
         right: 0;
         margin: auto;
+        opacity: .7;
     }
 
     .small-slider{

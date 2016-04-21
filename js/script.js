@@ -144,23 +144,35 @@ function init(){
 			next = document.createElement('button'),
 			prev = document.createElement('button'),
 			height = 0, posX = '25%', timing = 0.3,
-			tlAnims = new TimelineLite();
+			tlAnims = new TimelineLite(), hammertime = new Hammer(slider);
 
 		if(hasClass(htmlTag, 'lt-ie9')) posX = '150%';
 
 		function slideNext(){
+			if(!firstAnimSlider){
+				firstAnimSlider = true;
+			}
 			TweenLite.to( slides[currentSlide], timing, {left: posX, opacity: 0, zIndex: 0, onComplete: function(){
 				currentSlide < nbSlides - 1 ? currentSlide ++ : currentSlide = 0;
 				TweenLite.fromTo( slides[currentSlide], timing, {left: '-'+posX}, {left: 0, opacity: 1, zIndex: 1, ease:Power2.easeInOut} );
 				tlAnims.staggerFromTo( slides[currentSlide].querySelectorAll('.anim-slide'), timing, {x: '-200px', opacity: 0}, {x: 0, opacity: 1, ease:Power2.easeInOut}, 0.2 );
+				if(windowWidth <= 768){
+					TweenLite.to(slider.querySelector('ul'), 0.1, {height: slides[currentSlide].offsetHeight+'px'});
+				}
 			}} );
 		}
 
 		function slidePrev(){
+			if(!firstAnimSlider){
+				firstAnimSlider = true;
+			}
 			TweenLite.to( slides[currentSlide], timing, {left: '-'+posX, opacity: 0, zIndex: 0, onComplete: function(){
 				currentSlide > 0 ? currentSlide -- : currentSlide = nbSlides - 1;
 				TweenLite.fromTo( slides[currentSlide], timing, {left: posX}, {left: 0, opacity: 1, zIndex: 1, ease:Power2.easeInOut} );
 				tlAnims.staggerFromTo( slides[currentSlide].querySelectorAll('.anim-slide'), timing, {x: '200px', opacity: 0}, {x: 0, opacity: 1, ease:Power2.easeInOut}, 0.2 );
+				if(windowWidth <= 768){
+					TweenLite.to(slider.querySelector('ul'), 0.1, {height: slides[currentSlide].offsetHeight+'px'});
+				}
 			}} );
 		}
 
@@ -169,18 +181,24 @@ function init(){
 			if(slides[i].offsetHeight > height) height = slides[i].offsetHeight;
 		}
 
-		TweenLite.set(slider.querySelector('ul'), {height: height+'px'});
+		TweenLite.set(slider.querySelector('ul'), {height: slides[0].offsetHeight+'px'});
 		TweenLite.set(slides[0].querySelectorAll('.anim-slide'), {opacity: 1});
+
+		if(windowWidth > 768){
+			TweenLite.set(slider.querySelector('ul'), {height: height+'px'});
+		}
 
 		prev.setAttribute('id', 'prev');
 		prev.innerHTML = 'Prev';
 		slider.appendChild(prev);
 		addEventListener(prev, 'click', slidePrev);
+		hammertime.on('swipeleft', slidePrev);
 
 		next.setAttribute('id', 'next');
 		next.innerHTML = 'Next';
 		slider.appendChild(next);
 		addEventListener(next, 'click', slideNext);
+		hammertime.on('swiperight', slideNext);
 	}
 
 	function animFirstSlide(container){
@@ -195,6 +213,9 @@ function init(){
 					TweenLite.fromTo( slides[1], timing, {left: '-'+posX}, {left: 0, opacity: 1, zIndex: 1, ease:Power2.easeInOut} );
 					tlAnims.staggerFromTo( slides[1].querySelectorAll('.anim-slide'), timing, {x: '-200px', opacity: 0}, {x: 0, opacity: 1, ease:Power2.easeInOut}, 0.2 );
 				}} );
+				if(windowWidth <= 768){
+					TweenLite.to(slider.querySelector('ul'), 0.1, {height: slides[1].offsetHeight+'px'});
+				}
 				currentSlide = 1;
 			}
 		}else{
@@ -489,7 +510,7 @@ function init(){
 			}});
 		}
 
-		addEventListener(btn, 'click', newSentence);
+		addEventListener(container, 'click', newSentence);
 
 		addEventListener(container, 'mouseout', function(){
 			TweenLite.set(cisors, {css:{className:'-=open'}});
@@ -618,28 +639,34 @@ function init(){
 			nbSlides = slides.length, i = 0,
 			height = 0, posX = '25%', timing = 0.3,
 			buttons = [], buttonsLi = [], buttonsList = document.createElement('ul'),
-			currentSlidePresta = 0, links = [], j = 0, newIndex = 0;
+			links = [], j = 0, newIndex = 0, hammertime = new Hammer(slider);
 
 		if(hasClass(htmlTag, 'lt-ie9')) posX = '150%';
 
 		function slide(newSlidePresta){
-			TweenLite.to( slider.querySelector('.small-slide.actif'), timing, {left: posX, opacity: 0, onComplete: function(){
-				TweenLite.set(slider.querySelector('.small-slide.actif'), {css: {className: '-=actif'}});
-				TweenLite.set(slides[newSlidePresta], {css: {className: '+=actif'}});
-				TweenLite.fromTo( slides[newSlidePresta], timing, {left: '-'+posX}, {left: 0, opacity: 1, ease:Power2.easeInOut} );
-				TweenLite.set(buttons, {css: {className: ''}});
-				TweenLite.set(buttons[newSlidePresta], {css: {className: 'actif'}});
-			}} );
+			TweenLite.to(slider.querySelector('.small-slide.actif'), timing, {left: posX, opacity: 0} );
+			TweenLite.set(slider.querySelector('.small-slide.actif'), {css: {className: '-=actif'}});
+			TweenLite.set(slides[newSlidePresta], {css: {className: '+=actif'}});
+			TweenLite.fromTo( slides[newSlidePresta], timing, {left: '-'+posX}, {left: 0, opacity: 1, ease:Power2.easeInOut} );
+			TweenLite.set(buttons, {css: {className: ''}});
+			TweenLite.set(buttons[newSlidePresta], {css: {className: 'actif'}});
+			if(windowWidth < 980){
+				TweenLite.to(slider.querySelector('ul'), 0.1, {height: slides[newSlidePresta].offsetHeight});
+				scrollTo(slider.offsetTop + 140, 100);
+			}
 		}
 
 		function slidePrev(newSlidePresta){
-			TweenLite.to( slider.querySelector('.small-slide.actif'), timing, {left: '-'+posX, opacity: 0, onComplete: function(){
-				TweenLite.set(slider.querySelector('.small-slide.actif'), {css: {className: '-=actif'}});
-				TweenLite.set(slides[newSlidePresta], {css: {className: '+=actif'}});
-				TweenLite.fromTo( slides[newSlidePresta], timing, {left: posX}, {left: 0, opacity: 1, ease:Power2.easeInOut} );
-				TweenLite.set(buttons, {css: {className: ''}});
-				TweenLite.set(buttons[newSlidePresta], {css: {className: 'actif'}});
-			}} );
+			TweenLite.to(slider.querySelector('.small-slide.actif'), timing, {left: '-'+posX, opacity: 0} );
+			TweenLite.set(slider.querySelector('.small-slide.actif'), {css: {className: '-=actif'}});
+			TweenLite.set(slides[newSlidePresta], {css: {className: '+=actif'}});
+			TweenLite.fromTo( slides[newSlidePresta], timing, {left: posX}, {left: 0, opacity: 1, ease:Power2.easeInOut} );
+			TweenLite.set(buttons, {css: {className: ''}});
+			TweenLite.set(buttons[newSlidePresta], {css: {className: 'actif'}});
+			if(windowWidth < 980){
+				TweenLite.to(slider.querySelector('ul'), 0.1, {height: slides[newSlidePresta].offsetHeight});
+				scrollTo(slider.offsetTop + 140, 100);
+			}
 		}
 
 		if(nbSlides > 1){
@@ -647,7 +674,14 @@ function init(){
 			slider.appendChild(buttonsList);
 		}
 
+		TweenLite.set(slider.querySelector('ul'), {height: slides[0]+'px'});
+
 		for(i; i < nbSlides; i++){
+			if(slides[i].offsetHeight > height && windowWidth >= 980){
+				height = slides[i].offsetHeight;
+				TweenLite.set(slider.querySelector('ul'), {height: height+'px'});
+			}
+
 			if(nbSlides > 1){
 				buttonsLi[i] = document.createElement('li');
 				buttons[i] = document.createElement('button');
@@ -656,11 +690,10 @@ function init(){
 				buttonsList.appendChild(buttonsLi[i]);
 				addEventListener(buttons[i], 'click', function(){
 					newIndex = getIndex(this.parentNode);
-					getIndex(slider.querySelector('.small-slide.actif')) < newIndex ? slide(newIndex) : slidePrev(newIndex);
+					getIndex(slider.querySelector('.small-slide.actif')) < newIndex ? slidePrev(newIndex) : slide(newIndex);
 				});
 				if(i > 0) TweenLite.set(slides[i], {left: posX, opacity: 0});
 			}
-			if(slides[i].offsetHeight > height) height = slides[i].offsetHeight;
 
 			links[i] = slides[i].querySelectorAll('a');
 
@@ -670,17 +703,32 @@ function init(){
 						e.preventDefault();
 						var href = this.getAttribute('href').replace('#', ''), slideTarget = document.getElementById(href),
 							newIndex = getIndex(slideTarget);
-						getIndex(slider.querySelector('.small-slide.actif')) < newIndex ? slide(newIndex) : slidePrev(newIndex);
+						getIndex(slider.querySelector('.small-slide.actif')) < newIndex ? slidePrev(newIndex) : slide(newIndex);
 					});
 				}
 			}
 		}
 
-		TweenLite.set(slider.querySelector('ul'), {height: height+'px'});
 		if(nbSlides > 1){
 			TweenLite.set(slides[0], {css: {className: '+=actif'}});
 			TweenLite.set(buttons[0], {css: {className: 'actif'}});
+
+			hammertime.on('swipe', function(e){
+				var newIndex = getIndex(slider.querySelector('.small-slide.actif'));
+				// left
+				if(e.direction === 2){
+					newIndex = newIndex+1 > nbSlides-1 ? 0 : newIndex+1;
+					slidePrev(newIndex);
+				}
+				// right
+				if(e.direction === 4){
+					newIndex = newIndex-1 < 0 ? nbSlides-1 : newIndex-1;
+					slide(newIndex);
+				}
+			});
 		}
+
+		TweenLite.set(slider, {opacity: 1});
 	}
 
 	function setPrestaFiltres(prestaFiltresContainer){
@@ -848,6 +896,22 @@ function init(){
 		}else if(hasClass(htmlTag, 'menuClose') && windowWidth > 979){
 			TweenLite.set(menu.querySelector('div'), {rotationY: 0});
 		}
+
+		if(smallSlider !== null){
+			TweenLite.set(smallSlider.querySelector('ul'), {height: smallSlider.querySelector('.small-slide.actif').offsetHeight});
+		}
+
+		if(slider !== null){
+			var slides = slider.querySelectorAll('.slide'), nbSlides = slides.length, i = 0, height = 0;
+			for(i; i < nbSlides; i++){
+			    if(slides[i].offsetHeight > height) height = slides[i].offsetHeight;
+			}
+			TweenLite.set(slider.querySelector('ul'), {height: height+'px'});
+		}
+
+		if(live !== null){
+			masquesTop = document.getElementById('live').offsetTop;
+		}
 	}
 
 
@@ -900,10 +964,6 @@ function init(){
 		}
 	});
 
-	if(purpleShits && !hasClass(htmlTag, 'lt-ie9')){
-		bullshitGenerator();
-	}
-
 	if(!hasClass(htmlTag, 'lt-ie9')){
 		animsTxt = document.querySelectorAll('.animTxt');
 		if(animsTxt.length){
@@ -922,28 +982,25 @@ function init(){
 		}
 	}
 
-	var phrase = document.getElementById('phrase-creuse');
-	if(phrase !== null) setSentences(phrase);
+	var smallSlider = document.getElementById('smallSlider');
+	if(smallSlider !== null) setSmallSlider(smallSlider);
 
 	var youSection = document.getElementById('vous');
 	if(youSection !== null && !isMobile.any) linksHoverYou(youSection);
 
-	var sliders = document.querySelectorAll('.slider');
-	if(sliders.length){
-		var i = 0, nbSliders = sliders.length;
-		for(i; i<nbSliders; i++){
-			setSlider(sliders[i]);
-		}
+	var slider = document.getElementById('slider');
+	if(slider !== null){
+		setSlider(slider);
 	}
-
-	var smallSlider = document.getElementById('smallSlider');
-	if(smallSlider !== null) setSmallSlider(smallSlider);
 
 	if(fixedMenuStep !== null){
 		var linksFixedMenu = fixedMenuStep.querySelectorAll('li');
 		TweenLite.set(linksFixedMenu[0], {width: linksFixedMenu[0].clientWidth+2, left: 0, right: 0});
 		TweenLite.set(linksFixedMenu[1], {width: linksFixedMenu[1].clientWidth+2, left: 0, right: 0});
 	}
+
+	var phrase = document.getElementById('phrase-creuse');
+	if(phrase !== null) setSentences(phrase);
 
 	if(!isMobile.any){
 		var live = document.getElementById('live');
@@ -1130,6 +1187,10 @@ function init(){
 				this.blur();
 			});
 		}
+	}
+
+	if(purpleShits && !hasClass(htmlTag, 'lt-ie9')){
+		bullshitGenerator();
 	}
 }
 

@@ -949,7 +949,7 @@ _:-ms-input-placeholder, .slider{
     }
     .img{
         width: 35%;
-        padding: 40px 0 0 75px;
+        padding: 35px 0 0 51px;
         position: relative;
     }
     .txt{
@@ -973,6 +973,9 @@ _:-ms-input-placeholder, .slider{
             width: 160px;
             height: 100px;
             line-height: 100px;
+            img{
+                max-width: 95%;
+            }
         }
     }
     .logo-ref-post{
@@ -1034,7 +1037,7 @@ _:-ms-input-placeholder, .slider{
     top: 30px;
     left: -17px;
     z-index: -1;
-    background: url(../layoutImg/tv.png) no-repeat;
+    background: url(../layoutImg/thumb-up.png) no-repeat;
 }
 
 .blog-list{
@@ -1630,6 +1633,7 @@ _:-ms-input-placeholder, .slider{
     position: relative;
     margin: 25px 0 0;
     color: @purple;
+    cursor: pointer;
     button{
         color: @purple;
         font-size: .78em;
@@ -1660,6 +1664,13 @@ _:-ms-input-placeholder, .slider{
         }
         #cisors2{
             &:extend(#cisors.open #cisors2);
+        }
+        button{
+            color: @pink;
+            span{
+                transform: rotate(360deg);
+                transition: transform .4s ease-in-out;
+            }
         }
     }
 }
@@ -1969,7 +1980,7 @@ _:-ms-input-placeholder, .slider{
 }
 
 #confiance{
-    overflow: hidden;
+    //overflow: hidden;
     hr{
         border: 0;
         border-bottom: 1px dashed #fff;
@@ -1993,8 +2004,13 @@ _:-ms-input-placeholder, .slider{
         height: 60px;
         line-height: 60px;
         margin: 10px 20px;
+        opacity: .6;
+        transition: @transition;
         &:before{
             display: none;
+        }
+        &:hover{
+            opacity: 1;
         }
     }
 }
@@ -2079,6 +2095,9 @@ _:-ms-input-placeholder, .slider{
 }
 
 .small-slider{
+    .js &{
+        opacity: 0;
+    }
     > ul{
         &:extend(.reset-ul);
         position: relative;
@@ -2400,17 +2419,6 @@ _:-ms-input-placeholder, .slider{
 
 /******* BLOG *******/
 
-.single-cas-client{
-    h1, .head .sup-title, .head .sup-title a{
-        color: #26b2bf;
-    }
-    .head .sup-title a{
-        &:hover, &:focus{
-            color: @blue;
-        }
-    }
-}
-
 .single, .page-template-default{
     &:not(.no-img){
         h1{
@@ -2436,6 +2444,17 @@ _:-ms-input-placeholder, .slider{
             .sup-title{
                 color: @purple;
             }
+        }
+    }
+}
+
+.single-cas-client, .single-cas-client.no-img{
+    h1, .head .sup-title, .head .sup-title a{
+        color: #26b2bf;
+    }
+    .head .sup-title a{
+        &:hover, &:focus{
+            color: @blue;
         }
     }
 }

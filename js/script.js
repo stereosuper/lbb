@@ -674,7 +674,7 @@ function init(){
 			slider.appendChild(buttonsList);
 		}
 
-		TweenLite.set(slider.querySelector('ul'), {height: slides[0]+'px'});
+		TweenLite.set(slider.querySelector('ul'), {height: slides[0].offsetHeight+'px'});
 
 		for(i; i < nbSlides; i++){
 			if(slides[i].offsetHeight > height && windowWidth >= 980){

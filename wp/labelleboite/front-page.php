@@ -53,7 +53,7 @@ get_header(); ?>
 							$temoignages->post_count = count( $temoignages->posts );
 						?>
 						<?php if($temoignages->have_posts()) : $count = 0; ?>
-						<div class='slider'>
+						<div class='slider' id='slider'>
 							<ul>
 							<?php while($temoignages->have_posts()) : $temoignages->the_post();  ?>
 								<?php $isPost = get_post_type($post) === 'temoignage' ? false : true; ?>

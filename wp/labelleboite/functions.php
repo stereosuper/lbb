@@ -385,6 +385,7 @@ function lbb_scripts(){
 		wp_enqueue_script( 'tweenMax', get_template_directory_uri() . '/js/tweenMax.min.js', array(), null, true );
 		wp_enqueue_script( 'tweenSprite', get_template_directory_uri() . '/js/tweenSprite.min.js', array(), null, true );
 		wp_enqueue_script( 'splitText', get_template_directory_uri() . '/js/splitText.min.js', array(), null, true );
+        wp_enqueue_script( 'hammer', get_template_directory_uri() . '/js/hammer.min.js', array(), null, true );
 		wp_enqueue_script( 'script', get_template_directory_uri() . '/js/script.js', array(), null, true );
 }
 add_action( 'wp_enqueue_scripts', 'lbb_scripts' );

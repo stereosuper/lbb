@@ -6,6 +6,7 @@
     			<h1 class='animTxt'>404</h1>
     		</div>
     	</div>
+        <?php echo wp_get_attachment_image(get_field('404img', 'options'), 'full', false, array('class' => 'img')); ?>
     	<div class='fd'></div>
     </div>
 </header>

@@ -1222,6 +1222,23 @@ _:-ms-input-placeholder, .slider{
     }
 }
 
+.presta-list-colors1{
+    li{
+        background: #70e4b1;
+        &:nth-of-type(2n){
+            background: #4ca9ff;
+        }
+    }
+}
+.presta-list-colors2{
+    li{
+        background: #ef6c53;
+        &:nth-of-type(2n){
+            background: #e8098c;
+        }
+    }
+}
+
 .presta-filtres{
     margin: 0 0 20px;
     span{
@@ -2124,7 +2141,7 @@ _:-ms-input-placeholder, .slider{
             vertical-align: top;
         }
         .img-slide{
-            width: 30%;
+            width: 40%;
             padding: 10px 25px 0 0;
         }
         .txt-slide{
@@ -2273,7 +2290,7 @@ _:-ms-input-placeholder, .slider{
         padding: 0 0 0 310px;
         position: relative;
         z-index: 1;
-        color: @purple;
+        color: @purple !important;
         &.small{
             max-width: 700px;
             padding: 0 0 0 150px;
@@ -2301,6 +2318,7 @@ _:-ms-input-placeholder, .slider{
         }
         .sup-title{
             padding: 0 0 0 310px;
+            color: @purple !important;
         }
         .btn{
             position: absolute;

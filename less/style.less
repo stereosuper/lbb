@@ -1003,7 +1003,7 @@ _:-ms-input-placeholder, .slider{
         .quote{
             width: 244px;
             height: 220px;
-            padding: 50px 35px 50px 55px;
+            padding: 40px 35px 45px 55px;
             background: url(../layoutImg/bulle.png) no-repeat 100% 0;
             .marker(1em);
             line-height: 1.6em;
@@ -2564,6 +2564,22 @@ _:-ms-input-placeholder, .slider{
     transition: height @transition;
     .single-cas-client &, .category-cas-client &{
         background: @blue;
+        .cats-btn, .cats a, .close-cats{
+            &:hover, &:focus{
+                color: rgba(255, 255, 255, 0.7);
+            }
+        }
+        button{
+            &:hover, &:focus{
+                color: @blue;
+            }
+        }
+        .searchform input{
+            color: @blue;
+            &:focus{
+                border-color: #8b8b8b;
+            }
+        }
     }
     .lt-ie10 &{
         bottom: 0 !important;

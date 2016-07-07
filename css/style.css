@@ -1474,7 +1474,7 @@ _:-ms-input-placeholder #prev:before,
 .slide blockquote .quote {
   width: 244px;
   height: 220px;
-  padding: 50px 35px 50px 55px;
+  padding: 40px 35px 45px 55px;
   background: url(../layoutImg/bulle.png) no-repeat 100% 0;
   font-family: 'marker', 'klinic', sans-serif;
   font-size: 1em;
@@ -3025,6 +3025,34 @@ _:-ms-input-placeholder #prev:before,
 .single-cas-client .nav-blog,
 .category-cas-client .nav-blog {
   background: #2ac0ce;
+}
+.single-cas-client .nav-blog .cats-btn:hover,
+.category-cas-client .nav-blog .cats-btn:hover,
+.single-cas-client .nav-blog .cats a:hover,
+.category-cas-client .nav-blog .cats a:hover,
+.single-cas-client .nav-blog .close-cats:hover,
+.category-cas-client .nav-blog .close-cats:hover,
+.single-cas-client .nav-blog .cats-btn:focus,
+.category-cas-client .nav-blog .cats-btn:focus,
+.single-cas-client .nav-blog .cats a:focus,
+.category-cas-client .nav-blog .cats a:focus,
+.single-cas-client .nav-blog .close-cats:focus,
+.category-cas-client .nav-blog .close-cats:focus {
+  color: rgba(255, 255, 255, 0.7);
+}
+.single-cas-client .nav-blog button:hover,
+.category-cas-client .nav-blog button:hover,
+.single-cas-client .nav-blog button:focus,
+.category-cas-client .nav-blog button:focus {
+  color: #2ac0ce;
+}
+.single-cas-client .nav-blog .searchform input,
+.category-cas-client .nav-blog .searchform input {
+  color: #2ac0ce;
+}
+.single-cas-client .nav-blog .searchform input:focus,
+.category-cas-client .nav-blog .searchform input:focus {
+  border-color: #8b8b8b;
 }
 .lt-ie10 .nav-blog {
   bottom: 0 !important;

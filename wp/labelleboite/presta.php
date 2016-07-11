@@ -59,7 +59,7 @@ get_header(); ?>
 								</ul>
 							</div>
 						<?php } ?>
-						<ul class='presta-list'>
+						<ul class='presta-list presta-list-colors1'>
 							<?php
 							$ateliersTermSlug = get_term($ateliersTerm, 'prestation-categorie')->slug;
 							$loop = new WP_Query(array('post_type' => 'prestation', 'posts_per_page' => -1, 'tax_query' => array(array('taxonomy' => 'prestation-categorie', 'field' => 'slug', 'terms' => $ateliersTermSlug))));
@@ -136,7 +136,7 @@ get_header(); ?>
 								</ul>
 							</div>
 						<?php } ?>
-						<ul class='presta-list'>
+						<ul class='presta-list presta-list-colors2'>
 							<?php
 							$interventionsTermSlug = get_term($interventionsTerm, 'prestation-categorie')->slug;
 							$loop = new WP_Query(array('post_type' => 'prestation', 'posts_per_page' => -1, 'tax_query' => array(array('taxonomy' => 'prestation-categorie', 'field' => 'slug', 'terms' => $interventionsTermSlug))));

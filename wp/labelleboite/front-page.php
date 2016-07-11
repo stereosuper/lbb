@@ -60,12 +60,12 @@ get_header(); ?>
 								<li class='slide clearfix'>
 									<article>
 										<div class='img anim-slide'>
-											<div class='logo-ref <?php if($isPost){echo "logo-ref-post"; } ?>'><?php echo wp_get_attachment_image(get_field('imgCarousel'), 'logo-ref'); ?></div>
-											<?php if($isPost){
-												echo wp_get_attachment_image(get_field('vignette'), 'thumbnail');
-											}else{ ?>
+											<div class='logo-ref <?php //if($isPost){ echo "logo-ref-post"; } ?>'><?php echo wp_get_attachment_image(get_field('imgCarousel'), 'logo-ref'); ?></div>
+											<?php //if($isPost){
+												//echo wp_get_attachment_image(get_field('vignette'), 'thumbnail');
+											//}else{ ?>
 												<div class='tv' <?php if(get_field('perso')){ ?> style='background-image:url(<?php the_field('perso'); ?> )' <?php } ?>></div>
-											<?php } ?>
+											<?php //} ?>
 										</div><div class='txt'>
 											<h3 class='anim-slide'><?php the_title(); ?></h3>
 											<div class='anim-slide'>
@@ -114,10 +114,10 @@ get_header(); ?>
 						<div class='table left'>
 							<div id='instagram' class='w50'>
 							<?php
-								$instaPics = get_transient('instagram_pic');
+								//$instaPics = get_transient('instagram_pic');
 
-								if(!$instaPics){
-									function callInstagram($url){
+								/*if(!$instaPics){
+									function callInstagram($url){*/
 										/*$ch = curl_init();
 									   	curl_setopt_array($ch, array(
 										   	CURLOPT_URL => $url,
@@ -128,7 +128,7 @@ get_header(); ?>
 									   	$result = curl_exec($ch);
 									   	curl_close($ch);
 									   	return $result;*/
-									   	$request = new WP_Http;
+									   	/*$request = new WP_Http;
 									   	$result = $request->request($url);
 									   	return $result['body'];
 									}
@@ -157,20 +157,32 @@ get_header(); ?>
 								$location = $goodItem['location']['name'];
 								$desc =  $goodItem['caption']['text'];
 								$image =  $goodItem['images']['standard_resolution']['url'];
-								$date =  $goodItem['created_time'];
+								$date =  $goodItem['created_time'];*/
 							?>
-							<a href='https://instagram.com/labelleboite/' target='_blank' class='black-hover-link'>
-								<img src='<?php echo $image; ?>' alt='Lieu de travail du jour' width='460' height='460'>
+							<!--<a href='https://instagram.com/labelleboite/' target='_blank' class='black-hover-link'>
+								<img src='<?php //echo $image; ?>' alt='Lieu de travail du jour' width='460' height='460'>
 								<span class='hover'>
-									<span class='sup-title'><?php the_field('instTitle'); ?></span>
+									<span class='sup-title'><?php //the_field('instTitle'); ?></span>
 									<span class='content'>
-										<span class='meta'><?php if($location) echo $location . ' - '; echo date('j M Y', $date); ?></span>
-										<i class='desc'><?php echo $desc; ?></i>
+										<span class='meta'><?php //if($location) echo $location . ' - '; echo date('j M Y', $date); ?></span>
+										<i class='desc'><?php //echo $desc; ?></i>
 									</span>
 								</span>
-							</a>
+							</a>-->
+							<?php $posts = new WP_Query( array('post_type' => 'post', 'posts_per_page' => 1, 'category__not_in' => $idCasClient) ); $idBigPost = ''; ?>
+							<?php if($posts->have_posts()) : ?>
+								<?php while($posts->have_posts()) : $posts->the_post(); $idBigPost = $post->ID; ?>
+									<a href='<?php the_permalink(); ?>' class='black-hover-link'>
+										<?php echo wp_get_attachment_image(get_field('vignette'), 'thumbnail'); ?>
+										<span class='hover'>
+											<span class='sup-title'>Blog</span>
+											<em class='content'><?php the_title(); ?></em>
+										</span>
+									</a>
+								<?php endwhile; ?>
+							<?php endif; ?>
 							</div><ul class='blog-list w50'>
-							<?php $posts = new WP_Query( array('post_type' => 'post', 'posts_per_page' => 4, 'category__not_in' => $idCasClient) ); ?>
+							<?php $posts = new WP_Query( array('post_type' => 'post', 'posts_per_page' => 4, 'category__not_in' => $idCasClient, 'post__not_in' => array($idBigPost)) ); ?>
 							<?php if($posts->have_posts()) : ?>
 								<?php while($posts->have_posts()) : $posts->the_post(); ?><li>
 									<a href='<?php the_permalink(); ?>' class='black-hover-link'>

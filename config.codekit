@@ -1499,17 +1499,6 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
-	"\/wp\/labelleboite\/js\/min\/script-min.js": {
-		"fileType": 64,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/wp\/labelleboite\/js\/min\/script-min.js",
-		"outputAbbreviatedPath": "\/wp\/labelleboite\/js\/min\/min\/script-min-min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
-		},
 	"\/wp\/labelleboite\/js\/modernizr-min.js": {
 		"fileType": 64,
 		"ignore": 0,
@@ -1844,7 +1833,7 @@
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 0,
+		"initialSize": 5295,
 		"inputAbbreviatedPath": "\/wp\/labelleboite\/layoutImg\/peignes.png",
 		"outputAbbreviatedPath": "\/wp\/labelleboite\/layoutImg\/peignes.png",
 		"outputPathIsOutsideProject": 0,

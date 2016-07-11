@@ -995,8 +995,8 @@ function init(){
 
 	if(fixedMenuStep !== null){
 		var linksFixedMenu = fixedMenuStep.querySelectorAll('li');
-		TweenLite.set(linksFixedMenu[0], {width: linksFixedMenu[0].clientWidth+2, left: 0, right: 0});
-		TweenLite.set(linksFixedMenu[1], {width: linksFixedMenu[1].clientWidth+2, left: 0, right: 0});
+		TweenLite.set(linksFixedMenu[0], {width: linksFixedMenu[0].clientWidth+5, left: 0, right: 0});
+		TweenLite.set(linksFixedMenu[1], {width: linksFixedMenu[1].clientWidth+5, left: 0, right: 0});
 	}
 
 	var phrase = document.getElementById('phrase-creuse');

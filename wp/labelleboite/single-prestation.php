@@ -57,13 +57,14 @@
 							} ?>
 						</strong>
 						<?php
-							$imgData = wp_get_attachment_metadata( get_post_thumbnail_id() );
-							$imgRatio = round($imgData['width']/$imgData['height'], 2);
+							$imgRatio = 0;
+							if(has_post_thumbnail()){
+								$imgData = wp_get_attachment_metadata( get_post_thumbnail_id() );
+								$imgRatio = round($imgData['width']/$imgData['height'], 2);
+							}
 						?>
 						<div class='img-presta <?php if($imgRatio < 0.75){ echo "portrait"; } if($imgRatio > 1.1){ echo "paysage"; } ?>'>
-							<?php
-								the_post_thumbnail();
-							?>
+							<?php the_post_thumbnail(); ?>
 							<?php if(get_field('bulle')){ ?>
 								<h2><?php the_field('bulle'); ?></h2>
 							<?php } ?>

@@ -1,5 +1,47 @@
 /******* RESPONSIVE *******/
 
+@media (max-width: 1370px){
+    .single-prestation{
+        .head{
+            min-height: 660px;
+            position: relative;
+            text-align: center;
+            .section-cell{
+                top: 140px;
+            }
+            .container{
+                padding-top: 5px;
+            }
+            h1, .sup-title{
+                padding-left: 0;
+            }
+            h1{
+                margin-left: auto;
+                margin-right: auto;
+                max-width: 600px;
+            }
+        }
+        .page-content{
+            margin-top: 0 !important;
+        }
+    }
+    .img-presta{
+        left: 0;
+        right: 0;
+        margin: auto;
+        &.portrait{
+            transform: translateY(9%);
+        }
+    }
+
+    .presta-sidebar{
+        width: 28%;
+        margin-right: 10%;
+    }
+    .presta-content{
+        width: 62%;
+    }
+}
 @media (max-width: 1350px){
     img{
         &.alignright, &.alignleft{
@@ -551,6 +593,9 @@
                 }
             }
         }
+        #prev, #next{
+            display: none;
+        }
     }
 
     .presta-list{
@@ -688,12 +733,15 @@
 
     .presta-sidebar{
         margin: 30px 0 100px;
-        div{
+        .grp-sidebar{
             display: inline-block;
             width: 49%;
             vertical-align: top;
             &:first-of-type{
                 margin: 0 2% 0 0;
+            }
+            &:empty{
+                display: none;
             }
         }
     }
@@ -975,14 +1023,22 @@
     }
 
     .presta-sidebar{
-        div{
+        .grp-sidebar{
             display: block;
             width: 100%;
             &:first-of-type{
                 margin: 0;
             }
         }
+        .wrapper-ref-client{
+            justify-content: flex-start;
+        }
+        .reference-client{
+            margin-right: 3%;
+            width: 22%;
+        }
     }
+    
 }
 
 @media (max-width: 480px){
@@ -993,6 +1049,13 @@
                 font-size: .45em;
                 margin: 0 0 -.05em;
             }
+        }
+    }
+
+    .presta-sidebar{
+        .reference-client{
+            width: 28%;
+            margin-right: 5%;
         }
     }
 
@@ -1131,22 +1194,11 @@
     }
 
     .pagination{
-        text-align: center;
-        li{
-            display: inline-block;
+        .next, .prev{
+            display: none;
         }
-        a{
-           display: block;
-           width: 40px;
-           height: 40px;
-           overflow: hidden;
-           &:before{
-               position: relative;
-               top: 0;
-               right: 0;
-               left: 0;
-               font-size: 40px;
-           }
+        a, .dots, .current {
+            .geomanistBold(1.3em);
         }
     }
 
@@ -1316,7 +1368,7 @@
     }
 }
 
-@media(max-height: 960px) and (max-width: 979px){
+@media(max-height: 960px) and (max-width: 1370px){
     .img-presta{
         width: 515px;
         &:not(.paysage){

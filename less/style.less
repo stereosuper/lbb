@@ -90,7 +90,7 @@ h2, h3, h4, h5{
 }
 h2, .h2{
     font-size: 2.8em;
-    line-height: 1.3em;
+    line-height: 1.2em;
     margin: 1em 0;
     &.light{
         .geomanist(2.8em);
@@ -114,7 +114,7 @@ h6{
 }
 
 p{
-    margin: 1.8em 0;
+    margin: 1.2em 0;
     line-height: 1.25em;
     &.error, &.success{
         padding: 10px 20px !important;
@@ -178,8 +178,8 @@ img{
 }
 
 blockquote{
-    max-width: 610px;
-    margin: 3.5em auto;
+    max-width: 750px;
+    margin: 2.5em auto;
     &:extend(em);
     font-size: 1.3em;
     text-align: center;
@@ -632,7 +632,7 @@ button{
         left: 20%;
     }
     &.top-center, &.bottom-center{
-        left: 45%;
+        left: 35%;
     }
     &.top-right, &.bottom-right{
         right: 20%;
@@ -786,6 +786,15 @@ button{
     z-index: 12;
     overflow: hidden;
     background: @yellow;
+    &.alt{
+        background: @purple;
+        a{
+            color: #fff;
+            &:hover, &:focus{
+                color: @pink;
+            }
+        }
+    }
     .lt-ie10 &{
         bottom: 0 !important;
     }
@@ -1129,6 +1138,15 @@ _:-ms-input-placeholder, .slider{
             vertical-align: middle;
         }
     }
+    .contact-link{
+        display: flex;
+        &:before{
+            content: none;
+        }
+        > span {
+            margin:auto;
+        }
+    }
     .hover{
         display: block;
         padding: 10px;
@@ -1376,7 +1394,7 @@ _:-ms-input-placeholder, .slider{
 }
 
 .chapeau{
-    margin-bottom: 3em;
+    margin-bottom: 2em;
     .klinicIt(1.3em);
 }
 
@@ -1824,12 +1842,12 @@ _:-ms-input-placeholder, .slider{
     }
     h2{
         font-size: 2em;
-        margin: 1.5em 0;
+        margin: 1em 0;
     }
     h3{
         padding-top: 10px;
         font-size: 1.5em;
-        margin: 1em 0 1.5em;
+        margin: 1em 0 1em;
     }
     h4{
         font-size: 1.2em;
@@ -2112,6 +2130,7 @@ _:-ms-input-placeholder, .slider{
 }
 
 .small-slider{
+    position : relative;
     .js &{
         opacity: 0;
     }
@@ -2120,6 +2139,65 @@ _:-ms-input-placeholder, .slider{
         position: relative;
         > li{
             &:extend(.reset-ul li all);
+        }
+    }
+    #next, #prev{
+        display: block;
+        .size(40px);
+        position: absolute;
+        top: 220px;
+        z-index: 1;
+        overflow: hidden;
+        &:extend(.icomoon);
+        text-indent: -99em;
+        color: #fff;
+        font-weight: 700;
+        .ie10 &, .ie9 &{
+            font-weight: normal;
+        }
+        .page-template-presta &{
+            top: 30%;
+        }
+        &:before{
+            display: block;
+            text-indent: 0;
+            font-size: 40px;
+            font-weight: 300;
+        }
+        &:hover, &:focus{
+            opacity: .6;
+        }
+    }
+    #next{
+        right: -65px;
+        &:before{
+            content: '\e800';
+        }
+        &:hover{
+            right: -70px;
+        }
+    }
+    #prev{
+        left: -65px;
+        &:before{
+            content: '\e801';
+        }
+        &:hover{
+            left: -70px;
+        }
+    }
+    .page-template-presta &{
+        #prev{
+            left: 0;
+            &:hover{
+                left: -5px;
+            }
+        }
+        #next{
+            right: 0;
+            &:hover{
+                right: -5px;
+            }
         }
     }
     .small-slide{
@@ -2385,7 +2463,7 @@ _:-ms-input-placeholder, .slider{
     vertical-align: top;
     padding: 10px 0 0;
     margin: 1.5em 15% 0 0;
-    span{
+    .side-title{
         position: relative;
         border-bottom: 1px dashed @purple;
         margin: 0 0 0 30px;
@@ -2399,26 +2477,89 @@ _:-ms-input-placeholder, .slider{
             color: @purple;
             &:extend(.icomoon);
         }
-        &:first-of-type{
+        &.target{
             &:before{
                 content: '\e902';
                 font-size: 23px;
             }
         }
-        &:nth-of-type(2){
+        &.clock{
             &:before{
                 content: '\e901';
             }
         }
-        &:nth-of-type(3){
+        &.location{
             &:before{
                 content: '\e904';
             }
         }
-        &:nth-of-type(4){
+        &.numerus{
             &:before{
                 content: '\e903';
             }
+        }
+        &.ref-client{
+            &:before{
+                content: '\e90b';
+            }
+        }
+    }
+    .wrapper-ref-client{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin: 1em 0 3em 30px; 
+    }
+    .reference-client{
+        position: relative;
+        width: 44%;
+        margin: 0 0 25px;
+        border-radius: 50%;
+        overflow: hidden;
+        box-shadow: 0 0 0 6px white, 0 0 0 9px @purple;
+        transition: @transition;
+        &:hover{
+            box-shadow: 0 0 0 7px white, 0 0 0 9px @purple;
+        }
+        &:before{
+            display: block;
+            width: 100%;
+            content: '';
+            padding-bottom: 100%;
+        }
+        &:after{
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+        }
+        span{
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            box-sizing: border-box;
+            flex-shrink: 0;
+        }
+        &.without-link{
+            box-shadow: 0 0 0 6px white, 0 0 0 9px @grey;
+            &:hover{
+                box-shadow: 0 0 0 6px white, 0 0 0 9px @grey;
+            }
+            span{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+        }
+        > a {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            
         }
     }
     .page-content &{
@@ -2850,42 +2991,35 @@ _:-ms-input-placeholder, .slider{
 
 .pagination{
     margin: 120px 0 0;
+    text-align: center;
     ul{
         &:extend(.reset-ul all);
         &:extend(.clearfix all);
         padding: 0 !important;
     }
+    .current{
+        .geomanistBold(1.1em);
+        color: @grey;
+        margin: 0 2px;
+    }
+    .dots{
+        .geomanistBold(1.3em);
+        color: @grey;
+        margin: 0 2px;
+    }
     a{
         position: relative;
-        .geomanistBold(1.3em);
+        .geomanistBold(1.1em);
         text-decoration: none;
-        &:before{
-            display: block;
-            font-size: 25px;
-            position: absolute;
-            top: 5px;
-            &:extend(.icomoon);
-        }
+        margin: 0 2px;
     }
     .next{
-        a{
-            padding: 0 0 0 10px;
-            float: left;
-            &:before{
-                content: '\e900';
-                left: -10px;
-            }
-        }
+        margin: 0 0 0 35px; 
+        .geomanistBold(1.3em);
     }
     .prev{
-        a{
-            padding: 0 10px 0 0;
-            float: right;
-            &:before{
-                content: '\e806';
-                right: -10px;
-            }
-        }
+        margin: 0 35px 0 0; 
+        .geomanistBold(1.3em);
     }
 }
 

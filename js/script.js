@@ -637,6 +637,8 @@ function init(){
 	function setSmallSlider(slider){
 		var slides = slider.querySelectorAll('.small-slide'),
 			nbSlides = slides.length, i = 0,
+			next = document.createElement('button'),
+			prev = document.createElement('button'),
 			height = 0, posX = '25%', timing = 0.3,
 			buttons = [], buttonsLi = [], buttonsList = document.createElement('ul'),
 			links = [], j = 0, newIndex = 0, hammertime = new Hammer(slider);
@@ -649,10 +651,10 @@ function init(){
 			TweenLite.set(slides[newSlidePresta], {css: {className: '+=actif'}});
 			TweenLite.fromTo( slides[newSlidePresta], timing, {left: '-'+posX}, {left: 0, opacity: 1, ease:Power2.easeInOut} );
 			TweenLite.set(buttons, {css: {className: ''}});
-			TweenLite.set(buttons[newSlidePresta], {css: {className: 'actif'}});
+			TweenLite.set(buttons[newSlidePresta], { css: { className: 'actif' } });
 			if(windowWidth < 980){
-				TweenLite.to(slider.querySelector('ul'), 0.1, {height: slides[newSlidePresta].offsetHeight});
-				scrollTo(slider.offsetTop + 140, 100);
+				// TweenLite.to(slider.querySelector('ul'), 0.1, {height: slides[newSlidePresta].offsetHeight});
+				// scrollTo(slider.offsetTop + 140, 100);
 			}
 		}
 
@@ -662,16 +664,33 @@ function init(){
 			TweenLite.set(slides[newSlidePresta], {css: {className: '+=actif'}});
 			TweenLite.fromTo( slides[newSlidePresta], timing, {left: posX}, {left: 0, opacity: 1, ease:Power2.easeInOut} );
 			TweenLite.set(buttons, {css: {className: ''}});
-			TweenLite.set(buttons[newSlidePresta], {css: {className: 'actif'}});
+			TweenLite.set(buttons[newSlidePresta], { css: { className: 'actif' } });
 			if(windowWidth < 980){
-				TweenLite.to(slider.querySelector('ul'), 0.1, {height: slides[newSlidePresta].offsetHeight});
-				scrollTo(slider.offsetTop + 140, 100);
+				// TweenLite.to(slider.querySelector('ul'), 0.1, {height: slides[newSlidePresta].offsetHeight});
+				// scrollTo(slider.offsetTop + 140, 100);
 			}
 		}
 
 		if(nbSlides > 1){
 			buttonsList.setAttribute('class', 'small-nav');
 			slider.appendChild(buttonsList);
+			prev.setAttribute('id', 'prev');
+			prev.innerHTML = 'Prev';
+			slider.appendChild(prev);
+			next.setAttribute('id', 'next');
+			next.innerHTML = 'Next';
+			slider.appendChild(next);
+			addEventListener(prev, 'click', function () {
+				var newIndex = getIndex(slider.querySelector('.small-slide.actif'));
+				newIndex = newIndex-1 < 0 ? nbSlides-1 : newIndex-1;
+				slide(newIndex);
+			});
+
+			addEventListener(next, 'click', function () {
+				var newIndex = getIndex(slider.querySelector('.small-slide.actif'));
+				newIndex = newIndex+1 > nbSlides-1 ? 0 : newIndex+1;
+				slidePrev(newIndex);
+			});
 		}
 
 		TweenLite.set(slider.querySelector('ul'), {height: slides[0].offsetHeight+'px'});
@@ -814,6 +833,9 @@ function init(){
 
 		if(pageContent !== null && windowWidth > 979 && (!hasClass(body, 'single-prestation') || windowHeight <= 800))
 			animMenuScroll();
+		
+		if(pageContent !== null && windowWidth < 1370 && windowWidth > 979 && (hasClass(body, 'single-prestation') || windowHeight <= 800))
+			animMenuScroll();
 
 		if(hasClass(body, 'page-template-presta')){
 			detectScrollDir();
@@ -821,7 +843,7 @@ function init(){
 			parallaxPresta(document.querySelectorAll('.bg-interventions'));
 		}
 
-		if(hasClass(body, 'single-prestation') && windowHeight > 800 && windowWidth > 979){
+		if(hasClass(body, 'single-prestation') && windowHeight > 800 && windowWidth > 1370){
 			var prestaSingleHead = document.querySelector('.head'),
 				sectionPrestaHead = prestaSingleHead.querySelector('.section-cell'),
 				backPrestaHead = prestaSingleHead.querySelector('.back-link'),

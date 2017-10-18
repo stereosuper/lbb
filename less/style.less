@@ -114,7 +114,7 @@ h6{
 }
 
 p{
-    margin: 1.2em 0;
+    margin: 0.8em 0;
     line-height: 1.25em;
     &.error, &.success{
         padding: 10px 20px !important;
@@ -834,6 +834,14 @@ button{
     }
     &.nav-single{
         li{
+            max-width: 45%;
+            a span{
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+                display: block;
+                line-height: 70px;
+            }
             &.left{
                 a{
                     &:before{
@@ -845,6 +853,7 @@ button{
                 a{
                     &:after{
                         content: '\e806';
+                        top: 0;
                     }
                 }
             }
@@ -1150,7 +1159,7 @@ _:-ms-input-placeholder, .slider{
     .hover{
         display: block;
         padding: 10px;
-        top: 68%;
+        top: 56%;
         bottom: 12px;
         left: 12px;
         right: 12px;
@@ -2416,7 +2425,10 @@ _:-ms-input-placeholder, .slider{
             padding-right: 0;
         }
         ul, p, ol{
-            margin: 1em 0 3em;
+            margin: 1em 0 2em;
+        }
+        p {
+            margin: 0.8em 0;
         }
     }
 }

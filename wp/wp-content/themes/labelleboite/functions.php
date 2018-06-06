@@ -1,5 +1,6 @@
 <?php
 define( 'LABELLEBOITE_VERSION', 1.0 );
+define('ACF_EARLY_ACCESS', '5');
 
 /*-----------------------------------------------------------------------------------*/
 /* General

@@ -1,0 +1,23 @@
+{
+    "key": "group_5b0d0a3e22deb",
+    "title": "Contact",
+    "fields": false,
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "contact.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": 1,
+    "description": "",
+    "modified": 1527581246
+}

@@ -1,0 +1,30 @@
+{
+    "key": "group_5b0d0a3e1c968",
+    "title": "Cas clients",
+    "fields": false,
+    "location": [
+        [
+            {
+                "param": "post_category",
+                "operator": "==",
+                "value": "21"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "temoignage"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": 1,
+    "description": "",
+    "modified": 1527581246
+}

@@ -819,9 +819,6 @@ function init(){
 				animFirstSlide();
 
 			if(fixedMenuStep !== null){
-				if(prestaSectionAteliers !== null && prestaSectionInterventions !== null){
-					animFixedMenuStep(prestaSectionAteliers, prestaSectionInterventions);
-				}
 				if(aboutSectionTeam !== null && aboutSectionIntervenants !== null){
 					animFixedMenuStep(aboutSectionTeam, aboutSectionIntervenants);
 				}

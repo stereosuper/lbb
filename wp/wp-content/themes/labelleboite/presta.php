@@ -115,6 +115,56 @@ get_header(); ?>
 				</div>
 			</section>
 
+
+			<section id='interventions' class='section'>
+				<div class='section-cell'>
+					<h2><?php the_field('interventionsTitle'); ?></h2>
+					<div class='container'>
+						<?php $interventionsTerm = get_field('interventionsCat');
+						$terms = get_terms('prestation-categorie', array('parent' => $interventionsTerm));
+						if($terms){ ?>
+							<div class='presta-filtres'>
+								<span>Les thèmes abordés:</span>
+								<ul>
+									<li><button class='actif' data-cat-name='all'>Tous</button></li>
+									<?php foreach($terms as $term){ ?>
+										<li><button data-cat-name='<?php echo $term->slug; ?>'><?php echo $term->name; ?></button></li>
+									<?php } ?>
+								</ul>
+							</div>
+						<?php } ?>
+						<ul class='presta-list presta-list-colors2 small-presta-list'>
+							<?php
+							$interventionsTermSlug = get_term($interventionsTerm, 'prestation-categorie')->slug;
+							$loop = new WP_Query(array('post_type' => 'prestation', 'posts_per_page' => -1, 'tax_query' => array(array('taxonomy' => 'prestation-categorie', 'field' => 'slug', 'terms' => $interventionsTermSlug))));
+							if($loop->have_posts()){
+								while($loop->have_posts()){ $loop->the_post(); $terms = wp_get_post_terms($post->ID, 'prestation-categorie'); ?><!--
+									--><li class='presta-item' <?php if($terms){ echo "data-cat='"; foreach($terms as $term){ if($term->parent !== 0) echo $term->slug.','; } echo "'"; } ?>>
+										<a href='<?php the_permalink(); ?>' class='square-link'>
+											<img src='<?php echo wp_get_attachment_image_src(get_field('vignette'), 'presta-thumb')[0]; ?>' width='360' height='360' alt='<?php echo get_post_meta(get_field('vignette'))['_wp_attachment_image_alt']['0']; ?>'/>
+											<span class='hover'>
+												<span>
+													<strong class='title'><span><?php the_title(); ?></span></strong>
+													<span class='cat'><?php the_field('subTitle'); ?></span>
+													<span class='link'>Je brûle d'en savoir plus</span>
+												</span>
+											</span>
+										</a>
+									</li><!--
+								--><?php }
+							} wp_reset_query();
+							?>
+						</ul>
+						<a href='<?php the_field('lienContact', 'options'); ?>' class='contact-link big-link peignes'>
+							<i><?php the_field('interventionsContact'); ?></i>
+							<span class='link'>contactez-nous</span>
+						</a>
+					</div>
+					<div class='bg-interventions' id='bgI1'></div>
+					<div class='bg-interventions' id='bgI2'></div>
+				</div>
+			</section>
+
             <section id='sensibilisation' class='section'>
 				<div class='section-cell'>
 					<h2><?php the_field('sensiTitle'); ?></h2>
@@ -165,55 +215,6 @@ get_header(); ?>
 					</div>
 					<div class='bg-ateliers' id='bgA1'></div>
 					<div class='bg-ateliers' id='bgA2'></div>
-				</div>
-			</section>
-
-			<section id='interventions' class='section'>
-				<div class='section-cell'>
-					<h2><?php the_field('interventionsTitle'); ?></h2>
-					<div class='container'>
-						<?php $interventionsTerm = get_field('interventionsCat');
-						$terms = get_terms('prestation-categorie', array('parent' => $interventionsTerm));
-						if($terms){ ?>
-							<div class='presta-filtres'>
-								<span>Les thèmes abordés:</span>
-								<ul>
-									<li><button class='actif' data-cat-name='all'>Tous</button></li>
-									<?php foreach($terms as $term){ ?>
-										<li><button data-cat-name='<?php echo $term->slug; ?>'><?php echo $term->name; ?></button></li>
-									<?php } ?>
-								</ul>
-							</div>
-						<?php } ?>
-						<ul class='presta-list presta-list-colors2 small-presta-list'>
-							<?php
-							$interventionsTermSlug = get_term($interventionsTerm, 'prestation-categorie')->slug;
-							$loop = new WP_Query(array('post_type' => 'prestation', 'posts_per_page' => -1, 'tax_query' => array(array('taxonomy' => 'prestation-categorie', 'field' => 'slug', 'terms' => $interventionsTermSlug))));
-							if($loop->have_posts()){
-								while($loop->have_posts()){ $loop->the_post(); $terms = wp_get_post_terms($post->ID, 'prestation-categorie'); ?><!--
-									--><li class='presta-item' <?php if($terms){ echo "data-cat='"; foreach($terms as $term){ if($term->parent !== 0) echo $term->slug.','; } echo "'"; } ?>>
-										<a href='<?php the_permalink(); ?>' class='square-link'>
-											<img src='<?php echo wp_get_attachment_image_src(get_field('vignette'), 'presta-thumb')[0]; ?>' width='360' height='360' alt='<?php echo get_post_meta(get_field('vignette'))['_wp_attachment_image_alt']['0']; ?>'/>
-											<span class='hover'>
-												<span>
-													<strong class='title'><span><?php the_title(); ?></span></strong>
-													<span class='cat'><?php the_field('subTitle'); ?></span>
-													<span class='link'>Je brûle d'en savoir plus</span>
-												</span>
-											</span>
-										</a>
-									</li><!--
-								--><?php }
-							} wp_reset_query();
-							?>
-						</ul>
-						<a href='<?php the_field('lienContact', 'options'); ?>' class='contact-link big-link peignes'>
-							<i><?php the_field('interventionsContact'); ?></i>
-							<span class='link'>contactez-nous</span>
-						</a>
-					</div>
-					<div class='bg-interventions' id='bgI1'></div>
-					<div class='bg-interventions' id='bgI2'></div>
 				</div>
 			</section>
 

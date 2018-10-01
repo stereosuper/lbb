@@ -51,6 +51,11 @@ get_header(); ?>
 							$temoignages = new WP_Query();
 							$temoignages->posts = array_merge( $postsQuery->posts, $temQuery->posts );
 							$temoignages->post_count = count( $temoignages->posts );
+
+							function compare_date($a, $b) {
+								return strtotime($a->post_date) < strtotime($b->post_date);
+							}
+							usort($temoignages->posts, "compare_date");
 						?>
 						<?php if($temoignages->have_posts()) : $count = 0; ?>
 						<div class='slider' id='slider'>

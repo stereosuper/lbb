@@ -193,6 +193,10 @@ function lbb_right_now_custom_post() {
 add_action('dashboard_glance_items', 'lbb_right_now_custom_post');
 
 // Page d'options
+if( function_exists('acf_add_options_page') ) {
+	acf_add_options_page();
+}
+
 function lbb_menu_order( $menu_ord ){
     if(!$menu_ord) return true;
     $menu = 'acf-options';
